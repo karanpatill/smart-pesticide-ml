@@ -1,0 +1,1013 @@
+path,fruit,condition,pred,conf,cpred,detail
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175856.jpg,apple,spoiled,apple,0.94921875,spoiled,2133.5127382589944
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175907.jpg,apple,spoiled,apple,0.77734375,spoiled,2075.4602377844403
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175908.jpg,apple,spoiled,apple,0.56640625,spoiled,2031.2395183322312
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175909.jpg,apple,spoiled,apple,0.96875,spoiled,2027.217792885725
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175910.jpg,apple,spoiled,apple,0.953125,spoiled,1972.0175057210538
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175912.jpg,apple,spoiled,apple,0.8515625,spoiled,1952.8870886626269
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175913.jpg,apple,spoiled,apple,0.84765625,spoiled,2044.5868171701184
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175917.jpg,apple,spoiled,apple,0.76171875,spoiled,2183.0201029727955
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175919.jpg,apple,spoiled,apple,0.6875,spoiled,2060.3771004043083
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175922.jpg,apple,spoiled,apple,0.87890625,spoiled,2130.1804326822767
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175926.jpg,apple,spoiled,apple,0.53125,spoiled,2101.6315298716977
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175927.jpg,apple,spoiled,guava,0.5703125,spoiled,2088.8120660237914
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175936.jpg,apple,spoiled,apple,0.95703125,fresh,2809.0838258750346
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175940.jpg,apple,spoiled,tomato,0.78125,spoiled,3264.925065395149
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175946.jpg,apple,spoiled,tomato,0.6171875,spoiled,3153.130683177533
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175949.jpg,apple,spoiled,tomato,0.578125,spoiled,3127.6862079261264
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175955.jpg,apple,spoiled,apple,0.875,spoiled,3025.4431866715972
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175957.jpg,apple,spoiled,apple,0.578125,spoiled,3021.5173820157197
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728175958.jpg,apple,spoiled,apple,0.61328125,spoiled,3019.0815413246382
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180003.jpg,apple,spoiled,apple,0.98828125,fresh,1405.771277501066
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180004.jpg,apple,spoiled,apple,0.71875,spoiled,1336.5955005780802
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180006.jpg,apple,spoiled,tomato,0.53515625,spoiled,1360.4503421779445
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180007.jpg,apple,spoiled,guava,0.66796875,spoiled,1315.3164403091312
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180008.jpg,apple,spoiled,apple,0.68359375,spoiled,1296.934061231128
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180009.jpg,apple,spoiled,apple,0.90625,spoiled,1420.9418928366404
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180010.jpg,apple,spoiled,apple,0.98046875,spoiled,1393.056381730073
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180011.jpg,apple,spoiled,apple,0.97265625,spoiled,1522.3553459868153
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180012.jpg,apple,spoiled,apple,0.90234375,spoiled,1693.5168222973543
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180014.jpg,apple,spoiled,apple,0.7734375,spoiled,1202.515356444606
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180015.jpg,apple,spoiled,apple,0.78515625,spoiled,1197.5258566889233
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180146.jpg,apple,spoiled,guava,0.9765625,spoiled,2493.747649126811
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180147.jpg,apple,spoiled,guava,0.984375,fresh,2439.9210122003615
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180147_01.jpg,apple,spoiled,guava,0.9921875,fresh,2098.538742976419
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180148.jpg,apple,spoiled,guava,0.90234375,fresh,2290.436459843818
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180151.jpg,apple,spoiled,guava,0.9609375,fresh,2718.118165725633
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180152.jpg,apple,spoiled,guava,0.9453125,fresh,2640.325212583729
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180153.jpg,apple,spoiled,guava,0.5234375,spoiled,2646.237806273682
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180154.jpg,apple,spoiled,guava,0.65234375,spoiled,2720.978470702488
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180154_01.jpg,apple,spoiled,guava,0.8515625,spoiled,2781.303495428092
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180156.jpg,apple,spoiled,guava,0.98046875,fresh,2139.473946482502
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180156_01.jpg,apple,spoiled,guava,0.99609375,fresh,1653.5635686820174
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180157.jpg,apple,spoiled,guava,0.9375,fresh,1702.5019851391007
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180158.jpg,apple,spoiled,guava,0.984375,fresh,1365.9758546764003
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180159.jpg,apple,spoiled,guava,0.96484375,spoiled,1175.7650814066467
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180201.jpg,apple,spoiled,guava,0.953125,fresh,1280.391913476798
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180208.jpg,apple,spoiled,apple,0.71875,spoiled,1994.8623594672938
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180209.jpg,apple,spoiled,apple,0.91796875,spoiled,2099.1591017588753
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180210.jpg,apple,spoiled,guava,0.578125,spoiled,1988.4830818450027
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180219.jpg,apple,spoiled,apple,0.95703125,spoiled,2927.376232559487
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180222.jpg,apple,spoiled,apple,0.8671875,fresh,3135.1878321710906
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180230.jpg,apple,spoiled,apple,0.97265625,spoiled,3242.1922556690424
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180231.jpg,apple,spoiled,apple,0.953125,spoiled,2994.1302414201214
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180232.jpg,apple,spoiled,apple,0.8671875,spoiled,2937.0140619453405
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180232_01.jpg,apple,spoiled,apple,0.921875,fresh,3016.682869646915
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180233.jpg,apple,spoiled,apple,0.94140625,spoiled,2718.407927887322
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180234.jpg,apple,spoiled,apple,0.84375,spoiled,2261.269572891474
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180235.jpg,apple,spoiled,apple,0.8828125,spoiled,2944.658744224245
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180235_01.jpg,apple,spoiled,apple,0.92578125,spoiled,2921.3735180482267
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180236.jpg,apple,spoiled,apple,0.83984375,spoiled,3175.325670324642
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180241.jpg,apple,spoiled,tomato,0.828125,spoiled,3151.6206516209118
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180242.jpg,apple,spoiled,tomato,0.65234375,spoiled,3170.294573237991
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180243.jpg,apple,spoiled,tomato,0.65234375,spoiled,3250.4883853269216
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180247.jpg,apple,spoiled,apple,0.92578125,spoiled,1556.8784633645753
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180248.jpg,apple,spoiled,apple,0.6171875,fresh,1508.3505616130883
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180249.jpg,apple,spoiled,apple,0.8046875,fresh,1630.3296690976842
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180249_01.jpg,apple,spoiled,apple,0.8046875,fresh,1510.0311461822212
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180250.jpg,apple,spoiled,apple,0.81640625,fresh,1485.6204856449733
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180251.jpg,apple,spoiled,apple,0.8046875,spoiled,1767.872664069222
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180252.jpg,apple,spoiled,apple,0.8984375,spoiled,1586.9652566140173
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180253.jpg,apple,spoiled,tomato,0.5703125,spoiled,1599.365751086468
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180254.jpg,apple,spoiled,apple,0.6875,spoiled,1743.8087746533567
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180255.jpg,apple,spoiled,apple,0.89453125,spoiled,1410.597795830168
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180256.jpg,apple,spoiled,apple,0.5,spoiled,1484.2031139923333
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180257.jpg,apple,spoiled,apple,0.7265625,spoiled,1800.1768999604221
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180258.jpg,apple,spoiled,apple,0.8828125,spoiled,1500.4650875798689
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180259.jpg,apple,spoiled,banana,0.4921875,spoiled,1587.8476975275241
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180300.jpg,apple,spoiled,apple,0.9296875,spoiled,1565.6582520448353
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180301.jpg,apple,spoiled,apple,0.9296875,spoiled,1322.2913991247951
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180302.jpg,apple,spoiled,apple,0.95703125,fresh,1337.1558080053787
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180304.jpg,apple,spoiled,apple,0.953125,spoiled,1297.8354346614674
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180304_01.jpg,apple,spoiled,apple,0.8828125,spoiled,1436.776589968909
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180306.jpg,apple,spoiled,apple,0.48828125,spoiled,1559.907651515915
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180307.jpg,apple,spoiled,apple,0.796875,spoiled,1310.2326384076953
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728180308.jpg,apple,spoiled,apple,0.83984375,spoiled,1302.4714560181399
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181153.jpg,apple,spoiled,apple,0.86328125,fresh,1382.703746072553
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181154.jpg,apple,spoiled,apple,0.81640625,fresh,1331.119866102707
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181155.jpg,apple,spoiled,apple,0.734375,fresh,1355.3091882026752
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181156.jpg,apple,spoiled,apple,0.93359375,fresh,1332.7142138311642
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181157.jpg,apple,spoiled,apple,0.68359375,fresh,1287.8882026818678
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181158.jpg,apple,spoiled,apple,0.8203125,fresh,1419.6349039798704
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181200.jpg,apple,spoiled,banana,0.86328125,fresh,1176.4933985277012
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181201.jpg,apple,spoiled,guava,0.46875,fresh,1157.3466684846894
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181202.jpg,apple,spoiled,banana,0.546875,fresh,1140.614942271282
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181207.jpg,apple,spoiled,guava,0.65234375,fresh,1132.6028416583995
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181208.jpg,apple,spoiled,guava,0.75390625,fresh,1093.8336716584483
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181209.jpg,apple,spoiled,apple,0.54296875,fresh,1346.6530503091635
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181217.jpg,apple,spoiled,guava,0.8671875,fresh,2011.1415418822926
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181218.jpg,apple,spoiled,guava,0.8984375,fresh,2016.383794116855
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181221.jpg,apple,spoiled,guava,0.87890625,fresh,1784.368313357586
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181225.jpg,apple,spoiled,guava,0.7734375,spoiled,1643.4205501313666
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181226.jpg,apple,spoiled,guava,0.8046875,spoiled,1715.5515213882165
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181226_01.jpg,apple,spoiled,guava,0.71875,fresh,1660.6201991366204
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181238.jpg,apple,spoiled,banana,0.65625,fresh,1292.1324288859803
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181239.jpg,apple,spoiled,banana,0.61328125,fresh,1277.1623453455327
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181241.jpg,apple,spoiled,banana,0.71875,fresh,1425.9440777416435
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181244.jpg,apple,spoiled,banana,0.6328125,fresh,1455.376648580802
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181305.jpg,apple,spoiled,apple,0.984375,fresh,1250.7372922491186
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181305_01.jpg,apple,spoiled,apple,0.95703125,fresh,1251.5677625939616
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181306.jpg,apple,spoiled,apple,0.953125,fresh,1260.7186027255639
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181310.jpg,apple,spoiled,apple,0.93359375,fresh,1127.2233117857584
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181310_01.jpg,apple,spoiled,apple,0.94921875,fresh,1116.3851954047252
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181313.jpg,apple,spoiled,apple,0.9609375,fresh,1426.626908181144
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181314.jpg,apple,spoiled,apple,0.9375,spoiled,1374.36662761229
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181314_01.jpg,apple,spoiled,apple,0.8984375,fresh,1368.919459422985
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181317.jpg,apple,spoiled,apple,0.96484375,fresh,1424.383719001942
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181318.jpg,apple,spoiled,apple,0.9765625,fresh,1214.7389921341342
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181318_01.jpg,apple,spoiled,apple,0.984375,fresh,1250.7437458561874
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181322.jpg,apple,spoiled,apple,0.92578125,fresh,1394.3223609567685
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181322_01.jpg,apple,spoiled,apple,0.9375,fresh,1462.2084047884205
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181323.jpg,apple,spoiled,apple,0.953125,fresh,1486.2177520201838
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181325.jpg,apple,spoiled,apple,0.8046875,fresh,1634.8464506015289
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181326.jpg,apple,spoiled,apple,0.95703125,fresh,1597.2625698675588
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181327.jpg,apple,spoiled,apple,0.89453125,spoiled,1583.1219033367227
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181330.jpg,apple,spoiled,apple,0.87109375,fresh,1416.3824341168477
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181331.jpg,apple,spoiled,apple,0.90625,fresh,1395.3875948558332
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181333.jpg,apple,spoiled,apple,0.8359375,fresh,1517.0903681267732
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181334.jpg,apple,spoiled,apple,0.8046875,fresh,1582.7127309409811
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181343.jpg,apple,spoiled,apple,0.88671875,fresh,1394.717336964456
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181343_01.jpg,apple,spoiled,apple,0.87890625,fresh,1354.2173110838921
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181348.jpg,apple,spoiled,apple,0.84375,fresh,1121.539897236306
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181349.jpg,apple,spoiled,apple,0.87890625,fresh,1192.8008134368492
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181350.jpg,apple,spoiled,apple,0.89453125,fresh,1185.6119929541217
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181353.jpg,apple,spoiled,apple,0.921875,spoiled,1381.4099685272522
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181354.jpg,apple,spoiled,apple,0.85546875,spoiled,1344.7208434702331
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181358.jpg,apple,spoiled,apple,0.49609375,spoiled,1314.4615823299378
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181358_01.jpg,apple,spoiled,guava,0.65234375,fresh,1253.397607620452
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181401.jpg,apple,spoiled,guava,0.88671875,spoiled,970.7031884632197
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181402.jpg,apple,spoiled,apple,0.75,fresh,1368.1071879099945
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181403.jpg,apple,spoiled,apple,0.77734375,fresh,1314.6542875726486
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181406.jpg,apple,spoiled,apple,0.5390625,spoiled,1235.8979829647978
+fruitnet/Bad Quality_Fruits/Apple_Bad/IMG20200728181407.jpg,apple,spoiled,apple,0.8046875,spoiled,1224.0136414316019
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190307.jpg,banana,spoiled,banana,0.99609375,fresh,1133.8945608083395
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190308.jpg,banana,spoiled,banana,0.99609375,fresh,1093.765264525669
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190309.jpg,banana,spoiled,banana,0.99609375,fresh,1179.9874633214822
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190310.jpg,banana,spoiled,banana,0.99609375,spoiled,1573.5856033755774
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190311.jpg,banana,spoiled,banana,0.99609375,fresh,1063.657492144193
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190317.jpg,banana,spoiled,banana,0.8671875,spoiled,1171.3231393002643
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190318.jpg,banana,spoiled,banana,0.953125,spoiled,1215.8308219609228
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190318_01.jpg,banana,spoiled,banana,0.96875,spoiled,1297.4298032222723
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190319.jpg,banana,spoiled,apple,0.640625,fresh,1727.0525231605118
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190320.jpg,banana,spoiled,guava,0.7421875,fresh,1688.414830495702
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190321.jpg,banana,spoiled,banana,0.97265625,fresh,1799.7452384417975
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190326.jpg,banana,spoiled,banana,0.99609375,spoiled,1332.105815058065
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190328.jpg,banana,spoiled,banana,0.99609375,spoiled,1104.528568372529
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190329.jpg,banana,spoiled,banana,0.99609375,spoiled,1038.4643812101262
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190329_01.jpg,banana,spoiled,banana,0.99609375,spoiled,1060.5651978269184
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190330.jpg,banana,spoiled,banana,0.99609375,spoiled,1144.2538733434294
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190331.jpg,banana,spoiled,banana,0.99609375,spoiled,1879.138991236767
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190332.jpg,banana,spoiled,banana,0.99609375,spoiled,1415.6436972768995
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190334.jpg,banana,spoiled,banana,0.99609375,spoiled,1200.7137792181231
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190334_01.jpg,banana,spoiled,banana,0.99609375,spoiled,1112.4839011391978
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190335.jpg,banana,spoiled,banana,0.99609375,fresh,1799.8855523466157
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190340.jpg,banana,spoiled,banana,0.99609375,spoiled,1328.1730264355358
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190346.jpg,banana,spoiled,banana,0.9921875,spoiled,1885.3402228341367
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190347.jpg,banana,spoiled,banana,0.99609375,spoiled,1658.2448177462768
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190347_01.jpg,banana,spoiled,banana,0.99609375,spoiled,1140.6077073518104
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190348.jpg,banana,spoiled,banana,0.99609375,spoiled,1058.4771426741863
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190349.jpg,banana,spoiled,banana,0.99609375,spoiled,1096.457411187093
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190349_01.jpg,banana,spoiled,banana,0.99609375,spoiled,1099.6028223716978
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190351.jpg,banana,spoiled,banana,0.99609375,spoiled,1073.2995906949188
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190352.jpg,banana,spoiled,banana,0.99609375,spoiled,1340.3733205314581
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190355.jpg,banana,spoiled,banana,0.984375,fresh,1500.3344076334672
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190356.jpg,banana,spoiled,banana,0.99609375,spoiled,1383.1821696765162
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190400.jpg,banana,spoiled,banana,0.99609375,spoiled,1156.7890663692783
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190401.jpg,banana,spoiled,banana,0.99609375,spoiled,1026.4205793577096
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190403.jpg,banana,spoiled,banana,0.99609375,fresh,1644.1391779651442
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190412.jpg,banana,spoiled,banana,0.99609375,spoiled,1927.647894821743
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190413.jpg,banana,spoiled,banana,0.99609375,spoiled,1878.8533900216576
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190502.jpg,banana,spoiled,banana,0.99609375,spoiled,2544.280490654876
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190515.jpg,banana,spoiled,banana,0.99609375,fresh,2687.425855632335
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG20200729190523.jpg,banana,spoiled,banana,0.99609375,spoiled,2662.830951946487
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184038.jpg,banana,spoiled,banana,0.99609375,spoiled,632.8942616374247
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184043.jpg,banana,spoiled,banana,0.99609375,spoiled,838.7790776912673
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184043_1.jpg,banana,spoiled,banana,0.99609375,spoiled,853.8461205899916
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184044.jpg,banana,spoiled,banana,0.99609375,spoiled,845.4536965688279
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184045.jpg,banana,spoiled,banana,0.99609375,spoiled,903.344470272974
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184045_1.jpg,banana,spoiled,banana,0.99609375,spoiled,872.3940500635746
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184046.jpg,banana,spoiled,banana,0.99609375,spoiled,878.0343724671301
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184047.jpg,banana,spoiled,banana,0.99609375,spoiled,822.6371738737536
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184047_1.jpg,banana,spoiled,banana,0.99609375,spoiled,870.8717261840421
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184048.jpg,banana,spoiled,banana,0.99609375,spoiled,880.962249303404
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184104.jpg,banana,spoiled,banana,0.99609375,spoiled,511.4731229122841
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184104_1.jpg,banana,spoiled,banana,0.99609375,spoiled,447.39584029294576
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184105.jpg,banana,spoiled,banana,0.99609375,spoiled,410.75892978073074
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184106.jpg,banana,spoiled,banana,0.99609375,spoiled,392.35229555473626
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184107.jpg,banana,spoiled,banana,0.99609375,spoiled,477.7784212904339
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184108.jpg,banana,spoiled,banana,0.99609375,spoiled,665.9620736330274
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184108_1.jpg,banana,spoiled,banana,0.99609375,spoiled,597.0526363502686
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184110.jpg,banana,spoiled,banana,0.99609375,spoiled,317.29851150125097
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184111.jpg,banana,spoiled,banana,0.9765625,spoiled,325.7328464767102
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184111_1.jpg,banana,spoiled,banana,0.9921875,spoiled,489.8363453323933
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184112.jpg,banana,spoiled,banana,0.9453125,spoiled,483.00355809056924
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184117.jpg,banana,spoiled,banana,0.9921875,spoiled,422.71413794841806
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184118.jpg,banana,spoiled,banana,0.984375,fresh,413.45264514334343
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184119.jpg,banana,spoiled,banana,0.99609375,spoiled,464.51902115823276
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184120.jpg,banana,spoiled,banana,0.99609375,spoiled,491.2160094497066
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184120_1.jpg,banana,spoiled,banana,0.99609375,spoiled,517.7569023851717
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184121.jpg,banana,spoiled,banana,0.99609375,spoiled,515.4092697252605
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184122.jpg,banana,spoiled,banana,0.98828125,spoiled,559.1934411508495
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184123.jpg,banana,spoiled,banana,0.96875,spoiled,384.05552940815613
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184125.jpg,banana,spoiled,banana,0.99609375,spoiled,353.80749115637195
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184126.jpg,banana,spoiled,banana,0.99609375,spoiled,373.84439635569754
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184126_1.jpg,banana,spoiled,banana,0.99609375,spoiled,418.68015064263426
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184127.jpg,banana,spoiled,banana,0.99609375,spoiled,400.2631842678915
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184128.jpg,banana,spoiled,banana,0.99609375,spoiled,470.90952845018086
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184129.jpg,banana,spoiled,guava,0.99609375,fresh,275.83173004505187
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184135.jpg,banana,spoiled,guava,0.64453125,spoiled,406.6534617509851
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184141.jpg,banana,spoiled,guava,0.7734375,spoiled,576.7348950626341
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184142.jpg,banana,spoiled,banana,0.80078125,spoiled,518.3172031527513
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184142_1.jpg,banana,spoiled,banana,0.796875,spoiled,499.8913673832513
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184143.jpg,banana,spoiled,banana,0.98046875,spoiled,583.7118051077662
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184144.jpg,banana,spoiled,banana,0.984375,spoiled,609.4365373602908
+fruitnet/Bad Quality_Fruits/Banana_Bad/IMG_20190923_184144_1.jpg,banana,spoiled,banana,0.9609375,spoiled,577.5262826319689
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184715.jpg,guava,spoiled,apple,0.9296875,fresh,1056.5125104558358
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184716.jpg,guava,spoiled,apple,0.578125,spoiled,1057.2324576855685
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184734.jpg,guava,spoiled,guava,0.9375,spoiled,1759.5272385271414
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184737.jpg,guava,spoiled,guava,0.96875,fresh,1468.2540361928784
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184739.jpg,guava,spoiled,guava,0.984375,fresh,1403.526996327673
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184740.jpg,guava,spoiled,guava,0.984375,fresh,1399.1564159965942
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184742.jpg,guava,spoiled,guava,0.9765625,fresh,1459.1284129042724
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184743.jpg,guava,spoiled,guava,0.98828125,fresh,1351.518066087797
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184744.jpg,guava,spoiled,guava,0.9921875,fresh,1484.1039752338681
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184754.jpg,guava,spoiled,guava,0.9375,spoiled,1451.8332129510648
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184755.jpg,guava,spoiled,guava,0.95703125,fresh,1345.56457133744
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184810.jpg,guava,spoiled,guava,0.96484375,spoiled,1821.5672105906567
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184833_01.jpg,guava,spoiled,guava,0.71875,fresh,1159.4254238301285
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184834.jpg,guava,spoiled,guava,0.71875,fresh,1225.7206716435805
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184835.jpg,guava,spoiled,guava,0.8125,spoiled,1532.8212697098397
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184836.jpg,guava,spoiled,guava,0.9296875,fresh,1440.4653834225876
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184837.jpg,guava,spoiled,guava,0.984375,spoiled,1369.835484872233
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184838.jpg,guava,spoiled,guava,0.9140625,fresh,1504.5783930394057
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184838_01.jpg,guava,spoiled,guava,0.84765625,spoiled,1439.4153328450816
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184840.jpg,guava,spoiled,guava,0.8046875,fresh,1366.4197803181376
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184840_01.jpg,guava,spoiled,guava,0.71875,fresh,1307.1157867359616
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184848.jpg,guava,spoiled,guava,0.6171875,fresh,3004.7307244450844
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184854.jpg,guava,spoiled,apple,0.72265625,fresh,2901.253630698093
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184854_01.jpg,guava,spoiled,apple,0.88671875,fresh,2963.071252380282
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184856.jpg,guava,spoiled,apple,0.5390625,fresh,2854.0085556586455
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184857.jpg,guava,spoiled,apple,0.71875,fresh,2963.573986681049
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184857_01.jpg,guava,spoiled,guava,0.6015625,fresh,2713.1695342009343
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184858.jpg,guava,spoiled,apple,0.671875,fresh,2745.566224945654
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184859.jpg,guava,spoiled,apple,0.69140625,fresh,2813.0978927415194
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184901.jpg,guava,spoiled,guava,0.9453125,spoiled,2297.7590903381415
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184905.jpg,guava,spoiled,guava,0.95703125,fresh,1016.2560938343983
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184906.jpg,guava,spoiled,guava,0.92578125,fresh,947.0917797928358
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184907.jpg,guava,spoiled,guava,0.95703125,fresh,983.16726030572
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184915.jpg,guava,spoiled,guava,0.90234375,fresh,1491.5562838023861
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184916.jpg,guava,spoiled,guava,0.96875,fresh,1311.623523723763
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184916_01.jpg,guava,spoiled,guava,0.96484375,fresh,1526.48880601521
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184918.jpg,guava,spoiled,guava,0.96875,fresh,1041.1666936272397
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184919.jpg,guava,spoiled,guava,0.80078125,fresh,1141.0195526149412
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184929.jpg,guava,spoiled,guava,0.5234375,spoiled,2297.8518669507694
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184930.jpg,guava,spoiled,guava,0.98046875,spoiled,2124.6536375396427
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184931.jpg,guava,spoiled,guava,0.98828125,spoiled,2200.1499856860933
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184932.jpg,guava,spoiled,guava,0.98046875,spoiled,2346.721505475155
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184932_01.jpg,guava,spoiled,guava,0.79296875,spoiled,1996.8636767220412
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184933.jpg,guava,spoiled,apple,0.5,spoiled,2101.861935288882
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184934.jpg,guava,spoiled,guava,0.88671875,spoiled,2134.6848669684496
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184935.jpg,guava,spoiled,guava,0.98046875,spoiled,2096.601209967499
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184936.jpg,guava,spoiled,guava,0.98046875,spoiled,2135.4540020468444
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184937.jpg,guava,spoiled,guava,0.9140625,spoiled,2442.398424349778
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184938.jpg,guava,spoiled,guava,0.78125,spoiled,2303.826927327275
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184939.jpg,guava,spoiled,guava,0.90625,spoiled,2339.0511297232847
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184940.jpg,guava,spoiled,guava,0.98046875,spoiled,2169.8283867705245
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184940_01.jpg,guava,spoiled,guava,0.9921875,spoiled,2143.0091854015404
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184941.jpg,guava,spoiled,guava,0.90625,spoiled,2393.6979869377187
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184942.jpg,guava,spoiled,apple,0.61328125,spoiled,2391.795288833684
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184946.jpg,guava,spoiled,guava,0.9140625,spoiled,3102.1684543414212
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184946_01.jpg,guava,spoiled,guava,0.9921875,spoiled,3012.758403547096
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728184959.jpg,guava,spoiled,guava,0.5234375,fresh,2921.4709261854146
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185000.jpg,guava,spoiled,guava,0.91015625,fresh,3183.160288338717
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185000_01.jpg,guava,spoiled,guava,0.953125,fresh,3056.7070130884017
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185001.jpg,guava,spoiled,guava,0.9296875,spoiled,3038.9734432745017
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185002.jpg,guava,spoiled,apple,0.5625,fresh,3087.7515568940066
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185003.jpg,guava,spoiled,banana,0.48828125,fresh,2192.720655796555
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185004.jpg,guava,spoiled,guava,0.61328125,fresh,2747.822085371827
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185007.jpg,guava,spoiled,guava,0.8828125,spoiled,1553.2456751307957
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185008.jpg,guava,spoiled,guava,0.984375,spoiled,1511.3657828598057
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185009.jpg,guava,spoiled,guava,0.9765625,spoiled,1589.488507585593
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185010.jpg,guava,spoiled,guava,0.91796875,spoiled,1653.7930443603261
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185011.jpg,guava,spoiled,apple,0.5,spoiled,1629.7403122927435
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185012.jpg,guava,spoiled,guava,0.8515625,spoiled,1656.2016851216304
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185013.jpg,guava,spoiled,guava,0.95703125,fresh,1381.6248479613093
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185014.jpg,guava,spoiled,guava,0.97265625,spoiled,1466.6599103263122
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185015.jpg,guava,spoiled,guava,0.90625,fresh,1299.836553795503
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185015_01.jpg,guava,spoiled,guava,0.9296875,spoiled,1410.2237560839235
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185016.jpg,guava,spoiled,guava,0.91796875,spoiled,1548.289068657624
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185017.jpg,guava,spoiled,guava,0.8046875,spoiled,1569.5897685210266
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185018.jpg,guava,spoiled,guava,0.5390625,spoiled,1645.5566661171358
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185019.jpg,guava,spoiled,guava,0.94921875,spoiled,1892.0461983934235
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185020.jpg,guava,spoiled,guava,0.9765625,spoiled,1759.3218913915518
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185235.jpg,guava,spoiled,guava,0.99609375,spoiled,1421.5533321181435
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185237.jpg,guava,spoiled,guava,0.97265625,spoiled,1494.0154701925771
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185238.jpg,guava,spoiled,guava,0.9921875,spoiled,1556.226224209177
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185238_01.jpg,guava,spoiled,guava,0.99609375,fresh,1446.0303264148718
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185239.jpg,guava,spoiled,guava,0.99609375,spoiled,1525.3090167208595
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185240.jpg,guava,spoiled,guava,0.98828125,fresh,1316.3177990364325
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185241.jpg,guava,spoiled,guava,0.98046875,fresh,1285.89919611077
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185243.jpg,guava,spoiled,banana,0.68359375,fresh,1570.5197700355689
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185245.jpg,guava,spoiled,guava,0.99609375,fresh,1380.2961731733972
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185246.jpg,guava,spoiled,guava,0.99609375,fresh,1201.2542660713611
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185248.jpg,guava,spoiled,guava,0.98046875,fresh,965.4490159118952
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185249.jpg,guava,spoiled,guava,0.96875,fresh,963.2671084479382
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185253.jpg,guava,spoiled,guava,0.98828125,spoiled,1004.6023569307455
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185254.jpg,guava,spoiled,guava,0.8828125,fresh,893.9805601228642
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185258.jpg,guava,spoiled,banana,0.9453125,fresh,1516.3266806952495
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185300.jpg,guava,spoiled,guava,0.98828125,fresh,1695.7040859584865
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185300_01.jpg,guava,spoiled,guava,0.99609375,spoiled,1521.2383932289456
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185304.jpg,guava,spoiled,guava,0.96875,fresh,1524.3718948021922
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185305.jpg,guava,spoiled,guava,0.78515625,fresh,1571.6889870702887
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185305_01.jpg,guava,spoiled,banana,0.51953125,fresh,1591.3208543462924
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185306.jpg,guava,spoiled,guava,0.8359375,fresh,1805.6431573993525
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185306_01.jpg,guava,spoiled,guava,0.99609375,fresh,1314.602951505529
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185307.jpg,guava,spoiled,guava,0.99609375,fresh,1309.0934188585877
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185309.jpg,guava,spoiled,guava,0.99609375,spoiled,1316.7383215378545
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185309_01.jpg,guava,spoiled,guava,0.99609375,spoiled,1328.9366199868875
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185310.jpg,guava,spoiled,guava,0.99609375,spoiled,1294.8349961109852
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185312.jpg,guava,spoiled,banana,0.86328125,spoiled,1358.4873922889942
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185313.jpg,guava,spoiled,guava,0.875,spoiled,1447.549414915128
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185314.jpg,guava,spoiled,guava,0.89453125,spoiled,1312.7866283466903
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185315.jpg,guava,spoiled,guava,0.98046875,spoiled,1339.9343531954303
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185316.jpg,guava,spoiled,guava,0.953125,spoiled,1308.1547475476605
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185318.jpg,guava,spoiled,guava,0.61328125,fresh,1261.7964763970224
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200728185320.jpg,guava,spoiled,guava,0.99609375,spoiled,1389.265445390514
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173215.jpg,guava,spoiled,guava,0.984375,fresh,1918.3010017497381
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173217.jpg,guava,spoiled,guava,0.83984375,fresh,2120.306719500093
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173218.jpg,guava,spoiled,guava,0.890625,spoiled,2103.829051633136
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173219.jpg,guava,spoiled,guava,0.99609375,spoiled,1759.1570764831752
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173220.jpg,guava,spoiled,guava,0.85546875,spoiled,1816.4157324293114
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173221.jpg,guava,spoiled,guava,0.453125,fresh,1887.4603990034511
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173221_01.jpg,guava,spoiled,guava,0.953125,fresh,1965.4880808942423
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173222.jpg,guava,spoiled,brinjal,0.4296875,fresh,1774.8424679656869
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173223.jpg,guava,spoiled,guava,0.921875,spoiled,2118.052320946905
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173224.jpg,guava,spoiled,guava,0.8125,spoiled,1959.6386838200667
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173225.jpg,guava,spoiled,guava,0.86328125,fresh,1731.386329989835
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173226.jpg,guava,spoiled,brinjal,0.5390625,spoiled,1840.226997365104
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173227.jpg,guava,spoiled,guava,0.796875,spoiled,1797.3692491655572
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173229.jpg,guava,spoiled,guava,0.7890625,fresh,1762.723408011967
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173230.jpg,guava,spoiled,guava,0.60546875,fresh,1828.4216440069572
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173230_01.jpg,guava,spoiled,banana,0.40625,spoiled,1828.5062583492027
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173232.jpg,guava,spoiled,guava,0.91015625,fresh,1704.4109143456267
+fruitnet/Bad Quality_Fruits/Guava_Bad/IMG20200729173232_01.jpg,guava,spoiled,guava,0.90625,spoiled,1867.66994510371
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174035.jpg,apple,fresh,apple,0.87890625,spoiled,4981.258990428947
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174037.jpg,apple,fresh,apple,0.8828125,spoiled,5200.192654760307
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174051.jpg,apple,fresh,apple,0.9765625,spoiled,3218.3432096103334
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174052.jpg,apple,fresh,apple,0.98828125,spoiled,3076.5813006645117
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174053.jpg,apple,fresh,apple,0.9140625,spoiled,3329.929175075483
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174055.jpg,apple,fresh,apple,0.5,spoiled,3437.662753696156
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174055_01.jpg,apple,fresh,apple,0.9453125,spoiled,3100.348676685166
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174057.jpg,apple,fresh,apple,0.96875,spoiled,2996.437320832918
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174058.jpg,apple,fresh,apple,0.74609375,spoiled,3395.692272918071
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174059.jpg,apple,fresh,apple,0.9375,spoiled,3448.9732845462777
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174107.jpg,apple,fresh,apple,0.796875,spoiled,1936.3226530531479
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174108.jpg,apple,fresh,apple,0.90234375,spoiled,2132.1929290675453
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174109.jpg,apple,fresh,apple,0.9609375,spoiled,2143.0498510626835
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174109_01.jpg,apple,fresh,apple,0.94921875,spoiled,2163.819396700201
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174110.jpg,apple,fresh,apple,0.84765625,spoiled,2529.9678764636687
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174111.jpg,apple,fresh,apple,0.93359375,spoiled,2692.9204018955074
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174112.jpg,apple,fresh,apple,0.75,spoiled,1756.1695054949332
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174113.jpg,apple,fresh,apple,0.609375,spoiled,1583.4193705292787
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174113_01.jpg,apple,fresh,apple,0.61328125,spoiled,1841.6826213312713
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174114.jpg,apple,fresh,apple,0.984375,spoiled,1898.4721153430048
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174115.jpg,apple,fresh,apple,0.984375,spoiled,2694.2158323720255
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174116.jpg,apple,fresh,apple,0.96875,spoiled,2634.3608887214777
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174117.jpg,apple,fresh,apple,0.5390625,spoiled,1883.5515837344676
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174119.jpg,apple,fresh,guava,0.77734375,spoiled,1941.342542229069
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174120.jpg,apple,fresh,apple,0.9765625,spoiled,2819.836902093408
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174121.jpg,apple,fresh,apple,0.9609375,spoiled,2463.843151813171
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174136.jpg,apple,fresh,guava,0.96484375,spoiled,1511.7625222742383
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174137.jpg,apple,fresh,guava,0.578125,fresh,2606.735448360658
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174138.jpg,apple,fresh,guava,0.72265625,spoiled,2610.1679648927607
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174142.jpg,apple,fresh,guava,0.9609375,fresh,2111.3204789598058
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174143.jpg,apple,fresh,guava,0.578125,fresh,1993.6191491784532
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174150.jpg,apple,fresh,guava,0.9453125,fresh,2194.473412597473
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174152.jpg,apple,fresh,guava,0.98828125,fresh,1487.4904815722816
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174153.jpg,apple,fresh,guava,0.984375,fresh,1505.677144951863
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174156.jpg,apple,fresh,guava,0.9765625,fresh,2520.1130749000918
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174200.jpg,apple,fresh,guava,0.88671875,fresh,1548.6125079912124
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174201.jpg,apple,fresh,guava,0.88671875,fresh,1563.6320766998379
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174323.jpg,apple,fresh,guava,0.98828125,spoiled,1789.4571962370994
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174338.jpg,apple,fresh,guava,0.5390625,spoiled,1448.0721092762435
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174351.jpg,apple,fresh,guava,0.578125,spoiled,1462.7784028015633
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174351_01.jpg,apple,fresh,guava,0.71484375,spoiled,1626.3023199614584
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174356.jpg,apple,fresh,guava,0.93359375,fresh,1365.1634189190158
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174400.jpg,apple,fresh,apple,0.6171875,spoiled,1799.310203779708
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174400_01.jpg,apple,fresh,apple,0.578125,spoiled,1793.5784727960634
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174403.jpg,apple,fresh,apple,0.984375,fresh,1398.1191170924023
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174408.jpg,apple,fresh,apple,0.8515625,fresh,1550.654906336604
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174409.jpg,apple,fresh,guava,0.65234375,fresh,1541.8830218632438
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174420.jpg,apple,fresh,apple,0.49609375,spoiled,1321.8065342194097
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174421.jpg,apple,fresh,guava,0.57421875,spoiled,1294.855310558186
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174423.jpg,apple,fresh,guava,0.6640625,spoiled,1161.8146988698377
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174440.jpg,apple,fresh,guava,0.93359375,spoiled,1488.1649705049297
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174440_01.jpg,apple,fresh,guava,0.8046875,spoiled,1494.1498091529386
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174449.jpg,apple,fresh,apple,0.94921875,fresh,1994.124610836175
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174450.jpg,apple,fresh,apple,0.94140625,fresh,1841.3764421767037
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174451.jpg,apple,fresh,apple,0.75,fresh,1330.2200942604518
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174452.jpg,apple,fresh,guava,0.75,fresh,1002.4281457042649
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174453.jpg,apple,fresh,guava,0.87109375,fresh,1146.049595344343
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174456.jpg,apple,fresh,guava,0.96484375,fresh,1803.757475208082
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174457.jpg,apple,fresh,apple,0.84765625,fresh,1223.8924422955984
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174507.jpg,apple,fresh,apple,0.890625,spoiled,1169.8073255300787
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174512.jpg,apple,fresh,apple,0.89453125,fresh,1909.1937055915992
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174513.jpg,apple,fresh,apple,0.90234375,fresh,2059.9382054944767
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174514.jpg,apple,fresh,apple,0.8515625,fresh,2174.613638517304
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174515.jpg,apple,fresh,apple,0.8046875,fresh,1987.4364427079022
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174518.jpg,apple,fresh,guava,0.99609375,fresh,1701.3731888280006
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174518_01.jpg,apple,fresh,guava,0.984375,fresh,1716.6471682986717
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174519.jpg,apple,fresh,guava,0.9453125,fresh,1187.4679319169688
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174520.jpg,apple,fresh,guava,0.8515625,fresh,990.9679795629862
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174520_01.jpg,apple,fresh,apple,0.5,fresh,850.3762000917058
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174523.jpg,apple,fresh,guava,0.64453125,fresh,899.7901663576049
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174529.jpg,apple,fresh,apple,0.96484375,fresh,967.0280944255425
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174529_01.jpg,apple,fresh,apple,0.94921875,spoiled,1021.2198729061472
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174536.jpg,apple,fresh,guava,0.828125,fresh,1083.719169475601
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174537.jpg,apple,fresh,guava,0.578125,fresh,1098.0181342464964
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174541.jpg,apple,fresh,guava,0.6875,fresh,1063.496760239919
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174550.jpg,apple,fresh,apple,0.6484375,spoiled,1376.9622605310815
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174551.jpg,apple,fresh,apple,0.77734375,spoiled,2143.254591064871
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174552.jpg,apple,fresh,apple,0.94140625,fresh,2184.3821681651893
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174559.jpg,apple,fresh,apple,0.828125,spoiled,1833.0105911342548
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174601.jpg,apple,fresh,apple,0.88671875,spoiled,1824.5649953547509
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174603.jpg,apple,fresh,guava,0.71484375,fresh,2229.829877173077
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174605.jpg,apple,fresh,guava,0.57421875,fresh,2238.1608164130757
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174606.jpg,apple,fresh,guava,0.68359375,fresh,2177.581033800281
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174622.jpg,apple,fresh,apple,0.61328125,fresh,1086.03011275142
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174623.jpg,apple,fresh,apple,0.71484375,fresh,1058.5525308468432
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728174626.jpg,apple,fresh,apple,0.78125,fresh,1156.4306855656423
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180933.jpg,apple,fresh,guava,0.953125,fresh,1107.5516374755034
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180935.jpg,apple,fresh,apple,0.72265625,fresh,1498.5278627038115
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180936.jpg,apple,fresh,apple,0.65234375,fresh,1618.3288940457394
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180937.jpg,apple,fresh,apple,0.6171875,fresh,1641.513016976931
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180939.jpg,apple,fresh,guava,0.9296875,fresh,1259.539193761101
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180941.jpg,apple,fresh,guava,0.8359375,fresh,1826.5803429330972
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180942.jpg,apple,fresh,guava,0.8671875,fresh,1736.3898901476891
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180950.jpg,apple,fresh,guava,0.97265625,fresh,1813.3751344757854
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728180956.jpg,apple,fresh,guava,0.96484375,fresh,1459.2693139461815
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181006.jpg,apple,fresh,guava,0.82421875,fresh,1440.158318890841
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181007.jpg,apple,fresh,guava,0.96875,fresh,1512.269859620081
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181009.jpg,apple,fresh,guava,0.75,fresh,1573.7679989019414
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181010.jpg,apple,fresh,apple,0.53125,fresh,1465.9427456950425
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181012.jpg,apple,fresh,apple,0.8984375,fresh,1071.4425888291394
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181012_01.jpg,apple,fresh,apple,0.89453125,fresh,1176.0702525663346
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181013.jpg,apple,fresh,apple,0.95703125,fresh,1208.3183199856073
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181014.jpg,apple,fresh,apple,0.9765625,fresh,1240.1543975572545
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181018.jpg,apple,fresh,apple,0.984375,fresh,1373.370213309893
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181026.jpg,apple,fresh,apple,0.984375,fresh,1282.394554296209
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181027.jpg,apple,fresh,apple,0.98828125,fresh,1296.591828384622
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181034.jpg,apple,fresh,apple,0.984375,fresh,1281.7244353440942
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181035.jpg,apple,fresh,apple,0.96875,fresh,1457.4543703346633
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181038.jpg,apple,fresh,apple,0.984375,fresh,1125.257440672668
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181039.jpg,apple,fresh,apple,0.98046875,fresh,1248.359759660786
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181041.jpg,apple,fresh,apple,0.95703125,fresh,1322.450680718076
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181043.jpg,apple,fresh,apple,0.98828125,fresh,1137.4270125215683
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181045.jpg,apple,fresh,apple,0.97265625,fresh,1218.2049060643585
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181047.jpg,apple,fresh,apple,0.984375,fresh,1112.954571272893
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181050.jpg,apple,fresh,apple,0.99609375,fresh,1180.5884880663148
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181054.jpg,apple,fresh,apple,0.99609375,fresh,1336.8004059894577
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181057.jpg,apple,fresh,apple,0.94921875,fresh,1463.02029134554
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181101.jpg,apple,fresh,apple,0.98046875,fresh,1943.263919887005
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181102.jpg,apple,fresh,apple,0.98046875,fresh,1715.544982508839
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181104.jpg,apple,fresh,apple,0.98046875,fresh,1631.3843637016014
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181104_01.jpg,apple,fresh,apple,0.953125,fresh,1458.1409405044376
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181107.jpg,apple,fresh,apple,0.99609375,fresh,1238.8507246710535
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181107_01.jpg,apple,fresh,apple,0.97265625,fresh,1098.8740897501423
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181110.jpg,apple,fresh,apple,0.9453125,fresh,1184.3751972515197
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181111.jpg,apple,fresh,apple,0.97265625,fresh,1157.950283384766
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181122.jpg,apple,fresh,apple,0.9765625,fresh,1230.0467198748686
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181123.jpg,apple,fresh,apple,0.9375,fresh,1376.7953593689926
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181124.jpg,apple,fresh,apple,0.9765625,fresh,1249.7023091996618
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181131.jpg,apple,fresh,apple,0.98046875,fresh,1194.9030668654545
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181132.jpg,apple,fresh,apple,0.98046875,fresh,1157.9643710703606
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181133.jpg,apple,fresh,apple,0.94921875,spoiled,1197.0168798200768
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181134.jpg,apple,fresh,apple,0.984375,spoiled,1294.1770016719743
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181135.jpg,apple,fresh,apple,0.953125,fresh,1250.0892579151803
+fruitnet/Good Quality_Fruits/Apple_Good/IMG20200728181136.jpg,apple,fresh,apple,0.84765625,fresh,1276.0653978562261
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132024.jpg,banana,fresh,guava,0.9296875,fresh,3150.426730027322
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132025.jpg,banana,fresh,guava,0.9921875,spoiled,3066.0008401754176
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132025_01.jpg,banana,fresh,guava,0.99609375,spoiled,3671.588656118723
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132027.jpg,banana,fresh,guava,0.99609375,spoiled,4044.5433328486993
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132027_01.jpg,banana,fresh,guava,0.98828125,spoiled,4691.903678021387
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132028.jpg,banana,fresh,guava,0.95703125,spoiled,3436.775434884793
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132029.jpg,banana,fresh,banana,0.80859375,spoiled,3940.523362658389
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132032.jpg,banana,fresh,banana,0.484375,spoiled,4205.818420489769
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132033.jpg,banana,fresh,guava,0.73828125,spoiled,4194.147647221416
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132034.jpg,banana,fresh,banana,0.86328125,fresh,4082.789774127612
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132035.jpg,banana,fresh,guava,0.59375,spoiled,3112.6991515395603
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132036.jpg,banana,fresh,banana,0.94921875,fresh,3386.73453633636
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132039.jpg,banana,fresh,banana,0.8046875,fresh,3212.113318215331
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132039_01.jpg,banana,fresh,banana,0.49609375,fresh,4127.72326840589
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132040.jpg,banana,fresh,banana,0.63671875,fresh,3140.699595243753
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132046.jpg,banana,fresh,guava,0.8046875,fresh,3870.759219837633
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132047.jpg,banana,fresh,guava,0.96875,spoiled,3984.0220106613474
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132047_01.jpg,banana,fresh,guava,0.9140625,spoiled,3891.1341544414217
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132048.jpg,banana,fresh,guava,0.57421875,spoiled,3036.400680462747
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132050.jpg,banana,fresh,guava,0.94140625,spoiled,4572.806381451336
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132053.jpg,banana,fresh,guava,0.984375,spoiled,4212.004286442183
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132053_01.jpg,banana,fresh,guava,0.8203125,fresh,4121.963857767891
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132102.jpg,banana,fresh,guava,0.99609375,spoiled,3298.0039900266415
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132102_01.jpg,banana,fresh,guava,0.99609375,spoiled,4148.4785128338035
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132103.jpg,banana,fresh,guava,0.85546875,spoiled,4375.495748023046
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132108.jpg,banana,fresh,banana,0.93359375,fresh,4372.248113452214
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132108_01.jpg,banana,fresh,banana,0.46484375,spoiled,4296.027931751703
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132109.jpg,banana,fresh,banana,0.99609375,fresh,3923.2637559138666
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132111.jpg,banana,fresh,banana,0.71875,spoiled,4453.993270410461
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132112.jpg,banana,fresh,guava,0.640625,spoiled,4568.424728943774
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132114.jpg,banana,fresh,guava,0.87890625,spoiled,4941.855546469427
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132114_01.jpg,banana,fresh,guava,0.7890625,spoiled,5134.107297496108
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132115.jpg,banana,fresh,guava,0.9765625,spoiled,4436.173884144544
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132118.jpg,banana,fresh,guava,0.9765625,fresh,4974.16932749315
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132119.jpg,banana,fresh,guava,0.80859375,spoiled,5045.080273455017
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132120.jpg,banana,fresh,guava,0.828125,spoiled,3905.4519142385125
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132122.jpg,banana,fresh,banana,0.578125,spoiled,4488.932765979476
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132123.jpg,banana,fresh,banana,0.9296875,fresh,4413.740843479402
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132124.jpg,banana,fresh,guava,0.57421875,spoiled,4327.89673163223
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132128.jpg,banana,fresh,guava,0.96875,spoiled,4412.565480276401
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132129.jpg,banana,fresh,guava,0.9375,spoiled,4299.961799029751
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132130.jpg,banana,fresh,guava,0.984375,spoiled,4241.430826846318
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132131.jpg,banana,fresh,guava,0.89453125,spoiled,4435.042062157945
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132132.jpg,banana,fresh,guava,0.95703125,spoiled,4303.353030800903
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132133.jpg,banana,fresh,guava,0.984375,spoiled,4329.169677053277
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132134.jpg,banana,fresh,guava,0.98828125,spoiled,4023.001359347304
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132136.jpg,banana,fresh,guava,0.99609375,spoiled,3691.1894891970182
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132208.jpg,banana,fresh,guava,0.98828125,spoiled,5251.701562540085
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132208_01.jpg,banana,fresh,banana,0.90625,spoiled,4970.201231378091
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132209.jpg,banana,fresh,banana,0.50390625,fresh,4999.955694572017
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132209_01.jpg,banana,fresh,brinjal,0.640625,spoiled,5120.150850302158
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132211.jpg,banana,fresh,banana,0.98828125,spoiled,4435.955505698196
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132211_01.jpg,banana,fresh,banana,0.51953125,fresh,5329.8356489194975
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132213.jpg,banana,fresh,guava,0.99609375,spoiled,4670.579313844372
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132214.jpg,banana,fresh,guava,0.97265625,spoiled,4926.9988842885805
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132222.jpg,banana,fresh,guava,0.6015625,fresh,3258.2874692443706
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132222_01.jpg,banana,fresh,guava,0.83984375,fresh,3328.718841401482
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132223.jpg,banana,fresh,banana,0.640625,fresh,3235.084346375096
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132226.jpg,banana,fresh,guava,0.6484375,spoiled,4536.0468041219465
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132247.jpg,banana,fresh,guava,0.72265625,spoiled,4754.5753868204865
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132248.jpg,banana,fresh,banana,0.86328125,fresh,4483.044682114128
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132248_01.jpg,banana,fresh,banana,0.9453125,spoiled,4470.113328016387
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132249.jpg,banana,fresh,guava,0.6875,fresh,4376.0796237763425
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132250.jpg,banana,fresh,banana,0.90625,spoiled,4653.966298454214
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132250_01.jpg,banana,fresh,banana,0.70703125,spoiled,3999.524563366574
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132251.jpg,banana,fresh,guava,0.4453125,spoiled,5354.045699172323
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132300.jpg,banana,fresh,guava,0.9921875,fresh,3575.236282273616
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132301.jpg,banana,fresh,guava,0.70703125,spoiled,3516.047657941574
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132302.jpg,banana,fresh,brinjal,0.63671875,spoiled,3446.2444780006635
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132303.jpg,banana,fresh,brinjal,0.61328125,spoiled,3470.6564143496853
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132303_01.jpg,banana,fresh,guava,0.83203125,spoiled,3776.2034738187044
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132304.jpg,banana,fresh,guava,0.7265625,spoiled,3363.6487971812426
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132316.jpg,banana,fresh,guava,0.90625,fresh,3663.096881578174
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132316_01.jpg,banana,fresh,guava,0.99609375,spoiled,3363.130821447855
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132317.jpg,banana,fresh,guava,0.98828125,spoiled,3340.667001318397
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132318.jpg,banana,fresh,guava,0.9765625,spoiled,3966.002872171686
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132319.jpg,banana,fresh,guava,0.953125,spoiled,3926.7345571390283
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132321.jpg,banana,fresh,guava,0.9921875,spoiled,3494.2321853902404
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132756.jpg,banana,fresh,guava,0.99609375,spoiled,4493.605257164907
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132757.jpg,banana,fresh,guava,0.703125,spoiled,3357.633458706595
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132758.jpg,banana,fresh,guava,0.98046875,spoiled,4368.458736541796
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132800.jpg,banana,fresh,guava,0.9765625,spoiled,4318.773855836529
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132801.jpg,banana,fresh,guava,0.9921875,spoiled,4552.91065469505
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132802.jpg,banana,fresh,guava,0.984375,spoiled,4435.943162146804
+fruitnet/Good Quality_Fruits/Banana_Good/IMG20200730132803.jpg,banana,fresh,guava,0.96875,spoiled,4541.02266693546
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8201.JPG,guava,fresh,guava,0.99609375,fresh,2220.2801715132628
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8202.JPG,guava,fresh,guava,0.99609375,fresh,2214.0385366649343
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8203.JPG,guava,fresh,guava,0.99609375,fresh,1912.0708760839332
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8204.JPG,guava,fresh,guava,0.99609375,fresh,2059.0427294461974
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8205.JPG,guava,fresh,guava,0.99609375,fresh,2012.3973699287528
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8206.JPG,guava,fresh,guava,0.99609375,fresh,1934.3263568815387
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8207.JPG,guava,fresh,guava,0.99609375,fresh,2029.1824967959803
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8208.JPG,guava,fresh,guava,0.99609375,fresh,2039.6761375731203
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8209.JPG,guava,fresh,guava,0.99609375,fresh,1902.063760885308
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8210.JPG,guava,fresh,guava,0.99609375,fresh,1863.972852519649
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8211.JPG,guava,fresh,guava,0.9921875,fresh,1809.37568131093
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8212.JPG,guava,fresh,guava,0.99609375,fresh,2086.5631787912434
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8213.JPG,guava,fresh,guava,0.99609375,fresh,2128.713271229635
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8214.JPG,guava,fresh,guava,0.9921875,fresh,1895.5977902362747
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8215.JPG,guava,fresh,guava,0.98046875,fresh,1939.1379928749368
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8216.JPG,guava,fresh,guava,0.99609375,fresh,2042.164863763295
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8217.JPG,guava,fresh,guava,0.99609375,fresh,2079.875217410168
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8218.JPG,guava,fresh,guava,0.99609375,fresh,2204.769030076754
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8219.JPG,guava,fresh,guava,0.99609375,fresh,2170.2953661648494
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8220.JPG,guava,fresh,guava,0.99609375,fresh,1860.175036068345
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8221.JPG,guava,fresh,guava,0.99609375,fresh,2005.7809745324764
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8222.JPG,guava,fresh,guava,0.98828125,fresh,2204.7456810004296
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8223.JPG,guava,fresh,guava,0.93359375,fresh,2196.2941965544
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8224.JPG,guava,fresh,guava,0.99609375,fresh,1923.1811381349069
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8226.JPG,guava,fresh,guava,0.9765625,fresh,2263.062005022473
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8227.JPG,guava,fresh,guava,0.9765625,fresh,2237.6724234025037
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8228.JPG,guava,fresh,guava,0.92578125,fresh,2116.3132234637583
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8229.JPG,guava,fresh,guava,0.9921875,fresh,1931.2056163263137
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8230.JPG,guava,fresh,guava,0.99609375,fresh,1962.6747190086471
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8231.JPG,guava,fresh,guava,0.99609375,fresh,1966.2336112670264
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8232.JPG,guava,fresh,guava,0.99609375,fresh,1938.0251712014215
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8234.JPG,guava,fresh,guava,0.99609375,fresh,2134.0191321289412
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8235.JPG,guava,fresh,guava,0.99609375,fresh,2023.198384419954
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8236.JPG,guava,fresh,guava,0.99609375,fresh,2200.836184909605
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8237.JPG,guava,fresh,guava,0.99609375,fresh,1883.8451815227875
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8238.JPG,guava,fresh,guava,0.99609375,fresh,1727.1272748443907
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8239.JPG,guava,fresh,guava,0.99609375,fresh,2083.621069122914
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8240.JPG,guava,fresh,guava,0.99609375,fresh,2099.9573075980534
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8241.JPG,guava,fresh,guava,0.99609375,fresh,2171.385799782281
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8242.JPG,guava,fresh,guava,0.99609375,fresh,1962.6755908669238
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8243.JPG,guava,fresh,guava,0.99609375,fresh,1944.7942716434734
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8244.JPG,guava,fresh,guava,0.98828125,fresh,1942.5901939439402
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8245.JPG,guava,fresh,guava,0.99609375,fresh,1949.8448785771122
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8246.JPG,guava,fresh,guava,0.99609375,fresh,2222.1323065105626
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8247.JPG,guava,fresh,guava,0.99609375,fresh,2258.466167795917
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8248.JPG,guava,fresh,guava,0.99609375,fresh,2424.5092692474636
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8249.JPG,guava,fresh,guava,0.99609375,fresh,2232.04508554599
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8250.JPG,guava,fresh,guava,0.99609375,fresh,1948.085057435352
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8251.JPG,guava,fresh,guava,0.99609375,fresh,2093.5223620003603
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8252.JPG,guava,fresh,guava,0.99609375,fresh,1938.6823849315258
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8253.JPG,guava,fresh,guava,0.99609375,fresh,2036.7409924603883
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8254.JPG,guava,fresh,guava,0.99609375,fresh,2000.0910803287095
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8255.JPG,guava,fresh,guava,0.99609375,fresh,2136.144441400937
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8256.JPG,guava,fresh,guava,0.99609375,fresh,2178.442041098724
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8257.JPG,guava,fresh,guava,0.99609375,fresh,2119.243572365716
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8258.JPG,guava,fresh,guava,0.98046875,fresh,2292.3768414395877
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8259.JPG,guava,fresh,guava,0.98046875,fresh,2304.330248195194
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8261.JPG,guava,fresh,guava,0.99609375,fresh,1084.937788313098
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8262.JPG,guava,fresh,guava,0.9921875,fresh,842.7481316157499
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8263.JPG,guava,fresh,guava,0.97265625,fresh,1127.7348048584286
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8264.JPG,guava,fresh,guava,0.99609375,fresh,877.4183115674367
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8265.JPG,guava,fresh,guava,0.99609375,fresh,741.6141327686613
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8266.JPG,guava,fresh,guava,0.76953125,fresh,642.873277501558
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8267.JPG,guava,fresh,guava,0.99609375,fresh,735.4820902663129
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8268.JPG,guava,fresh,guava,0.99609375,fresh,761.0284840704553
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8269.JPG,guava,fresh,guava,0.99609375,fresh,756.6603252423942
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8270.JPG,guava,fresh,guava,0.9921875,fresh,777.5701764045932
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8271.JPG,guava,fresh,guava,0.99609375,fresh,870.6577735032129
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8272.JPG,guava,fresh,guava,0.99609375,fresh,706.092544934267
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8273.JPG,guava,fresh,guava,0.99609375,fresh,636.2358720937583
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8274.JPG,guava,fresh,guava,0.99609375,fresh,787.265630247547
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8275.JPG,guava,fresh,guava,0.99609375,fresh,1068.6658788014254
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8276.JPG,guava,fresh,guava,0.99609375,fresh,1006.0094342917575
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8277.JPG,guava,fresh,guava,0.9921875,fresh,830.7831553490153
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8278.JPG,guava,fresh,guava,0.9921875,fresh,852.5752047767241
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8279.JPG,guava,fresh,guava,0.9921875,fresh,624.3913170735575
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8280.JPG,guava,fresh,guava,0.87109375,fresh,512.6311482388676
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8281.JPG,guava,fresh,guava,0.984375,fresh,848.4473290159159
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8282.JPG,guava,fresh,guava,0.98046875,fresh,1009.9820306782432
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8283.JPG,guava,fresh,guava,0.99609375,fresh,1044.6355931510354
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8284.JPG,guava,fresh,guava,0.84765625,fresh,691.3532552789848
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8285.JPG,guava,fresh,guava,0.8984375,fresh,606.8588409846185
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8286.JPG,guava,fresh,guava,0.96875,fresh,683.5288239347288
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8287.JPG,guava,fresh,guava,0.671875,fresh,745.8126485265478
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8288.JPG,guava,fresh,guava,0.98828125,fresh,652.5383359632508
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8289.JPG,guava,fresh,guava,0.99609375,fresh,826.6390096466772
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8290.JPG,guava,fresh,guava,0.65234375,fresh,493.7196708463785
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8291.JPG,guava,fresh,guava,0.94140625,fresh,642.0101113033708
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8292.JPG,guava,fresh,brinjal,0.578125,fresh,827.0175929758226
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8293.JPG,guava,fresh,guava,0.93359375,fresh,885.5767907292128
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8294.JPG,guava,fresh,guava,0.8046875,fresh,837.7558945382607
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8295.JPG,guava,fresh,guava,0.8828125,fresh,634.8856910986312
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8296.JPG,guava,fresh,brinjal,0.65234375,fresh,631.8382537798003
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8297.JPG,guava,fresh,brinjal,0.65234375,fresh,564.8631562226157
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8298.JPG,guava,fresh,brinjal,0.9453125,fresh,580.4968779215752
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8299.JPG,guava,fresh,guava,0.8515625,fresh,649.6267437761584
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8300.JPG,guava,fresh,brinjal,0.8046875,fresh,679.356934741766
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8301.JPG,guava,fresh,guava,0.984375,fresh,609.7245680720835
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8302.JPG,guava,fresh,guava,0.9921875,fresh,801.1108395225366
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8303.JPG,guava,fresh,guava,0.99609375,fresh,728.0864892181957
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8304.JPG,guava,fresh,guava,0.94140625,fresh,777.2036911764884
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8305.JPG,guava,fresh,guava,0.95703125,fresh,802.5152792057426
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8306.JPG,guava,fresh,guava,0.484375,fresh,627.4844141020315
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8307.JPG,guava,fresh,guava,0.98828125,fresh,625.0103971227029
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8308.JPG,guava,fresh,guava,0.99609375,fresh,536.7493064718461
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8309.JPG,guava,fresh,guava,0.98046875,fresh,486.3161608933085
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8310.JPG,guava,fresh,guava,0.99609375,fresh,589.8689645674264
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8311.JPG,guava,fresh,guava,0.98828125,fresh,556.7665441287011
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8312.JPG,guava,fresh,guava,0.99609375,fresh,812.0113786029209
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8313.JPG,guava,fresh,guava,0.99609375,fresh,759.4040266362935
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8314.JPG,guava,fresh,guava,0.98046875,fresh,607.7484892069211
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8315.JPG,guava,fresh,guava,0.99609375,fresh,1032.463245282561
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8316.JPG,guava,fresh,guava,0.984375,fresh,879.8683003475066
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8317.JPG,guava,fresh,guava,0.99609375,fresh,675.3989418734678
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8318.JPG,guava,fresh,guava,0.9140625,fresh,676.337454026512
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8319.JPG,guava,fresh,guava,0.78125,fresh,667.3061612000006
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8320.JPG,guava,fresh,guava,0.9921875,fresh,910.0265402708228
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8321.JPG,guava,fresh,guava,0.99609375,fresh,831.2285550583535
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8322.JPG,guava,fresh,guava,0.99609375,fresh,1103.7559027283028
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8323.JPG,guava,fresh,guava,0.99609375,fresh,1021.5311748571578
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8393.JPG,guava,fresh,guava,0.953125,fresh,612.9073974122745
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8394.JPG,guava,fresh,guava,0.97265625,fresh,634.0347473126803
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8395.JPG,guava,fresh,guava,0.99609375,fresh,667.4351912355289
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8396.JPG,guava,fresh,guava,0.99609375,fresh,725.8734042727542
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8397.JPG,guava,fresh,guava,0.99609375,fresh,613.0937588001857
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8398.JPG,guava,fresh,guava,0.99609375,fresh,657.0508180237791
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8399.JPG,guava,fresh,guava,0.99609375,fresh,753.1012204701826
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8400.JPG,guava,fresh,guava,0.99609375,fresh,653.7270943580238
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8401.JPG,guava,fresh,guava,0.99609375,fresh,574.2772326847619
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8402.JPG,guava,fresh,guava,0.99609375,fresh,929.0953005937624
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8403.JPG,guava,fresh,guava,0.99609375,fresh,717.6446224184166
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8404.JPG,guava,fresh,guava,0.9765625,fresh,658.5823965943242
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8405.JPG,guava,fresh,guava,0.96484375,fresh,690.7636619421908
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8406.JPG,guava,fresh,guava,0.92578125,fresh,949.9976537430948
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8407.JPG,guava,fresh,guava,0.88671875,fresh,923.2630369858375
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8408.JPG,guava,fresh,guava,0.99609375,fresh,879.6303428433732
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8409.JPG,guava,fresh,guava,0.99609375,fresh,750.2898319949708
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8410.JPG,guava,fresh,guava,0.99609375,fresh,1009.744886994965
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8411.JPG,guava,fresh,guava,0.99609375,fresh,692.997535482679
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8412.JPG,guava,fresh,guava,0.99609375,fresh,710.5164229218121
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8413.JPG,guava,fresh,guava,0.99609375,fresh,632.9982424634925
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8414.JPG,guava,fresh,guava,0.99609375,fresh,711.7440700877672
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8415.JPG,guava,fresh,guava,0.9921875,fresh,791.9350650193578
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8416.JPG,guava,fresh,guava,0.9609375,fresh,659.3162665762694
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8417.JPG,guava,fresh,guava,0.984375,fresh,539.7335168689131
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8418.JPG,guava,fresh,guava,0.98046875,fresh,477.6431528875093
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8419.JPG,guava,fresh,guava,0.99609375,fresh,867.250738347585
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8420.JPG,guava,fresh,guava,0.99609375,fresh,753.2029797764035
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8421.JPG,guava,fresh,guava,0.99609375,fresh,519.3861033310964
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8422.JPG,guava,fresh,guava,0.92578125,fresh,636.8913448555995
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8423.JPG,guava,fresh,guava,0.99609375,fresh,686.8407288250673
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8424.JPG,guava,fresh,guava,0.98046875,fresh,613.6567414949382
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8425.JPG,guava,fresh,guava,0.9921875,fresh,716.1195705386057
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8426.JPG,guava,fresh,guava,0.97265625,fresh,640.5479717390232
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8427.JPG,guava,fresh,guava,0.98828125,fresh,691.7448362267228
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8428.JPG,guava,fresh,guava,0.97265625,fresh,632.6979694002015
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8429.JPG,guava,fresh,guava,0.99609375,fresh,633.0370100004028
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8430.JPG,guava,fresh,guava,0.984375,fresh,723.9896916818745
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8431.JPG,guava,fresh,guava,0.97265625,fresh,680.8090414346623
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8433.JPG,guava,fresh,guava,0.9140625,spoiled,634.8970318686155
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8434.JPG,guava,fresh,guava,0.97265625,spoiled,672.4713500142294
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8435.JPG,guava,fresh,guava,0.9140625,spoiled,568.5774063023259
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8436.JPG,guava,fresh,guava,0.828125,fresh,519.8458497073437
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8437.JPG,guava,fresh,guava,0.6171875,spoiled,675.2032409456133
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8438.JPG,guava,fresh,guava,0.86328125,fresh,598.3687383763485
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8439.JPG,guava,fresh,guava,0.76171875,spoiled,667.6620980073552
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8440.JPG,guava,fresh,guava,0.84765625,spoiled,606.2007797113343
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8441.JPG,guava,fresh,guava,0.91015625,fresh,549.5479141793181
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8442.JPG,guava,fresh,guava,0.75,fresh,796.5003572022242
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8443.JPG,guava,fresh,apple,0.64453125,spoiled,670.7664662523121
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8444.JPG,guava,fresh,apple,0.8046875,fresh,598.4311835763007
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8445.JPG,guava,fresh,apple,0.8515625,fresh,693.1154626134382
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8446.JPG,guava,fresh,apple,0.88671875,fresh,625.3421361492383
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8447.JPG,guava,fresh,apple,0.72265625,spoiled,688.3429570428583
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8448.JPG,guava,fresh,apple,0.6328125,spoiled,738.1281596030524
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8449.JPG,guava,fresh,guava,0.91796875,spoiled,754.9592690279421
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8450.JPG,guava,fresh,apple,0.71875,spoiled,649.621297989993
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8451.JPG,guava,fresh,apple,0.6875,fresh,644.7578675455035
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8452.JPG,guava,fresh,guava,0.87109375,fresh,587.5078565849242
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8453.JPG,guava,fresh,guava,0.828125,fresh,534.2088597610407
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8454.JPG,guava,fresh,apple,0.72265625,fresh,467.14340332720957
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8455.JPG,guava,fresh,apple,0.984375,fresh,426.8469979665607
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8456.JPG,guava,fresh,guava,0.7421875,spoiled,578.4948511269948
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8457.JPG,guava,fresh,guava,0.53125,fresh,581.370813513926
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8458.JPG,guava,fresh,guava,0.71484375,fresh,558.212804786238
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8459.JPG,guava,fresh,apple,0.8828125,spoiled,671.4521172396492
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8460.JPG,guava,fresh,apple,0.78125,fresh,679.1788354075878
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8461.JPG,guava,fresh,guava,0.53515625,fresh,619.3730388866918
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8462.JPG,guava,fresh,apple,0.53125,fresh,596.7763088303105
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8463.JPG,guava,fresh,guava,0.47265625,spoiled,730.4812312364323
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8464.JPG,guava,fresh,guava,0.83203125,spoiled,690.5937027976009
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8465.JPG,guava,fresh,guava,0.75,spoiled,806.7272241198351
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8466.JPG,guava,fresh,apple,0.8515625,spoiled,659.5847889348723
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8467.JPG,guava,fresh,guava,0.796875,fresh,554.4966378990487
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8468.JPG,guava,fresh,apple,0.73046875,spoiled,533.3600182790427
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8469.JPG,guava,fresh,guava,0.828125,spoiled,664.2938941369994
+fruitnet/Good Quality_Fruits/Guava_Good/IMG_8470.JPG,guava,fresh,guava,0.9765625,spoiled,711.1246797890417
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_191858524_HDR.jpg,banana,fresh,banana,0.99609375,fresh,161.62241804035762
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_191937613_HDR.jpg,banana,fresh,banana,0.99609375,fresh,179.6067664228503
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192001476_HDR.jpg,banana,fresh,banana,0.99609375,fresh,211.59286708780695
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192035277_HDR.jpg,banana,fresh,banana,0.99609375,fresh,253.53890385104552
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192052151_HDR.jpg,banana,fresh,banana,0.9140625,fresh,235.77410061598272
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192129028_HDR.jpg,banana,fresh,banana,0.99609375,fresh,260.05300566906726
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192142532_HDR.jpg,banana,fresh,banana,0.99609375,fresh,229.78376659122264
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192207940_HDR.jpg,banana,fresh,banana,0.9140625,fresh,165.3293675490774
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192216987_HDR.jpg,banana,fresh,banana,0.9609375,fresh,147.12488217090322
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192228908_HDR.jpg,banana,fresh,banana,0.99609375,fresh,225.4753766346321
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192238942_HDR.jpg,banana,fresh,banana,0.99609375,fresh,130.50765143564095
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192250669_HDR.jpg,banana,fresh,banana,0.4609375,fresh,176.22470743742633
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192304624_HDR.jpg,banana,fresh,brinjal,0.578125,fresh,188.3478992751852
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192424912_HDR.jpg,banana,fresh,banana,0.99609375,fresh,257.9268508638302
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192434127_HDR.jpg,banana,fresh,banana,0.99609375,fresh,214.33046418605477
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192446251_HDR.jpg,banana,fresh,banana,0.8671875,fresh,212.3743795304086
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192502588_HDR.jpg,banana,fresh,banana,0.99609375,fresh,201.54790347575707
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192513053_HDR.jpg,banana,fresh,banana,0.546875,fresh,162.42334230851415
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20251103_192521600_HDR.jpg,banana,fresh,brinjal,0.61328125,fresh,224.61495338532657
+agrifreshnet/Processed Data/Fresh Banana(1-4)/IMG_20260120_095546193_HDR_AE.jpg,banana,fresh,banana,0.99609375,spoiled,518.8977931547911
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(1).jpeg,brinjal,fresh,brinjal,0.578125,spoiled,400.5629802736595
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(10).jpeg,brinjal,fresh,brinjal,0.9296875,spoiled,601.8560968264271
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(11).jpeg,brinjal,fresh,brinjal,0.97265625,spoiled,400.860232090245
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(2).jpeg,brinjal,fresh,brinjal,0.953125,spoiled,280.6557312243083
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(3).jpeg,brinjal,fresh,apple,0.8046875,spoiled,225.08290300289926
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(4).jpeg,brinjal,fresh,tomato,0.73828125,spoiled,513.3459052840069
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(5).jpeg,brinjal,fresh,apple,0.63671875,spoiled,347.28360710928155
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(6).jpeg,brinjal,fresh,apple,0.640625,spoiled,343.40740902149105
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(7).jpeg,brinjal,fresh,apple,0.890625,spoiled,268.54173767981587
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(8).jpeg,brinjal,fresh,guava,0.609375,spoiled,436.8146874267559
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant(9).jpeg,brinjal,fresh,brinjal,0.80078125,spoiled,599.65132361065
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/eggplant.jpeg,brinjal,fresh,brinjal,0.83984375,spoiled,283.832905398283
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160459852_HDR_AE.jpg,brinjal,fresh,brinjal,0.94921875,spoiled,355.05304897800966
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160524433_HDR_AE.jpg,brinjal,fresh,brinjal,0.93359375,fresh,487.3322349853714
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160533486_HDR_AE.jpg,brinjal,fresh,brinjal,0.9140625,fresh,528.9192461730038
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160540995_HDR_AE.jpg,brinjal,fresh,brinjal,0.44140625,fresh,522.4588441295679
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160546718_HDR_AE.jpg,brinjal,fresh,brinjal,0.71484375,fresh,541.0724092772367
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160553145_HDR_AE.jpg,brinjal,fresh,brinjal,0.99609375,fresh,463.3328414565147
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251106_160559905_HDR.jpg,brinjal,fresh,brinjal,0.99609375,spoiled,277.3123291375318
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192826539_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,250.04234514578533
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192835022_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,288.8052842857906
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192840590_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,274.9998343527126
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192846354_HDR.jpg,brinjal,fresh,brinjal,0.99609375,spoiled,264.61428577558803
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192857496_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,270.2127884352971
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192903051_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,212.85149849021215
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192908001_HDR.jpg,brinjal,fresh,brinjal,0.99609375,spoiled,264.9370453317535
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192918110_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,239.21428484385876
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192924231_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,232.90508591703988
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192929876_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,237.8360990618014
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192935949_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,248.4586212129745
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192941460_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,271.9041386177234
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192947267_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,255.43529950438594
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_192956708_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,247.6480222703054
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_193001829_HDR.jpg,brinjal,fresh,brinjal,0.99609375,fresh,213.76035323276398
+agrifreshnet/Processed Data/Fresh eggplant(1-4)/IMG_20251127_193007363_HDR.jpg,brinjal,fresh,brinjal,0.984375,spoiled,254.30547479905084
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112653784_HDR_AE.jpg,tomato,fresh,tomato,0.96875,fresh,363.1689751222442
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112700863_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,150.0658645430502
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112708032_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,192.26128542349375
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112714477_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,168.99726177145988
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112722179_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,194.80268914073346
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112740483_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,167.65988283936687
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112755843_HDR_AE.jpg,tomato,fresh,tomato,0.97265625,fresh,339.62908423194824
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112804773_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,142.22386571131474
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112812605_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,201.90778171891037
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112820498_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,185.8519531832714
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112828197_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,185.80944080015834
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112837672_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,217.67863663591206
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112854543_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,298.01396597425617
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112901669_HDR_AE.jpg,tomato,fresh,tomato,0.90234375,fresh,163.69759708675613
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112909905_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,228.126236237578
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112917308_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,188.57496232731077
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112941810_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,193.94219000045925
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251109_112952963_HDR_AE.jpg,tomato,fresh,tomato,0.9921875,fresh,177.5479375960867
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093810924_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,369.390408711792
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093818863_HDR_AE.jpg,tomato,fresh,tomato,0.96875,fresh,212.9818519023785
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093831120_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,241.50589565305057
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093842048_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,253.422163116906
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093848671_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,246.1531464988747
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093856899_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,227.95415267571508
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093907103_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,380.8952056342639
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093913586_HDR_AE.jpg,tomato,fresh,tomato,0.98046875,spoiled,267.45983494664733
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093919409_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,280.0086957774307
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093925722_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,243.5939693476493
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093933550_HDR_AE.jpg,tomato,fresh,tomato,0.9921875,fresh,248.9435015507215
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093945047_HDR_AE.jpg,tomato,fresh,tomato,0.9921875,fresh,373.47842821085436
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_093955554_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,180.4783752009421
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_094001864_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,226.00390395680276
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_094009500_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,268.3884640114254
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_094016115_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,221.4867198193988
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251110_094023627_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,fresh,211.9196027387735
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165646834_HDR.jpg,tomato,fresh,tomato,0.98828125,fresh,143.86249636841808
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165652257_HDR.jpg,tomato,fresh,tomato,0.9375,fresh,83.4498147333147
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165658912_HDR.jpg,tomato,fresh,tomato,0.8671875,fresh,151.19283530823307
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165704931_HDR.jpg,tomato,fresh,tomato,0.984375,fresh,132.4100817987631
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165712818_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,122.54265476166995
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165722846_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,149.58133952437177
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165730453_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,139.61893591136197
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165738764_HDR.jpg,tomato,fresh,tomato,0.71875,fresh,145.76829259432301
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165805179_HDR.jpg,tomato,fresh,tomato,0.9921875,fresh,71.01191799671344
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165831420_HDR.jpg,tomato,fresh,tomato,0.96484375,fresh,100.8344657300641
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165840681_HDR.jpg,tomato,fresh,tomato,0.95703125,fresh,98.17261722779895
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165846677_HDR.jpg,tomato,fresh,tomato,0.7734375,fresh,96.39184567203041
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165859354_HDR.jpg,tomato,fresh,tomato,0.64453125,fresh,101.04566507687078
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165906015_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,92.86161864863315
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165919227_HDR.jpg,tomato,fresh,tomato,0.99609375,spoiled,129.34947385652055
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165935671_HDR.jpg,tomato,fresh,tomato,0.97265625,spoiled,135.0613439587559
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165943131_HDR.jpg,tomato,fresh,tomato,0.984375,fresh,112.35958288016903
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165948918_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,116.20371088634683
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_165956316_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,102.13962900803422
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170055409_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,103.3482210870989
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170103388_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,108.21124766698652
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170122019_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,74.46774213565116
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170133481_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,114.7536872375782
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170139352_HDR.jpg,tomato,fresh,tomato,0.984375,fresh,111.56268360987862
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170145287_HDR.jpg,tomato,fresh,tomato,0.984375,fresh,106.02000911100441
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170151247_HDR.jpg,tomato,fresh,tomato,0.984375,fresh,101.52994139793192
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170156986_HDR.jpg,tomato,fresh,tomato,0.9921875,fresh,106.21062891939182
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170203855_HDR.jpg,tomato,fresh,tomato,0.99609375,fresh,102.42958424203849
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170215005_HDR.jpg,tomato,fresh,tomato,0.9765625,fresh,109.91015092747521
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20251118_170220468_HDR.jpg,tomato,fresh,tomato,0.9609375,fresh,84.52983538643562
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095611645_HDR_AE.jpg,tomato,fresh,tomato,0.96875,spoiled,269.007236669018
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095619506_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,217.8567175898226
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095630402_HDR_AE.jpg,tomato,fresh,tomato,0.98828125,spoiled,242.41342239047708
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095645258_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,208.71561841688447
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095652412_HDR_AE.jpg,tomato,fresh,tomato,0.9921875,spoiled,344.2080548577693
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095657623_HDR_AE.jpg,tomato,fresh,tomato,0.97265625,spoiled,206.04064629086162
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095724217_HDR_AE.jpg,tomato,fresh,tomato,0.61328125,spoiled,280.49045899888245
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095738437_HDR_AE.jpg,tomato,fresh,tomato,0.87109375,spoiled,218.53838440183316
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095743787_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,236.88955582568332
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095749466_HDR_AE.jpg,tomato,fresh,tomato,0.828125,spoiled,279.0857996617249
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095801010_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,192.10136842301617
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095808483_HDR_AE.jpg,tomato,fresh,tomato,0.98046875,spoiled,250.29742180910665
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095816793_HDR_AE.jpg,tomato,fresh,tomato,0.98828125,spoiled,263.8393785893302
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095846494_HDR_AE.jpg,tomato,fresh,tomato,0.9921875,spoiled,199.5022686979327
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095851983_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,216.52969789171252
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095908811_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,210.9950877611723
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095915101_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,242.59120491916732
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095922153_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,208.727174939395
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095937291_HDR_AE.jpg,tomato,fresh,tomato,0.98828125,spoiled,208.56266129695862
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095947755_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,213.67456542445464
+agrifreshnet/Processed Data/Fresh Tomato(1-10)/IMG_20260120_095953165_HDR_AE.jpg,tomato,fresh,tomato,0.99609375,spoiled,193.68369856962536
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112614226_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,635.9789428289233
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112621484_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,598.8262010049765
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112627848_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,566.5553172052515
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112640318_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,496.72980068439256
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112646074_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,624.5068925970346
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112653105_HDR_AE.jpg,banana,spoiled,banana,0.97265625,spoiled,568.2780504416488
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112712830_HDR_AE.jpg,banana,spoiled,banana,0.984375,spoiled,544.3910166607814
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112724843_HDR_AE.jpg,banana,spoiled,banana,0.9921875,spoiled,633.2963946574379
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112742503_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,599.15531146287
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112748677_HDR_AE.jpg,banana,spoiled,banana,0.984375,spoiled,512.3691950960546
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112757709_HDR_AE.jpg,banana,spoiled,banana,0.87109375,spoiled,458.041794338576
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112804612_HDR_AE.jpg,banana,spoiled,banana,0.953125,spoiled,633.2636894092888
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112814515_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,476.7496238824783
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112821824_HDR_AE.jpg,banana,spoiled,banana,0.98828125,spoiled,593.9985129651172
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112828361_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,545.3048111220359
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112839446_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,541.5540782928166
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112850672_HDR_AE.jpg,banana,spoiled,banana,0.87109375,spoiled,572.7460564425916
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251112_112857395_HDR_AE.jpg,banana,spoiled,banana,0.98828125,spoiled,516.428769938642
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213749271_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,633.5369828334791
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213757583_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,640.9468051617561
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213808065_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,556.3657653933459
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213814338_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,819.5435577054927
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213824772_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,521.0132264340303
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213841571_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,421.6249855277312
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213847382_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,500.3049336818142
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213856317_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,545.02630732715
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213903113_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,504.51616541352575
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213909292_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,478.8257710316291
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213914653_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,507.6621395543958
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213925592_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,510.00329858594614
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213930892_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,619.97319627826
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213936280_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,537.0053775909479
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213942833_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,452.2247689878371
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213948673_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,684.9528955615848
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20251114_213954077_HDR.jpg,banana,spoiled,banana,0.99609375,spoiled,574.0670991607307
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095150148_HDR_AE.jpg,banana,spoiled,banana,0.8515625,spoiled,398.31098638249534
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095201087_HDR_AE.jpg,banana,spoiled,banana,0.8671875,spoiled,430.65779716449265
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095208907_HDR_AE.jpg,banana,spoiled,banana,0.88671875,spoiled,530.7618679876272
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095213812_HDR_AE.jpg,banana,spoiled,banana,0.95703125,spoiled,475.71000902974987
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095218831_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,370.1080489822668
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095224313_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,410.5822412654155
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095231700_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,487.06918779352446
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095238470_HDR_AE.jpg,banana,spoiled,banana,0.9453125,spoiled,367.867380805085
+agrifreshnet/Processed Data/Rotten banana(7-13)/IMG_20260128_095244512_HDR_AE.jpg,banana,spoiled,banana,0.99609375,spoiled,444.6001305580009
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251107_114355840_HDR_AE.jpg,brinjal,spoiled,brinjal,0.93359375,spoiled,471.7613451258797
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251107_114402427_HDR_AE.jpg,brinjal,spoiled,brinjal,0.96875,spoiled,522.0031968936879
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251107_114417511_HDR_AE.jpg,brinjal,spoiled,brinjal,0.9609375,spoiled,603.3076447471497
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251107_114423291_HDR_AE.jpg,brinjal,spoiled,brinjal,0.875,spoiled,450.3264893672135
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251107_114428743_HDR_AE.jpg,brinjal,spoiled,brinjal,0.984375,spoiled,362.8881364961904
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251108_121640473_HDR_AE.jpg,brinjal,spoiled,banana,0.5390625,spoiled,533.0930910272124
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251108_121646522_HDR_AE.jpg,brinjal,spoiled,brinjal,0.92578125,spoiled,523.4607614076236
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251108_121706683_HDR_AE.jpg,brinjal,spoiled,brinjal,0.8203125,spoiled,614.9557309107294
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251108_121712666_HDR_AE.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,836.565154774934
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251108_121718120_HDR_AE.jpg,brinjal,spoiled,brinjal,0.9921875,spoiled,455.5675519356428
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210814316_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,442.8582517173456
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210823321_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,397.521165611038
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210828568_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,427.24660258714835
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210834998_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,406.1021084435622
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210841212_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,431.71853491328375
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251122_210846952_HDR.jpg,brinjal,spoiled,brinjal,0.98828125,spoiled,193.08696693725088
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211426075_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,398.6702421527869
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211432454_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,401.7270589653434
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211439509_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,481.75768418183134
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211445349_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,475.65886335764446
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211449942_HDR.jpg,brinjal,spoiled,brinjal,0.9921875,spoiled,423.66992780490904
+agrifreshnet/Processed Data/Rotten eggplant(8-15)/IMG_20251125_211455515_HDR.jpg,brinjal,spoiled,brinjal,0.99609375,spoiled,274.06604803887706
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251118_170554395_HDR.jpg,tomato,spoiled,tomato,0.98046875,spoiled,196.4279094657446
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251118_170601024_HDR.jpg,tomato,spoiled,tomato,0.984375,spoiled,148.3816365544963
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251118_170609293_HDR.jpg,tomato,spoiled,tomato,0.99609375,spoiled,154.0684253657756
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251118_170614835_HDR.jpg,tomato,spoiled,tomato,0.99609375,spoiled,192.13237347255654
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251118_170634969_HDR.jpg,tomato,spoiled,tomato,0.99609375,spoiled,178.63381644181808
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191644096_HDR.jpg,tomato,spoiled,tomato,0.55078125,spoiled,144.05573286404203
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191649757_HDR.jpg,tomato,spoiled,apple,0.78125,fresh,85.76467764427758
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191654789_HDR.jpg,tomato,spoiled,tomato,0.8671875,spoiled,156.11490590452036
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191700556_HDR.jpg,tomato,spoiled,tomato,0.77734375,spoiled,130.90969120339219
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191705858_HDR.jpg,tomato,spoiled,tomato,0.94921875,spoiled,125.88972627058254
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191711928_HDR.jpg,tomato,spoiled,tomato,0.71875,spoiled,165.89843304426395
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191717909_HDR.jpg,tomato,spoiled,tomato,0.93359375,spoiled,147.8874535321945
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251127_191723740_HDR.jpg,tomato,spoiled,tomato,0.984375,spoiled,181.8792463122825
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133145240_HDR.jpg,tomato,spoiled,tomato,0.93359375,spoiled,277.1927494285
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133151189_HDR.jpg,tomato,spoiled,apple,0.6171875,spoiled,79.57777472830374
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133156026_HDR.jpg,tomato,spoiled,tomato,0.77734375,spoiled,182.79197857220117
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133201953_HDR.jpg,tomato,spoiled,apple,0.67578125,spoiled,139.94633709014266
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133207560_HDR.jpg,tomato,spoiled,tomato,0.98046875,spoiled,147.2070185099614
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133213373_HDR.jpg,tomato,spoiled,tomato,0.71875,spoiled,160.06509847943673
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133219412_HDR.jpg,tomato,spoiled,tomato,0.75,spoiled,129.49435933144923
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133227085_HDR.jpg,tomato,spoiled,tomato,0.99609375,spoiled,170.98392773619477
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133232729_HDR.jpg,tomato,spoiled,brinjal,0.44140625,spoiled,184.70027064946598
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20251201_133238580_HDR.jpg,tomato,spoiled,tomato,0.73828125,spoiled,111.8062476992833
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182121235_HDR.jpg,tomato,spoiled,apple,0.6171875,fresh,122.14498155068608
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182140463_HDR.jpg,tomato,spoiled,apple,0.78125,spoiled,115.28057765691786
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182145280_HDR.jpg,tomato,spoiled,apple,0.65234375,spoiled,121.3651304531531
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182150814_HDR.jpg,tomato,spoiled,tomato,0.984375,spoiled,138.37787622775613
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182158766_HDR.jpg,tomato,spoiled,tomato,0.99609375,spoiled,159.28696758692925
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182204020_HDR.jpg,tomato,spoiled,tomato,0.92578125,spoiled,132.18727813705382
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182210409_HDR.jpg,tomato,spoiled,tomato,0.9765625,spoiled,128.67522845435303
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182328347_HDR.jpg,tomato,spoiled,tomato,0.9765625,spoiled,179.1735131026407
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182342338_HDR.jpg,tomato,spoiled,apple,0.6015625,spoiled,200.47537037954507
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182347543_HDR.jpg,tomato,spoiled,tomato,0.98828125,spoiled,249.26611632444883
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182358701_HDR.jpg,tomato,spoiled,tomato,0.96484375,spoiled,214.13624824863058
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182420879_HDR.jpg,tomato,spoiled,tomato,0.9921875,spoiled,221.22390665368175
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182426190_HDR.jpg,tomato,spoiled,tomato,0.98828125,spoiled,245.253844770297
+agrifreshnet/Processed Data/Rotten Tomato(24-35)/IMG_20260123_182432383_HDR.jpg,tomato,spoiled,tomato,0.96875,spoiled,245.46803315349914

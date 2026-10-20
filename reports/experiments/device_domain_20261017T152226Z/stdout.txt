@@ -1,0 +1,48 @@
+frozen model sha256: 1af166f0b07c587c9c364e65674d0eb7d40bd4f75cc83bfad03f7f83e4447354
+gate: 43.96 0.976
+2026-10-17 20:52:26.519571: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-10-17 20:52:27.628136: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+D:\smart-pesticide-ml\.venv\Lib\site-packages\tensorflow\lite\python\interpreter.py:451: UserWarning:     Warning: Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+kernel agreement 18/150 identical int8 outputs, 142/150 same argmax (XNNPACK vs REF); REF used for all results
+2026-10-17 20:52:33.304121: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+  test 0/1012 0s
+  test 200/1012 20s
+  test 400/1012 39s
+  test 600/1012 57s
+  test 800/1012 78s
+  test 1000/1012 99s
+C clean_training_preproc   fruitF1 0.8127 condF1 0.6811 shown 0.4605 accShown 0.9163 recall {'apple': 0.676, 'banana': 0.697, 'guava': 0.877, 'tomato': 0.935, 'brinjal': 0.877}
+C dev_base                 fruitF1 0.8143 condF1 0.7522 shown 0.4891 accShown 0.9636 recall {'apple': 0.753, 'banana': 0.892, 'guava': 0.825, 'tomato': 0.886, 'brinjal': 0.842}
+C dev_vig                  fruitF1 0.8135 condF1 0.7723 shown 0.4733 accShown 0.9729 recall {'apple': 0.8, 'banana': 0.887, 'guava': 0.816, 'tomato': 0.813, 'brinjal': 0.807}
+C dev_cast                 fruitF1 0.8118 condF1 0.7515 shown 0.4891 accShown 0.9697 recall {'apple': 0.735, 'banana': 0.883, 'guava': 0.831, 'tomato': 0.894, 'brinjal': 0.842}
+C dev_vig_cast             fruitF1 0.827 condF1 0.7704 shown 0.4862 accShown 0.9736 recall {'apple': 0.815, 'banana': 0.887, 'guava': 0.837, 'tomato': 0.829, 'brinjal': 0.807}
+C dev_blur1                fruitF1 0.8076 condF1 0.7459 shown 0.4466 accShown 0.9668 recall {'apple': 0.749, 'banana': 0.874, 'guava': 0.828, 'tomato': 0.829, 'brinjal': 0.807}
+C dev_blur3                fruitF1 0.713 condF1 0.615 shown 0.004 accShown 1.0 recall {'apple': 0.665, 'banana': 0.827, 'guava': 0.702, 'tomato': 0.667, 'brinjal': 0.632}
+C dev_vig_cast_blur1       fruitF1 0.7998 condF1 0.757 shown 0.4219 accShown 0.9789 recall {'apple': 0.807, 'banana': 0.861, 'guava': 0.819, 'tomato': 0.715, 'brinjal': 0.789}
+  val 0/1299 0s
+  val 200/1299 7s
+  val 400/1299 12s
+  val 600/1299 17s
+  val 800/1299 22s
+  val 1000/1299 27s
+  val 1200/1299 32s
+D dev_base: T=1.4 ece 0.0699->0.0528 thr {'apple': 0.992188, 'banana': 0.53125, 'guava': 0.976, 'tomato': 0.839844, 'brinjal': 0.644531}
+   global: shown 0.4891 acc 0.9636 | per-class: shown 0.5613 acc 0.9032
+D dev_vig_cast: T=1.4500000000000002 ece 0.0562->0.0477 thr {'apple': 0.992188, 'banana': 0.335938, 'guava': 0.976, 'tomato': 0.777344, 'brinjal': 0.617188}
+   global: shown 0.4862 acc 0.9736 | per-class: shown 0.5593 acc 0.9134
+A device_frame: 15 neg | false show R1-only 0.0 v5 0.0 per-class 0.0 | preds {'guava': 15}
+A device_frame_entc: 2 neg | false show R1-only 0.0 v5 0.0 per-class 0.0 | preds {'guava': 2}
+A synthetic_smooth: 60 neg | false show R1-only 0.6667 v5 0.0 per-class 0.0 | preds {'guava': 60}
+A test_background_patch_clean: 743 neg | false show R1-only 0.6756 v5 0.2692 per-class 0.2921 | preds {'guava': 707, 'banana': 29, 'apple': 5, 'brinjal': 2}
+A test_patch_with_fruit_parts: 257 neg | false show R1-only 0.4553 v5 0.2685 per-class 0.323 | preds {'guava': 205, 'banana': 39, 'apple': 13}
+B {"banana": {"correct_rate": 0.9956, "pred_counts": {"banana": 1122, "guava": 5}, "shown_v5_gate": 0.9894, "by_split": {"test": 0.9941, "train": 0.9949, "val": 1.0}, "by_grade": {"Average": 0.9802, "Good": 1.0, "Poor": 1.0}}, "guava": {"correct_rate": 0.5633, "pred_counts": {"guava": 307, "apple": 143, "banana": 63, "brinjal": 27, "tomato": 5}, "shown_v5_gate": 0.1688, "by_split": {"test": 0.6098, "train": 0.5696, "val": 0.4878}, "by_grade": {"Average": 0.7709, "Good": 0.2671, "Poor": 0.6146}}} near-dups: 0
+E stage_tomato {'n_test': 167, 'exact': 0.5689, 'off_by_1': 0.2934, 'off_by_2': 0.1377, 'rotten_predicted_fresh': 1, 'fresh_predicted_rotten': 22, 'exact_when_M1_routes_correctly': 0.5652, 'shelf_band_correct': '== exact stage (shelf band is a fixed lookup of the stage)'}
+E stage_brinjal {'n_test': 96, 'exact': 0.5521, 'off_by_1': 0.3229, 'off_by_2': 0.125, 'rotten_predicted_fresh': 0, 'fresh_predicted_rotten': 12, 'exact_when_M1_routes_correctly': 0.5568, 'shelf_band_correct': '== exact stage (shelf band is a fixed lookup of the stage)'}
+E stage_banana {'n_test': 91, 'exact': 0.956, 'off_by_1': 0.044, 'off_by_2': 0.0, 'rotten_predicted_fresh': 0, 'fresh_predicted_rotten': 0, 'exact_when_M1_routes_correctly': 0.9551, 'shelf_band_correct': '== exact stage (shelf band is a fixed lookup of the stage)'}
+saved D:\smart-pesticide-ml\reports\experiments\device_domain_20261017T152226Z

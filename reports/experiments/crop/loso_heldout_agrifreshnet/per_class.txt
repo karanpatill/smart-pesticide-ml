@@ -1,0 +1,34 @@
+# crop — trained WITHOUT agrifreshnet, evaluated on all agrifreshnet images
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple       0.0000  0.0000  0.0000        0
+banana      0.9883  0.5338  0.6932      474
+guava       0.0000  0.0000  0.0000        0
+tomato      0.0000  0.0000  0.0000      838
+brinjal     0.0000  0.0000  0.0000      389
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.7571  0.9359  0.8371      999
+spoiled     0.8627  0.5726  0.6884      702
+
+## Condition head — source agrifreshnet
+         precision  recall      f1  support
+fresh       0.7571  0.9359  0.8371      999
+spoiled     0.8627  0.5726  0.6884      702
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.7119  0.7283  0.7200      173
+spoiled     0.8418  0.8306  0.8361      301
+
+## Condition head — fruit brinjal
+         precision  recall      f1  support
+fresh       0.6451  0.9703  0.7750      236
+spoiled     0.7941  0.1765  0.2888      153
+
+## Condition head — fruit tomato
+         precision  recall      f1  support
+fresh       0.8250  0.9831  0.8971      590
+spoiled     0.9259  0.5040  0.6527      248

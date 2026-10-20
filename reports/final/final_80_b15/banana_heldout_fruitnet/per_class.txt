@@ -1,0 +1,24 @@
+# banana condition, trained WITHOUT fruitnet banana, evaluated on all fruitnet banana
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple          0.0  0.0000  0.0000        0
+banana         1.0  0.5677  0.7243     2200
+guava          0.0  0.0000  0.0000        0
+tomato         0.0  0.0000  0.0000        0
+brinjal        0.0  0.0000  0.0000        0
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.7523  0.8949  0.8174     1113
+spoiled     0.8664  0.6983  0.7733     1087
+
+## Condition head — source fruitnet
+         precision  recall      f1  support
+fresh       0.7523  0.8949  0.8174     1113
+spoiled     0.8664  0.6983  0.7733     1087
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.7523  0.8949  0.8174     1113
+spoiled     0.8664  0.6983  0.7733     1087

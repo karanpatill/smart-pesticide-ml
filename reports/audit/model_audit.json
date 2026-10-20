@@ -1,0 +1,149 @@
+{
+  "model1": {
+    "input": [
+      null,
+      80,
+      80,
+      3
+    ],
+    "outputs": {
+      "fruit": [
+        null,
+        5
+      ],
+      "condition": [
+        null,
+        2
+      ]
+    },
+    "fruit_order": [
+      "apple",
+      "banana",
+      "guava",
+      "tomato",
+      "brinjal"
+    ],
+    "condition_order": [
+      "fresh",
+      "spoiled"
+    ],
+    "params": 199519,
+    "test_recomputed": {
+      "n": 1012,
+      "fruit_macro_f1": 0.822,
+      "condition_macro_f1": 0.6785
+    },
+    "test_reported": {
+      "fruit_macro_f1": 0.822,
+      "condition_macro_f1": 0.6785
+    }
+  },
+  "model3": {
+    "input": [
+      null,
+      80,
+      80,
+      3
+    ],
+    "outputs": {
+      "fruit": [
+        null,
+        5
+      ],
+      "condition": [
+        null,
+        2
+      ],
+      "quality_banana": [
+        null,
+        3
+      ],
+      "quality_guava": [
+        null,
+        3
+      ],
+      "quality_apple": [
+        null,
+        2
+      ],
+      "stage_tomato": [
+        null,
+        3
+      ],
+      "stage_brinjal": [
+        null,
+        3
+      ],
+      "stage_banana": [
+        null,
+        3
+      ]
+    },
+    "heads": {
+      "quality_banana": [
+        "Good",
+        "Average",
+        "Poor"
+      ],
+      "quality_guava": [
+        "Good",
+        "Average",
+        "Poor"
+      ],
+      "quality_apple": [
+        "Good",
+        "Poor"
+      ],
+      "stage_tomato": [
+        "Fresh",
+        "Semi-fresh",
+        "Rotten"
+      ],
+      "stage_brinjal": [
+        "Fresh",
+        "Semi-fresh",
+        "Rotten"
+      ],
+      "stage_banana": [
+        "Fresh",
+        "Semi-fresh",
+        "Rotten"
+      ]
+    },
+    "fruit_condition_identical_to_model1": true
+  },
+  "model2": {
+    "pipeline": [
+      "pre",
+      "clf"
+    ],
+    "features_in": [
+      "sensor_tcs_r",
+      "sensor_tcs_g",
+      "sensor_tcs_b",
+      "sensor_tcs_c",
+      "sensor_mq135",
+      "sensor_ph",
+      "sensor_temp_c",
+      "sensor_humidity_pct",
+      "drv_tcs_r_over_c",
+      "drv_tcs_g_over_c",
+      "drv_tcs_b_over_c",
+      "drv_log_mq135"
+    ],
+    "classes_": [
+      0,
+      1,
+      2
+    ],
+    "class_meaning": "0=LOW 1=MEDIUM 2=HIGH (model2_train.py CLASSES)",
+    "coef_shape": [
+      3,
+      12
+    ],
+    "multi_class": "multinomial (lbfgs default)",
+    "test_recomputed_macro_f1_SYNTHETIC": 0.7716,
+    "test_reported_macro_f1_SYNTHETIC": 0.7716
+  },
+  "issues": []
+}

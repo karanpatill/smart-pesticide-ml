@@ -1,0 +1,24 @@
+# banana condition, trained WITHOUT agrifreshnet banana, evaluated on all agrifreshnet banana
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple          0.0  0.0000  0.0000        0
+banana         1.0  0.2553  0.4067      474
+guava          0.0  0.0000  0.0000        0
+tomato         0.0  0.0000  0.0000        0
+brinjal        0.0  0.0000  0.0000        0
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.9882  0.4855  0.6512      173
+spoiled     0.7712  0.9967  0.8696      301
+
+## Condition head — source agrifreshnet
+         precision  recall      f1  support
+fresh       0.9882  0.4855  0.6512      173
+spoiled     0.7712  0.9967  0.8696      301
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.9882  0.4855  0.6512      173
+spoiled     0.7712  0.9967  0.8696      301

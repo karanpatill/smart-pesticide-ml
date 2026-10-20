@@ -1,0 +1,53 @@
+# DRAFT — NOT APPROVED — synthetic development data for Model 2 (pipeline prototype only).
+# These numbers are ASSUMPTIONS for building/testing the ML pipeline. They are
+# not measurements and must not be presented as real sensor behaviour.
+# See docs/MODEL2_DATA_RESEARCH.md §3–4.
+
+status: superseded_by_configs/model2_synthetic.yaml (approved 2026-10-09)
+seed: 42
+
+samples:
+  n_sessions: 120              # measurement sessions (split unit; group-aware)
+  samples_per_session: [20, 40]
+fruits: [apple, banana, guava, tomato, brinjal]
+
+latent:
+  risk_prior: {LOW: 0.50, MEDIUM: 0.30, HIGH: 0.20}
+  risk_score_thresholds: [0.40, 0.70]   # latent 0–1 score -> LOW / MEDIUM / HIGH
+  label_noise: 0.07                      # fraction of labels flipped to a neighbouring class
+  freshness:
+    p_spoiled: 0.35
+    storage_day_range: [1, 5]
+
+sensors:
+  dht22:
+    temperature_c: {range: [18, 38], noise_sd: 0.5}
+    humidity_pct: {range: [30, 90], noise_sd: 3.0}
+  mq135:
+    units: raw_adc_like            # same raw scale as the Zenodo e-nose dataset
+    # Calibrated to Zenodo 17285312 medians (fruit x storage day); fruits not in that set
+    # (apple, guava, brinjal) borrow the closest available profile — an assumption.
+    day1_baseline_median: 600
+    day_growth_factor_per_day: [1.15, 1.35]   # ~2x over 4-5 days, as observed
+    temp_coeff_per_c: 0.006                   # relative change per °C vs 25 °C (assumption)
+    humidity_coeff_per_pct: 0.003             # relative change per %RH vs 50% (assumption)
+    session_offset_sd: 0.05                   # relative
+    unit_offset_sd: 0.04                      # relative
+    noise_sd: 0.03                            # relative, per reading
+    risk_effect_relative: {LOW: 0.00, MEDIUM: 0.04, HIGH: 0.08}   # deliberately << spoilage drift
+  ph:
+    baseline_by_fruit: {apple: 3.6, banana: 5.2, guava: 4.2, tomato: 4.3, brinjal: 5.6}  # approx. flesh/extract; assumption
+    probe_offset_sd: 0.10
+    noise_sd: 0.08
+    risk_effect: {LOW: 0.00, MEDIUM: 0.05, HIGH: 0.10}            # small, assumption
+  tcs34725:
+    mode: undecided                 # D1: fruit_surface | ache_test_strip
+    fruit_surface:                  # colour from fruit + freshness; NO risk effect
+      risk_effect: none
+    ache_test_strip:                # blue indophenol colour falls with enzyme inhibition
+      inhibition_by_risk: {LOW: [0.00, 0.20], MEDIUM: [0.20, 0.50], HIGH: [0.50, 0.90]}
+      overlap_jitter_sd: 0.08
+      lighting_gain_sd: 0.10
+
+checks:
+  max_single_feature_accuracy: 0.80  # flag as unrealistic if any one feature separates classes better

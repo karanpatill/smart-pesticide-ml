@@ -1,0 +1,8 @@
+{
+  "n": 20,
+  "exact_match": 20,
+  "max_abs_int8_diff": 0,
+  "all_head_argmax_same": 20,
+  "device": "host32 x86 (zig), TFLM CMSIS-NN portable int8 kernels, split arenas -- NOT STM32",
+  "reference": "tf.lite.Interpreter BUILTIN_REF kernels (Windows)"
+}

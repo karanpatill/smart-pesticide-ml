@@ -1,0 +1,34 @@
+# baseline — trained WITHOUT fruitnet, evaluated on all fruitnet images
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple       0.0000  0.0000  0.0000     2275
+banana      0.8213  0.8377  0.8294     2200
+guava       0.0000  0.0000  0.0000     2281
+tomato      0.0000  0.0000  0.0000        0
+brinjal     0.0000  0.0000  0.0000        0
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.7735  0.6852  0.7267     3399
+spoiled     0.7143  0.7968  0.7533     3357
+
+## Condition head — source fruitnet
+         precision  recall      f1  support
+fresh       0.7735  0.6852  0.7267     3399
+spoiled     0.7143  0.7968  0.7533     3357
+
+## Condition head — fruit apple
+         precision  recall      f1  support
+fresh       0.7619  0.6658  0.7106     1134
+spoiled     0.7048  0.7932  0.7464     1141
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.8371  0.8221  0.8296     1113
+spoiled     0.8211  0.8362  0.8286     1087
+
+## Condition head — fruit guava
+         precision  recall      f1  support
+fresh       0.7109  0.5720  0.6340     1152
+spoiled     0.6359  0.7626  0.6935     1129

@@ -1,0 +1,6 @@
+{
+ "what": "candidate fruit-vs-background logistic head on Model 1 gap (56-d)",
+ "status": "CANDIDATE, not deployed",
+ "extractor": "models\\model1\\model1_final.keras",
+ "report": "reports\\experiments\\background_head_20261017T152313Z"
+}

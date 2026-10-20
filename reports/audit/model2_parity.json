@@ -1,0 +1,8 @@
+{
+  "n_vectors": 3646,
+  "max_abs_prob_diff_json_vs_sklearn": 0.0,
+  "max_abs_prob_diff_C_float32_vs_sklearn": 4.7617106291308886e-07,
+  "class_agreement_C_vs_sklearn": 1.0,
+  "cortex_m4f_object_bytes_compile_only": 768,
+  "note": "Export fidelity only; Model 2 is a synthetic-data prototype."
+}

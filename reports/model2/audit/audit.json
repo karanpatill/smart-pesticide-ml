@@ -1,0 +1,219 @@
+{
+  "SYNTHETIC": "All numbers describe synthetic prototype data, not real sensors or pesticides.",
+  "class_balance": {
+    "noisy_label": {
+      "LOW": 0.4772,
+      "MEDIUM": 0.336,
+      "HIGH": 0.1868
+    },
+    "clean_latent": {
+      "LOW": 0.5052,
+      "MEDIUM": 0.3077,
+      "HIGH": 0.1871
+    },
+    "label_noise_realised": 0.0765,
+    "per_session_share_p5_p95": {
+      "LOW": [
+        0.323,
+        0.625
+      ],
+      "MEDIUM": [
+        0.19,
+        0.5
+      ],
+      "HIGH": [
+        0.081,
+        0.286
+      ]
+    }
+  },
+  "mq135_day_ratio_real_vs_synthetic": {
+    "real_zenodo": {
+      "banana": {
+        "1": 1.0,
+        "2": 1.3,
+        "3": 1.52,
+        "4": 2.02,
+        "5": 2.17
+      },
+      "tomato": {
+        "1": 1.0,
+        "2": 1.4,
+        "3": 1.78,
+        "4": 2.06,
+        "5": 2.5
+      }
+    },
+    "synthetic": {
+      "banana": {
+        "1": 1.0,
+        "2": 1.26,
+        "3": 1.54,
+        "4": 2.02,
+        "5": 2.58
+      },
+      "tomato": {
+        "1": 1.0,
+        "2": 1.25,
+        "3": 1.54,
+        "4": 1.98,
+        "5": 2.51
+      }
+    },
+    "note": "synthetic includes T/RH/session variation absent from the lab recordings"
+  },
+  "mq135_spoilage_vs_risk_effect": {
+    "median_ratio_spoiled_over_fresh": 1.692,
+    "median_ratio_HIGH_over_LOW_clean": 1.05
+  },
+  "target_spearman": {
+    "sensor_tcs_r": 0.728,
+    "sensor_tcs_g": 0.634,
+    "sensor_tcs_b": 0.11,
+    "sensor_tcs_c": 0.601,
+    "sensor_mq135": 0.068,
+    "sensor_ph": 0.043,
+    "sensor_temp_c": -0.03,
+    "sensor_humidity_pct": -0.014,
+    "aux_m1_p_spoiled": 0.008,
+    "latent_risk_score": 0.849,
+    "latent_spoiled": -0.01,
+    "latent_storage_day": -0.008
+  },
+  "leakage": {
+    "feature_columns": [
+      "sensor_tcs_r",
+      "sensor_tcs_g",
+      "sensor_tcs_b",
+      "sensor_tcs_c",
+      "sensor_mq135",
+      "sensor_ph",
+      "sensor_temp_c",
+      "sensor_humidity_pct",
+      "aux_m1_fruit",
+      "aux_m1_condition",
+      "aux_m1_p_spoiled"
+    ],
+    "no_target_or_latent_in_features": true,
+    "duplicate_feature_rows": 0,
+    "target_vs_device_unit_crosstab": {
+      "HIGH": {
+        "0": 0.187,
+        "1": 0.192,
+        "2": 0.181
+      },
+      "LOW": {
+        "0": 0.48,
+        "1": 0.482,
+        "2": 0.47
+      },
+      "MEDIUM": {
+        "0": 0.333,
+        "1": 0.326,
+        "2": 0.349
+      }
+    },
+    "target_vs_aux_fruit_crosstab": {
+      "HIGH": {
+        "apple": 0.187,
+        "banana": 0.184,
+        "brinjal": 0.184,
+        "guava": 0.193,
+        "tomato": 0.181
+      },
+      "LOW": {
+        "apple": 0.486,
+        "banana": 0.456,
+        "brinjal": 0.488,
+        "guava": 0.479,
+        "tomato": 0.47
+      },
+      "MEDIUM": {
+        "apple": 0.327,
+        "banana": 0.36,
+        "brinjal": 0.328,
+        "guava": 0.328,
+        "tomato": 0.349
+      }
+    },
+    "target_vs_aux_condition_crosstab": {
+      "HIGH": {
+        "fresh": 0.179,
+        "spoiled": 0.195
+      },
+      "LOW": {
+        "fresh": 0.482,
+        "spoiled": 0.473
+      },
+      "MEDIUM": {
+        "fresh": 0.339,
+        "spoiled": 0.333
+      }
+    }
+  },
+  "single_feature_depth2_tree_grouped_cv": {
+    "sensor_tcs_r": {
+      "accuracy": 0.6882,
+      "macro_f1": 0.6512,
+      "flag": false
+    },
+    "sensor_tcs_g": {
+      "accuracy": 0.6273,
+      "macro_f1": 0.5768,
+      "flag": false
+    },
+    "sensor_tcs_b": {
+      "accuracy": 0.4624,
+      "macro_f1": 0.2202,
+      "flag": false
+    },
+    "sensor_tcs_c": {
+      "accuracy": 0.6185,
+      "macro_f1": 0.5741,
+      "flag": false
+    },
+    "sensor_mq135": {
+      "accuracy": 0.4772,
+      "macro_f1": 0.2399,
+      "flag": false
+    },
+    "sensor_ph": {
+      "accuracy": 0.4794,
+      "macro_f1": 0.2325,
+      "flag": false
+    },
+    "sensor_temp_c": {
+      "accuracy": 0.4723,
+      "macro_f1": 0.2186,
+      "flag": false
+    },
+    "sensor_humidity_pct": {
+      "accuracy": 0.475,
+      "macro_f1": 0.2154,
+      "flag": false
+    },
+    "aux_m1_p_spoiled": {
+      "accuracy": 0.4717,
+      "macro_f1": 0.2206,
+      "flag": false
+    },
+    "ratio_tcs_b_over_c": {
+      "accuracy": 0.7137,
+      "macro_f1": 0.6868,
+      "flag": false
+    },
+    "ratio_tcs_r_over_c": {
+      "accuracy": 0.7296,
+      "macro_f1": 0.7115,
+      "flag": false
+    }
+  },
+  "majority_baseline_accuracy": 0.4772,
+  "aux_only_proxy_check_logreg_grouped_cv": {
+    "accuracy": 0.3127,
+    "macro_f1": 0.3036,
+    "flag": false
+  },
+  "clean_label_ceiling_accuracy": 0.9235,
+  "flags": []
+}

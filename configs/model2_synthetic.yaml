@@ -1,0 +1,82 @@
+# APPROVED 2026-10-09 — synthetic development data for Model 2 (PIPELINE PROTOTYPE ONLY).
+# Every number here is an ASSUMPTION used to build/test the software pipeline.
+# None of it is a measurement; any accuracy on this data is SYNTHETIC/PROTOTYPE
+# performance and says nothing about real pesticide-residue detection.
+# Decisions: docs/MODEL2_DATA_RESEARCH.md §4 (D1 = AChE strip reader,
+# D2 = inhibition/risk bands, D3 = draft approved, D4 = Model 1 aux features).
+# Do NOT tune these values to raise model accuracy.
+
+version: 1
+status: approved_synthetic_prototype
+seed: 42
+
+samples:
+  n_sessions: 120              # measurement sessions = split unit (group-aware)
+  samples_per_session: [20, 40]
+  device_units: 3              # simulated sensor-kit units (per-unit offsets)
+fruits: [apple, banana, guava, tomato, brinjal]
+
+target:
+  classes: [LOW, MEDIUM, HIGH]
+  prior: {LOW: 0.50, MEDIUM: 0.30, HIGH: 0.20}
+  # Latent unitless risk score in [0,1]; class bands below. The score is
+  # INDEPENDENT of fruit type and freshness (no data supports a dependency),
+  # so Model 1 outputs cannot predict risk on their own.
+  score_bands: {LOW: [0.00, 0.40], MEDIUM: [0.40, 0.70], HIGH: [0.70, 1.00]}
+  label_noise: 0.07            # labels flipped to a NEIGHBOURING class (imperfect reference)
+
+freshness:
+  p_spoiled: 0.35
+  storage_day: {fresh: [1, 2], spoiled: [3, 5]}
+
+sensors:
+  dht22:                       # session ambient + within-session drift + sensor noise
+    temperature_c: {session_range: [18, 38], within_session_sd: 0.7, noise_sd: 0.5}
+    humidity_pct: {session_range: [30, 90], within_session_sd: 2.0, noise_sd: 3.0}
+
+  mq135:
+    units: raw_adc_like        # same raw scale as Zenodo 17285312
+    # Day-1 medians from Zenodo 17285312 where available; others borrowed (assumption):
+    # apple <- pear (658), brinjal <- mushroom (604), guava: no reference (600).
+    day1_median_by_fruit: {apple: 658, banana: 536, guava: 600, tomato: 695, brinjal: 604}
+    day_growth_factor: [1.15, 1.35]   # per storage day; ~2x over 4-5 days as observed
+    temp_coeff_per_c: 0.006           # relative, vs 25 °C (assumption)
+    humidity_coeff_per_pct: 0.003     # relative, vs 50 %RH (assumption)
+    session_offset_sd: 0.05
+    unit_offset_sd: 0.04
+    noise_sd: 0.03
+    risk_effect_relative: {LOW: 0.00, MEDIUM: 0.04, HIGH: 0.08}   # deliberately << spoilage drift
+
+  ph:
+    # Approximate flesh/extract pH (assumption); the risk shift's sign is arbitrary.
+    baseline_by_fruit: {apple: 3.6, banana: 5.2, guava: 4.2, tomato: 4.3, brinjal: 5.6}
+    fruit_sample_sd: 0.15             # natural fruit-to-fruit variation
+    probe_offset_sd: 0.10             # per session (calibration)
+    noise_sd: 0.08
+    risk_effect: {LOW: 0.00, MEDIUM: 0.05, HIGH: 0.10}
+
+  tcs34725:
+    mode: ache_test_strip             # D1: reads an AChE enzyme-inhibition strip, NOT the fruit
+    # Inhibition fraction (0 = full enzyme activity -> strong blue indophenol;
+    # 1 = fully inhibited -> pale strip). Band per risk class, linear in the latent score.
+    inhibition_by_risk: {LOW: [0.00, 0.20], MEDIUM: [0.20, 0.50], HIGH: [0.50, 0.90]}
+    overlap_jitter_sd: 0.08           # strip-to-strip / sampling variability
+    reaction_temp_coeff: 0.02         # dye development per °C vs 25 °C (enzyme kinetics)
+    lighting_gain_sd: 0.10            # per session illumination / LED / distance
+    unit_gain_sd: 0.05                # per device unit
+    strip_reflectance_white: [0.85, 0.85, 0.85]   # R, G, B of an undeveloped strip
+    dye_absorption_rgb: [0.55, 0.35, 0.05]        # blue dye absorbs mostly red/green
+    counts_full_scale: 1000           # counts at reflectance 1.0, gain 1.0
+    count_noise_sd: 0.02              # relative
+    clear_vs_rgb_sum: 0.9
+
+model1_aux:
+  # Simulated Model 1 outputs are drawn from Model 1's REAL held-out TEST
+  # predictions (reports/model1/final/test/predictions.csv), conditioned on the
+  # synthetic sample's true fruit and true freshness, so their error rates match
+  # the real model's.
+  source: reports/model1/final/test/predictions.csv
+
+checks:
+  max_single_feature_accuracy: 0.80   # flag any one feature that separates classes better (grouped CV)
+  max_aux_only_macro_f1: 0.40         # Model 1 aux features alone must stay near chance (proxy guard)

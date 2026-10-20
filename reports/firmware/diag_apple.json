@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-10-17T23:31:29+05:30",
+  "scene": "apple",
+  "fruit_presented": "apple",
+  "raw_fruit_class": 2,
+  "raw_fruit_name": "guava",
+  "raw_fruit_conf": 0.801,
+  "condition": 0,
+  "condition_conf": 0.551,
+  "fruit_present": 0,
+  "gated_decision": "NOFRUIT/UNKNOWN",
+  "gated_fruit_st": "UNCERTAIN",
+  "status": "FV_OK",
+  "img_detail_x10": 4663,
+  "serial_line": "FV1,status=OK,img_flags=0x1000,fruit=-,fruit_pm=-1,fruit_st=UNCERTAIN,cond=-,cond_pm=-1,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x11,risk=-,risk_st=UNCERTAIN,risk_reasons=0xc,sens_err=0x0,sens_warn=0x0,ood=0x2e",
+  "oled_rows": [
+    "Fruit:NOFRUIT/UNKNOWN",
+    "Cond:UNCERTAIN",
+    "Grade:UNCERTAIN",
+    "Shelf:UNCERTAIN",
+    "Risk:UNCERTAIN",
+    "pH9.28 ENTC MQ370",
+    "T33.0C RH50%",
+    "*proto, not lab test"
+  ],
+  "telemetry": {
+    "uptime_ms": 2319077,
+    "cycles": 825,
+    "last_capture_bytes": 38400,
+    "temp_c": 33.0,
+    "rh_pct": 50.0,
+    "mq135_raw": 373,
+    "ph_entc": 9.28,
+    "tcs_c": 3937,
+    "tcs_r": 694,
+    "tcs_g": 1351,
+    "tcs_b": 1644
+  }
+}

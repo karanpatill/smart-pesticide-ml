@@ -1,0 +1,8 @@
+quality_apple   true=apple/Poor       -> fruit=apple (0.66) grade=Poor (0.98, binary (Good/Poor)) shelf=Not available
+quality_banana  true=banana/Poor       -> fruit=banana (1.00) grade=Poor (0.99, 3-level (Good/Average/Poor)) shelf=[3, 6] d (Fresh)
+quality_guava   true=guava/Average    -> fruit=banana (0.40) grade=Good (1.00, 3-level (Good/Average/Poor)) shelf=[3, 6] d (Fresh)
+stage_banana    true=banana/Rotten     -> fruit=banana (1.00) grade=Poor (1.00, 3-level (Good/Average/Poor)) shelf=[0, 0] d (Rotten)
+stage_brinjal   true=brinjal/Semi-fresh -> fruit=brinjal (0.80) grade=Poor (0.71, 3-level (Good/Average/Poor)) shelf=[0, 0] d (Rotten)
+stage_tomato    true=tomato/Rotten     -> fruit=tomato (0.77) grade=Average (0.48, 3-level (Good/Average/Poor)) shelf=[0, 14] d (Semi-fresh)
+
+clean process (python -I, cwd=C:\Users\kpvlo\AppData\Local\Temp): 6 TEST images; consistent with training-time predictions: 6/6

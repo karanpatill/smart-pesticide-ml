@@ -1,0 +1,2 @@
+init=0 used=149120 inv=0,0,0 mism=0,0,0 maxdiff=0 resmism=0 fruit=2,2,0 m2=0 cls=1 p=0.069783,0.644367,0.285850 m2ok=1 PASS=1
+FRAME pp=0 hash=0x75A73113 hash_ok=1 flags=4096 inv=0 mism=0 fruit=1 result_ok=1

@@ -1,0 +1,135 @@
+{
+  "feature_set": "S",
+  "model": "logreg",
+  "best_params": {
+    "C": 0.1
+  },
+  "val_macro_f1": 0.7866,
+  "cv_mean": {
+    "accuracy": 0.772,
+    "macro_precision": 0.7597,
+    "macro_recall": 0.7785,
+    "macro_f1": 0.7673
+  },
+  "cv_sd": {
+    "accuracy": 0.017,
+    "macro_precision": 0.0165,
+    "macro_recall": 0.0149,
+    "macro_f1": 0.0155
+  },
+  "cv_folds": [
+    {
+      "accuracy": 0.7646,
+      "macro_precision": 0.7471,
+      "macro_recall": 0.7715,
+      "macro_f1": 0.7569
+    },
+    {
+      "accuracy": 0.7437,
+      "macro_precision": 0.7338,
+      "macro_recall": 0.7526,
+      "macro_f1": 0.7418
+    },
+    {
+      "accuracy": 0.7944,
+      "macro_precision": 0.7772,
+      "macro_recall": 0.7925,
+      "macro_f1": 0.7826
+    },
+    {
+      "accuracy": 0.7796,
+      "macro_precision": 0.7684,
+      "macro_recall": 0.7904,
+      "macro_f1": 0.7775
+    },
+    {
+      "accuracy": 0.7778,
+      "macro_precision": 0.7719,
+      "macro_recall": 0.7853,
+      "macro_f1": 0.7779
+    }
+  ],
+  "test": {
+    "accuracy": 0.7864,
+    "macro_precision": 0.7663,
+    "macro_recall": 0.7778,
+    "macro_f1": 0.7716
+  },
+  "test_vs_clean_labels_diagnostic": {
+    "accuracy": 0.8379,
+    "macro_precision": 0.814,
+    "macro_recall": 0.838,
+    "macro_f1": 0.8245
+  },
+  "test_per_class": {
+    "LOW": {
+      "precision": 0.8722,
+      "recall": 0.8561,
+      "f1-score": 0.8641,
+      "support": 271.0
+    },
+    "MEDIUM": {
+      "precision": 0.6744,
+      "recall": 0.6629,
+      "f1-score": 0.6686,
+      "support": 175.0
+    },
+    "HIGH": {
+      "precision": 0.7524,
+      "recall": 0.8144,
+      "f1-score": 0.7822,
+      "support": 97.0
+    }
+  },
+  "test_confusion": [
+    [
+      232,
+      38,
+      1
+    ],
+    [
+      34,
+      116,
+      25
+    ],
+    [
+      0,
+      18,
+      79
+    ]
+  ],
+  "permutation_importance_test": {
+    "drv_tcs_r_over_c": 0.1369,
+    "sensor_tcs_r": 0.0924,
+    "sensor_temp_c": 0.0772,
+    "drv_tcs_b_over_c": 0.0622,
+    "sensor_tcs_b": 0.0549,
+    "drv_log_mq135": 0.0225,
+    "sensor_tcs_g": 0.0108,
+    "sensor_tcs_c": 0.0091,
+    "sensor_mq135": 0.0031,
+    "sensor_humidity_pct": -0.0002,
+    "sensor_ph": -0.0015,
+    "drv_tcs_g_over_c": -0.0032
+  },
+  "native_importance": {
+    "num__drv_tcs_r_over_c": 0.7295,
+    "num__sensor_tcs_r": 0.6113,
+    "num__sensor_temp_c": 0.5643,
+    "num__drv_tcs_b_over_c": 0.5324,
+    "num__sensor_tcs_b": 0.4416,
+    "num__sensor_tcs_c": 0.2277,
+    "num__sensor_tcs_g": 0.2275,
+    "num__sensor_mq135": 0.1374,
+    "num__drv_log_mq135": 0.1276,
+    "num__drv_tcs_g_over_c": 0.0639,
+    "num__sensor_ph": 0.0402,
+    "num__sensor_humidity_pct": 0.0067
+  },
+  "mcu_footprint_estimate": {
+    "kind": "linear",
+    "params": 63,
+    "approx_bytes": 252
+  },
+  "train_seconds": 6.0
+}

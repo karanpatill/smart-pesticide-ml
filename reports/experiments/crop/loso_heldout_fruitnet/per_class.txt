@@ -1,0 +1,34 @@
+# crop — trained WITHOUT fruitnet, evaluated on all fruitnet images
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple       0.2857  0.0009  0.0018     2275
+banana      0.8449  0.8495  0.8472     2200
+guava       0.0000  0.0000  0.0000     2281
+tomato      0.0000  0.0000  0.0000        0
+brinjal     0.0000  0.0000  0.0000        0
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.8640  0.5608  0.6801     3399
+spoiled     0.6719  0.9106  0.7732     3357
+
+## Condition head — source fruitnet
+         precision  recall      f1  support
+fresh       0.8640  0.5608  0.6801     3399
+spoiled     0.6719  0.9106  0.7732     3357
+
+## Condition head — fruit apple
+         precision  recall      f1  support
+fresh       0.8775  0.5750  0.6947     1134
+spoiled     0.6854  0.9202  0.7856     1141
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.8668  0.5903  0.7023     1113
+spoiled     0.6838  0.9071  0.7798     1087
+
+## Condition head — fruit guava
+         precision  recall      f1  support
+fresh       0.8468  0.5182  0.6430     1152
+spoiled     0.6478  0.9043  0.7549     1129

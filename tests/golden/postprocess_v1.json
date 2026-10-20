@@ -1,0 +1,710 @@
+{
+ "low_conf_guava": {
+  "input": {
+   "fruit": {
+    "guava": 0.4,
+    "apple": 0.15,
+    "banana": 0.15,
+    "tomato": 0.15,
+    "brinjal": 0.15
+   },
+   "condition": {
+    "fresh": 0.3,
+    "spoiled": 0.7
+   },
+   "heads": {
+    "quality_banana": {
+     "Good": 0.1,
+     "Average": 0.1,
+     "Poor": 0.8
+    },
+    "quality_guava": {
+     "Good": 0.7,
+     "Average": 0.2,
+     "Poor": 0.1
+    },
+    "quality_apple": {
+     "Good": 0.9,
+     "Poor": 0.1
+    },
+    "stage_tomato": {
+     "Fresh": 0.1,
+     "Semi-fresh": 0.8,
+     "Rotten": 0.1
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8,
+     "Semi-fresh": 0.1,
+     "Rotten": 0.1
+    },
+    "stage_banana": {
+     "Fresh": 0.9,
+     "Semi-fresh": 0.05,
+     "Rotten": 0.05
+    }
+   }
+  },
+  "output": {
+   "fruit": {
+    "label": "guava",
+    "confidence": 0.4,
+    "source": "Model 1"
+   },
+   "condition": {
+    "label": "spoiled",
+    "confidence": 0.7,
+    "source": "Model 1"
+   },
+   "quality_grade": {
+    "label": "Uncertain",
+    "confidence": null,
+    "scale": null,
+    "basis": null,
+    "head": null,
+    "reason": "Fruit routing confidence 0.400 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+    "source": "post-processing (R1)"
+   },
+   "shelf_life": {
+    "status": "not_available",
+    "range_days": null,
+    "reason": "Fruit routing confidence 0.400 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+    "source": "post-processing (R1)"
+   },
+   "consistency": {
+    "status": "uncertain",
+    "warnings": [
+     {
+      "rule": "R1_low_fruit_confidence",
+      "severity": "uncertain",
+      "message": "Fruit routing confidence 0.400 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+      "details": {
+       "fruit_confidence": 0.4,
+       "threshold": 0.976
+      }
+     }
+    ]
+   },
+   "raw": {
+    "fruit_probabilities": {
+     "guava": 0.4,
+     "apple": 0.15,
+     "banana": 0.15,
+     "tomato": 0.15,
+     "brinjal": 0.15
+    },
+    "condition_probabilities": {
+     "fresh": 0.3,
+     "spoiled": 0.7
+    },
+    "head_probabilities": {
+     "quality_banana": {
+      "Good": 0.1,
+      "Average": 0.1,
+      "Poor": 0.8
+     },
+     "quality_guava": {
+      "Good": 0.7,
+      "Average": 0.2,
+      "Poor": 0.1
+     },
+     "quality_apple": {
+      "Good": 0.9,
+      "Poor": 0.1
+     },
+     "stage_tomato": {
+      "Fresh": 0.1,
+      "Semi-fresh": 0.8,
+      "Rotten": 0.1
+     },
+     "stage_brinjal": {
+      "Fresh": 0.8,
+      "Semi-fresh": 0.1,
+      "Rotten": 0.1
+     },
+     "stage_banana": {
+      "Fresh": 0.9,
+      "Semi-fresh": 0.05,
+      "Rotten": 0.05
+     }
+    },
+    "routed_quality_head": "quality_guava",
+    "routed_stage_head": null,
+    "routed_outputs_used_in_final": false
+   },
+   "postprocess": {
+    "version": 1,
+    "fruit_confidence_threshold": 0.976
+   },
+   "notes": [
+    "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+    "The image models do not detect pesticide residue.",
+    "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+   ]
+  }
+ },
+ "banana_contradiction": {
+  "input": {
+   "fruit": {
+    "banana": 0.99,
+    "apple": 0.0025000000000000022,
+    "guava": 0.0025000000000000022,
+    "tomato": 0.0025000000000000022,
+    "brinjal": 0.0025000000000000022
+   },
+   "condition": {
+    "fresh": 0.3,
+    "spoiled": 0.7
+   },
+   "heads": {
+    "quality_banana": {
+     "Good": 0.1,
+     "Average": 0.1,
+     "Poor": 0.8
+    },
+    "quality_guava": {
+     "Good": 0.7,
+     "Average": 0.2,
+     "Poor": 0.1
+    },
+    "quality_apple": {
+     "Good": 0.9,
+     "Poor": 0.1
+    },
+    "stage_tomato": {
+     "Fresh": 0.1,
+     "Semi-fresh": 0.8,
+     "Rotten": 0.1
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8,
+     "Semi-fresh": 0.1,
+     "Rotten": 0.1
+    },
+    "stage_banana": {
+     "Fresh": 0.9,
+     "Semi-fresh": 0.05,
+     "Rotten": 0.05
+    }
+   }
+  },
+  "output": {
+   "fruit": {
+    "label": "banana",
+    "confidence": 0.99,
+    "source": "Model 1"
+   },
+   "condition": {
+    "label": "spoiled",
+    "confidence": 0.7,
+    "source": "Model 1"
+   },
+   "quality_grade": {
+    "label": "Poor",
+    "confidence": 0.8,
+    "scale": "3-level (Good/Average/Poor)",
+    "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+    "head": "quality_banana",
+    "source": "Model 3"
+   },
+   "shelf_life": {
+    "status": "estimated_range",
+    "range_days": [
+     3,
+     6
+    ],
+    "stage": "Fresh",
+    "stage_confidence": 0.9,
+    "head": "stage_banana",
+    "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+    "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+    "source": "Model 3 stage head + fixed lookup (no regression)"
+   },
+   "consistency": {
+    "status": "warning",
+    "warnings": [
+     {
+      "rule": "R2_grade_vs_stage",
+      "severity": "contradiction",
+      "message": "Quality grade 'Poor' and shelf-life stage 'Fresh' contradict each other. They come from different models trained on different datasets; treat both as uncertain. Neither output was altered.",
+      "details": {
+       "grade": "Poor",
+       "stage": "Fresh",
+       "ordinal_distance": 2
+      }
+     }
+    ]
+   },
+   "raw": {
+    "fruit_probabilities": {
+     "banana": 0.99,
+     "apple": 0.0025,
+     "guava": 0.0025,
+     "tomato": 0.0025,
+     "brinjal": 0.0025
+    },
+    "condition_probabilities": {
+     "fresh": 0.3,
+     "spoiled": 0.7
+    },
+    "head_probabilities": {
+     "quality_banana": {
+      "Good": 0.1,
+      "Average": 0.1,
+      "Poor": 0.8
+     },
+     "quality_guava": {
+      "Good": 0.7,
+      "Average": 0.2,
+      "Poor": 0.1
+     },
+     "quality_apple": {
+      "Good": 0.9,
+      "Poor": 0.1
+     },
+     "stage_tomato": {
+      "Fresh": 0.1,
+      "Semi-fresh": 0.8,
+      "Rotten": 0.1
+     },
+     "stage_brinjal": {
+      "Fresh": 0.8,
+      "Semi-fresh": 0.1,
+      "Rotten": 0.1
+     },
+     "stage_banana": {
+      "Fresh": 0.9,
+      "Semi-fresh": 0.05,
+      "Rotten": 0.05
+     }
+    },
+    "routed_quality_head": "quality_banana",
+    "routed_stage_head": "stage_banana",
+    "routed_outputs_used_in_final": true
+   },
+   "postprocess": {
+    "version": 1,
+    "fruit_confidence_threshold": 0.976
+   },
+   "notes": [
+    "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+    "The image models do not detect pesticide residue.",
+    "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+   ]
+  }
+ },
+ "tomato_fresh": {
+  "input": {
+   "fruit": {
+    "tomato": 0.99,
+    "apple": 0.0025000000000000022,
+    "banana": 0.0025000000000000022,
+    "guava": 0.0025000000000000022,
+    "brinjal": 0.0025000000000000022
+   },
+   "condition": {
+    "fresh": 0.7,
+    "spoiled": 0.3
+   },
+   "heads": {
+    "quality_banana": {
+     "Good": 0.1,
+     "Average": 0.1,
+     "Poor": 0.8
+    },
+    "quality_guava": {
+     "Good": 0.7,
+     "Average": 0.2,
+     "Poor": 0.1
+    },
+    "quality_apple": {
+     "Good": 0.9,
+     "Poor": 0.1
+    },
+    "stage_tomato": {
+     "Fresh": 0.1,
+     "Semi-fresh": 0.8,
+     "Rotten": 0.1
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8,
+     "Semi-fresh": 0.1,
+     "Rotten": 0.1
+    },
+    "stage_banana": {
+     "Fresh": 0.9,
+     "Semi-fresh": 0.05,
+     "Rotten": 0.05
+    }
+   }
+  },
+  "output": {
+   "fruit": {
+    "label": "tomato",
+    "confidence": 0.99,
+    "source": "Model 1"
+   },
+   "condition": {
+    "label": "fresh",
+    "confidence": 0.7,
+    "source": "Model 1"
+   },
+   "quality_grade": {
+    "label": "Average",
+    "confidence": 0.8,
+    "scale": "3-level (Good/Average/Poor)",
+    "basis": "AgriFreshNET freshness stage (Fresh/Semi-fresh/Rotten) - grade = freshness stage",
+    "head": "stage_tomato",
+    "source": "Model 3"
+   },
+   "shelf_life": {
+    "status": "estimated_range",
+    "range_days": [
+     0,
+     14
+    ],
+    "stage": "Semi-fresh",
+    "stage_confidence": 0.8,
+    "head": "stage_tomato",
+    "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+    "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+    "source": "Model 3 stage head + fixed lookup (no regression)"
+   },
+   "consistency": {
+    "status": "ok",
+    "warnings": []
+   },
+   "raw": {
+    "fruit_probabilities": {
+     "tomato": 0.99,
+     "apple": 0.0025,
+     "banana": 0.0025,
+     "guava": 0.0025,
+     "brinjal": 0.0025
+    },
+    "condition_probabilities": {
+     "fresh": 0.7,
+     "spoiled": 0.3
+    },
+    "head_probabilities": {
+     "quality_banana": {
+      "Good": 0.1,
+      "Average": 0.1,
+      "Poor": 0.8
+     },
+     "quality_guava": {
+      "Good": 0.7,
+      "Average": 0.2,
+      "Poor": 0.1
+     },
+     "quality_apple": {
+      "Good": 0.9,
+      "Poor": 0.1
+     },
+     "stage_tomato": {
+      "Fresh": 0.1,
+      "Semi-fresh": 0.8,
+      "Rotten": 0.1
+     },
+     "stage_brinjal": {
+      "Fresh": 0.8,
+      "Semi-fresh": 0.1,
+      "Rotten": 0.1
+     },
+     "stage_banana": {
+      "Fresh": 0.9,
+      "Semi-fresh": 0.05,
+      "Rotten": 0.05
+     }
+    },
+    "routed_quality_head": "stage_tomato",
+    "routed_stage_head": "stage_tomato",
+    "routed_outputs_used_in_final": true
+   },
+   "postprocess": {
+    "version": 1,
+    "fruit_confidence_threshold": 0.976
+   },
+   "notes": [
+    "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+    "The image models do not detect pesticide residue.",
+    "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+   ]
+  }
+ },
+ "apple_fresh": {
+  "input": {
+   "fruit": {
+    "apple": 0.99,
+    "banana": 0.0025000000000000022,
+    "guava": 0.0025000000000000022,
+    "tomato": 0.0025000000000000022,
+    "brinjal": 0.0025000000000000022
+   },
+   "condition": {
+    "fresh": 0.7,
+    "spoiled": 0.3
+   },
+   "heads": {
+    "quality_banana": {
+     "Good": 0.1,
+     "Average": 0.1,
+     "Poor": 0.8
+    },
+    "quality_guava": {
+     "Good": 0.7,
+     "Average": 0.2,
+     "Poor": 0.1
+    },
+    "quality_apple": {
+     "Good": 0.9,
+     "Poor": 0.1
+    },
+    "stage_tomato": {
+     "Fresh": 0.1,
+     "Semi-fresh": 0.8,
+     "Rotten": 0.1
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8,
+     "Semi-fresh": 0.1,
+     "Rotten": 0.1
+    },
+    "stage_banana": {
+     "Fresh": 0.9,
+     "Semi-fresh": 0.05,
+     "Rotten": 0.05
+    }
+   }
+  },
+  "output": {
+   "fruit": {
+    "label": "apple",
+    "confidence": 0.99,
+    "source": "Model 1"
+   },
+   "condition": {
+    "label": "fresh",
+    "confidence": 0.7,
+    "source": "Model 1"
+   },
+   "quality_grade": {
+    "label": "Good",
+    "confidence": 0.9,
+    "scale": "binary (Good/Poor)",
+    "basis": "FruitNet Good/Bad label (binary; no 'Average' class exists for apple)",
+    "head": "quality_apple",
+    "source": "Model 3"
+   },
+   "shelf_life": {
+    "status": "not_available",
+    "range_days": null,
+    "reason": "no public storage-time data found",
+    "source": "Model 3"
+   },
+   "consistency": {
+    "status": "ok",
+    "warnings": []
+   },
+   "raw": {
+    "fruit_probabilities": {
+     "apple": 0.99,
+     "banana": 0.0025,
+     "guava": 0.0025,
+     "tomato": 0.0025,
+     "brinjal": 0.0025
+    },
+    "condition_probabilities": {
+     "fresh": 0.7,
+     "spoiled": 0.3
+    },
+    "head_probabilities": {
+     "quality_banana": {
+      "Good": 0.1,
+      "Average": 0.1,
+      "Poor": 0.8
+     },
+     "quality_guava": {
+      "Good": 0.7,
+      "Average": 0.2,
+      "Poor": 0.1
+     },
+     "quality_apple": {
+      "Good": 0.9,
+      "Poor": 0.1
+     },
+     "stage_tomato": {
+      "Fresh": 0.1,
+      "Semi-fresh": 0.8,
+      "Rotten": 0.1
+     },
+     "stage_brinjal": {
+      "Fresh": 0.8,
+      "Semi-fresh": 0.1,
+      "Rotten": 0.1
+     },
+     "stage_banana": {
+      "Fresh": 0.9,
+      "Semi-fresh": 0.05,
+      "Rotten": 0.05
+     }
+    },
+    "routed_quality_head": "quality_apple",
+    "routed_stage_head": null,
+    "routed_outputs_used_in_final": true
+   },
+   "postprocess": {
+    "version": 1,
+    "fruit_confidence_threshold": 0.976
+   },
+   "notes": [
+    "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+    "The image models do not detect pesticide residue.",
+    "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+   ]
+  }
+ },
+ "guava_spoiled_good": {
+  "input": {
+   "fruit": {
+    "guava": 0.99,
+    "apple": 0.0025000000000000022,
+    "banana": 0.0025000000000000022,
+    "tomato": 0.0025000000000000022,
+    "brinjal": 0.0025000000000000022
+   },
+   "condition": {
+    "fresh": 0.3,
+    "spoiled": 0.7
+   },
+   "heads": {
+    "quality_banana": {
+     "Good": 0.1,
+     "Average": 0.1,
+     "Poor": 0.8
+    },
+    "quality_guava": {
+     "Good": 0.7,
+     "Average": 0.2,
+     "Poor": 0.1
+    },
+    "quality_apple": {
+     "Good": 0.9,
+     "Poor": 0.1
+    },
+    "stage_tomato": {
+     "Fresh": 0.1,
+     "Semi-fresh": 0.8,
+     "Rotten": 0.1
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8,
+     "Semi-fresh": 0.1,
+     "Rotten": 0.1
+    },
+    "stage_banana": {
+     "Fresh": 0.9,
+     "Semi-fresh": 0.05,
+     "Rotten": 0.05
+    }
+   }
+  },
+  "output": {
+   "fruit": {
+    "label": "guava",
+    "confidence": 0.99,
+    "source": "Model 1"
+   },
+   "condition": {
+    "label": "spoiled",
+    "confidence": 0.7,
+    "source": "Model 1"
+   },
+   "quality_grade": {
+    "label": "Good",
+    "confidence": 0.7,
+    "scale": "3-level (Good/Average/Poor)",
+    "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+    "head": "quality_guava",
+    "source": "Model 3"
+   },
+   "shelf_life": {
+    "status": "not_available",
+    "range_days": null,
+    "reason": "time-labelled guava data has no end-of-life label",
+    "source": "Model 3"
+   },
+   "consistency": {
+    "status": "warning",
+    "warnings": [
+     {
+      "rule": "R3_condition_vs_grade",
+      "severity": "contradiction",
+      "message": "Model 1 condition 'spoiled' conflicts with quality grade 'Good'. Neither output was altered.",
+      "details": {
+       "condition": "spoiled",
+       "condition_confidence": 0.7,
+       "grade": "Good",
+       "grade_confidence": 0.7
+      }
+     }
+    ]
+   },
+   "raw": {
+    "fruit_probabilities": {
+     "guava": 0.99,
+     "apple": 0.0025,
+     "banana": 0.0025,
+     "tomato": 0.0025,
+     "brinjal": 0.0025
+    },
+    "condition_probabilities": {
+     "fresh": 0.3,
+     "spoiled": 0.7
+    },
+    "head_probabilities": {
+     "quality_banana": {
+      "Good": 0.1,
+      "Average": 0.1,
+      "Poor": 0.8
+     },
+     "quality_guava": {
+      "Good": 0.7,
+      "Average": 0.2,
+      "Poor": 0.1
+     },
+     "quality_apple": {
+      "Good": 0.9,
+      "Poor": 0.1
+     },
+     "stage_tomato": {
+      "Fresh": 0.1,
+      "Semi-fresh": 0.8,
+      "Rotten": 0.1
+     },
+     "stage_brinjal": {
+      "Fresh": 0.8,
+      "Semi-fresh": 0.1,
+      "Rotten": 0.1
+     },
+     "stage_banana": {
+      "Fresh": 0.9,
+      "Semi-fresh": 0.05,
+      "Rotten": 0.05
+     }
+    },
+    "routed_quality_head": "quality_guava",
+    "routed_stage_head": null,
+    "routed_outputs_used_in_final": true
+   },
+   "postprocess": {
+    "version": 1,
+    "fruit_confidence_threshold": 0.976
+   },
+   "notes": [
+    "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+    "The image models do not detect pesticide residue.",
+    "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+   ]
+  }
+ }
+}

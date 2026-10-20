@@ -1,0 +1,314 @@
+{
+ "label": "INT8 presence candidate (BUILTIN_REF = STM32-parity kernels); NOT deployed",
+ "candidate_model": "models\\candidates\\presence_int8_20261017T153321Z\\combined_presence_int8.tflite",
+ "candidate_sha256": "612f2e5586f0a4e2f2d7f7227e7cb6576cde1327f1a98453baec575f95e59300",
+ "size_bytes": 372608,
+ "frozen_size_bytes": 366848,
+ "existing_outputs_bit_identical": "4158/4158",
+ "head_source": "models\\candidates\\background_head_20261017T152313Z\\background_head.npz",
+ "decision": "present if int8 presence[1] >= 0 (p_fruit >= 0.5 after folding the VAL threshold)",
+ "test_fruit": {
+  "n": 1012,
+  "head_accepts": 1.0,
+  "shown_v5_gate": 0.4891,
+  "shown_v5_gate_plus_head": 0.4891
+ },
+ "test_background": {
+  "n": 3023,
+  "head_accepts": 0.0261,
+  "shown_v5_gate": 0.2537,
+  "shown_v5_gate_plus_head": 0.0093
+ },
+ "synthetic": {
+  "n": 100,
+  "head_accepts": 0.01,
+  "shown_v5_gate": 0.0,
+  "shown_v5_gate_plus_head": 0.0
+ },
+ "device_fruit": {
+  "n": 6,
+  "head_accepts": 1.0,
+  "shown_v5_gate": 0.6667,
+  "shown_v5_gate_plus_head": 0.6667
+ },
+ "device_nofruit": {
+  "n": 17,
+  "head_accepts": 0.0,
+  "shown_v5_gate": 0.0,
+  "shown_v5_gate_plus_head": 0.0
+ },
+ "test_fruit_per_class": {
+  "apple": {
+   "n": 275,
+   "head_accepts": 1.0,
+   "shown_v5": 0.1636,
+   "shown_cand": 0.1636,
+   "acc_when_shown_cand": 0.8889
+  },
+  "banana": {
+   "n": 231,
+   "head_accepts": 1.0,
+   "shown_v5": 0.8009,
+   "shown_cand": 0.8009,
+   "acc_when_shown_cand": 0.9622
+  },
+  "guava": {
+   "n": 326,
+   "head_accepts": 1.0,
+   "shown_v5": 0.4939,
+   "shown_cand": 0.4939,
+   "acc_when_shown_cand": 0.9689
+  },
+  "tomato": {
+   "n": 123,
+   "head_accepts": 1.0,
+   "shown_v5": 0.5854,
+   "shown_cand": 0.5854,
+   "acc_when_shown_cand": 0.9861
+  },
+  "brinjal": {
+   "n": 57,
+   "head_accepts": 1.0,
+   "shown_v5": 0.5614,
+   "shown_cand": 0.5614,
+   "acc_when_shown_cand": 1.0
+  }
+ },
+ "test_fruit_acc_when_shown": {
+  "v5": 0.9636,
+  "candidate": 0.9636
+ },
+ "device_frames": [
+  {
+   "id": "20261017T135106Z_live_view",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.7305,
+   "p_fruit": 0.4062,
+   "detail": 38.0145,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135422Z_live_view_banana_centered",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.8789,
+   "p_fruit": 0.4062,
+   "detail": 11.7692,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135620Z_focus_test",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.8906,
+   "p_fruit": 0.4062,
+   "detail": 13.6172,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135852Z_focus_loop_01",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6758,
+   "p_fruit": 0.4062,
+   "detail": 35.4028,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135903Z_focus_loop_02",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.7969,
+   "p_fruit": 0.4062,
+   "detail": 35.4061,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135913Z_focus_loop_03",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6875,
+   "p_fruit": 0.4062,
+   "detail": 35.4609,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135924Z_focus_loop_04",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6484,
+   "p_fruit": 0.4062,
+   "detail": 35.2636,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135934Z_focus_loop_05",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.7344,
+   "p_fruit": 0.4062,
+   "detail": 36.0066,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135944Z_focus_loop_06",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.707,
+   "p_fruit": 0.4062,
+   "detail": 35.6202,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T135955Z_focus_loop_07",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.7344,
+   "p_fruit": 0.4062,
+   "detail": 36.319,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T140006Z_focus_loop_08",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6133,
+   "p_fruit": 0.4062,
+   "detail": 34.7439,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T140016Z_focus_loop_09",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6367,
+   "p_fruit": 0.4062,
+   "detail": 35.8761,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T140026Z_focus_loop_10",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6758,
+   "p_fruit": 0.4062,
+   "detail": 35.9328,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T140036Z_focus_loop_11",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.6758,
+   "p_fruit": 0.4062,
+   "detail": 35.4224,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T140046Z_focus_loop_12",
+   "kind": "device_fruit",
+   "pred": "banana",
+   "conf": 0.7383,
+   "p_fruit": 0.9961,
+   "detail": 350.7054,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T141531Z_tune_lenc0_awb0_sat0_ae0",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.8398,
+   "p_fruit": 0.4062,
+   "detail": 11.4155,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T144125Z_reposition_check",
+   "kind": "device_fruit",
+   "pred": "banana",
+   "conf": 0.9883,
+   "p_fruit": 0.9961,
+   "detail": 446.7912,
+   "shown_v5": true,
+   "shown_cand": true
+  },
+  {
+   "id": "20261017T144145Z_reposition_repeat_1",
+   "kind": "device_fruit",
+   "pred": "banana",
+   "conf": 0.9922,
+   "p_fruit": 0.9961,
+   "detail": 445.0254,
+   "shown_v5": true,
+   "shown_cand": true
+  },
+  {
+   "id": "20261017T144154Z_reposition_repeat_2",
+   "kind": "device_fruit",
+   "pred": "banana",
+   "conf": 0.9961,
+   "p_fruit": 0.9961,
+   "detail": 448.1536,
+   "shown_v5": true,
+   "shown_cand": true
+  },
+  {
+   "id": "20261017T144204Z_reposition_repeat_3",
+   "kind": "device_fruit",
+   "pred": "banana",
+   "conf": 0.9961,
+   "p_fruit": 0.9961,
+   "detail": 452.707,
+   "shown_v5": true,
+   "shown_cand": true
+  },
+  {
+   "id": "20261017T092139Z",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.8047,
+   "p_fruit": 0.4062,
+   "detail": 12.1355,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T092315Z",
+   "kind": "device_nofruit",
+   "pred": "guava",
+   "conf": 0.8398,
+   "p_fruit": 0.4062,
+   "detail": 12.4318,
+   "shown_v5": false,
+   "shown_cand": false
+  },
+  {
+   "id": "20261017T094631Z",
+   "kind": "device_fruit",
+   "pred": "apple",
+   "conf": 0.8516,
+   "p_fruit": 0.9648,
+   "detail": 84.0724,
+   "shown_v5": false,
+   "shown_cand": false
+  }
+ ],
+ "read_only_sources_unchanged": true
+}

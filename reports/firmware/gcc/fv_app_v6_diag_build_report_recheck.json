@@ -1,0 +1,181 @@
+{
+  "elf": "reports/firmware/gcc/fv_app_v6_diag.elf",
+  "WARNING": "zig/clang + lld link-check with labelled stubs (snprintf/strncpy/strcmp/strncmp/frexp/abort/__cxa_atexit) and NO newlib, NO HAL, NO drivers. NOT a GCC/CubeIDE build, NOT flashable, NOT run on STM32.",
+  "sections": [
+    {
+      "name": ".isr_vector",
+      "vma": "0x8000000",
+      "lma": "0x8000000",
+      "size": 392,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".text",
+      "vma": "0x80001a0",
+      "lma": "0x80001a0",
+      "size": 70632,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".rodata",
+      "vma": "0x8011590",
+      "lma": "0x8011590",
+      "size": 370028,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".ARM.exidx",
+      "vma": "0x806bafc",
+      "lma": "0x806bafc",
+      "size": 8,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".data",
+      "vma": "0x20000000",
+      "lma": "0x806bb04",
+      "size": 128,
+      "nobits": false,
+      "region": "RAM",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".bss",
+      "vma": "0x20000080",
+      "lma": "0x806bb84",
+      "size": 119136,
+      "nobits": true,
+      "region": "RAM",
+      "load_region": "FLASH"
+    },
+    {
+      "name": "._stack",
+      "vma": "0x2001d1e0",
+      "lma": "0x806bb84",
+      "size": 8192,
+      "nobits": true,
+      "region": "RAM",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".ccm_arena",
+      "vma": "0x10000000",
+      "lma": "0x10000000",
+      "size": 53248,
+      "nobits": true,
+      "region": "CCMRAM",
+      "load_region": "CCMRAM"
+    }
+  ],
+  "totals": {
+    "flash_used": 441188,
+    "flash_free": 83100,
+    "ram_used_incl_stack_reserve": 127456,
+    "ram_free": 3616,
+    "ccm_used": 53248,
+    "ccm_free": 12288
+  },
+  "symbol_bytes_by_category": {
+    "compiler_rt_libm_other": {
+      "FLASH": 17992,
+      "RAM": 19800,
+      "CCMRAM": 0
+    },
+    "tflm_runtime_kernels": {
+      "FLASH": 25682,
+      "RAM": 392,
+      "CCMRAM": 0
+    },
+    "cmsis_nn": {
+      "FLASH": 19376,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "fv_app": {
+      "FLASH": 11710,
+      "RAM": 1132,
+      "CCMRAM": 0
+    },
+    "app_buffers": {
+      "FLASH": 0,
+      "RAM": 97936,
+      "CCMRAM": 53248
+    },
+    "startup": {
+      "FLASH": 554,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "preprocess_and_arena_reuse": {
+      "FLASH": 754,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "fv_vision_glue": {
+      "FLASH": 836,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "model_weights": {
+      "FLASH": 366848,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "libc_string_printf (newlib in GCC build, stubs in lld check)": {
+      "FLASH": 1222,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "model2_c": {
+      "FLASH": 424,
+      "RAM": 0,
+      "CCMRAM": 0
+    }
+  },
+  "key_symbols": {
+    "g_fv_model_data": {
+      "addr": "0x80121c0",
+      "size": 366848
+    },
+    "g_arena_persistent": {
+      "addr": "0x10000000",
+      "size": 53248
+    },
+    "g_arena_nonpersistent": {
+      "addr": "0x200051b0",
+      "size": 97280
+    },
+    "g_cycle": {
+      "addr": "0x20004f1c",
+      "size": 656
+    },
+    "g_vectors": {
+      "addr": "0x8000000",
+      "size": 392
+    }
+  },
+  "checks": {
+    "persistent_arena_in_CCM": true,
+    "nonpersistent_arena_in_SRAM": true,
+    "nonpersistent_arena_16B_aligned": true,
+    "persistent_arena_16B_aligned": true,
+    "model_in_flash_16B_aligned": true,
+    "dma_buffers_not_in_CCM": true,
+    "only_ccm_arena_in_CCM": true,
+    "no_section_overlap": true,
+    "no_section_spans_regions": true,
+    "stack_reserve_in_RAM_top_free": true,
+    "flash_within_512K": true,
+    "ram_within_128K": true,
+    "ccm_within_64K": true
+  },
+  "all_checks_pass": true
+}

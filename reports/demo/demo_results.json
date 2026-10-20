@@ -1,0 +1,930 @@
+[
+  {
+    "case": "A. banana (confident) + synthetic MEDIUM fixture",
+    "evidence": "PUBLIC-DATASET IMAGE + SYNTHETIC FIXTURE",
+    "image": "data\\raw\\agrifreshnet\\Processed Data\\Fresh Banana(1-4)\\IMG_20251103_191858524_HDR.jpg",
+    "sensor_fixture": "synthetic_medium",
+    "sensor_fixture_note": "synthetic row 1688 (synthetic label MEDIUM)",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "ok",
+          "reasons": [],
+          "warnings": [],
+          "stats": {
+            "format": "JPEG",
+            "mode": "RGB",
+            "width": 512,
+            "height": 512,
+            "lum_mean": 158.2072,
+            "lum_std": 29.9094,
+            "lag1_autocorr": 0.9679,
+            "chroma_mean_abs": 13.2304,
+            "clipped_fraction": 0.0
+          },
+          "note": "Generic input sanity check, not a trained not-a-fruit detector."
+        },
+        "sensors": {
+          "status": "valid",
+          "errors": [],
+          "warnings": [],
+          "out_of_training_range": []
+        }
+      },
+      "fruit": {
+        "label": "banana",
+        "confidence": 1.0,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "condition": {
+        "label": "fresh",
+        "confidence": 0.9858,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "quality_grade": {
+        "label": "Good",
+        "confidence": 0.9061,
+        "scale": "3-level (Good/Average/Poor)",
+        "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+        "head": "quality_banana",
+        "source": "Model 3",
+        "state": "predicted"
+      },
+      "shelf_life": {
+        "status": "estimated_range",
+        "range_days": [
+          3,
+          6
+        ],
+        "stage": "Fresh",
+        "stage_confidence": 1.0,
+        "head": "stage_banana",
+        "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+        "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+        "source": "Model 3 stage head + fixed lookup (no regression)",
+        "state": "predicted"
+      },
+      "pesticide_risk": {
+        "category": "MEDIUM",
+        "probabilities": {
+          "LOW": 0.064,
+          "MEDIUM": 0.4941,
+          "HIGH": 0.4419
+        },
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "inputs valid and within the synthetic training range (synthetic fixture data)"
+        ],
+        "warnings": [],
+        "state": "predicted"
+      },
+      "consistency": {
+        "status": "ok",
+        "warnings": []
+      },
+      "warnings": [],
+      "recommendation": {
+        "text": [
+          "Prototype risk category MEDIUM (synthetic-data model): inconclusive screening result.",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "Model 2 synthetic-data prototype"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": {
+          "fruit_probabilities": {
+            "apple": 0.0,
+            "banana": 1.0,
+            "guava": 0.0,
+            "tomato": 0.0,
+            "brinjal": 0.0
+          },
+          "condition_probabilities": {
+            "fresh": 0.9858,
+            "spoiled": 0.0142
+          },
+          "head_probabilities": {
+            "quality_banana": {
+              "Good": 0.9061,
+              "Average": 0.0939,
+              "Poor": 0.0
+            },
+            "quality_guava": {
+              "Good": 1.0,
+              "Average": 0.0,
+              "Poor": 0.0
+            },
+            "quality_apple": {
+              "Good": 1.0,
+              "Poor": 0.0
+            },
+            "stage_tomato": {
+              "Fresh": 0.0155,
+              "Semi-fresh": 0.9842,
+              "Rotten": 0.0003
+            },
+            "stage_brinjal": {
+              "Fresh": 0.0069,
+              "Semi-fresh": 0.9926,
+              "Rotten": 0.0005
+            },
+            "stage_banana": {
+              "Fresh": 1.0,
+              "Semi-fresh": 0.0,
+              "Rotten": 0.0
+            }
+          },
+          "routed_quality_head": "quality_banana",
+          "routed_stage_head": "stage_banana",
+          "routed_outputs_used_in_final": true
+        },
+        "model2_probabilities_withheld": null
+      }
+    }
+  },
+  {
+    "case": "B. tomato (confident) + synthetic HIGH fixture",
+    "evidence": "PUBLIC-DATASET IMAGE + SYNTHETIC FIXTURE",
+    "image": "data\\raw\\agrifreshnet\\Processed Data\\Fresh Tomato(1-10)\\IMG_20251109_112653784_HDR_AE.jpg",
+    "sensor_fixture": "synthetic_high",
+    "sensor_fixture_note": "synthetic row 1098 (synthetic label HIGH)",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "ok",
+          "reasons": [],
+          "warnings": [],
+          "stats": {
+            "format": "JPEG",
+            "mode": "RGB",
+            "width": 512,
+            "height": 512,
+            "lum_mean": 167.9044,
+            "lum_std": 48.2319,
+            "lag1_autocorr": 0.9753,
+            "chroma_mean_abs": 19.903,
+            "clipped_fraction": 0.0002
+          },
+          "note": "Generic input sanity check, not a trained not-a-fruit detector."
+        },
+        "sensors": {
+          "status": "valid",
+          "errors": [],
+          "warnings": [],
+          "out_of_training_range": []
+        }
+      },
+      "fruit": {
+        "label": "tomato",
+        "confidence": 0.9769,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "condition": {
+        "label": "fresh",
+        "confidence": 0.7413,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "quality_grade": {
+        "label": "Good",
+        "confidence": 0.4882,
+        "scale": "3-level (Good/Average/Poor)",
+        "basis": "AgriFreshNET freshness stage (Fresh/Semi-fresh/Rotten) - grade = freshness stage",
+        "head": "stage_tomato",
+        "source": "Model 3",
+        "state": "predicted"
+      },
+      "shelf_life": {
+        "status": "estimated_range",
+        "range_days": [
+          14,
+          23
+        ],
+        "stage": "Fresh",
+        "stage_confidence": 0.4882,
+        "head": "stage_tomato",
+        "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+        "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+        "source": "Model 3 stage head + fixed lookup (no regression)",
+        "state": "predicted"
+      },
+      "pesticide_risk": {
+        "category": "HIGH",
+        "probabilities": {
+          "LOW": 0.0004,
+          "MEDIUM": 0.0665,
+          "HIGH": 0.9332
+        },
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "inputs valid and within the synthetic training range (synthetic fixture data)"
+        ],
+        "warnings": [],
+        "state": "predicted"
+      },
+      "consistency": {
+        "status": "ok",
+        "warnings": []
+      },
+      "warnings": [],
+      "recommendation": {
+        "text": [
+          "Prototype risk category HIGH (synthetic-data model): treat as a screening flag only and seek a validated laboratory test before consumption decisions.",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "Model 2 synthetic-data prototype"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": {
+          "fruit_probabilities": {
+            "apple": 0.0231,
+            "banana": 0.0,
+            "guava": 0.0,
+            "tomato": 0.9769,
+            "brinjal": 0.0
+          },
+          "condition_probabilities": {
+            "fresh": 0.7413,
+            "spoiled": 0.2587
+          },
+          "head_probabilities": {
+            "quality_banana": {
+              "Good": 0.0063,
+              "Average": 0.9937,
+              "Poor": 0.0
+            },
+            "quality_guava": {
+              "Good": 0.0,
+              "Average": 0.0,
+              "Poor": 1.0
+            },
+            "quality_apple": {
+              "Good": 1.0,
+              "Poor": 0.0
+            },
+            "stage_tomato": {
+              "Fresh": 0.4882,
+              "Semi-fresh": 0.4856,
+              "Rotten": 0.0262
+            },
+            "stage_brinjal": {
+              "Fresh": 0.3546,
+              "Semi-fresh": 0.1798,
+              "Rotten": 0.4656
+            },
+            "stage_banana": {
+              "Fresh": 0.0321,
+              "Semi-fresh": 0.9672,
+              "Rotten": 0.0006
+            }
+          },
+          "routed_quality_head": "stage_tomato",
+          "routed_stage_head": "stage_tomato",
+          "routed_outputs_used_in_final": true
+        },
+        "model2_probabilities_withheld": null
+      }
+    }
+  },
+  {
+    "case": "C. guava (low fruit confidence) + synthetic LOW fixture",
+    "evidence": "PUBLIC-DATASET IMAGE + SYNTHETIC FIXTURE",
+    "image": "data\\raw\\banana_guava_quality\\extracted\\Fruits_Data\\Guava\\Class_A\\image_104.jpg",
+    "sensor_fixture": "synthetic_low",
+    "sensor_fixture_note": "synthetic row 2736 (synthetic label LOW)",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "ok",
+          "reasons": [],
+          "warnings": [],
+          "stats": {
+            "format": "JPEG",
+            "mode": "RGB",
+            "width": 1024,
+            "height": 1024,
+            "lum_mean": 179.7182,
+            "lum_std": 30.1479,
+            "lag1_autocorr": 0.9775,
+            "chroma_mean_abs": 7.895,
+            "clipped_fraction": 0.0
+          },
+          "note": "Generic input sanity check, not a trained not-a-fruit detector."
+        },
+        "sensors": {
+          "status": "valid",
+          "errors": [],
+          "warnings": [],
+          "out_of_training_range": []
+        }
+      },
+      "fruit": {
+        "label": "apple",
+        "confidence": 0.9274,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "condition": {
+        "label": "fresh",
+        "confidence": 0.9771,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "quality_grade": {
+        "label": "Uncertain",
+        "confidence": null,
+        "scale": null,
+        "basis": null,
+        "head": null,
+        "reason": "Fruit routing confidence 0.927 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+        "source": "post-processing (R1)",
+        "state": "uncertain"
+      },
+      "shelf_life": {
+        "status": "not_available",
+        "range_days": null,
+        "reason": "Fruit routing confidence 0.927 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+        "source": "post-processing (R1)",
+        "state": "uncertain"
+      },
+      "pesticide_risk": {
+        "category": "LOW",
+        "probabilities": {
+          "LOW": 0.5674,
+          "MEDIUM": 0.424,
+          "HIGH": 0.0086
+        },
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "inputs valid and within the synthetic training range (synthetic fixture data)"
+        ],
+        "warnings": [],
+        "state": "predicted"
+      },
+      "consistency": {
+        "status": "uncertain",
+        "warnings": [
+          {
+            "rule": "R1_low_fruit_confidence",
+            "severity": "uncertain",
+            "message": "Fruit routing confidence 0.927 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+            "details": {
+              "fruit_confidence": 0.9274,
+              "threshold": 0.976
+            }
+          }
+        ]
+      },
+      "warnings": [
+        "R1_low_fruit_confidence: Fruit routing confidence 0.927 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld."
+      ],
+      "recommendation": {
+        "text": [
+          "Fruit identity is uncertain; quality and shelf life withheld. Retake the image with the fruit centred on a plain background.",
+          "Prototype risk category LOW (synthetic-data model): this is NOT evidence that the produce is pesticide-free.",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "Model 2 synthetic-data prototype"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": {
+          "fruit_probabilities": {
+            "apple": 0.9274,
+            "banana": 0.0005,
+            "guava": 0.0167,
+            "tomato": 0.0539,
+            "brinjal": 0.0015
+          },
+          "condition_probabilities": {
+            "fresh": 0.9771,
+            "spoiled": 0.0229
+          },
+          "head_probabilities": {
+            "quality_banana": {
+              "Good": 1.0,
+              "Average": 0.0,
+              "Poor": 0.0
+            },
+            "quality_guava": {
+              "Good": 0.9996,
+              "Average": 0.0002,
+              "Poor": 0.0002
+            },
+            "quality_apple": {
+              "Good": 1.0,
+              "Poor": 0.0
+            },
+            "stage_tomato": {
+              "Fresh": 0.1726,
+              "Semi-fresh": 0.5088,
+              "Rotten": 0.3187
+            },
+            "stage_brinjal": {
+              "Fresh": 0.1733,
+              "Semi-fresh": 0.8151,
+              "Rotten": 0.0116
+            },
+            "stage_banana": {
+              "Fresh": 0.9819,
+              "Semi-fresh": 0.0181,
+              "Rotten": 0.0
+            }
+          },
+          "routed_quality_head": "quality_apple",
+          "routed_stage_head": null,
+          "routed_outputs_used_in_final": false
+        },
+        "model2_probabilities_withheld": null
+      }
+    }
+  },
+  {
+    "case": "D. uniform grey frame (camera fault) + DHT22 NaN",
+    "evidence": "CONSTRUCTED INPUT",
+    "image": "constructed in memory",
+    "sensor_fixture": "invalid_dht22_nan",
+    "sensor_fixture_note": "DHT22 read failure (NaN)",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "rejected",
+          "reasons": [
+            "near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault",
+            "grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required"
+          ],
+          "warnings": [],
+          "stats": {
+            "format": "PNG",
+            "mode": "RGB",
+            "width": 240,
+            "height": 240,
+            "lum_mean": 128.0,
+            "lum_std": 0.0,
+            "lag1_autocorr": 0.4757,
+            "chroma_mean_abs": 0.0,
+            "clipped_fraction": 0.0
+          },
+          "note": "Generic input sanity check, not a trained not-a-fruit detector."
+        },
+        "sensors": {
+          "status": "invalid",
+          "errors": [
+            "DHT22 temperature: non-finite value (nan); sensor read failure"
+          ],
+          "warnings": [],
+          "out_of_training_range": []
+        }
+      },
+      "fruit": {
+        "state": "unavailable",
+        "reason": "image not analysed: near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault; grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required"
+      },
+      "condition": {
+        "state": "unavailable",
+        "reason": "image not analysed: near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault; grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required"
+      },
+      "quality_grade": {
+        "state": "unavailable",
+        "reason": "image not analysed: near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault; grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required"
+      },
+      "shelf_life": {
+        "state": "unavailable",
+        "reason": "image not analysed: near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault; grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required"
+      },
+      "pesticide_risk": {
+        "category": null,
+        "probabilities": null,
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "DHT22 temperature: non-finite value (nan); sensor read failure"
+        ],
+        "warnings": [],
+        "state": "unavailable"
+      },
+      "consistency": {
+        "status": "not_evaluated",
+        "warnings": []
+      },
+      "warnings": [
+        "pesticide_risk (unavailable): DHT22 temperature: non-finite value (nan); sensor read failure"
+      ],
+      "recommendation": {
+        "text": [
+          "Retake the image: near-uniform image (luminance std 0.00 < 8.37); e.g. lens cap, blank frame or camera fault; grayscale content (mean |channel deviation| 0.00 < 0.893); colour is required",
+          "No pesticide-risk statement can be made (risk estimate unavailable).",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "input validation rules"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": null,
+        "model2_probabilities_withheld": null
+      }
+    }
+  },
+  {
+    "case": "E. banana (confident) + disconnected TCS34725",
+    "evidence": "PUBLIC-DATASET IMAGE + CONSTRUCTED INPUT",
+    "image": "data\\raw\\agrifreshnet\\Processed Data\\Fresh Banana(1-4)\\IMG_20251103_191858524_HDR.jpg",
+    "sensor_fixture": "invalid_tcs_disconnected",
+    "sensor_fixture_note": "all TCS channels 0",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "ok",
+          "reasons": [],
+          "warnings": [],
+          "stats": {
+            "format": "JPEG",
+            "mode": "RGB",
+            "width": 512,
+            "height": 512,
+            "lum_mean": 158.2072,
+            "lum_std": 29.9094,
+            "lag1_autocorr": 0.9679,
+            "chroma_mean_abs": 13.2304,
+            "clipped_fraction": 0.0
+          },
+          "note": "Generic input sanity check, not a trained not-a-fruit detector."
+        },
+        "sensors": {
+          "status": "invalid",
+          "errors": [
+            "TCS34725: all channels 0 (sensor disconnected, I2C failure or no illumination)"
+          ],
+          "warnings": [],
+          "out_of_training_range": [
+            "tcs_r=0 outside synthetic training range [52.99, 1083]",
+            "tcs_g=0 outside synthetic training range [278, 1095]",
+            "tcs_b=0 outside synthetic training range [530.8, 1177]",
+            "tcs_c=0 outside synthetic training range [851.4, 3061]"
+          ]
+        }
+      },
+      "fruit": {
+        "label": "banana",
+        "confidence": 1.0,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "condition": {
+        "label": "fresh",
+        "confidence": 0.9858,
+        "source": "Model 1",
+        "state": "predicted"
+      },
+      "quality_grade": {
+        "label": "Good",
+        "confidence": 0.9061,
+        "scale": "3-level (Good/Average/Poor)",
+        "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+        "head": "quality_banana",
+        "source": "Model 3",
+        "state": "predicted"
+      },
+      "shelf_life": {
+        "status": "estimated_range",
+        "range_days": [
+          3,
+          6
+        ],
+        "stage": "Fresh",
+        "stage_confidence": 1.0,
+        "head": "stage_banana",
+        "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+        "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+        "source": "Model 3 stage head + fixed lookup (no regression)",
+        "state": "predicted"
+      },
+      "pesticide_risk": {
+        "category": null,
+        "probabilities": null,
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "TCS34725: all channels 0 (sensor disconnected, I2C failure or no illumination)"
+        ],
+        "warnings": [],
+        "state": "unavailable"
+      },
+      "consistency": {
+        "status": "ok",
+        "warnings": []
+      },
+      "warnings": [
+        "pesticide_risk (unavailable): TCS34725: all channels 0 (sensor disconnected, I2C failure or no illumination)"
+      ],
+      "recommendation": {
+        "text": [
+          "No pesticide-risk statement can be made (risk estimate unavailable).",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "input validation rules"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": {
+          "fruit_probabilities": {
+            "apple": 0.0,
+            "banana": 1.0,
+            "guava": 0.0,
+            "tomato": 0.0,
+            "brinjal": 0.0
+          },
+          "condition_probabilities": {
+            "fresh": 0.9858,
+            "spoiled": 0.0142
+          },
+          "head_probabilities": {
+            "quality_banana": {
+              "Good": 0.9061,
+              "Average": 0.0939,
+              "Poor": 0.0
+            },
+            "quality_guava": {
+              "Good": 1.0,
+              "Average": 0.0,
+              "Poor": 0.0
+            },
+            "quality_apple": {
+              "Good": 1.0,
+              "Poor": 0.0
+            },
+            "stage_tomato": {
+              "Fresh": 0.0155,
+              "Semi-fresh": 0.9842,
+              "Rotten": 0.0003
+            },
+            "stage_brinjal": {
+              "Fresh": 0.0069,
+              "Semi-fresh": 0.9926,
+              "Rotten": 0.0005
+            },
+            "stage_banana": {
+              "Fresh": 1.0,
+              "Semi-fresh": 0.0,
+              "Rotten": 0.0
+            }
+          },
+          "routed_quality_head": "quality_banana",
+          "routed_stage_head": "stage_banana",
+          "routed_outputs_used_in_final": true
+        },
+        "model2_probabilities_withheld": null
+      }
+    }
+  },
+  {
+    "case": "F. sensors only: device-format record, uncalibrated",
+    "evidence": "ILLUSTRATIVE RECORD",
+    "image": "none",
+    "sensor_fixture": "device_like_uncalibrated",
+    "sensor_fixture_note": "ILLUSTRATIVE device-format record (made-up numbers, NOT a measurement) to show the uncalibrated path",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "not_supplied",
+          "reasons": [
+            "no image supplied"
+          ],
+          "warnings": []
+        },
+        "sensors": {
+          "status": "valid",
+          "errors": [],
+          "warnings": [],
+          "out_of_training_range": [
+            "tcs_r=1180 outside synthetic training range [52.99, 1083]",
+            "tcs_g=1560 outside synthetic training range [278, 1095]",
+            "tcs_b=2010 outside synthetic training range [530.8, 1177]",
+            "tcs_c=4890 outside synthetic training range [851.4, 3061]"
+          ]
+        }
+      },
+      "fruit": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "condition": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "quality_grade": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "shelf_life": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "pesticide_risk": {
+        "category": null,
+        "probabilities": null,
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "readings are not on the model's synthetic scales and no calibration profile maps device units to them (no such profile exists yet)",
+          "tcs_r=1180 outside synthetic training range [52.99, 1083]",
+          "tcs_g=1560 outside synthetic training range [278, 1095]",
+          "tcs_b=2010 outside synthetic training range [530.8, 1177]",
+          "tcs_c=4890 outside synthetic training range [851.4, 3061]"
+        ],
+        "warnings": [],
+        "state": "uncertain"
+      },
+      "consistency": {
+        "status": "not_evaluated",
+        "warnings": []
+      },
+      "warnings": [
+        "pesticide_risk (uncertain): readings are not on the model's synthetic scales and no calibration profile maps device units to them (no such profile exists yet)",
+        "pesticide_risk (uncertain): tcs_r=1180 outside synthetic training range [52.99, 1083]",
+        "pesticide_risk (uncertain): tcs_g=1560 outside synthetic training range [278, 1095]",
+        "pesticide_risk (uncertain): tcs_b=2010 outside synthetic training range [530.8, 1177]",
+        "pesticide_risk (uncertain): tcs_c=4890 outside synthetic training range [851.4, 3061]"
+      ],
+      "recommendation": {
+        "text": [
+          "No image analysed: fruit, condition, quality and shelf life are unavailable.",
+          "No pesticide-risk statement can be made (risk estimate uncertain).",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "input validation rules"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": null,
+        "model2_probabilities_withheld": {
+          "LOW": 0.0038,
+          "MEDIUM": 0.402,
+          "HIGH": 0.5942
+        }
+      }
+    }
+  },
+  {
+    "case": "G. sensors only: MQ135 outside synthetic training range",
+    "evidence": "CONSTRUCTED INPUT",
+    "image": "none",
+    "sensor_fixture": "out_of_range_mq135",
+    "sensor_fixture_note": "MQ135 far above synthetic training range",
+    "result": {
+      "schema_version": "1.0",
+      "input_checks": {
+        "image": {
+          "status": "not_supplied",
+          "reasons": [
+            "no image supplied"
+          ],
+          "warnings": []
+        },
+        "sensors": {
+          "status": "valid",
+          "errors": [],
+          "warnings": [],
+          "out_of_training_range": [
+            "mq135=9000 outside synthetic training range [241.2, 2869]"
+          ]
+        }
+      },
+      "fruit": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "condition": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "quality_grade": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "shelf_life": {
+        "state": "unavailable",
+        "reason": "image not analysed: no image supplied"
+      },
+      "pesticide_risk": {
+        "category": null,
+        "probabilities": null,
+        "model": "Model 2 logistic regression (S__logreg export)",
+        "evidence_level": "SYNTHETIC-DATA PROTOTYPE - not validated on real sensors or pesticides",
+        "interpretation": "Estimated risk category only. LOW does not mean pesticide-free; HIGH does not prove pesticide presence. Confirmation requires laboratory analysis.",
+        "reasons": [
+          "mq135=9000 outside synthetic training range [241.2, 2869]"
+        ],
+        "warnings": [],
+        "state": "uncertain"
+      },
+      "consistency": {
+        "status": "not_evaluated",
+        "warnings": []
+      },
+      "warnings": [
+        "pesticide_risk (uncertain): mq135=9000 outside synthetic training range [241.2, 2869]"
+      ],
+      "recommendation": {
+        "text": [
+          "No image analysed: fruit, condition, quality and shelf life are unavailable.",
+          "No pesticide-risk statement can be made (risk estimate uncertain).",
+          "Only laboratory analysis (e.g. LC-MS/MS or GC-MS) can establish pesticide residue levels."
+        ],
+        "basis": [
+          "input validation rules"
+        ],
+        "note": "Rule-based text derived from the outputs above; not a safety certification."
+      },
+      "limitations": [
+        "The image models classify fruit type and VISIBLE condition only; they do not detect pesticide residue.",
+        "Image models were trained/evaluated on public datasets (FruitNet, AgriFreshNET, Mendeley 56td5w4wz2); held-out test fruit F1 0.822, fresh/spoiled F1 0.679; not validated on the device camera.",
+        "Softmax confidences are not calibrated probabilities; non-fruit images can receive high confidence.",
+        "The pesticide-risk model is a SYNTHETIC-DATA PROTOTYPE: no real pesticide-labelled sensor data exists for it. It cannot measure concentration (ppm) or regulatory compliance.",
+        "Shelf-life ranges reflect AgriFreshNET storage conditions only; they are not guarantees."
+      ],
+      "raw": {
+        "image_models": null,
+        "model2_probabilities_withheld": {
+          "LOW": 0.0012,
+          "MEDIUM": 0.9973,
+          "HIGH": 0.0014
+        }
+      }
+    }
+  }
+]

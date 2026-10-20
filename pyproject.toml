@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fruitvision"
+version = "0.1.0"
+description = "MobileNetV2 fruit type + visual condition classifier for STM32 TinyML deployment"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "tensorflow>=2.16,<2.19",
+    "numpy",
+    "pillow",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "pyyaml",
+    "tqdm",
+    "imagehash",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ziglang==0.13.0"]   # ziglang: C compiler for the Model 2 C-parity tests
+# Needed to load the non-selected Model 2 comparison models (S__xgboost.joblib etc.)
+model2 = ["xgboost==2.1.4", "joblib"]
+# Only for regenerating Model 3 training masks (scripts/make_fruit_masks.py)
+masks = ["rembg==2.0.59", "onnxruntime"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

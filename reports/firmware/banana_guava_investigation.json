@@ -1,0 +1,498 @@
+{
+ "apple": {
+  "clean": {
+   "n": 40,
+   "correct": 0.93,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "apple",
+     37
+    ],
+    [
+     "tomato",
+     3
+    ]
+   ],
+   "mean_conf": 0.852
+  },
+  "RB_swapped": {
+   "n": 40,
+   "correct": 0.93,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "apple",
+     37
+    ],
+    [
+     "brinjal",
+     3
+    ]
+   ],
+   "mean_conf": 0.894
+  },
+  "blur_r3": {
+   "n": 40,
+   "correct": 0.85,
+   "pred_guava": 0.07,
+   "top": [
+    [
+     "apple",
+     34
+    ],
+    [
+     "guava",
+     3
+    ]
+   ],
+   "mean_conf": 0.762
+  },
+  "dark_x0.3": {
+   "n": 40,
+   "correct": 0.5,
+   "pred_guava": 0.2,
+   "top": [
+    [
+     "apple",
+     20
+    ],
+    [
+     "brinjal",
+     9
+    ]
+   ],
+   "mean_conf": 0.753
+  },
+  "small_in_frame": {
+   "n": 40,
+   "correct": 0.5,
+   "pred_guava": 0.3,
+   "top": [
+    [
+     "apple",
+     20
+    ],
+    [
+     "guava",
+     12
+    ]
+   ],
+   "mean_conf": 0.681
+  }
+ },
+ "banana": {
+  "clean": {
+   "n": 40,
+   "correct": 1.0,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "banana",
+     40
+    ]
+   ],
+   "mean_conf": 0.995
+  },
+  "RB_swapped": {
+   "n": 40,
+   "correct": 0.93,
+   "pred_guava": 0.03,
+   "top": [
+    [
+     "banana",
+     37
+    ],
+    [
+     "brinjal",
+     2
+    ]
+   ],
+   "mean_conf": 0.932
+  },
+  "blur_r3": {
+   "n": 40,
+   "correct": 1.0,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "banana",
+     40
+    ]
+   ],
+   "mean_conf": 0.976
+  },
+  "dark_x0.3": {
+   "n": 40,
+   "correct": 1.0,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "banana",
+     40
+    ]
+   ],
+   "mean_conf": 0.99
+  },
+  "small_in_frame": {
+   "n": 40,
+   "correct": 0.2,
+   "pred_guava": 0.4,
+   "top": [
+    [
+     "guava",
+     16
+    ],
+    [
+     "brinjal",
+     12
+    ]
+   ],
+   "mean_conf": 0.649
+  }
+ },
+ "guava": {
+  "clean": {
+   "n": 40,
+   "correct": 0.72,
+   "pred_guava": 0.72,
+   "top": [
+    [
+     "guava",
+     29
+    ],
+    [
+     "apple",
+     7
+    ]
+   ],
+   "mean_conf": 0.759
+  },
+  "RB_swapped": {
+   "n": 40,
+   "correct": 0.33,
+   "pred_guava": 0.33,
+   "top": [
+    [
+     "apple",
+     25
+    ],
+    [
+     "guava",
+     13
+    ]
+   ],
+   "mean_conf": 0.744
+  },
+  "blur_r3": {
+   "n": 40,
+   "correct": 0.23,
+   "pred_guava": 0.23,
+   "top": [
+    [
+     "apple",
+     30
+    ],
+    [
+     "guava",
+     9
+    ]
+   ],
+   "mean_conf": 0.757
+  },
+  "dark_x0.3": {
+   "n": 40,
+   "correct": 0.78,
+   "pred_guava": 0.78,
+   "top": [
+    [
+     "guava",
+     31
+    ],
+    [
+     "brinjal",
+     6
+    ]
+   ],
+   "mean_conf": 0.785
+  },
+  "small_in_frame": {
+   "n": 40,
+   "correct": 0.47,
+   "pred_guava": 0.47,
+   "top": [
+    [
+     "guava",
+     19
+    ],
+    [
+     "apple",
+     12
+    ]
+   ],
+   "mean_conf": 0.64
+  }
+ },
+ "tomato": {
+  "clean": {
+   "n": 40,
+   "correct": 1.0,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "tomato",
+     40
+    ]
+   ],
+   "mean_conf": 0.985
+  },
+  "RB_swapped": {
+   "n": 40,
+   "correct": 0.0,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "apple",
+     37
+    ],
+    [
+     "brinjal",
+     3
+    ]
+   ],
+   "mean_conf": 0.825
+  },
+  "blur_r3": {
+   "n": 40,
+   "correct": 0.9,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "tomato",
+     36
+    ],
+    [
+     "apple",
+     4
+    ]
+   ],
+   "mean_conf": 0.91
+  },
+  "dark_x0.3": {
+   "n": 40,
+   "correct": 0.23,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "apple",
+     29
+    ],
+    [
+     "tomato",
+     9
+    ]
+   ],
+   "mean_conf": 0.785
+  },
+  "small_in_frame": {
+   "n": 40,
+   "correct": 0.42,
+   "pred_guava": 0.03,
+   "top": [
+    [
+     "tomato",
+     17
+    ],
+    [
+     "brinjal",
+     12
+    ]
+   ],
+   "mean_conf": 0.581
+  }
+ },
+ "brinjal": {
+  "clean": {
+   "n": 40,
+   "correct": 0.8,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "brinjal",
+     32
+    ],
+    [
+     "banana",
+     4
+    ]
+   ],
+   "mean_conf": 0.896
+  },
+  "RB_swapped": {
+   "n": 40,
+   "correct": 0.88,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "brinjal",
+     35
+    ],
+    [
+     "banana",
+     5
+    ]
+   ],
+   "mean_conf": 0.932
+  },
+  "blur_r3": {
+   "n": 40,
+   "correct": 0.55,
+   "pred_guava": 0.12,
+   "top": [
+    [
+     "brinjal",
+     22
+    ],
+    [
+     "apple",
+     12
+    ]
+   ],
+   "mean_conf": 0.783
+  },
+  "dark_x0.3": {
+   "n": 40,
+   "correct": 0.55,
+   "pred_guava": 0.0,
+   "top": [
+    [
+     "brinjal",
+     22
+    ],
+    [
+     "banana",
+     18
+    ]
+   ],
+   "mean_conf": 0.869
+  },
+  "small_in_frame": {
+   "n": 40,
+   "correct": 0.42,
+   "pred_guava": 0.3,
+   "top": [
+    [
+     "brinjal",
+     17
+    ],
+    [
+     "guava",
+     12
+    ]
+   ],
+   "mean_conf": 0.709
+  }
+ },
+ "desaturation_test": {
+  "apple": {
+   "saturation_x1.0": {
+    "correct": 0.93,
+    "pred_guava": 0.0,
+    "mean_conf": 0.852,
+    "mean_chroma": 11.3
+   },
+   "saturation_x0.4": {
+    "correct": 0.75,
+    "pred_guava": 0.15,
+    "mean_conf": 0.809,
+    "mean_chroma": 4.6
+   },
+   "saturation_x0.2_washed": {
+    "correct": 0.72,
+    "pred_guava": 0.1,
+    "mean_conf": 0.78,
+    "mean_chroma": 1.8
+   }
+  },
+  "banana": {
+   "saturation_x1.0": {
+    "correct": 1.0,
+    "pred_guava": 0.0,
+    "mean_conf": 0.995,
+    "mean_chroma": 49.4
+   },
+   "saturation_x0.4": {
+    "correct": 1.0,
+    "pred_guava": 0.0,
+    "mean_conf": 0.993,
+    "mean_chroma": 19.9
+   },
+   "saturation_x0.2_washed": {
+    "correct": 0.97,
+    "pred_guava": 0.0,
+    "mean_conf": 0.984,
+    "mean_chroma": 6.5
+   }
+  },
+  "guava": {
+   "saturation_x1.0": {
+    "correct": 0.72,
+    "pred_guava": 0.72,
+    "mean_conf": 0.759,
+    "mean_chroma": 13.3
+   },
+   "saturation_x0.4": {
+    "correct": 0.82,
+    "pred_guava": 0.82,
+    "mean_conf": 0.801,
+    "mean_chroma": 5.5
+   },
+   "saturation_x0.2_washed": {
+    "correct": 0.55,
+    "pred_guava": 0.55,
+    "mean_conf": 0.742,
+    "mean_chroma": 2.1
+   }
+  },
+  "tomato": {
+   "saturation_x1.0": {
+    "correct": 1.0,
+    "pred_guava": 0.0,
+    "mean_conf": 0.985,
+    "mean_chroma": 28.2
+   },
+   "saturation_x0.4": {
+    "correct": 0.75,
+    "pred_guava": 0.0,
+    "mean_conf": 0.836,
+    "mean_chroma": 11.4
+   },
+   "saturation_x0.2_washed": {
+    "correct": 0.03,
+    "pred_guava": 0.0,
+    "mean_conf": 0.683,
+    "mean_chroma": 4.0
+   }
+  },
+  "brinjal": {
+   "saturation_x1.0": {
+    "correct": 0.8,
+    "pred_guava": 0.0,
+    "mean_conf": 0.896,
+    "mean_chroma": 11.1
+   },
+   "saturation_x0.4": {
+    "correct": 0.68,
+    "pred_guava": 0.0,
+    "mean_conf": 0.889,
+    "mean_chroma": 4.6
+   },
+   "saturation_x0.2_washed": {
+    "correct": 0.5,
+    "pred_guava": 0.0,
+    "mean_conf": 0.891,
+    "mean_chroma": 1.8
+   }
+  }
+ }
+}

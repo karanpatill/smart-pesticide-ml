@@ -1,0 +1,27 @@
+BUILT /home/ubantu/tflm_work/build_host32_cmsis_nn/tflm_mem_driver (cmsis_nn, 160 objects)
+/home/ubantu/tflm_work/build_host32_cmsis_nn/tflm_mem_driver: ELF 32-bit LSB executable, Intel 80386
+sizeof(void*)=4 model_bytes=366848
+[RecordingMicroAllocator] Arena allocation total 149216 bytes
+[RecordingMicroAllocator] Arena allocation head 96000 bytes
+[RecordingMicroAllocator] Arena allocation tail 53216 bytes
+[RecordingMicroAllocator] 'TfLiteEvalTensor data' used 2424 bytes with alignment overhead (requested 2424 bytes for 202 allocations)
+[RecordingMicroAllocator] 'Persistent TfLiteTensor data' used 360 bytes with alignment overhead (requested 360 bytes for 9 tensors)
+[RecordingMicroAllocator] 'Persistent TfLiteTensor quantization data' used 180 bytes with alignment overhead (requested 180 bytes for 18 allocations)
+[RecordingMicroAllocator] 'Persistent buffer data' used 45792 bytes with alignment overhead (requested 45344 bytes for 200 allocations)
+[RecordingMicroAllocator] 'NodeAndRegistration struct' used 2560 bytes with alignment overhead (requested 2560 bytes for 80 NodeAndRegistration structs)
+OUT 0 127 -128
+OUT 1 117 -128 -117
+OUT 2 -128 127 -128
+OUT 3 127 -127 -128
+OUT 4 127 -128 -128
+OUT 5 -125 124 -127
+OUT 6 -125 -128 125 -128 -128
+OUT 7 127 -128
+STATUS OK arena_used_bytes=149216
+{
+ "min_single_arena": 149104,
+ "min_persistent_arena": 53120,
+ "min_non_persistent_arena": 96000,
+ "split_minima_together_ok": true,
+ "resolution_bytes": 16
+}

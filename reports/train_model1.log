@@ -1,0 +1,70 @@
+WARNING:tensorflow:From D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\backend\common\global_state.py:82: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+D:\smart-pesticide-ml\src\fruitvision\models\mobilenet.py:42: UserWarning: `input_shape` is undefined or non-square, or `rows` is not in [96, 128, 160, 192, 224]. Weights for input shape (224, 224) will be loaded as the default.
+  backbone = tf.keras.applications.MobileNetV2(
+D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/8
+193/193 - 14s - 71ms/step - condition_acc: 0.6048 - condition_loss: 1.6028 - fruit_acc: 0.3726 - fruit_loss: 3.4519 - loss: 5.0510 - val_condition_acc: 0.6751 - val_condition_loss: 0.7109 - val_fruit_acc: 0.4873 - val_fruit_loss: 1.9069 - val_loss: 2.8109
+Epoch 2/8
+193/193 - 8s - 43ms/step - condition_acc: 0.6868 - condition_loss: 0.9091 - fruit_acc: 0.5255 - fruit_loss: 1.8635 - loss: 2.7828 - val_condition_acc: 0.7929 - val_condition_loss: 0.4784 - val_fruit_acc: 0.6305 - val_fruit_loss: 1.2378 - val_loss: 1.8498
+Epoch 3/8
+193/193 - 9s - 45ms/step - condition_acc: 0.7304 - condition_loss: 0.7078 - fruit_acc: 0.5861 - fruit_loss: 1.3706 - loss: 2.0817 - val_condition_acc: 0.7806 - val_condition_loss: 0.4755 - val_fruit_acc: 0.7028 - val_fruit_loss: 0.9662 - val_loss: 1.5520
+Epoch 4/8
+193/193 - 9s - 45ms/step - condition_acc: 0.7595 - condition_loss: 0.5914 - fruit_acc: 0.6430 - fruit_loss: 1.1003 - loss: 1.6984 - val_condition_acc: 0.8545 - val_condition_loss: 0.3543 - val_fruit_acc: 0.7513 - val_fruit_loss: 0.8553 - val_loss: 1.2997
+Epoch 5/8
+193/193 - 9s - 46ms/step - condition_acc: 0.7849 - condition_loss: 0.5081 - fruit_acc: 0.6813 - fruit_loss: 0.9441 - loss: 1.4492 - val_condition_acc: 0.8676 - val_condition_loss: 0.3329 - val_fruit_acc: 0.8029 - val_fruit_loss: 0.8136 - val_loss: 1.2185
+Epoch 6/8
+193/193 - 8s - 41ms/step - condition_acc: 0.7828 - condition_loss: 0.4956 - fruit_acc: 0.6931 - fruit_loss: 0.8207 - loss: 1.3104 - val_condition_acc: 0.8753 - val_condition_loss: 0.3221 - val_fruit_acc: 0.8245 - val_fruit_loss: 0.7307 - val_loss: 1.1148
+Epoch 7/8
+193/193 - 7s - 37ms/step - condition_acc: 0.7924 - condition_loss: 0.4644 - fruit_acc: 0.6983 - fruit_loss: 0.7945 - loss: 1.2611 - val_condition_acc: 0.8576 - val_condition_loss: 0.3555 - val_fruit_acc: 0.8199 - val_fruit_loss: 0.7455 - val_loss: 1.1545
+Epoch 8/8
+193/193 - 7s - 37ms/step - condition_acc: 0.8043 - condition_loss: 0.4711 - fruit_acc: 0.7226 - fruit_loss: 0.7113 - loss: 1.1863 - val_condition_acc: 0.8553 - val_condition_loss: 0.3554 - val_fruit_acc: 0.8052 - val_fruit_loss: 0.7565 - val_loss: 1.1691
+Epoch 1/15
+193/193 - 16s - 81ms/step - condition_acc: 0.8200 - condition_loss: 0.4230 - fruit_acc: 0.7691 - fruit_loss: 0.6393 - loss: 1.0639 - val_condition_acc: 0.8676 - val_condition_loss: 0.3371 - val_fruit_acc: 0.8337 - val_fruit_loss: 0.7181 - val_loss: 1.0628
+Epoch 2/15
+193/193 - 9s - 45ms/step - condition_acc: 0.8584 - condition_loss: 0.3613 - fruit_acc: 0.8301 - fruit_loss: 0.4517 - loss: 0.8160 - val_condition_acc: 0.9192 - val_condition_loss: 0.2192 - val_fruit_acc: 0.8684 - val_fruit_loss: 0.5718 - val_loss: 0.7694
+Epoch 3/15
+193/193 - 8s - 42ms/step - condition_acc: 0.8861 - condition_loss: 0.3121 - fruit_acc: 0.8653 - fruit_loss: 0.3757 - loss: 0.6875 - val_condition_acc: 0.9299 - val_condition_loss: 0.1955 - val_fruit_acc: 0.8637 - val_fruit_loss: 0.5432 - val_loss: 0.7559
+Epoch 4/15
+193/193 - 8s - 40ms/step - condition_acc: 0.8994 - condition_loss: 0.2948 - fruit_acc: 0.8633 - fruit_loss: 0.3620 - loss: 0.6588 - val_condition_acc: 0.9261 - val_condition_loss: 0.2288 - val_fruit_acc: 0.8599 - val_fruit_loss: 0.5769 - val_loss: 0.7921
+Epoch 5/15
+193/193 - 8s - 40ms/step - condition_acc: 0.9102 - condition_loss: 0.2800 - fruit_acc: 0.8929 - fruit_loss: 0.2930 - loss: 0.5745 - val_condition_acc: 0.9246 - val_condition_loss: 0.2229 - val_fruit_acc: 0.8668 - val_fruit_loss: 0.6204 - val_loss: 0.8294
+Epoch 6/15
+193/193 - 8s - 41ms/step - condition_acc: 0.9185 - condition_loss: 0.2572 - fruit_acc: 0.8973 - fruit_loss: 0.2901 - loss: 0.5472 - val_condition_acc: 0.9115 - val_condition_loss: 0.2634 - val_fruit_acc: 0.8430 - val_fruit_loss: 0.5802 - val_loss: 0.8924
+Epoch 7/15
+193/193 - 8s - 43ms/step - condition_acc: 0.9204 - condition_loss: 0.2497 - fruit_acc: 0.9056 - fruit_loss: 0.2645 - loss: 0.5165 - val_condition_acc: 0.9361 - val_condition_loss: 0.1902 - val_fruit_acc: 0.8761 - val_fruit_loss: 0.4617 - val_loss: 0.6532
+Epoch 8/15
+193/193 - 8s - 42ms/step - condition_acc: 0.9195 - condition_loss: 0.2347 - fruit_acc: 0.9084 - fruit_loss: 0.2404 - loss: 0.4773 - val_condition_acc: 0.9230 - val_condition_loss: 0.2071 - val_fruit_acc: 0.8707 - val_fruit_loss: 0.5666 - val_loss: 0.8070
+Epoch 9/15
+193/193 - 8s - 42ms/step - condition_acc: 0.9193 - condition_loss: 0.2434 - fruit_acc: 0.9121 - fruit_loss: 0.2365 - loss: 0.4804 - val_condition_acc: 0.9084 - val_condition_loss: 0.2612 - val_fruit_acc: 0.8607 - val_fruit_loss: 0.6718 - val_loss: 0.9238
+Epoch 10/15
+193/193 - 8s - 41ms/step - condition_acc: 0.9282 - condition_loss: 0.2303 - fruit_acc: 0.9177 - fruit_loss: 0.2217 - loss: 0.4535 - val_condition_acc: 0.9253 - val_condition_loss: 0.2128 - val_fruit_acc: 0.8522 - val_fruit_loss: 0.6231 - val_loss: 0.8726
+Epoch 11/15
+193/193 - 8s - 44ms/step - condition_acc: 0.9248 - condition_loss: 0.2135 - fruit_acc: 0.9216 - fruit_loss: 0.2123 - loss: 0.4266 - val_condition_acc: 0.9361 - val_condition_loss: 0.1634 - val_fruit_acc: 0.8430 - val_fruit_loss: 0.8120 - val_loss: 0.9435
+Epoch 12/15
+193/193 - 8s - 43ms/step - condition_acc: 0.9284 - condition_loss: 0.2132 - fruit_acc: 0.9208 - fruit_loss: 0.2229 - loss: 0.4379 - val_condition_acc: 0.9292 - val_condition_loss: 0.1961 - val_fruit_acc: 0.8676 - val_fruit_loss: 0.6496 - val_loss: 0.8345
+{
+  "final/val": {
+    "fruit_macro_f1": 0.8904,
+    "condition_macro_f1": 0.9347,
+    "spoiled_recall": 0.9866
+  },
+  "final/test": {
+    "fruit_macro_f1": 0.822,
+    "condition_macro_f1": 0.6785,
+    "spoiled_recall": 0.6615
+  },
+  "best_checkpoint/val": {
+    "fruit_macro_f1": 0.8904,
+    "condition_macro_f1": 0.9347,
+    "spoiled_recall": 0.9866
+  },
+  "best_checkpoint/test": {
+    "fruit_macro_f1": 0.822,
+    "condition_macro_f1": 0.6785,
+    "spoiled_recall": 0.6615
+  }
+}
+Artifacts: models\model1  Reports: reports\model1
+EXIT=0

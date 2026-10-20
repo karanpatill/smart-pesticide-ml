@@ -1,0 +1,2 @@
+config,size,cut,minutes,fruit_f1,fruit_f1_fold_std,cond_f1,cond_f1_fold_std,cond_f1_apple,cond_f1_banana,cond_f1_brinjal,cond_f1_guava,cond_f1_tomato,cond_f1_agrifreshnet,cond_f1_fruitnet,fruit_f1_agrifreshnet,fruit_f1_fruitnet
+80px_block_15_add_maskcenter,80,block_15_add,4.4,0.4667,0.0955,0.5927,0.1358,0.8084,0.5576,0.5886,0.4029,0.5936,0.6266,0.5841,0.6093,0.457

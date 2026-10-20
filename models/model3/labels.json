@@ -1,0 +1,31 @@
+{
+  "quality_banana": {
+    "0": "Good",
+    "1": "Average",
+    "2": "Poor"
+  },
+  "quality_guava": {
+    "0": "Good",
+    "1": "Average",
+    "2": "Poor"
+  },
+  "quality_apple": {
+    "0": "Good",
+    "1": "Poor"
+  },
+  "stage_tomato": {
+    "0": "Fresh",
+    "1": "Semi-fresh",
+    "2": "Rotten"
+  },
+  "stage_brinjal": {
+    "0": "Fresh",
+    "1": "Semi-fresh",
+    "2": "Rotten"
+  },
+  "stage_banana": {
+    "0": "Fresh",
+    "1": "Semi-fresh",
+    "2": "Rotten"
+  }
+}

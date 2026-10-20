@@ -1,0 +1,33 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Builds and Backups
+build/
+backups/
+*.elf
+*.map
+
+# Data (9.6GB dataset reproducible from download scripts)
+data/*
+!data/**/.gitkeep
+!data/fixtures/
+
+# Temporary debug / captured test files at root
+/*.bin
+/*.png
+/*.tflite
+/patch_*.py
+/decode_oled.py
+
+models/runs/
+models/checkpoints/*
+models/saved/*
+!models/**/.gitkeep
+
+reports/eval/
+reports/dataset_audit/*
+!reports/**/.gitkeep

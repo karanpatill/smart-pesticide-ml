@@ -1,0 +1,147 @@
+{
+  "n": 13,
+  "agree": 13,
+  "windows_outside_input": true,
+  "device": "host32 x86 (zig) - NOT STM32. Frames: public test images, centre 4:3 crop, PIL-resized to 160x120, RGB565 big-endian (ENTC format) - OFFLINE, NOT camera captures",
+  "rows": [
+    {
+      "name": "q00.rgb565",
+      "expected": {
+        "fruit": "apple",
+        "quality": "Poor",
+        "shelf": "unavailable"
+      },
+      "c_app": "cam=0 img_flags=4096 0 0 1 0 2 2 -1 0",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q01.rgb565",
+      "expected": {
+        "fruit": "apple",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 0 0 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q02.rgb565",
+      "expected": {
+        "fruit": "banana",
+        "quality": "Poor",
+        "shelf": "predicted"
+      },
+      "c_app": "cam=0 img_flags=4096 0 1 1 0 2 0 1 2",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q03.rgb565",
+      "expected": {
+        "fruit": "banana",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 1 1 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q04.rgb565",
+      "expected": {
+        "fruit": "apple",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 0 0 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q05.rgb565",
+      "expected": {
+        "fruit": "apple",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 0 0 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q06.rgb565",
+      "expected": {
+        "fruit": "guava",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 2 0 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q07.rgb565",
+      "expected": {
+        "fruit": "guava",
+        "quality": "Average",
+        "shelf": "unavailable"
+      },
+      "c_app": "cam=0 img_flags=4096 0 2 0 0 1 2 -1 0",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q08.rgb565",
+      "expected": {
+        "fruit": "guava",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 2 1 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q09.rgb565",
+      "expected": {
+        "fruit": "tomato",
+        "quality": "Good",
+        "shelf": "predicted"
+      },
+      "c_app": "cam=0 img_flags=4096 0 3 0 0 0 0 0 0",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q10.rgb565",
+      "expected": {
+        "fruit": "banana",
+        "quality": "Uncertain",
+        "shelf": "uncertain"
+      },
+      "c_app": "cam=0 img_flags=4096 0 1 1 1 -1 1 -1 1",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "q11.rgb565",
+      "expected": {
+        "fruit": "tomato",
+        "quality": "Poor",
+        "shelf": "predicted"
+      },
+      "c_app": "cam=0 img_flags=4096 0 3 1 0 2 0 2 0",
+      "window_offset": 19200,
+      "agree": true
+    },
+    {
+      "name": "uniform160.rgb565",
+      "expected": "rejected (content)",
+      "c_app": "cam=-7 img_flags=4103 2 -1 -1 2 -1 2 -1 0",
+      "window_offset": 19200,
+      "agree": true
+    }
+  ]
+}

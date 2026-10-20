@@ -1,0 +1,16 @@
+{
+ "version": 1,
+ "min_detail_laplacian_var": 43.96,
+ "fruit_confidence_threshold": 0.976,
+ "detail_definition": "variance of [[0,1,0],[1,-4,1],[0,1,0]] Laplacian of luminance (0.299R+0.587G+0.114B) of the 80x80 model input, valid region",
+ "derivation": {
+  "min_detail": 43.96,
+  "min_detail_rule": "0.5 x 0.5th percentile of VAL (camera-format) Laplacian variance",
+  "val_n": 1299,
+  "val_detail_p0_5": 87.91,
+  "val_detail_median": 389.84,
+  "r1_threshold": 0.976,
+  "fruit_shown_if": "detail >= min_detail AND confidence >= r1_threshold"
+ },
+ "evaluation": "reports/firmware/presence_gate_eval.json"
+}

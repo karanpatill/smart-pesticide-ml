@@ -1,0 +1,94 @@
+# Dataset sources and label mappings.
+#
+# Every mapping below MUST be filled in only after running
+#   python scripts/inspect_dataset.py --source <name>
+# on the actually-downloaded data and checking the real folder names and
+# sample images. Until a source has `labels_verified: true`,
+# scripts/prepare_dataset.py refuses to include it.
+#
+# `class_dirs` maps a directory name (any ancestor folder of an image, matched
+# exactly, case-insensitive) to a fruit + condition. Directories that are not
+# listed are ignored (and reported), so nothing is silently labelled.
+#
+# `condition` must be one of the classes in config.yaml -> conditions.
+# `condition_raw` preserves the original label for traceability.
+
+sources:
+
+  fruitnet:
+    title: "FruitNet: Indian Fruits Dataset with quality (Good, Bad & Mixed quality)"
+    url: https://data.mendeley.com/datasets/b6fftwbr2v/3
+    doi: 10.17632/b6fftwbr2v.3
+    license: CC BY 4.0
+    citation: >-
+      Meshram, V., Patil, K. (2022). FruitNet: Indian fruits image dataset with
+      quality for machine learning applications. Data in Brief 40, 107686.
+    root: fruitnet
+    download:
+      url: https://data.mendeley.com/public-files/datasets/b6fftwbr2v/files/532e56bf-d855-4afd-86fd-2c8c425eb32c/file_downloaded
+      filename: FruitNetDataset.zip
+      sha256: b84851e0c9101156bc537a7adfc4528289fa063d8a9a029ea4a6dd713cf5e53d   # 3.25 GB
+    enabled: true
+    # Folder names confirmed on the downloaded data (2026-10-08). Mapping was
+    # reviewed against contact sheets by the assistant; user visual sign-off
+    # pending (reports/dataset_audit/_combined/sheets/).
+    labels_verified: true
+    # Regexes on the path relative to the source root. Each entry was found
+    # in the 2026-10-08 audit and checked by eye.
+    exclude_file_patterns:
+      - 'Apple_Good/IMG202007301326[01]\d'   # 15-frame burst of a BANANA on grass labelled Apple_Good
+    session: {gap_seconds: 20, counter_gap: 3, fallback: class}
+    class_dirs:
+      Apple_Good:  {fruit: apple,  condition: fresh,   condition_raw: good}
+      Apple_Bad:   {fruit: apple,  condition: spoiled, condition_raw: bad}
+      Banana_Good: {fruit: banana, condition: fresh,   condition_raw: good}
+      Banana_Bad:  {fruit: banana, condition: spoiled, condition_raw: bad}
+      Guava_Good:  {fruit: guava,  condition: fresh,   condition_raw: good}
+      Guava_Bad:   {fruit: guava,  condition: spoiled, condition_raw: bad}
+      # Mixed = piles of several fruits of mixed quality: no single label.
+      Mixed Qualit_Fruits: {exclude: true, condition_raw: mixed}
+      # Lime_*, Orange_*, Pomegranate_* are not target fruits -> left unmapped.
+
+  agrifreshnet:
+    title: "AgriFreshNET Freshness and Shelf-Life Image Dataset"
+    url: https://data.mendeley.com/datasets/42m5tb7yv9/1
+    doi: 10.17632/42m5tb7yv9.1
+    license: CC BY 4.0
+    citation: >-
+      Risdin, F., Salauddin, H., Tufa, T. A., Hossain, M. J. AgriFreshNET
+      Freshness and Shelf-Life Image Dataset. Mendeley Data, V1.
+    root: agrifreshnet
+    download:
+      url: https://data.mendeley.com/public-files/datasets/42m5tb7yv9/files/7b216853-8f3b-47fd-b1ae-df88a367a1d1/file_downloaded
+      filename: agrifreshnet_processed_data.zip
+      sha256: 6607a48bf2817f9dfc8d4a1c32ce663c1d8308b4b1251e9bf65f074fcac53f11   # 348 MB
+    enabled: true
+    # Folder names confirmed on the downloaded data (2026-10-08); the number
+    # range in each folder name is the dataset's shelf-life annotation (days),
+    # which is per folder, not per image. Not used (binary labels only).
+    labels_verified: true
+    # aug_* files are pre-augmented copies (found in the eggplant folders).
+    exclude_file_patterns: ['/aug_[^/]*$']
+    session: {gap_seconds: 20, counter_gap: 3, fallback: class}
+    class_dirs:
+      Fresh Banana(1-4):          {fruit: banana,  condition: fresh,   condition_raw: fresh}
+      Rotten banana(7-13):        {fruit: banana,  condition: spoiled, condition_raw: rotten}
+      Semi fresh banana(4-7):     {fruit: banana,  condition: null,    condition_raw: semi_fresh}
+      Fresh Tomato(1-10):         {fruit: tomato,  condition: fresh,   condition_raw: fresh}
+      Rotten Tomato(24-35):       {fruit: tomato,  condition: spoiled, condition_raw: rotten}
+      Semi fresh Tomato(10-24):   {fruit: tomato,  condition: null,    condition_raw: semi_fresh}
+      Fresh eggplant(1-4):        {fruit: brinjal, condition: fresh,   condition_raw: fresh}
+      Rotten eggplant(8-15):      {fruit: brinjal, condition: spoiled, condition_raw: rotten}
+      Semi_Fresh eggplant(4-8):   {fruit: brinjal, condition: null,    condition_raw: semi_fresh}
+      # Bittermelon, Cucumber, Orange, Papaya, Pineapple: not target -> unmapped.
+
+  # Optional supplement to reduce single-source risk for tomato.
+  spoiled_fresh_inspection:
+    title: "Spoiled and fresh fruit inspection dataset"
+    url: https://data.mendeley.com/datasets/6ps7gtp2wg
+    doi: 10.17632/6ps7gtp2wg.1
+    license: CC BY 4.0
+    root: spoiled_fresh_inspection
+    enabled: false
+    labels_verified: false
+    class_dirs: {}

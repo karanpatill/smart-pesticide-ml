@@ -1,0 +1,26 @@
+{
+ "label_given_by_user": "reposition_repeat_2",
+ "magic_ok": true,
+ "write_once_snapshot": false,
+ "stable_complete_read": true,
+ "seq": 1164,
+ "cycle_ms": 1636956,
+ "detail": 448.2,
+ "image_flags": 4096,
+ "fruit_present": 1,
+ "device_fruit_probs": {
+  "apple": 0.0,
+  "banana": 0.9961,
+  "guava": 0.0039,
+  "tomato": 0.0,
+  "brinjal": 0.0
+ },
+ "device_fruit": "banana",
+ "python_equals_device_bit_exact": true,
+ "python_fruit": "banana",
+ "input_mean_rgb": [
+  149.2,
+  144.8,
+  147.4
+ ]
+}

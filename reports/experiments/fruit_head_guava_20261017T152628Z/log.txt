@@ -1,0 +1,18 @@
+frozen extractor sha256 (read-only): fc3f9ecca45cdc5c8566be55aec48da9a40cefad06792971ea19ad51fe8e1741
+m1_train 6146
+grade_train 1170
+m1_val 1299
+grade_val 251
+m1_test 1012
+grade_test 251
+C=0.01: VAL macro-F1 0.8818
+C=0.03: VAL macro-F1 0.8808
+C=0.1: VAL macro-F1 0.8840
+C=0.3: VAL macro-F1 0.8862
+C=1.0: VAL macro-F1 0.8852
+C=3.0: VAL macro-F1 0.8863
+m1_test baseline 0.7942 {'apple': 0.727, 'banana': 0.9, 'guava': 0.767, 'tomato': 0.935, 'brinjal': 0.825} | candidate 0.7843 {'apple': 0.625, 'banana': 0.818, 'guava': 0.813, 'tomato': 0.976, 'brinjal': 0.807}
+grade_test baseline 0.3198 {'banana': 1.0, 'guava': 0.463} | candidate 0.3887 {'banana': 1.0, 'guava': 0.915}
+m1_val baseline 0.8302 {'apple': 0.869, 'banana': 0.921, 'guava': 0.526, 'tomato': 0.984, 'brinjal': 0.949} | candidate 0.8649 {'apple': 0.947, 'banana': 0.909, 'guava': 0.515, 'tomato': 1.0, 'brinjal': 0.983}
+grade_val baseline 0.3175 {'banana': 1.0, 'guava': 0.451} | candidate 0.395 {'banana': 1.0, 'guava': 0.951}
+saved D:\smart-pesticide-ml\reports\experiments\fruit_head_guava_20261017T152628Z D:\smart-pesticide-ml\models\candidates\fruit_head_guava_20261017T152628Z

@@ -1,0 +1,70 @@
+{
+ "dir": "D:\\smart-pesticide-ml\\reports\\firmware\\live_capture\\20261019T172550Z",
+ "label": "Frame read from SRAM over SWD (if this directory came from --execute); PC-side analysis only, NOT on-target camera-to-model inference.",
+ "checks": {
+  "len_meta_a.bin": true,
+  "len_status_a.bin": true,
+  "len_frame_a.bin": true,
+  "len_status_b.bin": true,
+  "len_frame_b.bin": true,
+  "len_meta_b.bin": true,
+  "camera_ready": false,
+  "polarity_values_valid": false,
+  "polarity_stable": true,
+  "last_frame_38400": false,
+  "frame_stable_a_eq_b": true,
+  "status_frame_ok": false,
+  "entc_stats_match_big_endian": false
+ },
+ "meta_a": {
+  "camera_ready": 200,
+  "vspol": 140,
+  "hspol": 135,
+  "byte_3": 70,
+  "last_bytes": 2189997989
+ },
+ "meta_b": {
+  "camera_ready": 200,
+  "vspol": 140,
+  "hspol": 135,
+  "byte_3": 70,
+  "last_bytes": 2189997989
+ },
+ "frame_a_sha256": "32977871f8772d1e64e182e9b7e6bc2ee8dc15cd4fbb6fa2fd1d4be9d3f030ff",
+ "frame_b_sha256": "32977871f8772d1e64e182e9b7e6bc2ee8dc15cd4fbb6fa2fd1d4be9d3f030ff",
+ "frame_bytes_differing_a_b": 0,
+ "tail_nonzero_bytes_after_38400": 1999,
+ "status_a": {
+  "frame_ok": 0,
+  "err": 0,
+  "meanR": 0,
+  "meanG": 0,
+  "meanB": 104,
+  "dark_pct": 0,
+  "class_u32": "0xd0"
+ },
+ "status_b": {
+  "frame_ok": 0,
+  "err": 0,
+  "meanR": 0,
+  "meanG": 0,
+  "meanB": 104,
+  "dark_pct": 0,
+  "class_u32": "0xd0"
+ },
+ "entc_stats_from_frame_be": {
+  "meanR": 126,
+  "meanG": 111,
+  "meanB": 101,
+  "dark_pct": 2
+ },
+ "entc_stats_from_frame_le": {
+  "meanR": 127,
+  "meanG": 112,
+  "meanB": 102,
+  "dark_pct": 2
+ },
+ "entc_stats_match_little_endian": false,
+ "valid_capture": false,
+ "format_confirmed_by_entc_stats": false
+}

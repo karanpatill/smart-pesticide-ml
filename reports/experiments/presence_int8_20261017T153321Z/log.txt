@@ -1,0 +1,15 @@
+read-only sources: {'model3_combined.keras': '363946f34b13f466', 'combined_int8.tflite': '1af166f0b07c587c', 'model1_final.keras': 'fc3f9ecca45cdc5c'} head: D:\smart-pesticide-ml\models\candidates\background_head_20261017T152313Z\background_head.npz
+folded head: |w|max 0.8062 bias 9.9566 (VAL threshold 0.01562 -> 0.5)
+gap(model3_combined) vs gap(model1_final) max abs diff: 0.0
+candidate tflite: D:\smart-pesticide-ml\models\candidates\presence_int8_20261017T153321Z\combined_presence_int8.tflite 372608 B 612f2e5586f0a4e2 | frozen 366848 B
+presence output quantization: (0.00390625, -128) | fruit: (0.00390625, -128)
+inputs: {'test_background': 3023, 'test_fruit': 1012, 'synthetic': 100, 'device_nofruit': 17, 'device_fruit': 6}
+existing 8 outputs bit-identical to frozen INT8 (REF): 4158/4158
+test_fruit {'n': 1012, 'head_accepts': 1.0, 'shown_v5_gate': 0.4891, 'shown_v5_gate_plus_head': 0.4891}
+test_background {'n': 3023, 'head_accepts': 0.0261, 'shown_v5_gate': 0.2537, 'shown_v5_gate_plus_head': 0.0093}
+synthetic {'n': 100, 'head_accepts': 0.01, 'shown_v5_gate': 0.0, 'shown_v5_gate_plus_head': 0.0}
+device_fruit {'n': 6, 'head_accepts': 1.0, 'shown_v5_gate': 0.6667, 'shown_v5_gate_plus_head': 0.6667}
+device_nofruit {'n': 17, 'head_accepts': 0.0, 'shown_v5_gate': 0.0, 'shown_v5_gate_plus_head': 0.0}
+per-class {"apple": {"n": 275, "head_accepts": 1.0, "shown_v5": 0.1636, "shown_cand": 0.1636, "acc_when_shown_cand": 0.8889}, "banana": {"n": 231, "head_accepts": 1.0, "shown_v5": 0.8009, "shown_cand": 0.8009, "acc_when_shown_cand": 0.9622}, "guava": {"n": 326, "head_accepts": 1.0, "shown_v5": 0.4939, "shown_cand": 0.4939, "acc_when_shown_cand": 0.9689}, "tomato": {"n": 123, "head_accepts": 1.0, "shown_v5": 0.5854, "shown_cand": 0.5854, "acc_when_shown_cand": 0.9861}, "brinjal": {"n": 57, "head_accepts": 1.0, "shown_v5": 0.5614, "shown_cand": 0.5614, "acc_when_shown_cand": 1.0}}
+acc when shown {'v5': 0.9636, 'candidate': 0.9636}
+sources unchanged: True | saved D:\smart-pesticide-ml\models\candidates\presence_int8_20261017T153321Z D:\smart-pesticide-ml\reports\experiments\presence_int8_20261017T153321Z

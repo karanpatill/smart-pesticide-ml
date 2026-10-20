@@ -1,0 +1,259 @@
+{
+ "LABEL": "OFFLINE PC inference on ONE real OV2640 frame read from the board's SRAM. Model predictions only - NOT validated real-world results, not on-target camera-to-model inference, no freshness/pesticide claim.",
+ "frame": {
+  "file": "reports\\firmware\\live_capture\\20261017T092315Z\\frame_a.bin",
+  "bytes": 38400,
+  "sha256": "32e635db01ce038cd3db3287c5ad9e4c8498b88e1b8ac4852af6b076c1710de6",
+  "png": "reports\\firmware\\live_capture\\20261017T092315Z\\frame_a_be.png",
+  "decode": "160x120 RGB565 big-endian (confirmed by ENTC statistics)"
+ },
+ "A_deployment_path_int8": {
+  "pipeline": "firmware preprocessing (centre 120x120 -> 80x80 Q16 bilinear) -> combined_int8.tflite -> postprocess",
+  "int8_outputs": {
+   "fruit": [
+    -90,
+    -125,
+    87,
+    -128,
+    -128
+   ],
+   "condition": [
+    63,
+    -63
+   ],
+   "quality_banana": [
+    127,
+    -128,
+    -128
+   ],
+   "quality_guava": [
+    127,
+    -128,
+    -128
+   ],
+   "quality_apple": [
+    127,
+    -128
+   ],
+   "stage_tomato": [
+    -128,
+    -33,
+    33
+   ],
+   "stage_brinjal": [
+    56,
+    -56,
+    -128
+   ],
+   "stage_banana": [
+    1,
+    -116,
+    -13
+   ]
+  },
+  "probabilities": {
+   "fruit": [
+    0.1484,
+    0.0117,
+    0.8398,
+    0.0,
+    0.0
+   ],
+   "condition": [
+    0.7461,
+    0.2539
+   ],
+   "quality_banana": [
+    0.9961,
+    0.0,
+    0.0
+   ],
+   "quality_guava": [
+    0.9961,
+    0.0,
+    0.0
+   ],
+   "quality_apple": [
+    0.9961,
+    0.0
+   ],
+   "stage_tomato": [
+    0.0,
+    0.3711,
+    0.6289
+   ],
+   "stage_brinjal": [
+    0.7188,
+    0.2812,
+    0.0
+   ],
+   "stage_banana": [
+    0.5039,
+    0.0469,
+    0.4492
+   ]
+  },
+  "fruit": {
+   "label": "guava",
+   "confidence": 0.8398,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "condition": {
+   "label": "fresh",
+   "confidence": 0.7461,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "quality_grade": {
+   "label": "Uncertain",
+   "confidence": null,
+   "scale": null,
+   "basis": null,
+   "head": null,
+   "reason": "Fruit routing confidence 0.840 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+   "source": "post-processing (R1)",
+   "state": "uncertain"
+  },
+  "shelf_life": {
+   "status": "not_available",
+   "range_days": null,
+   "reason": "Fruit routing confidence 0.840 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+   "source": "post-processing (R1)",
+   "state": "uncertain"
+  },
+  "consistency": {
+   "status": "uncertain",
+   "warnings": [
+    {
+     "rule": "R1_low_fruit_confidence",
+     "severity": "uncertain",
+     "message": "Fruit routing confidence 0.840 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+     "details": {
+      "fruit_confidence": 0.8398,
+      "threshold": 0.976
+     }
+    }
+   ]
+  }
+ },
+ "B_pc_system_float": {
+  "pipeline": "SmartPesticideSystem.analyze(PNG): image checks + float Keras Model 1/Model 3 (training preprocessing) + postprocess",
+  "input_checks": {
+   "status": "warning",
+   "reasons": [],
+   "warnings": [
+    "aspect ratio 1.33 > 1.1; the model input will be letterboxed with black bars (training images are mostly square). Prefer a centre-square crop."
+   ],
+   "stats": {
+    "format": "PNG",
+    "mode": "RGB",
+    "width": 160,
+    "height": 120,
+    "lum_mean": 102.3521,
+    "lum_std": 63.7556,
+    "lag1_autocorr": 0.9674,
+    "chroma_mean_abs": 5.4798,
+    "clipped_fraction": 0.25
+   },
+   "note": "Generic input sanity check, not a trained not-a-fruit detector."
+  },
+  "fruit": {
+   "label": "banana",
+   "confidence": 0.984,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "condition": {
+   "label": "fresh",
+   "confidence": 0.7591,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "quality_grade": {
+   "label": "Good",
+   "confidence": 0.9999,
+   "scale": "3-level (Good/Average/Poor)",
+   "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+   "head": "quality_banana",
+   "source": "Model 3",
+   "state": "predicted"
+  },
+  "shelf_life": {
+   "status": "estimated_range",
+   "range_days": [
+    0,
+    0
+   ],
+   "stage": "Rotten",
+   "stage_confidence": 0.9563,
+   "head": "stage_banana",
+   "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+   "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+   "source": "Model 3 stage head + fixed lookup (no regression)",
+   "state": "predicted"
+  },
+  "consistency": {
+   "status": "warning",
+   "warnings": [
+    {
+     "rule": "R2_grade_vs_stage",
+     "severity": "contradiction",
+     "message": "Quality grade 'Good' and shelf-life stage 'Rotten' contradict each other. They come from different models trained on different datasets; treat both as uncertain. Neither output was altered.",
+     "details": {
+      "grade": "Good",
+      "stage": "Rotten",
+      "ordinal_distance": 2
+     }
+    }
+   ]
+  },
+  "raw_image_models": {
+   "fruit_probabilities": {
+    "apple": 0.0017,
+    "banana": 0.984,
+    "guava": 0.0106,
+    "tomato": 0.0001,
+    "brinjal": 0.0037
+   },
+   "condition_probabilities": {
+    "fresh": 0.7591,
+    "spoiled": 0.2409
+   },
+   "head_probabilities": {
+    "quality_banana": {
+     "Good": 0.9999,
+     "Average": 0.0001,
+     "Poor": 0.0
+    },
+    "quality_guava": {
+     "Good": 1.0,
+     "Average": 0.0,
+     "Poor": 0.0
+    },
+    "quality_apple": {
+     "Good": 0.2603,
+     "Poor": 0.7397
+    },
+    "stage_tomato": {
+     "Fresh": 0.0015,
+     "Semi-fresh": 0.2268,
+     "Rotten": 0.7717
+    },
+    "stage_brinjal": {
+     "Fresh": 0.8591,
+     "Semi-fresh": 0.1406,
+     "Rotten": 0.0003
+    },
+    "stage_banana": {
+     "Fresh": 0.0435,
+     "Semi-fresh": 0.0002,
+     "Rotten": 0.9563
+    }
+   },
+   "routed_quality_head": "quality_banana",
+   "routed_stage_head": "stage_banana",
+   "routed_outputs_used_in_final": true
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "note": "Offline sweep of the confidence threshold with the detail gate fixed at 43.96. Public TEST images in device camera format (proxy). Real = 3 SWD frames; synthetic empties = 5. NOT sufficient validation.",
+ "sweep": [
+  {
+   "conf_threshold": 0.976,
+   "public_shown": 0.4891,
+   "public_accuracy_when_shown": 0.9636,
+   "real_frames_shown": [],
+   "synthetic_empties_shown": [],
+   "synthetic_empties_above_conf_only": [
+    "uniform_grey",
+    "blurred_wall_like"
+   ]
+  },
+  {
+   "conf_threshold": 0.95,
+   "public_shown": 0.5593,
+   "public_accuracy_when_shown": 0.9488,
+   "real_frames_shown": [],
+   "synthetic_empties_shown": [],
+   "synthetic_empties_above_conf_only": [
+    "uniform_grey",
+    "dark_frame",
+    "blurred_wall_like"
+   ]
+  },
+  {
+   "conf_threshold": 0.9,
+   "public_shown": 0.6443,
+   "public_accuracy_when_shown": 0.9325,
+   "real_frames_shown": [],
+   "synthetic_empties_shown": [],
+   "synthetic_empties_above_conf_only": [
+    "uniform_grey",
+    "dark_frame",
+    "smooth_gradient_with_sensor_noise",
+    "blurred_wall_like"
+   ]
+  },
+  {
+   "conf_threshold": 0.85,
+   "public_shown": 0.7026,
+   "public_accuracy_when_shown": 0.9241,
+   "real_frames_shown": [
+    "apple, after refocus"
+   ],
+   "synthetic_empties_shown": [],
+   "synthetic_empties_above_conf_only": [
+    "uniform_grey",
+    "dark_frame",
+    "smooth_gradient_with_sensor_noise",
+    "blurred_wall_like"
+   ]
+  },
+  {
+   "conf_threshold": 0.8,
+   "public_shown": 0.75,
+   "public_accuracy_when_shown": 0.917,
+   "real_frames_shown": [
+    "apple, after refocus"
+   ],
+   "synthetic_empties_shown": [],
+   "synthetic_empties_above_conf_only": [
+    "uniform_grey",
+    "dark_frame",
+    "smooth_gradient_with_sensor_noise",
+    "blurred_wall_like"
+   ]
+  }
+ ]
+}

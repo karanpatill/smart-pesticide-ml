@@ -1,0 +1,462 @@
+{
+  "variant": "crop_composite",
+  "size": 80,
+  "cut": "block_15_add",
+  "test": {
+    "n": 1012,
+    "fruit_macro_f1": 0.869642435803492,
+    "fruit_acc": 0.8636363636363636,
+    "condition_macro_f1": 0.7510822510822511,
+    "condition_acc": 0.7628458498023716,
+    "condition_f1_by_fruit": {
+      "apple": {
+        "f1": 0.5963175774860545,
+        "n": 275
+      },
+      "banana": {
+        "f1": 0.9263572433192686,
+        "n": 231
+      },
+      "brinjal": {
+        "f1": 0.7543103448275862,
+        "n": 57
+      },
+      "guava": {
+        "f1": 0.7681965093729799,
+        "n": 326
+      },
+      "tomato": {
+        "f1": 0.6433150183150182,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.9618533925440986,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.8674466607869996,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.7768746189798821,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.740568813337692,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 0.9636363636363636,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.7543103448275862,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.6433150183150182,
+        "n": 123
+      },
+      "fruitnet/apple": {
+        "f1": 0.5963175774860545,
+        "n": 275
+      },
+      "fruitnet/banana": {
+        "f1": 0.9091238889896609,
+        "n": 167
+      },
+      "fruitnet/guava": {
+        "f1": 0.7681965093729799,
+        "n": 326
+      }
+    },
+    "spoiled_recall": 0.6065934065934065,
+    "brinjal_by_variety_tag": {
+      "green/fresh": {
+        "acc": 0.913,
+        "n": 23
+      },
+      "green/spoiled": {
+        "acc": 0.9167,
+        "n": 12
+      },
+      "purple/fresh": {
+        "acc": 0.0833,
+        "n": 12
+      },
+      "purple/spoiled": {
+        "acc": 1.0,
+        "n": 10
+      }
+    },
+    "banana_fruit_recall_by_source": {
+      "agrifreshnet": 0.9531,
+      "fruitnet": 0.9521
+    }
+  },
+  "test_fruit_masked": {
+    "n": 1012,
+    "fruit_macro_f1": 0.11854107047722069,
+    "fruit_acc": 0.20553359683794467,
+    "condition_macro_f1": 0.37579452696373616,
+    "condition_acc": 0.41699604743083,
+    "condition_f1_by_fruit": {
+      "apple": {
+        "f1": 0.40697743117097956,
+        "n": 275
+      },
+      "banana": {
+        "f1": 0.3113584905660377,
+        "n": 231
+      },
+      "brinjal": {
+        "f1": 0.4132352941176471,
+        "n": 57
+      },
+      "guava": {
+        "f1": 0.37072030884892815,
+        "n": 326
+      },
+      "tomato": {
+        "f1": 0.23416589136191227,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.22133993832107038,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.14332429234678573,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.432011901636475,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.3563651767916186,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 0.7142857142857143,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.4132352941176471,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.23416589136191227,
+        "n": 123
+      },
+      "fruitnet/apple": {
+        "f1": 0.40697743117097956,
+        "n": 275
+      },
+      "fruitnet/banana": {
+        "f1": 0.15802362431575914,
+        "n": 167
+      },
+      "fruitnet/guava": {
+        "f1": 0.37072030884892815,
+        "n": 326
+      }
+    },
+    "spoiled_recall": 0.17802197802197803,
+    "brinjal_by_variety_tag": {
+      "green/fresh": {
+        "acc": 0.9565,
+        "n": 23
+      },
+      "green/spoiled": {
+        "acc": 0.0,
+        "n": 12
+      },
+      "purple/fresh": {
+        "acc": 0.3333,
+        "n": 12
+      },
+      "purple/spoiled": {
+        "acc": 0.3,
+        "n": 10
+      }
+    },
+    "banana_fruit_recall_by_source": {
+      "agrifreshnet": 1.0,
+      "fruitnet": 0.6287
+    }
+  },
+  "loso": {
+    "fruitnet": {
+      "n": 6756,
+      "fruit_macro_f1": 0.17319132238914575,
+      "fruit_acc": 0.30965068087625813,
+      "condition_macro_f1": 0.7557533730153326,
+      "condition_acc": 0.7563647128478389,
+      "condition_f1_by_fruit": {
+        "apple": {
+          "f1": 0.7348623591363375,
+          "n": 2275
+        },
+        "banana": {
+          "f1": 0.8727221184990136,
+          "n": 2200
+        },
+        "guava": {
+          "f1": 0.6589162156344179,
+          "n": 2281
+        }
+      },
+      "fruit_f1_by_source": {
+        "fruitnet": {
+          "f1": 0.28865220398190955,
+          "n": 6756
+        }
+      },
+      "condition_f1_by_source": {
+        "fruitnet": {
+          "f1": 0.7557533730153326,
+          "n": 6756
+        }
+      },
+      "condition_f1_by_source_fruit": {
+        "fruitnet/apple": {
+          "f1": 0.7348623591363375,
+          "n": 2275
+        },
+        "fruitnet/banana": {
+          "f1": 0.8727221184990136,
+          "n": 2200
+        },
+        "fruitnet/guava": {
+          "f1": 0.6589162156344179,
+          "n": 2281
+        }
+      },
+      "spoiled_recall": 0.8114387846291331,
+      "brinjal_by_variety_tag": {},
+      "banana_fruit_recall_by_source": {
+        "fruitnet": 0.9473
+      }
+    },
+    "agrifreshnet": {
+      "n": 1701,
+      "fruit_macro_f1": 0.15211267605633802,
+      "fruit_acc": 0.1746031746031746,
+      "condition_macro_f1": 0.7553825161878412,
+      "condition_acc": 0.7760141093474426,
+      "condition_f1_by_fruit": {
+        "banana": {
+          "f1": 0.6802981090738625,
+          "n": 474
+        },
+        "brinjal": {
+          "f1": 0.6065682021448214,
+          "n": 389
+        },
+        "tomato": {
+          "f1": 0.8036052252724204,
+          "n": 838
+        }
+      },
+      "fruit_f1_by_source": {
+        "agrifreshnet": {
+          "f1": 0.2535211267605634,
+          "n": 1701
+        }
+      },
+      "condition_f1_by_source": {
+        "agrifreshnet": {
+          "f1": 0.7553825161878412,
+          "n": 1701
+        }
+      },
+      "condition_f1_by_source_fruit": {
+        "agrifreshnet/banana": {
+          "f1": 0.6802981090738625,
+          "n": 474
+        },
+        "agrifreshnet/brinjal": {
+          "f1": 0.6065682021448214,
+          "n": 389
+        },
+        "agrifreshnet/tomato": {
+          "f1": 0.8036052252724204,
+          "n": 838
+        }
+      },
+      "spoiled_recall": 0.5883190883190883,
+      "brinjal_by_variety_tag": {
+        "green/fresh": {
+          "acc": 0.9688,
+          "n": 224
+        },
+        "green/spoiled": {
+          "acc": 0.0566,
+          "n": 106
+        },
+        "purple/fresh": {
+          "acc": 0.5,
+          "n": 12
+        },
+        "purple/spoiled": {
+          "acc": 0.8298,
+          "n": 47
+        }
+      },
+      "banana_fruit_recall_by_source": {
+        "agrifreshnet": 0.6266
+      }
+    }
+  },
+  "agri_only": {
+    "n": 244,
+    "fruit_macro_f1": 0.5827659090909091,
+    "fruit_acc": 0.9754098360655737,
+    "condition_macro_f1": 0.7581926597799613,
+    "condition_acc": 0.7581967213114754,
+    "condition_f1_by_fruit": {
+      "banana": {
+        "f1": 1.0,
+        "n": 64
+      },
+      "brinjal": {
+        "f1": 0.6241758241758242,
+        "n": 57
+      },
+      "tomato": {
+        "f1": 0.667094017094017,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.9712765151515151,
+        "n": 244
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.7581926597799613,
+        "n": 244
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 1.0,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.6241758241758242,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.667094017094017,
+        "n": 123
+      }
+    },
+    "spoiled_recall": 0.8932038834951457,
+    "brinjal_by_variety_tag": {
+      "green/fresh": {
+        "acc": 0.6087,
+        "n": 23
+      },
+      "green/spoiled": {
+        "acc": 1.0,
+        "n": 12
+      },
+      "purple/fresh": {
+        "acc": 0.0,
+        "n": 12
+      },
+      "purple/spoiled": {
+        "acc": 1.0,
+        "n": 10
+      }
+    },
+    "banana_fruit_recall_by_source": {
+      "agrifreshnet": 0.9844
+    }
+  },
+  "agri_only_fruit_masked": {
+    "n": 244,
+    "fruit_macro_f1": 0.16961368939590354,
+    "fruit_acc": 0.3360655737704918,
+    "condition_macro_f1": 0.3125367386236952,
+    "condition_acc": 0.430327868852459,
+    "condition_f1_by_fruit": {
+      "banana": {
+        "f1": 0.5060034305317325,
+        "n": 64
+      },
+      "brinjal": {
+        "f1": 0.27848101265822783,
+        "n": 57
+      },
+      "tomato": {
+        "f1": 0.23125,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.2826894823265059,
+        "n": 244
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.3125367386236952,
+        "n": 244
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 0.5060034305317325,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.27848101265822783,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.23125,
+        "n": 123
+      }
+    },
+    "spoiled_recall": 1.0,
+    "brinjal_by_variety_tag": {
+      "green/fresh": {
+        "acc": 0.0,
+        "n": 23
+      },
+      "green/spoiled": {
+        "acc": 1.0,
+        "n": 12
+      },
+      "purple/fresh": {
+        "acc": 0.0,
+        "n": 12
+      },
+      "purple/spoiled": {
+        "acc": 1.0,
+        "n": 10
+      }
+    },
+    "banana_fruit_recall_by_source": {
+      "agrifreshnet": 0.9375
+    }
+  }
+}

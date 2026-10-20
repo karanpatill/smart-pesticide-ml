@@ -1,0 +1,229 @@
+[
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Bad Quality_Fruits\\Apple_Bad\\IMG20200728181209.jpg",
+    "fruit": {
+      "label": "apple",
+      "confidence": 0.662,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "fresh",
+      "confidence": 0.7726,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Poor",
+      "confidence": 0.9798,
+      "scale": "binary (Good/Poor)",
+      "basis": "FruitNet Good/Bad label (binary; no 'Average' class exists for apple)",
+      "head": "quality_apple",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "not_available",
+      "range_days": null,
+      "reason": "no public storage-time data found",
+      "source": "Model 3"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\banana_guava_quality\\extracted\\Fruits_Data\\Banana\\Defect\\image_133.jpg",
+    "fruit": {
+      "label": "banana",
+      "confidence": 1.0,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "spoiled",
+      "confidence": 0.5567,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Poor",
+      "confidence": 0.9889,
+      "scale": "3-level (Good/Average/Poor)",
+      "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+      "head": "quality_banana",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "estimated_range",
+      "range_days": [
+        3,
+        6
+      ],
+      "stage": "Fresh",
+      "stage_confidence": 0.9941,
+      "head": "stage_banana",
+      "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+      "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+      "source": "Model 3 stage head + fixed lookup (no regression)"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\banana_guava_quality\\extracted\\Fruits_Data\\Guava\\Class_B\\image_85.jpg",
+    "fruit": {
+      "label": "banana",
+      "confidence": 0.3968,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "fresh",
+      "confidence": 0.9105,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Good",
+      "confidence": 0.9993,
+      "scale": "3-level (Good/Average/Poor)",
+      "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+      "head": "quality_banana",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "estimated_range",
+      "range_days": [
+        3,
+        6
+      ],
+      "stage": "Fresh",
+      "stage_confidence": 0.8083,
+      "head": "stage_banana",
+      "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+      "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+      "source": "Model 3 stage head + fixed lookup (no regression)"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Rotten banana(7-13)\\IMG_20251112_112640318_HDR_AE.jpg",
+    "fruit": {
+      "label": "banana",
+      "confidence": 0.9988,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "spoiled",
+      "confidence": 0.9999,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Poor",
+      "confidence": 1.0,
+      "scale": "3-level (Good/Average/Poor)",
+      "basis": "Class A/B/Defect market grade (Mendeley 56td5w4wz2)",
+      "head": "quality_banana",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "estimated_range",
+      "range_days": [
+        0,
+        0
+      ],
+      "stage": "Rotten",
+      "stage_confidence": 0.9573,
+      "head": "stage_banana",
+      "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+      "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+      "source": "Model 3 stage head + fixed lookup (no regression)"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Semi_Fresh eggplant(4-8)\\eggplant(4).jpeg",
+    "fruit": {
+      "label": "brinjal",
+      "confidence": 0.7972,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "spoiled",
+      "confidence": 0.8903,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Poor",
+      "confidence": 0.7133,
+      "scale": "3-level (Good/Average/Poor)",
+      "basis": "AgriFreshNET freshness stage (Fresh/Semi-fresh/Rotten) \u2014 grade = freshness stage",
+      "head": "stage_brinjal",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "estimated_range",
+      "range_days": [
+        0,
+        0
+      ],
+      "stage": "Rotten",
+      "stage_confidence": 0.7133,
+      "head": "stage_brinjal",
+      "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+      "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+      "source": "Model 3 stage head + fixed lookup (no regression)"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Rotten Tomato(24-35)\\IMG_20251127_191700556_HDR.jpg",
+    "fruit": {
+      "label": "tomato",
+      "confidence": 0.7665,
+      "source": "Model 1"
+    },
+    "condition": {
+      "label": "fresh",
+      "confidence": 0.5974,
+      "source": "Model 1"
+    },
+    "quality_grade": {
+      "label": "Average",
+      "confidence": 0.4811,
+      "scale": "3-level (Good/Average/Poor)",
+      "basis": "AgriFreshNET freshness stage (Fresh/Semi-fresh/Rotten) \u2014 grade = freshness stage",
+      "head": "stage_tomato",
+      "source": "Model 3"
+    },
+    "shelf_life": {
+      "status": "estimated_range",
+      "range_days": [
+        0,
+        14
+      ],
+      "stage": "Semi-fresh",
+      "stage_confidence": 0.4811,
+      "head": "stage_tomato",
+      "basis": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+      "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling.",
+      "source": "Model 3 stage head + fixed lookup (no regression)"
+    },
+    "notes": [
+      "Quality grade and shelf-life range are visual estimates from public-dataset labels.",
+      "The image models do not detect pesticide residue.",
+      "Shelf-life ranges reflect the source dataset's storage conditions; not a guarantee."
+    ]
+  }
+]

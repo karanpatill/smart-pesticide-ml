@@ -1,0 +1,146 @@
+{
+  "feature_set": "S+A",
+  "model": "svm_linear",
+  "best_params": {
+    "C": 0.1
+  },
+  "val_macro_f1": 0.7829,
+  "cv_mean": {
+    "accuracy": 0.7733,
+    "macro_precision": 0.7619,
+    "macro_recall": 0.777,
+    "macro_f1": 0.7679
+  },
+  "cv_sd": {
+    "accuracy": 0.0144,
+    "macro_precision": 0.0131,
+    "macro_recall": 0.0145,
+    "macro_f1": 0.0136
+  },
+  "cv_folds": [
+    {
+      "accuracy": 0.7695,
+      "macro_precision": 0.7507,
+      "macro_recall": 0.7717,
+      "macro_f1": 0.7592
+    },
+    {
+      "accuracy": 0.7484,
+      "macro_precision": 0.7423,
+      "macro_recall": 0.7511,
+      "macro_f1": 0.7454
+    },
+    {
+      "accuracy": 0.7911,
+      "macro_precision": 0.7761,
+      "macro_recall": 0.7889,
+      "macro_f1": 0.7801
+    },
+    {
+      "accuracy": 0.7827,
+      "macro_precision": 0.7723,
+      "macro_recall": 0.7902,
+      "macro_f1": 0.78
+    },
+    {
+      "accuracy": 0.7746,
+      "macro_precision": 0.7683,
+      "macro_recall": 0.783,
+      "macro_f1": 0.7749
+    }
+  ],
+  "test": {
+    "accuracy": 0.7919,
+    "macro_precision": 0.7731,
+    "macro_recall": 0.78,
+    "macro_f1": 0.7763
+  },
+  "test_vs_clean_labels_diagnostic": {
+    "accuracy": 0.8435,
+    "macro_precision": 0.8209,
+    "macro_recall": 0.8399,
+    "macro_f1": 0.8295
+  },
+  "test_per_class": {
+    "LOW": {
+      "precision": 0.8704,
+      "recall": 0.8672,
+      "f1-score": 0.8688,
+      "support": 271.0
+    },
+    "MEDIUM": {
+      "precision": 0.6842,
+      "recall": 0.6686,
+      "f1-score": 0.6763,
+      "support": 175.0
+    },
+    "HIGH": {
+      "precision": 0.7647,
+      "recall": 0.8041,
+      "f1-score": 0.7839,
+      "support": 97.0
+    }
+  },
+  "test_confusion": [
+    [
+      235,
+      35,
+      1
+    ],
+    [
+      35,
+      117,
+      23
+    ],
+    [
+      0,
+      19,
+      78
+    ]
+  ],
+  "permutation_importance_test": {
+    "drv_tcs_r_over_c": 0.1318,
+    "sensor_tcs_r": 0.1279,
+    "sensor_temp_c": 0.0813,
+    "sensor_tcs_b": 0.0691,
+    "drv_tcs_b_over_c": 0.0498,
+    "sensor_tcs_g": 0.023,
+    "drv_log_mq135": 0.0202,
+    "sensor_tcs_c": 0.017,
+    "sensor_ph": 0.0156,
+    "aux_m1_condition": 0.0099,
+    "aux_m1_p_spoiled": 0.0033,
+    "drv_tcs_g_over_c": 0.0017,
+    "aux_m1_fruit": 0.0005,
+    "sensor_humidity_pct": -0.0006,
+    "sensor_mq135": -0.0025
+  },
+  "native_importance": {
+    "num__drv_tcs_r_over_c": 0.8503,
+    "num__sensor_tcs_r": 0.7936,
+    "num__sensor_temp_c": 0.6164,
+    "num__sensor_tcs_b": 0.5764,
+    "num__drv_tcs_b_over_c": 0.5649,
+    "num__sensor_tcs_c": 0.302,
+    "num__sensor_tcs_g": 0.2967,
+    "aux_cat__aux_m1_fruit_apple": 0.2143,
+    "num__sensor_mq135": 0.174,
+    "aux_cat__aux_m1_condition_spoiled": 0.1572,
+    "aux_cat__aux_m1_condition_fresh": 0.1572,
+    "num__drv_log_mq135": 0.1566,
+    "aux_cat__aux_m1_fruit_brinjal": 0.1526,
+    "num__sensor_ph": 0.1169,
+    "aux_cat__aux_m1_fruit_tomato": 0.1091,
+    "aux_cat__aux_m1_fruit_banana": 0.1058,
+    "aux_num__aux_m1_p_spoiled": 0.1051,
+    "num__drv_tcs_g_over_c": 0.0766,
+    "aux_cat__aux_m1_fruit_guava": 0.0657,
+    "num__sensor_humidity_pct": 0.0181
+  },
+  "mcu_footprint_estimate": {
+    "kind": "linear",
+    "params": 103,
+    "approx_bytes": 412
+  },
+  "train_seconds": 2.8
+}

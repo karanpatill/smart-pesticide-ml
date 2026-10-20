@@ -1,0 +1,22 @@
+BUILT /home/ubantu/tflm_work/build_host32_cmsis_nn/tflm_mem_driver (cmsis_nn, 160 objects)
+BUILT /home/ubantu/tflm_work/build_host32_cmsis_nn_int8only/tflm_mem_driver (cmsis_nn, 160 objects)
+INT8_ONLY_PARITY identical_outputs=20/20
+== offsets (cmsis_nn default, split 53120/96000)
+OFFSET input0 0 bytes 19200
+OFFSET output0 144 bytes 2
+OFFSET output1 48 bytes 3
+OFFSET output2 64 bytes 3
+OFFSET output3 32 bytes 3
+OFFSET output4 80 bytes 3
+OFFSET output5 0 bytes 3
+OFFSET output6 112 bytes 5
+OFFSET output7 96 bytes 2
+STATUS OK
+== int8-only minima
+{
+ "min_single_arena": 149104,
+ "min_persistent_arena": 53120,
+ "min_non_persistent_arena": 96000,
+ "split_minima_together_ok": true,
+ "resolution_bytes": 16
+}

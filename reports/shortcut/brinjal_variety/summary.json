@@ -1,0 +1,27 @@
+{
+  "tag_by_condition": {
+    "green": {
+      "fresh": 224,
+      "spoiled": 106
+    },
+    "purple": {
+      "fresh": 12,
+      "spoiled": 47
+    }
+  },
+  "threshold": 0.15,
+  "cnn_condition_accuracy_by_tag_and_condition": {
+    "green/fresh": {
+      "acc": 0.8955,
+      "n": 201
+    },
+    "green/spoiled": {
+      "acc": 0.7766,
+      "n": 94
+    },
+    "purple/spoiled": {
+      "acc": 0.973,
+      "n": 37
+    }
+  }
+}

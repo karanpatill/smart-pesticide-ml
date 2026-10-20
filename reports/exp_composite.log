@@ -1,0 +1,22 @@
+masks 80px:   0%|          | 0/8457 [00:00<?, ?it/s]masks 80px:  20%|██        | 1692/8457 [00:10<00:40, 169.11it/s]masks 80px:  44%|████▎     | 3698/8457 [00:20<00:25, 187.60it/s]masks 80px:  67%|██████▋   | 5704/8457 [00:30<00:14, 192.42it/s]masks 80px:  91%|█████████ | 7685/8457 [00:40<00:04, 191.92it/s]masks 80px: 100%|██████████| 8457/8457 [00:44<00:00, 190.95it/s]
+WARNING:tensorflow:From D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\backend\common\global_state.py:82: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+D:\smart-pesticide-ml\src\fruitvision\models\mobilenet.py:42: UserWarning: `input_shape` is undefined or non-square, or `rows` is not in [96, 128, 160, 192, 224]. Weights for input shape (224, 224) will be loaded as the default.
+  backbone = tf.keras.applications.MobileNetV2(
+D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+D:\smart-pesticide-ml\src\fruitvision\models\mobilenet.py:42: UserWarning: `input_shape` is undefined or non-square, or `rows` is not in [96, 128, 160, 192, 224]. Weights for input shape (224, 224) will be loaded as the default.
+  backbone = tf.keras.applications.MobileNetV2(
+D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+D:\smart-pesticide-ml\src\fruitvision\models\mobilenet.py:42: UserWarning: `input_shape` is undefined or non-square, or `rows` is not in [96, 128, 160, 192, 224]. Weights for input shape (224, 224) will be loaded as the default.
+  backbone = tf.keras.applications.MobileNetV2(
+D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+D:\smart-pesticide-ml\src\fruitvision\models\mobilenet.py:42: UserWarning: `input_shape` is undefined or non-square, or `rows` is not in [96, 128, 160, 192, 224]. Weights for input shape (224, 224) will be loaded as the default.
+  backbone = tf.keras.applications.MobileNetV2(
+D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+WARNING:tensorflow:5 out of the last 35 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001ABA9182840> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+wrote D:\smart-pesticide-ml\reports\experiments\composite\results_main_loso_agri.json
+EXIT=0

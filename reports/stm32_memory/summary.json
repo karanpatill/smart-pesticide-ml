@@ -1,0 +1,262 @@
+{
+  "EVIDENCE": "Host measurements (WSL x86_64 / 32-bit x86, TFLM commit 230c9d95 2026-10-09, CMSIS-NN 4ab83cc3) and a Cortex-M4F cross-compiled size-only link. NO STM32 build, flash or run.",
+  "model": {
+    "file": "models/experimental/tflite/combined_int8.tflite",
+    "bytes": 366848,
+    "sha256": "1af166f0b07c587c9c364e65674d0eb7d40bd4f75cc83bfad03f7f83e4447354",
+    "input": {
+      "shape": [
+        1,
+        80,
+        80,
+        3
+      ],
+      "dtype": "int8",
+      "bytes": 19200,
+      "quantization": [
+        1.0,
+        -128
+      ]
+    },
+    "outputs": [
+      {
+        "index": 184,
+        "shape": [
+          1,
+          2
+        ],
+        "dtype": "int8",
+        "bytes": 2
+      },
+      {
+        "index": 197,
+        "shape": [
+          1,
+          3
+        ],
+        "dtype": "int8",
+        "bytes": 3
+      },
+      {
+        "index": 195,
+        "shape": [
+          1,
+          3
+        ],
+        "dtype": "int8",
+        "bytes": 3
+      },
+      {
+        "index": 199,
+        "shape": [
+          1,
+          3
+        ],
+        "dtype": "int8",
+        "bytes": 3
+      },
+      {
+        "index": 193,
+        "shape": [
+          1,
+          3
+        ],
+        "dtype": "int8",
+        "bytes": 3
+      },
+      {
+        "index": 201,
+        "shape": [
+          1,
+          3
+        ],
+        "dtype": "int8",
+        "bytes": 3
+      },
+      {
+        "index": 189,
+        "shape": [
+          1,
+          5
+        ],
+        "dtype": "int8",
+        "bytes": 5
+      },
+      {
+        "index": 191,
+        "shape": [
+          1,
+          2
+        ],
+        "dtype": "int8",
+        "bytes": 2
+      }
+    ],
+    "ops": 80,
+    "op_types": [
+      "ADD",
+      "CONV_2D",
+      "DEPTHWISE_CONV_2D",
+      "FULLY_CONNECTED",
+      "MEAN",
+      "MUL",
+      "SOFTMAX"
+    ],
+    "constant_tensor_bytes": 246576
+  },
+  "arena_155_7KB_breakdown_host_x86_64_reference": {
+    "total": 155696,
+    "head_non_persistent": 96000,
+    "tail_persistent": 59696,
+    "tail_parts": {
+      "TfLiteEvalTensor": 4848,
+      "persistent_TfLiteTensor": 576,
+      "tensor_quantization": 288,
+      "persistent_buffer_data_kernel_OpData": 46704,
+      "NodeAndRegistration": 5120,
+      "unrecorded_remainder": 2160
+    },
+    "meaning": "single contiguous TFLM tensor arena = activations incl. input/output tensors and kernel scratch (head) + TFLM bookkeeping and per-op data (tail); weights stay in flash"
+  },
+  "arena_host_x86_32bit": {
+    "reference_kernels": {
+      "recording_total": 148848,
+      "head": 96000,
+      "tail": 52848,
+      "min_single": 148736,
+      "min_persistent": 52752,
+      "min_non_persistent": 96000
+    },
+    "cmsis_nn_portable_kernels": {
+      "recording_total": 149216,
+      "head": 96000,
+      "tail": 53216,
+      "min_single": 149104,
+      "min_persistent": 53120,
+      "min_non_persistent": 96000
+    },
+    "cmsis_nn_int8_only_registration": {
+      "min_single": 149104,
+      "min_persistent": 53120,
+      "min_non_persistent": 96000,
+      "output_parity_vs_default_registration": "20/20 identical"
+    }
+  },
+  "static_estimate_cortex_m4_dsp": {
+    "peak_live_activations": 96000,
+    "peak_plus_cmsis_dsp_scratch_ESTIMATE": 96864,
+    "peak_op": "op 6 DEPTHWISE_CONV_2D (block_1), live 76800+19200, DSP scratch 864"
+  },
+  "non_persistent_layout_host32_cmsis": {
+    "input0": {
+      "offset": 0,
+      "bytes": 19200
+    },
+    "outputs_offset_range": [
+      0,
+      160
+    ],
+    "free_window_after_input": [
+      19200,
+      96000
+    ]
+  },
+  "flash_cortex_m4f_size_only_link": {
+    "default_registration": {
+      "text": 92940,
+      "rodata": 367304,
+      "flash_total": 461364,
+      "buckets": {
+        "other": {
+          "code": 1944,
+          "data": 683
+        },
+        "tflm_runtime": {
+          "code": 39700,
+          "data": 556
+        },
+        "tensor_arenas": {
+          "code": 0,
+          "data": 150528
+        },
+        "compiler_rt_libc": {
+          "code": 8566,
+          "data": 0
+        },
+        "cmsis_nn": {
+          "code": 42958,
+          "data": 0
+        },
+        "model_flatbuffer": {
+          "code": 0,
+          "data": 366848
+        }
+      }
+    },
+    "int8_only_registration": {
+      "text": 59256,
+      "rodata": 367304,
+      "flash_total": 427660,
+      "buckets": {
+        "other": {
+          "code": 1944,
+          "data": 683
+        },
+        "tflm_runtime": {
+          "code": 29666,
+          "data": 556
+        },
+        "tensor_arenas": {
+          "code": 0,
+          "data": 150528
+        },
+        "compiler_rt_libc": {
+          "code": 8254,
+          "data": 0
+        },
+        "cmsis_nn": {
+          "code": 19654,
+          "data": 0
+        },
+        "model_flatbuffer": {
+          "code": 0,
+          "data": 366848
+        }
+      }
+    },
+    "excluded_unmeasured": [
+      "newlib-nano: frexp, strcmp, strncmp, abort, __cxa_atexit (stubbed for the size link)",
+      "startup + vector table",
+      "STM32 HAL/LL drivers",
+      "OV2640/TCS34725/DHT22/MQ135/pH/SSD1306 drivers + font",
+      "application, post-processing, UI"
+    ],
+    "other_firmware_objects_measured_compile_only": {
+      "model2_infer": 768,
+      "preprocess_rgb565": 666,
+      "fv_arena_reuse": 314
+    }
+  },
+  "camera_pipeline_proxy_test_split": {
+    "NOTE": "HOST PROXY on public-dataset test images; OV2640 optics/ISP/scaler not simulated.",
+    "n": 1012,
+    "model": "models/experimental/tflite/combined_int8.tflite",
+    "A_training_preprocessing": {
+      "fruit_macro_f1": 0.8212,
+      "condition_macro_f1": 0.6883
+    },
+    "C_training_plus_rgb565": {
+      "fruit_macro_f1": 0.8147,
+      "condition_macro_f1": 0.6822,
+      "fruit_agreement_with_A": 0.9585,
+      "condition_agreement_with_A": 0.9704
+    },
+    "B_firmware_camera_proxy_96_rgb565": {
+      "fruit_macro_f1": 0.7893,
+      "condition_macro_f1": 0.7797,
+      "fruit_agreement_with_A": 0.8389,
+      "condition_agreement_with_A": 0.8211
+    }
+  },
+  "stm32cube_ai": "NOT AVAILABLE in this environment (no X-CUBE-AI pack, no stedgeai CLI, no CubeMX/CubeIDE; Windows and WSL checked)"
+}

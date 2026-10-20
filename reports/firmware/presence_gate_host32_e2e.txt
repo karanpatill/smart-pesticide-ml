@@ -1,0 +1,22 @@
+INIT OK used=149120 p=53248 np=97280
+BUSY 0 19200
+BUSY 144 2
+BUSY 48 3
+BUSY 64 3
+BUSY 32 3
+BUSY 80 3
+BUSY 0 3
+BUSY 112 5
+BUSY 96 2
+WIN 19200
+APP cam=0 img_flags=4096 1 2 0 1 -1 1 -1 17
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=-,fruit_pm=-1,fruit_st=UNCERTAIN,cond=-,cond_pm=-1,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x11,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 1 2 0 1 -1 1 -1 17
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=-,fruit_pm=-1,fruit_st=UNCERTAIN,cond=-,cond_pm=-1,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x11,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 1 0 0 1 -1 1 -1 17
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=-,fruit_pm=-1,fruit_st=UNCERTAIN,cond=-,cond_pm=-1,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x11,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=-7 img_flags=4103 2 -1 -1 2 -1 2 -1 0
+SERIAL FV1,status=ERR_INPUT_REJECTED,img_flags=0x1007,fruit=-,fruit_pm=-1,fruit_st=UNAVAILABLE,cond=-,cond_pm=-1,grade=-,grade_st=UNAVAILABLE,shelf=-1--1,shelf_st=UNAVAILABLE,stage=-,cons=0x0,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0

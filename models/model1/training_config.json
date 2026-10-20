@@ -1,0 +1,132 @@
+{
+  "model_name": "Model 1",
+  "created_utc": "2026-10-09T07:21:46+00:00",
+  "recipe": {
+    "input_size": 80,
+    "backbone": "MobileNetV2",
+    "alpha": 0.35,
+    "cut_layer": "block_15_add",
+    "weights_init": "imagenet",
+    "dropout": 0.2,
+    "head_units": 0,
+    "loss_weights": {
+      "fruit": 1.0,
+      "condition": 1.0
+    },
+    "head_epochs": 8,
+    "finetune_epochs": 15,
+    "head_lr": 0.001,
+    "finetune_lr": 0.0001,
+    "finetune_unfreeze_layers": 40,
+    "batchnorm_frozen": true,
+    "batch_size": 32,
+    "early_stopping": {
+      "monitor": "val_loss",
+      "patience": 5,
+      "restore_best_weights": true
+    },
+    "optimizer": "Adam",
+    "class_balancing": "sample weights N/(K*n_cell) over fruit x condition",
+    "augment": {
+      "flip": true,
+      "rotation": 0.1,
+      "zoom": 0.1,
+      "brightness": 0.15,
+      "contrast": 0.15
+    },
+    "background_compositing": {
+      "p": 0.7,
+      "bank_size": 1500,
+      "bank_source": "corner patches (35%) of TRAIN images",
+      "texture_vs_solid": "70% texture / 30% random solid colour",
+      "masks": "rembg u2netp, data/interim/masks (training only)"
+    },
+    "seed": 42
+  },
+  "data": {
+    "train_images": 6146,
+    "val_images": 1299,
+    "test_images": 1012,
+    "split_sha256": {
+      "train": "c4e98dde4873281c07aa61478cd471615a772965418d0c8ea1f23778922d9211",
+      "val": "337e37a604af8258ff8a2d2075ab6ab73269521d2128c53ba2b61bf7c453f482",
+      "test": "01a0d28fd712a2555edf642db512f8de6767c8836771e7245fe27a2ef0360d1a"
+    },
+    "sources": [
+      "fruitnet (CC BY 4.0)",
+      "agrifreshnet (CC BY 4.0)"
+    ]
+  },
+  "environment": {
+    "python": "3.12.7",
+    "tensorflow": "2.18.1",
+    "keras": "3.15.1",
+    "numpy": "2.0.2",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "project_config_snapshot": {
+    "seed": 42,
+    "paths": {
+      "raw_dir": "data/raw",
+      "interim_dir": "data/interim",
+      "splits_dir": "data/splits",
+      "models_dir": "models",
+      "reports_dir": "reports"
+    },
+    "datasets_config": "configs/datasets.yaml",
+    "fruits": [
+      "apple",
+      "banana",
+      "guava",
+      "tomato",
+      "brinjal"
+    ],
+    "conditions": [
+      "fresh",
+      "spoiled"
+    ],
+    "split": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15,
+      "phash_size": 16,
+      "phash_max_distance": 16
+    },
+    "image": {
+      "size": 80,
+      "channels": 3
+    },
+    "model": {
+      "backbone": "mobilenet_v2",
+      "alpha": 0.35,
+      "cut_layer": "block_15_add",
+      "dropout": 0.2,
+      "head_units": 0,
+      "loss_weights": {
+        "fruit": 1.0,
+        "condition": 1.0
+      }
+    },
+    "train": {
+      "batch_size": 32,
+      "head_epochs": 15,
+      "head_lr": 0.001,
+      "finetune_epochs": 15,
+      "finetune_lr": 0.0001,
+      "finetune_unfreeze_layers": 40,
+      "early_stopping_patience": 5,
+      "class_weighting": true
+    },
+    "augment": {
+      "flip": true,
+      "rotation": 0.1,
+      "zoom": 0.1,
+      "brightness": 0.15,
+      "contrast": 0.15
+    },
+    "tflite": {
+      "quantization": "int8",
+      "representative_samples": 300
+    }
+  }
+}

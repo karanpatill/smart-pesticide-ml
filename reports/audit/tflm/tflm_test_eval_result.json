@@ -1,0 +1,1 @@
+{"runtime": "TFLite-Micro (host, reference kernels)", "n": 1012, "fruit_macro_f1": 0.8179, "condition_macro_f1": 0.6896}

@@ -1,0 +1,199 @@
+{
+  "elf": "reports/firmware/fv_fw_linkcheck_NOT_FLASHABLE.elf",
+  "WARNING": "zig/clang + lld link-check with labelled stubs (snprintf/strncpy/strcmp/strncmp/frexp/abort/__cxa_atexit) and NO newlib, NO HAL, NO drivers. NOT a GCC/CubeIDE build, NOT flashable, NOT run on STM32.",
+  "sections": [
+    {
+      "name": ".isr_vector",
+      "vma": "0x8000000",
+      "lma": "0x8000000",
+      "size": 392,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".got",
+      "vma": "0x8000188",
+      "lma": "0x8000188",
+      "size": 140,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".text",
+      "vma": "0x8000214",
+      "lma": "0x8000214",
+      "size": 67392,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".rodata",
+      "vma": "0x8010960",
+      "lma": "0x8010960",
+      "size": 368336,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".ARM.extab",
+      "vma": "0x806a830",
+      "lma": "0x806a830",
+      "size": 324,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".ARM.exidx",
+      "vma": "0x806a974",
+      "lma": "0x806a974",
+      "size": 288,
+      "nobits": false,
+      "region": "FLASH",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".data",
+      "vma": "0x20000000",
+      "lma": "0x806aa94",
+      "size": 664,
+      "nobits": false,
+      "region": "RAM",
+      "load_region": "FLASH"
+    },
+    {
+      "name": ".bss",
+      "vma": "0x200002a0",
+      "lma": "0x200002a0",
+      "size": 98376,
+      "nobits": true,
+      "region": "RAM",
+      "load_region": "RAM"
+    },
+    {
+      "name": "._stack",
+      "vma": "0x200182e8",
+      "lma": "0x200182e8",
+      "size": 8192,
+      "nobits": true,
+      "region": "RAM",
+      "load_region": "RAM"
+    },
+    {
+      "name": ".ccm_arena",
+      "vma": "0x10000000",
+      "lma": "0x10000000",
+      "size": 53248,
+      "nobits": true,
+      "region": "CCMRAM",
+      "load_region": "CCMRAM"
+    }
+  ],
+  "totals": {
+    "flash_used": 437536,
+    "flash_free": 86752,
+    "ram_used_incl_stack_reserve": 107232,
+    "ram_free": 23840,
+    "ccm_used": 53248,
+    "ccm_free": 12288
+  },
+  "symbol_bytes_by_category": {
+    "tflm_runtime_kernels": {
+      "FLASH": 29758,
+      "RAM": 856,
+      "CCMRAM": 0
+    },
+    "fv_app": {
+      "FLASH": 4811,
+      "RAM": 57,
+      "CCMRAM": 0
+    },
+    "compiler_rt_libm_other": {
+      "FLASH": 11438,
+      "RAM": 156,
+      "CCMRAM": 0
+    },
+    "app_buffers": {
+      "FLASH": 0,
+      "RAM": 97960,
+      "CCMRAM": 53248
+    },
+    "fv_vision_glue": {
+      "FLASH": 928,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "LINK_STUBS_not_newlib": {
+      "FLASH": 138,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "preprocess_and_arena_reuse": {
+      "FLASH": 964,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "model2_c": {
+      "FLASH": 448,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "model_weights": {
+      "FLASH": 366848,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "startup": {
+      "FLASH": 580,
+      "RAM": 0,
+      "CCMRAM": 0
+    },
+    "cmsis_nn": {
+      "FLASH": 19654,
+      "RAM": 0,
+      "CCMRAM": 0
+    }
+  },
+  "key_symbols": {
+    "g_fv_model_data": {
+      "addr": "0x8010e10",
+      "size": 366848
+    },
+    "g_arena_persistent": {
+      "addr": "0x10000000",
+      "size": 53248
+    },
+    "g_arena_nonpersistent": {
+      "addr": "0x20000440",
+      "size": 97280
+    },
+    "g_cycle": {
+      "addr": "0x20018040",
+      "size": 680
+    },
+    "g_vectors": {
+      "addr": "0x8000000",
+      "size": 392
+    }
+  },
+  "checks": {
+    "persistent_arena_in_CCM": true,
+    "nonpersistent_arena_in_SRAM": true,
+    "nonpersistent_arena_16B_aligned": true,
+    "persistent_arena_16B_aligned": true,
+    "model_in_flash_16B_aligned": true,
+    "dma_buffers_not_in_CCM": true,
+    "only_ccm_arena_in_CCM": true,
+    "no_section_overlap": true,
+    "no_section_spans_regions": true,
+    "stack_reserve_in_RAM_top_free": true,
+    "flash_within_512K": true,
+    "ram_within_128K": true,
+    "ccm_within_64K": true
+  },
+  "all_checks_pass": true
+}

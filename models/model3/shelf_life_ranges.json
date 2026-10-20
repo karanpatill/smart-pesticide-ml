@@ -1,0 +1,53 @@
+{
+  "source": "AgriFreshNET (Mendeley 10.17632/42m5tb7yv9.1, CC BY 4.0) folder day-range annotations",
+  "unit": "days",
+  "ranges": {
+    "banana": {
+      "Fresh": [
+        3,
+        6
+      ],
+      "Semi-fresh": [
+        0,
+        3
+      ],
+      "Rotten": [
+        0,
+        0
+      ]
+    },
+    "tomato": {
+      "Fresh": [
+        14,
+        23
+      ],
+      "Semi-fresh": [
+        0,
+        14
+      ],
+      "Rotten": [
+        0,
+        0
+      ]
+    },
+    "brinjal": {
+      "Fresh": [
+        4,
+        7
+      ],
+      "Semi-fresh": [
+        0,
+        4
+      ],
+      "Rotten": [
+        0,
+        0
+      ]
+    }
+  },
+  "not_available": {
+    "guava": "time-labelled guava data has no end-of-life label",
+    "apple": "no public storage-time data found"
+  },
+  "disclaimer": "Estimated range under the source dataset's storage conditions; not a guarantee. Actual shelf life depends on cultivar, harvest maturity, temperature, humidity and handling."
+}

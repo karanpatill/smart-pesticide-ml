@@ -1,0 +1,36 @@
+frozen extractor sha256 (read-only): fc3f9ecca45cdc5c8566be55aec48da9a40cefad06792971ea19ad51fe8e1741
+train: 2500 fruit, 5223 background patches, 250 synthetic
+val: 1299 fruit, 2935 background patches, 129 synthetic
+test: 1012 fruit, 3023 background patches, 101 synthetic
+C=0.01: VAL thr 0.2229 fruit accept 0.9946
+C=0.03: VAL thr 0.1216 fruit accept 0.9977
+C=0.1: VAL thr 0.0647 fruit accept 0.9985
+C=0.3: VAL thr 0.0304 fruit accept 0.9985
+C=1.0: VAL thr 0.0156 fruit accept 0.9992
+selected on VAL: C=1.0 thr=0.0156
+VAL {"n_fruit": 1299, "fruit_accept_head": 0.9992, "fruit_accept_head_and_detail": 0.9992, "background_patch_n": 2935, "background_patch_false_accept_head": 0.0201, "background_patch_false_accept_head_and_detail": 0.017, "synthetic_smooth_n": 129, "synthetic_smooth_false_accept_head": 0.0, "synthetic_smooth_false_accept_head_and_detail": 0.0}
+TEST {"n_fruit": 1012, "fruit_accept_head": 1.0, "fruit_accept_head_and_detail": 1.0, "background_patch_n": 3023, "background_patch_false_accept_head": 0.0238, "background_patch_false_accept_head_and_detail": 0.0225, "synthetic_smooth_n": 101, "synthetic_smooth_false_accept_head": 0.0, "synthetic_smooth_false_accept_head_and_detail": 0.0}
+device {'id': '20261017T135106Z_live_view', 'sharp_fruit': False, 'p_fruit': 0.0069, 'accepted_head': False, 'detail': 38.0}
+device {'id': '20261017T135422Z_live_view_banana_centered', 'sharp_fruit': False, 'p_fruit': 0.0001, 'accepted_head': False, 'detail': 11.8}
+device {'id': '20261017T135620Z_focus_test', 'sharp_fruit': False, 'p_fruit': 0.0005, 'accepted_head': False, 'detail': 13.6}
+device {'id': '20261017T135852Z_focus_loop_01', 'sharp_fruit': False, 'p_fruit': 0.0166, 'accepted_head': True, 'detail': 35.4}
+device {'id': '20261017T135903Z_focus_loop_02', 'sharp_fruit': False, 'p_fruit': 0.02, 'accepted_head': True, 'detail': 35.4}
+device {'id': '20261017T135913Z_focus_loop_03', 'sharp_fruit': False, 'p_fruit': 0.0122, 'accepted_head': False, 'detail': 35.5}
+device {'id': '20261017T135924Z_focus_loop_04', 'sharp_fruit': False, 'p_fruit': 0.0144, 'accepted_head': False, 'detail': 35.3}
+device {'id': '20261017T135934Z_focus_loop_05', 'sharp_fruit': False, 'p_fruit': 0.0144, 'accepted_head': False, 'detail': 36.0}
+device {'id': '20261017T135944Z_focus_loop_06', 'sharp_fruit': False, 'p_fruit': 0.0185, 'accepted_head': True, 'detail': 35.6}
+device {'id': '20261017T135955Z_focus_loop_07', 'sharp_fruit': False, 'p_fruit': 0.0259, 'accepted_head': True, 'detail': 36.3}
+device {'id': '20261017T140006Z_focus_loop_08', 'sharp_fruit': False, 'p_fruit': 0.0132, 'accepted_head': False, 'detail': 34.7}
+device {'id': '20261017T140016Z_focus_loop_09', 'sharp_fruit': False, 'p_fruit': 0.0182, 'accepted_head': True, 'detail': 35.9}
+device {'id': '20261017T140026Z_focus_loop_10', 'sharp_fruit': False, 'p_fruit': 0.0111, 'accepted_head': False, 'detail': 35.9}
+device {'id': '20261017T140036Z_focus_loop_11', 'sharp_fruit': False, 'p_fruit': 0.008, 'accepted_head': False, 'detail': 35.4}
+device {'id': '20261017T140046Z_focus_loop_12', 'sharp_fruit': True, 'p_fruit': 0.9992, 'accepted_head': True, 'detail': 350.7}
+device {'id': '20261017T141531Z_tune_lenc0_awb0_sat0_ae0', 'sharp_fruit': False, 'p_fruit': 0.0001, 'accepted_head': False, 'detail': 11.4}
+device {'id': '20261017T144125Z_reposition_check', 'sharp_fruit': True, 'p_fruit': 0.9993, 'accepted_head': True, 'detail': 446.8}
+device {'id': '20261017T144145Z_reposition_repeat_1', 'sharp_fruit': True, 'p_fruit': 0.9996, 'accepted_head': True, 'detail': 445.0}
+device {'id': '20261017T144154Z_reposition_repeat_2', 'sharp_fruit': True, 'p_fruit': 0.9995, 'accepted_head': True, 'detail': 448.2}
+device {'id': '20261017T144204Z_reposition_repeat_3', 'sharp_fruit': True, 'p_fruit': 0.9993, 'accepted_head': True, 'detail': 452.7}
+device {'id': '20261017T092139Z', 'sharp_fruit': False, 'p_fruit': 0.0003, 'accepted_head': False, 'detail': 12.1}
+device {'id': '20261017T092315Z', 'sharp_fruit': False, 'p_fruit': 0.0004, 'accepted_head': False, 'detail': 12.4}
+device {'id': '20261017T094631Z', 'sharp_fruit': True, 'p_fruit': 0.4952, 'accepted_head': True, 'detail': 84.1}
+saved D:\smart-pesticide-ml\reports\experiments\background_head_20261017T152313Z D:\smart-pesticide-ml\models\candidates\background_head_20261017T152313Z

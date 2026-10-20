@@ -1,0 +1,49 @@
+# Model 1 (final) — TEST
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple       0.8213  0.7018  0.7569      275
+banana      0.9314  0.7056  0.8030      231
+guava       0.6856  0.8497  0.7589      326
+tomato      0.9237  0.9837  0.9528      123
+brinjal     0.7761  0.9123  0.8387       57
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.7159  0.6966  0.7061      557
+spoiled     0.6404  0.6615  0.6508      455
+
+## Condition head — source agrifreshnet
+         precision  recall      f1  support
+fresh       0.9612  0.7021  0.8115      141
+spoiled     0.7021  0.9612  0.8115      103
+
+## Condition head — source fruitnet
+         precision  recall      f1  support
+fresh       0.6583  0.6947  0.6760      416
+spoiled     0.6140  0.5739  0.5932      352
+
+## Condition head — fruit apple
+         precision  recall      f1  support
+fresh       0.5697  0.7015  0.6288      134
+spoiled     0.6364  0.4965  0.5578      141
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.7692  0.3810  0.5096      105
+spoiled     0.6369  0.9048  0.7475      126
+
+## Condition head — fruit brinjal
+         precision  recall      f1  support
+fresh       1.0000  0.5143  0.6792       35
+spoiled     0.5641  1.0000  0.7213       22
+
+## Condition head — fruit guava
+         precision  recall      f1  support
+fresh       0.7220  0.8832  0.7945      197
+spoiled     0.7294  0.4806  0.5794      129
+
+## Condition head — fruit tomato
+         precision  recall      f1  support
+fresh       0.9394  0.7209  0.8158       86
+spoiled     0.5789  0.8919  0.7021       37

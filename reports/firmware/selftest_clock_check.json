@@ -1,0 +1,6 @@
+{
+ "wall_delta_ms": 690,
+ "heartbeat_delta_ms": 694,
+ "ratio": 1.0063,
+ "note": "PC wall-clock midpoints of two CLI reads; +/- CLI timing jitter"
+}

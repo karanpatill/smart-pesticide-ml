@@ -1,0 +1,48 @@
+{
+  "LABEL": "OFFLINE PROXY on public-dataset test images - NOT real-camera validation. OV2640 optics/ISP/scaler, exposure and device lighting are not simulated.",
+  "format_source": "STATIC evidence from the ENTC firmware binary (160x120 RGB565 big-endian)",
+  "n": 1012,
+  "model": "models/experimental/tflite/combined_int8.tflite",
+  "A_training_preprocessing": {
+    "fruit_macro_f1": 0.8212,
+    "condition_macro_f1": 0.6883,
+    "fruit_accuracy": 0.7925
+  },
+  "B96_firmware_proxy_96_rgb565": {
+    "fruit_macro_f1": 0.7893,
+    "condition_macro_f1": 0.7797,
+    "fruit_accuracy": 0.7856,
+    "fruit_agreement_with_A": 0.8389,
+    "condition_agreement_with_A": 0.8211
+  },
+  "D_entc_format_160x120_rgb565_be": {
+    "fruit_macro_f1": 0.8149,
+    "condition_macro_f1": 0.7493,
+    "fruit_accuracy": 0.8281,
+    "fruit_agreement_with_A": 0.7856,
+    "condition_agreement_with_A": 0.7105
+  },
+  "fruit_recall_per_class": {
+    "A_training_preprocessing": {
+      "apple": 0.6764,
+      "banana": 0.7056,
+      "guava": 0.8773,
+      "tomato": 0.935,
+      "brinjal": 0.9123
+    },
+    "B96_firmware_proxy_96_rgb565": {
+      "apple": 0.6364,
+      "banana": 0.8485,
+      "guava": 0.7945,
+      "tomato": 0.935,
+      "brinjal": 0.8772
+    },
+    "D_entc_format_160x120_rgb565_be": {
+      "apple": 0.7564,
+      "banana": 0.8918,
+      "guava": 0.8221,
+      "tomato": 0.878,
+      "brinjal": 0.8421
+    }
+  }
+}

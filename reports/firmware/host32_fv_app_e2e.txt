@@ -1,0 +1,40 @@
+INIT OK used=149120 p=53248 np=97280
+BUSY 0 19200
+BUSY 144 2
+BUSY 48 3
+BUSY 64 3
+BUSY 32 3
+BUSY 80 3
+BUSY 0 3
+BUSY 112 5
+BUSY 96 2
+WIN 19200
+APP cam=0 img_flags=0 0 2 0 0 1 2 -1 0
+SERIAL FV1,status=ERR_HW,img_flags=0x0,fruit=guava,fruit_pm=980,fruit_st=PREDICTED,cond=fresh,cond_pm=996,grade=Average,grade_st=PREDICTED,shelf=-1--1,shelf_st=UNAVAILABLE,stage=-,cons=0x0,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 0 2 1 1 -1 1 -1 1
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=guava,fruit_pm=973,fruit_st=PREDICTED,cond=spoiled,cond_pm=566,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x1,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=0 0 0 0 1 -1 1 -1 1
+SERIAL FV1,status=ERR_HW,img_flags=0x0,fruit=apple,fruit_pm=922,fruit_st=PREDICTED,cond=fresh,cond_pm=746,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x1,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 0 0 0 1 -1 1 -1 1
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=apple,fruit_pm=828,fruit_st=PREDICTED,cond=fresh,cond_pm=980,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x1,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=512 0 1 1 0 0 0 1 10
+SERIAL FV1,status=ERR_HW,img_flags=0x200,fruit=banana,fruit_pm=996,fruit_st=PREDICTED,cond=spoiled,cond_pm=582,grade=Good,grade_st=PREDICTED,shelf=0-3,shelf_st=PREDICTED,stage=Semi-fresh,cons=0xa,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 0 2 0 1 -1 1 -1 1
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=guava,fruit_pm=945,fruit_st=PREDICTED,cond=fresh,cond_pm=805,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x1,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=0 0 0 1 1 -1 1 -1 1
+SERIAL FV1,status=ERR_HW,img_flags=0x0,fruit=apple,fruit_pm=688,fruit_st=PREDICTED,cond=spoiled,cond_pm=992,grade=-,grade_st=UNCERTAIN,shelf=-1--1,shelf_st=UNCERTAIN,stage=-,cons=0x1,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=0 img_flags=4096 0 1 0 0 1 0 0 2
+SERIAL FV1,status=ERR_HW,img_flags=0x1000,fruit=banana,fruit_pm=996,fruit_st=PREDICTED,cond=fresh,cond_pm=867,grade=Average,grade_st=PREDICTED,shelf=3-6,shelf_st=PREDICTED,stage=Fresh,cons=0x2,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=-7 img_flags=7 2 -1 -1 2 -1 2 -1 0
+SERIAL FV1,status=ERR_INPUT_REJECTED,img_flags=0x7,fruit=-,fruit_pm=-1,fruit_st=UNAVAILABLE,cond=-,cond_pm=-1,grade=-,grade_st=UNAVAILABLE,shelf=-1--1,shelf_st=UNAVAILABLE,stage=-,cons=0x0,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0
+WIN 19200
+APP cam=-7 img_flags=4104 2 -1 -1 2 -1 2 -1 0
+SERIAL FV1,status=ERR_INPUT_REJECTED,img_flags=0x1008,fruit=-,fruit_pm=-1,fruit_st=UNAVAILABLE,cond=-,cond_pm=-1,grade=-,grade_st=UNAVAILABLE,shelf=-1--1,shelf_st=UNAVAILABLE,stage=-,cons=0x0,risk=-,risk_st=UNAVAILABLE,risk_reasons=0x1,sens_err=0x9211,sens_warn=0x0,ood=0x0

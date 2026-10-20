@@ -1,0 +1,50 @@
+[
+ {
+  "tflm_output": 0,
+  "matched_ref": "out0_StatefulPartitionedCall_1_0",
+  "max_abs_int8_diff": 17,
+  "argmax_agreement": 1.0
+ },
+ {
+  "tflm_output": 1,
+  "matched_ref": "out1_StatefulPartitionedCall_1_5",
+  "max_abs_int8_diff": 31,
+  "argmax_agreement": 1.0
+ },
+ {
+  "tflm_output": 2,
+  "matched_ref": "out2_StatefulPartitionedCall_1_4",
+  "max_abs_int8_diff": 91,
+  "argmax_agreement": 0.95
+ },
+ {
+  "tflm_output": 3,
+  "matched_ref": "out3_StatefulPartitionedCall_1_6",
+  "max_abs_int8_diff": 19,
+  "argmax_agreement": 1.0
+ },
+ {
+  "tflm_output": 4,
+  "matched_ref": "out4_StatefulPartitionedCall_1_3",
+  "max_abs_int8_diff": 37,
+  "argmax_agreement": 1.0
+ },
+ {
+  "tflm_output": 5,
+  "matched_ref": "out5_StatefulPartitionedCall_1_7",
+  "max_abs_int8_diff": 26,
+  "argmax_agreement": 0.9
+ },
+ {
+  "tflm_output": 6,
+  "matched_ref": "out6_StatefulPartitionedCall_1_1",
+  "max_abs_int8_diff": 59,
+  "argmax_agreement": 0.95
+ },
+ {
+  "tflm_output": 7,
+  "matched_ref": "out7_StatefulPartitionedCall_1_2",
+  "max_abs_int8_diff": 12,
+  "argmax_agreement": 1.0
+ }
+]

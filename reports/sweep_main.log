@@ -1,0 +1,37 @@
+[64px_block_13_expand_relu] fold 0: fruit F1 0.546 condition F1 0.838 (59s)
+[64px_block_13_expand_relu] fold 1: fruit F1 0.711 condition F1 0.653 (123s)
+[64px_block_13_expand_relu] fold 2: fruit F1 0.698 condition F1 0.806 (185s)
+[64px_block_15_add] fold 0: fruit F1 0.672 condition F1 0.871 (76s)
+[64px_block_15_add] fold 1: fruit F1 0.698 condition F1 0.810 (151s)
+[64px_block_15_add] fold 2: fruit F1 0.662 condition F1 0.863 (213s)
+[64px_block_16_project_BN] fold 0: fruit F1 0.669 condition F1 0.853 (72s)
+[64px_block_16_project_BN] fold 1: fruit F1 0.669 condition F1 0.706 (151s)
+[64px_block_16_project_BN] fold 2: fruit F1 0.715 condition F1 0.904 (228s)
+[80px_block_13_expand_relu] fold 0: fruit F1 0.724 condition F1 0.879 (89s)
+[80px_block_13_expand_relu] fold 1: fruit F1 0.798 condition F1 0.611 (173s)
+[80px_block_13_expand_relu] fold 2: fruit F1 0.741 condition F1 0.871 (250s)
+[80px_block_15_add] fold 0: fruit F1 0.772 condition F1 0.874 (97s)
+[80px_block_15_add] fold 1: fruit F1 0.811 condition F1 0.777 (185s)
+[80px_block_15_add] fold 2: fruit F1 0.821 condition F1 0.893 (272s)
+[80px_block_16_project_BN] fold 0: fruit F1 0.701 condition F1 0.888 (80s)
+[80px_block_16_project_BN] fold 1: fruit F1 0.753 condition F1 0.786 (180s)
+[80px_block_16_project_BN] fold 2: fruit F1 0.830 condition F1 0.928 (284s)
+[96px_block_13_expand_relu] fold 0: fruit F1 0.777 condition F1 0.835 (242s)
+[96px_block_13_expand_relu] fold 1: fruit F1 0.819 condition F1 0.887 (394s)
+[96px_block_13_expand_relu] fold 2: fruit F1 0.715 condition F1 0.876 (500s)
+[96px_block_15_add] fold 0: fruit F1 0.674 condition F1 0.871 (115s)
+[96px_block_15_add] fold 1: fruit F1 0.761 condition F1 0.883 (227s)
+[96px_block_15_add] fold 2: fruit F1 0.875 condition F1 0.919 (333s)
+[96px_block_16_project_BN] fold 0: fruit F1 0.767 condition F1 0.842 (117s)
+[96px_block_16_project_BN] fold 1: fruit F1 0.664 condition F1 0.917 (243s)
+[96px_block_16_project_BN] fold 2: fruit F1 0.839 condition F1 0.868 (356s)
+                   config  size                  cut  minutes  fruit_f1  fruit_f1_fold_std  cond_f1  cond_f1_fold_std  cond_f1_apple  cond_f1_banana  cond_f1_brinjal  cond_f1_guava  cond_f1_tomato  cond_f1_agrifreshnet  cond_f1_fruitnet  fruit_f1_agrifreshnet  fruit_f1_fruitnet
+64px_block_13_expand_relu    64 block_13_expand_relu      3.1    0.6319             0.0750   0.7682            0.0808         0.7685          0.7701           0.7815         0.7225          0.8536                0.8451            0.7495                 0.8391             0.6450
+        64px_block_15_add    64         block_15_add      3.6    0.6702             0.0153   0.8514            0.0271         0.8741          0.8445           0.8006         0.8281          0.8725                0.8649            0.8476                 0.9165             0.6341
+ 64px_block_16_project_BN    64  block_16_project_BN      3.8    0.6763             0.0216   0.8260            0.0837         0.8475          0.8533           0.7930         0.7564          0.8470                0.8605            0.8174                 0.9393             0.6102
+80px_block_13_expand_relu    80 block_13_expand_relu      4.2    0.7362             0.0317   0.7902            0.1243         0.8185          0.8071           0.8446         0.6872          0.8773                0.8715            0.7706                 0.8961             0.7193
+        80px_block_15_add    80         block_15_add      4.6    0.8057             0.0214   0.8520            0.0508         0.8520          0.8495           0.8643         0.8296          0.8994                0.8947            0.8415                 0.9537             0.7468
+ 80px_block_16_project_BN    80  block_16_project_BN      4.8    0.7548             0.0532   0.8711            0.0600         0.8806          0.8997           0.8546         0.8098          0.8982                0.8971            0.8645                 0.9726             0.7472
+96px_block_13_expand_relu    96 block_13_expand_relu      8.3    0.7738             0.0425   0.8730            0.0225         0.7991          0.9053           0.8601         0.8903          0.9032                0.8729            0.8726                 0.9225             0.7252
+        96px_block_15_add    96         block_15_add      5.6    0.7609             0.0822   0.8945            0.0205         0.8757          0.9087           0.8449         0.9037          0.8771                0.8739            0.8992                 0.9592             0.7315
+ 96px_block_16_project_BN    96  block_16_project_BN      6.0    0.7661             0.0718   0.8776            0.0308         0.8332          0.8531           0.7983         0.9570          0.8853                0.8655            0.8802                 0.9629             0.7213

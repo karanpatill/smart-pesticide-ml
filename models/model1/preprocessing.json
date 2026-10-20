@@ -1,0 +1,34 @@
+{
+  "input": {
+    "shape": [
+      1,
+      80,
+      80,
+      3
+    ],
+    "channel_order": "RGB",
+    "dtype": "float32",
+    "value_range": [
+      0,
+      255
+    ],
+    "layout": "NHWC"
+  },
+  "resize": {
+    "method": "aspect-preserving bilinear resize with antialias so the longer side = 80, then centre crop/zero-pad to 80x80",
+    "tf_ops": [
+      "tf.image.resize(img, [S, S], preserve_aspect_ratio=True, antialias=True)",
+      "tf.image.resize_with_crop_or_pad(img, S, S)"
+    ],
+    "reference_impl": "src/fruitvision/data/pipeline.py: decode_and_resize / resize_image"
+  },
+  "full_frame": true,
+  "cropping_or_segmentation": "none at inference",
+  "normalization": {
+    "location": "inside the model (layer 'normalize')",
+    "formula": "x_norm = x / 127.5 - 1.0",
+    "scale": 0.00784313725490196,
+    "offset": -1.0,
+    "caller_must_not_normalize": true
+  }
+}

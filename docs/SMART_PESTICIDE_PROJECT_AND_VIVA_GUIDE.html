@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Pesticide Residue Detection System — Complete Software & Engineering Documentation</title>
+<style>
+    @page {
+        size: A4;
+        margin: 18mm 16mm 18mm 16mm;
+    }
+    body {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        color: #222;
+        line-height: 1.5;
+        font-size: 11pt;
+    }
+    .header-box {
+        border-bottom: 3px solid #1a56db;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+    h1 {
+        font-size: 20pt;
+        color: #1a56db;
+        margin: 0 0 6px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .subtitle {
+        font-size: 13pt;
+        font-weight: 600;
+        color: #444;
+        margin: 0 0 4px 0;
+    }
+    .meta-bar {
+        font-size: 9.5pt;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        background: #f3f4f6;
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+    h2 {
+        font-size: 13pt;
+        color: #111827;
+        border-left: 4px solid #1a56db;
+        padding-left: 8px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+        page-break-after: avoid;
+    }
+    h3 {
+        font-size: 11pt;
+        color: #1f2937;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        page-break-after: avoid;
+    }
+    p, ul, ol {
+        margin-top: 4px;
+        margin-bottom: 8px;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 9.5pt;
+    }
+    th, td {
+        border: 1px solid #d1d5db;
+        padding: 6px 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f9fafb;
+        color: #374151;
+        font-weight: bold;
+    }
+    .callout {
+        background-color: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-left: 4px solid #2563eb;
+        padding: 10px 12px;
+        border-radius: 4px;
+        margin: 12px 0;
+        font-size: 10pt;
+    }
+    .viva-q {
+        background: #fdf2f8;
+        border-left: 4px solid #db2777;
+        padding: 8px 12px;
+        margin: 10px 0 4px 0;
+        font-weight: bold;
+        color: #831843;
+    }
+    .viva-a {
+        background: #f8fafc;
+        border-left: 4px solid #64748b;
+        padding: 8px 12px;
+        margin: 0 0 10px 0;
+        font-size: 10pt;
+    }
+    .code-box {
+        background: #1e293b;
+        color: #e2e8f0;
+        font-family: Consolas, 'Courier New', monospace;
+        font-size: 9pt;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 8px 0;
+    }
+    .page-break {
+        page-break-before: always;
+    }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h1>Smart Pesticide Residue Detection System</h1>
+    <div class="subtitle">Complete Technical Software Architecture, Multi-Sensor TinyML Pipeline &amp; Viva Defense Guide</div>
+    <div class="meta-bar">
+        <span><strong>Department:</strong> Electronics &amp; Telecommunication (ENTC)</span>
+        <span><strong>Target:</strong> STM32F407VET6 (ARM Cortex-M4)</span>
+        <span><strong>Project Type:</strong> ISE-I Mega Project / Research</span>
+    </div>
+</div>
+
+<h2>1. Executive Summary &amp; System Purpose</h2>
+<p>
+This project develops a low-cost, portable multi-sensor embedded screening system for fruit quality assessment and estimated pesticide residue risk. Operating entirely at the edge without cloud dependency, it combines visual computer vision (OV2640 camera), surface colorimetry (TCS34725 RGB), volatile organic compound (VOC) gas detection (MQ135), wash-water electro-chemical sensing (pH probe), and environmental normalization (DHT22 Temperature &amp; Humidity). The complete inference runs locally on an STM32F407VET6 microcontroller using TensorFlow Lite for Microcontrollers (TFLM).
+</p>
+
+<h2>2. Hardware &amp; Sensor Pin Mapping</h2>
+<table>
+    <tr>
+        <th>Sensor / Peripheral</th>
+        <th>Interface &amp; STM32 Pins</th>
+        <th>Measured Feature</th>
+        <th>Role in ML Inference</th>
+    </tr>
+    <tr>
+        <td><strong>OV2640 Camera</strong></td>
+        <td>DCMI (PA6, PB6, PC6-11, PE5-6) + Bitbang SCCB</td>
+        <td>160x120 RGB565 frame (80x80 crop)</td>
+        <td>Model 1: Fruit classification, Freshness/Condition, Quality Grade, Shelf Life</td>
+    </tr>
+    <tr>
+        <td><strong>TCS34725 Color</strong></td>
+        <td>I2C2 (PB10=SCL, PB11=SDA)</td>
+        <td>16-bit RGB &amp; Clear counts (R, G, B, C)</td>
+        <td>Model 2: Surface color shift, ripeness, abnormal chemical staining</td>
+    </tr>
+    <tr>
+        <td><strong>MQ135 Gas / VOC</strong></td>
+        <td>ADC1_IN3 (Pin PA3)</td>
+        <td>12-bit Analog voltage (50-avg)</td>
+        <td>Model 2: Volatile organic compounds &amp; pesticide vapor detection</td>
+    </tr>
+    <tr>
+        <td><strong>pH Sensor</strong></td>
+        <td>ADC1_IN2 (Pin PA2)</td>
+        <td>12-bit Analog voltage (200-avg)</td>
+        <td>Model 2: Wash-water acidity/alkalinity shift from organophosphate residues</td>
+    </tr>
+    <tr>
+        <td><strong>DHT22 Sensor</strong></td>
+        <td>Single-wire GPIO (Pin PA1)</td>
+        <td>Temperature (&deg;C) &amp; Humidity (%RH)</td>
+        <td>Model 2: Environmental compensation for gas &amp; pH drift</td>
+    </tr>
+    <tr>
+        <td><strong>SSD1306 OLED</strong></td>
+        <td>I2C1 (PB8=SCL, PB9=SDA)</td>
+        <td>128x64 Monochrome (8 rows x 21 cols)</td>
+        <td>Live client-ready display of Fruit, Grade, Shelf, and Risk</td>
+    </tr>
+</table>
+
+<h2>3. The Big Technical Challenge: No Public Pesticide Dataset</h2>
+<div class="callout">
+    <strong>How did we solve the lack of a commercial multi-sensor pesticide dataset?</strong><br>
+    In real-world agricultural research, laboratory GC-MS / LC-MS chromatography tests cost thousands of dollars per sample. No open-source dataset exists that maps raw MQ135 ADC voltages, TCS RGB values, and pH wash water directly to chemical pesticide concentrations for embedded MCUs.<br><br>
+    <strong>Our Solution: Two-Tier Machine Learning Architecture</strong>
+    <ol>
+        <li><strong>Model 1 &amp; 3 (Computer Vision - Trained on 8,457 real images):</strong> Trained on public benchmark datasets (FruitNet + AgriFreshNET + Mendeley Quality sets) for 5 fruits (Apple, Banana, Guava, Tomato, Brinjal). Outputs Fruit Class, Freshness, Quality Grade, and Shelf Life.</li>
+        <li><strong>Model 2 (Multi-Sensor Fusion - Synthetic Domain Modeling &amp; Normalization):</strong> We developed a rule-based parametric synthesizer that models known biochemical pesticide interactions (e.g., organophosphate wash water acidification, VOC vapor elevation on MQ135, and RGB color shifts). We trained a multinomial logistic regression classifier on normalized sensor features with environmental compensation from DHT22.</li>
+    </ol>
+</div>
+
+<div class="page-break"></div>
+
+<h2>4. End-to-End Software &amp; Machine Learning Pipeline</h2>
+<p>The firmware execution loop executes synchronously every 2 seconds on the ARM Cortex-M4:</p>
+
+<ol>
+    <li><strong>Image Capture &amp; Preprocessing:</strong>
+        <ul>
+            <li>OV2640 captures a 160&times;120 RGB565 frame directly into SRAM via DCMI DMA.</li>
+            <li>Center crop 120&times;120 extracts the region of interest; bilinear decimation resizes it to 80&times;80&times;3.</li>
+            <li>Zero-centered INT8 quantization converts RGB pixels: <code>int8_val = pixel - 128</code>.</li>
+        </ul>
+    </li>
+    <li><strong>Model 1 Vision Inference (TinyML TFLM):</strong>
+        <ul>
+            <li>MobileNet-derived compact CNN running CMSIS-NN SIMD quantized kernels.</li>
+            <li>Computes 8 output heads: 5-class Fruit logits, 2-class Condition, 3 Quality heads, 3 Shelf-life stage heads.</li>
+            <li>Includes a trained <em>Background Rejection Head</em> to distinguish empty scenes from real fruits.</li>
+        </ul>
+    </li>
+    <li><strong>Presence &amp; Detail Verification:</strong>
+        <ul>
+            <li>Laplacian spatial variance verifies that an actual object with edge textures is present.</li>
+            <li>Empty/featureless backgrounds are cleanly suppressed to <code>Fruit: NOFRUIT/UNKNOWN</code> without random guessing.</li>
+        </ul>
+    </li>
+    <li><strong>Model 2 Sensor Fusion &amp; Estimated Pesticide Risk:</strong>
+        <ul>
+            <li>Reads TCS34725 (R, G, B, C), MQ135 (ADC counts), pH (mV to pH conversion), and DHT22 (T, RH).</li>
+            <li>Generates derived ratio features: <code>R/C</code>, <code>G/C</code>, <code>B/C</code>, and <code>ln(MQ135)</code>.</li>
+            <li>Executes feature normalization: <code>z = (x - mean) / scale</code>.</li>
+            <li>Computes multi-class softmax logits to predict <strong>Estimated Pesticide Risk: LOW, MEDIUM, or HIGH</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>OLED &amp; Alert Reporting:</strong>
+        <ul>
+            <li>Outputs the 8-row clean status buffer to the SSD1306 display via I2C.</li>
+            <li>Triggers buzzer/LED alert pulse on PB14 if HIGH pesticide risk or image rejection occurs.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>5. Memory Map &amp; Embedded Optimization (STM32F407VET6)</h2>
+<table>
+    <tr>
+        <th>Memory Region</th>
+        <th>Assigned Buffer</th>
+        <th>Size Used</th>
+        <th>Total Available</th>
+        <th>Utilization</th>
+    </tr>
+    <tr>
+        <td><strong>Flash ROM</strong></td>
+        <td>Code (.text), Vectors, Model Weights (.rodata)</td>
+        <td>446,820 Bytes</td>
+        <td>512 KBytes</td>
+        <td>85.2% (75 KB Free)</td>
+    </tr>
+    <tr>
+        <td><strong>SRAM1</strong></td>
+        <td>Activations, Camera DMA buffer, App Stack</td>
+        <td>108,208 Bytes</td>
+        <td>128 KBytes</td>
+        <td>82.5% (20 KB Free)</td>
+    </tr>
+    <tr>
+        <td><strong>CCMRAM</strong></td>
+        <td>TFLM Persistent Tensor Arena (CPU only)</td>
+        <td>54,272 Bytes</td>
+        <td>64 KBytes</td>
+        <td>82.8% (10 KB Free)</td>
+    </tr>
+</table>
+
+<h2>6. OLED Output Format (Real Hardware Behavior)</h2>
+<div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+        <h3>When Fruit is Presented (e.g., Banana / Apple):</h3>
+        <div class="code-box">
+Row 0: Fruit:banana 0.996<br>
+Row 1: Cond:fresh<br>
+Row 2: Grade:Good<br>
+Row 3: Shelf:3-6d Fresh<br>
+Row 4: Risk:LOW<br>
+Row 5: pH9.32 ENTC MQ370<br>
+Row 6: T31.0C RH59%
+        </div>
+    </div>
+    <div style="flex: 1;">
+        <h3>When Empty Table / Background is Presented:</h3>
+        <div class="code-box">
+Row 0: Fruit:NOFRUIT/UNKNOWN<br>
+Row 1: Cond:UNCERTAIN<br>
+Row 2: Grade:UNCERTAIN<br>
+Row 3: Shelf:UNCERTAIN<br>
+Row 4: Risk:UNCERTAIN<br>
+Row 5: pH9.32 ENTC MQ370<br>
+Row 6: T31.0C RH59%
+        </div>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>7. Viva Defense &amp; Examiner Q&amp;A (Ratta / Preparation Section)</h2>
+
+<div class="viva-q">Q1. Why are you using multiple sensors when camera can already classify fruits?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "Camera vision only captures surface appearance, color, and physical defects. Pesticide chemical residues are invisible to standard RGB cameras. By fusing the camera with MQ135 (which detects volatile organic pesticide vapors), pH (which detects chemical wash-water shifts), and TCS34725 (micro-color surface staining), our system performs multi-modal feature fusion for a comprehensive food-safety screening."
+</div>
+
+<div class="viva-q">Q2. Where did you get the dataset for pesticide risk?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "Commercial pesticide residue analysis requires expensive laboratory chromatography (GC-MS/LC-MS). Because no public embedded multi-sensor pesticide dataset exists, we used a two-tier ML strategy: Model 1 was trained on 8,400+ real fruit images from benchmark datasets (FruitNet and AgriFreshNET). Model 2 uses biochemical domain modeling to synthesize pesticide interaction ranges across VOCs, pH shifts, and color metrics, normalized with environmental compensation (DHT22)."
+</div>
+
+<div class="viva-q">Q3. Why does the display say 'NOFRUIT/UNKNOWN' when nothing is placed in front of the camera?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "Standard classification models always force an output among the trained classes, which would cause an empty table to be falsely classified as Guava or Apple. To solve this, we implemented a dual-stage presence filter: a Laplacian spatial detail variance check combined with a specialized background rejection head. If no fruit is present or the confidence is low, the system conservatively reports UNCERTAIN rather than outputting false information."
+</div>
+
+<div class="viva-q">Q4. How did you fit a deep learning vision model into just 512 KB Flash and 128 KB RAM?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "We utilized INT8 post-training quantization, which reduces model weights by 4x compared to float32. In firmware, we used ARM CMSIS-NN SIMD instructions and split the memory layout: TFLM persistent memory (54 KB) was placed into Core Coupled Memory (CCMRAM), while activations and camera DMA buffers were placed in SRAM1 with buffer reuse, achieving 85% Flash and 82% RAM utilization."
+</div>
+
+<div class="viva-q">Q5. What is the role of the pH and MQ135 sensors?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "When fruit is washed, acidic or alkaline chemical residues dissolve into the wash water, causing a measurable shift on the analog pH probe. Simultaneously, organophosphate and synthetic pesticide residues emit volatile organic vapors that alter the conductivity of the tin dioxide (SnO2) sensing layer in the MQ135 gas sensor. The microcontroller samples both via 12-bit ADC and passes them to the risk model."
+</div>
+
+<div class="viva-q">Q6. What micro-controller architecture and libraries are running on the board?</div>
+<div class="viva-a">
+<strong>Answer:</strong> "We are using an STM32F407VET6 running an ARM Cortex-M4 core at 168 MHz with Hardware Floating Point Unit (FPU). The software uses bare-metal C/C++ with CMSIS-Core, CMSIS-NN, and TensorFlow Lite for Microcontrollers (TFLM). Camera frames are transferred via DCMI with DMA2, and sensors communicate over I2C and 12-bit ADC."
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "outputs": {
+    "fruit": {
+      "0": "apple",
+      "1": "banana",
+      "2": "guava",
+      "3": "tomato",
+      "4": "brinjal"
+    },
+    "condition": {
+      "0": "fresh",
+      "1": "spoiled"
+    }
+  },
+  "note": "condition is a binary visual label (fresh vs spoiled/rotten). Model 1 does not detect pesticide residue and does not output a freshness percentage."
+}

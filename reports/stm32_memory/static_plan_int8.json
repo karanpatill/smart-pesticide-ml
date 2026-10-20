@@ -1,0 +1,164 @@
+{
+ "model": "models/experimental/tflite/combined_int8.tflite",
+ "n_ops": 80,
+ "n_tensors": 206,
+ "input": {
+  "shape": [
+   1,
+   80,
+   80,
+   3
+  ],
+  "dtype": "int8",
+  "bytes": 19200,
+  "quantization": [
+   1.0,
+   -128
+  ]
+ },
+ "outputs": [
+  {
+   "index": 184,
+   "shape": [
+    1,
+    2
+   ],
+   "dtype": "int8",
+   "bytes": 2
+  },
+  {
+   "index": 197,
+   "shape": [
+    1,
+    3
+   ],
+   "dtype": "int8",
+   "bytes": 3
+  },
+  {
+   "index": 195,
+   "shape": [
+    1,
+    3
+   ],
+   "dtype": "int8",
+   "bytes": 3
+  },
+  {
+   "index": 199,
+   "shape": [
+    1,
+    3
+   ],
+   "dtype": "int8",
+   "bytes": 3
+  },
+  {
+   "index": 193,
+   "shape": [
+    1,
+    3
+   ],
+   "dtype": "int8",
+   "bytes": 3
+  },
+  {
+   "index": 201,
+   "shape": [
+    1,
+    3
+   ],
+   "dtype": "int8",
+   "bytes": 3
+  },
+  {
+   "index": 189,
+   "shape": [
+    1,
+    5
+   ],
+   "dtype": "int8",
+   "bytes": 5
+  },
+  {
+   "index": 191,
+   "shape": [
+    1,
+    2
+   ],
+   "dtype": "int8",
+   "bytes": 2
+  }
+ ],
+ "constant_tensor_bytes": 246576,
+ "peak_live_activations_portable_bytes": 96000,
+ "peak_live_activations_plus_dsp_scratch_bytes_ESTIMATE": 96864,
+ "max_dsp_scratch_single_op_bytes": 6048,
+ "top_ops_by_dsp_total": [
+  {
+   "op": 6,
+   "name": "DEPTHWISE_CONV_2D",
+   "live_activation_bytes": 96000,
+   "dsp_scratch_bytes": 864,
+   "dsp_total": 96864,
+   "out_shape": [
+    1,
+    20,
+    20,
+    48
+   ]
+  },
+  {
+   "op": 5,
+   "name": "CONV_2D",
+   "live_activation_bytes": 89600,
+   "dsp_scratch_bytes": 0,
+   "dsp_total": 89600,
+   "out_shape": [
+    1,
+    40,
+    40,
+    48
+   ]
+  },
+  {
+   "op": 3,
+   "name": "DEPTHWISE_CONV_2D",
+   "live_activation_bytes": 51200,
+   "dsp_scratch_bytes": 288,
+   "dsp_total": 51488,
+   "out_shape": [
+    1,
+    40,
+    40,
+    16
+   ]
+  },
+  {
+   "op": 2,
+   "name": "CONV_2D",
+   "live_activation_bytes": 44800,
+   "dsp_scratch_bytes": 112,
+   "dsp_total": 44912,
+   "out_shape": [
+    1,
+    40,
+    40,
+    16
+   ]
+  },
+  {
+   "op": 9,
+   "name": "DEPTHWISE_CONV_2D",
+   "live_activation_bytes": 41600,
+   "dsp_scratch_bytes": 864,
+   "dsp_total": 42464,
+   "out_shape": [
+    1,
+    20,
+    20,
+    48
+   ]
+  }
+ ]
+}

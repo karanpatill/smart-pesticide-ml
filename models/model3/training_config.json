@@ -1,0 +1,49 @@
+{
+  "feature_extractor": {
+    "model": "models/model1/model1_final.keras",
+    "layer": "gap",
+    "dim": 56,
+    "frozen": true,
+    "sha256": "fc3f9ecca45cdc5c8566be55aec48da9a40cefad06792971ea19ad51fe8e1741"
+  },
+  "input": {
+    "size": 80,
+    "preprocessing": "identical to Model 1 (models/model1/preprocessing.json)"
+  },
+  "heads": {
+    "candidates": [
+      "linear",
+      "mlp16"
+    ],
+    "rule": "linear unless mlp16 VAL macro-F1 > linear + 0.02",
+    "selected": {
+      "quality_banana": "mlp16",
+      "quality_guava": "linear",
+      "quality_apple": "mlp16",
+      "stage_tomato": "mlp16",
+      "stage_brinjal": "linear",
+      "stage_banana": "linear"
+    },
+    "optimizer": "Adam 3e-3",
+    "l2": 0.0001,
+    "batch": 64,
+    "early_stopping": "val_loss patience 25 (max 300 epochs)",
+    "class_weights": "balanced"
+  },
+  "train_augmentation": {
+    "views": 4,
+    "config": {
+      "flip": true,
+      "rotation": 0.1,
+      "zoom": 0.1,
+      "brightness": 0.15,
+      "contrast": 0.15
+    }
+  },
+  "data": {
+    "manifest": "data/model3/manifest.csv",
+    "manifest_sha256": "bf5947ba20f3f5ce8215ca78b178e4d9cbb15df732d90fb8ce0fcbd633ab8aa9"
+  },
+  "seed": 42,
+  "tensorflow": "2.18.1"
+}

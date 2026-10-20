@@ -1,0 +1,49 @@
+# 64px_block_13_expand_relu — out-of-fold (3 group folds)
+
+## Fruit head (all)
+         precision  recall      f1  support
+apple       0.6147  0.5130  0.5593     2000
+banana      0.9169  0.7945  0.8513     2443
+guava       0.5663  0.4435  0.4974     1955
+tomato      0.5667  0.9804  0.7182      715
+brinjal     0.3659  0.9819  0.5331      332
+
+## Condition head (all)
+         precision  recall      f1  support
+fresh       0.7324  0.8808  0.7998     3841
+spoiled     0.8379  0.6570  0.7365     3604
+
+## Condition head — source agrifreshnet
+         precision  recall      f1  support
+fresh       0.8843  0.8555  0.8697      858
+spoiled     0.8022  0.8397  0.8206      599
+
+## Condition head — source fruitnet
+         precision  recall      f1  support
+fresh       0.6991  0.8880  0.7823     2983
+spoiled     0.8481  0.6206  0.7168     3005
+
+## Condition head — fruit apple
+         precision  recall      f1  support
+fresh       0.7715   0.763  0.7672     1000
+spoiled     0.7656   0.774  0.7698     1000
+
+## Condition head — fruit banana
+         precision  recall      f1  support
+fresh       0.7051  0.9111  0.7950     1181
+spoiled     0.8855  0.6434  0.7453     1262
+
+## Condition head — fruit brinjal
+         precision  recall      f1  support
+fresh       0.7857  0.9303  0.8519      201
+spoiled     0.8511  0.6107  0.7111      131
+
+## Condition head — fruit guava
+         precision  recall      f1  support
+fresh       0.6583  0.9382  0.7737      955
+spoiled     0.9007  0.5350  0.6713     1000
+
+## Condition head — fruit tomato
+         precision  recall      f1  support
+fresh       0.9129  0.9147  0.9138      504
+spoiled     0.7952  0.7915  0.7933      211

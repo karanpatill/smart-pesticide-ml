@@ -1,0 +1,15 @@
+........................................................................ [ 41%]
+........................................................................ [ 83%]
+............................                                             [100%]
+============================== warnings summary ===============================
+tests/test_fw_presence_gate.py::test_detail_c_matches_python
+tests/test_fw_snapshot.py::test_reader_accepts_ready_snapshot_rejects_not_ready_or_changed
+tests/test_fw_stm32_app.py::test_generated_config_matches_tflite_model
+  D:\smart-pesticide-ml\.venv\Lib\site-packages\tensorflow\lite\python\interpreter.py:451: UserWarning:     Warning: Please use the LiteRT interpreter from the ai_edge_litert package.
+      See the [migration guide](https://ai.google.dev/edge/litert/migration)
+      for details.
+      
+    warnings.warn(_INTERPRETER_DELETION_WARNING)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+172 passed, 3 warnings in 60.04s (0:01:00)

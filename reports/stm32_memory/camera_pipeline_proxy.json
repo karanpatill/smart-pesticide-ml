@@ -1,0 +1,21 @@
+{
+  "NOTE": "HOST PROXY on public-dataset test images; OV2640 optics/ISP/scaler not simulated.",
+  "n": 1012,
+  "model": "models/experimental/tflite/combined_int8.tflite",
+  "A_training_preprocessing": {
+    "fruit_macro_f1": 0.8212,
+    "condition_macro_f1": 0.6883
+  },
+  "C_training_plus_rgb565": {
+    "fruit_macro_f1": 0.8147,
+    "condition_macro_f1": 0.6822,
+    "fruit_agreement_with_A": 0.9585,
+    "condition_agreement_with_A": 0.9704
+  },
+  "B_firmware_camera_proxy_96_rgb565": {
+    "fruit_macro_f1": 0.7893,
+    "condition_macro_f1": 0.7797,
+    "fruit_agreement_with_A": 0.8389,
+    "condition_agreement_with_A": 0.8211
+  }
+}

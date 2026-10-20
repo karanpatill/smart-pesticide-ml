@@ -1,0 +1,115 @@
+{
+  "criterion": "max Youden's J on VAL pool (correct vs incorrect fruit predictions)",
+  "threshold": 0.9760000109672546,
+  "youden_j": 0.5482,
+  "val_pool": {
+    "n": 1663,
+    "by_origin": {
+      "model1_split": 1299,
+      "model3_new_split": 364
+    },
+    "coverage": 0.6085,
+    "accuracy_kept": 0.9723,
+    "accuracy_all": 0.8713,
+    "errors_flagged": 0.8692,
+    "correct_flagged": 0.3209
+  },
+  "test_pool_report_only": {
+    "n": 1373,
+    "coverage": 0.5025,
+    "accuracy_kept": 0.9551,
+    "accuracy_all": 0.8121,
+    "errors_flagged": 0.8798,
+    "correct_flagged": 0.409
+  },
+  "val_by_fruit": {
+    "apple": {
+      "coverage": 0.3652,
+      "accuracy_kept": 0.9935,
+      "accuracy_all": 0.8568,
+      "errors_flagged": 0.9833,
+      "correct_flagged": 0.5766
+    },
+    "banana": {
+      "coverage": 0.9126,
+      "accuracy_kept": 0.9686,
+      "accuracy_all": 0.9253,
+      "errors_flagged": 0.617,
+      "correct_flagged": 0.0447
+    },
+    "brinjal": {
+      "coverage": 0.7835,
+      "accuracy_kept": 1.0,
+      "accuracy_all": 0.9897,
+      "errors_flagged": 1.0,
+      "correct_flagged": 0.2083
+    },
+    "guava": {
+      "coverage": 0.2743,
+      "accuracy_kept": 0.9062,
+      "accuracy_all": 0.7229,
+      "errors_flagged": 0.9072,
+      "correct_flagged": 0.6561
+    },
+    "tomato": {
+      "coverage": 0.6726,
+      "accuracy_kept": 1.0,
+      "accuracy_all": 0.9464,
+      "errors_flagged": 1.0,
+      "correct_flagged": 0.2893
+    }
+  },
+  "test_by_fruit_report_only": {
+    "apple": {
+      "coverage": 0.1345,
+      "accuracy_kept": 0.8108,
+      "accuracy_all": 0.7018,
+      "errors_flagged": 0.9146,
+      "correct_flagged": 0.8446
+    },
+    "banana": {
+      "coverage": 0.7681,
+      "accuracy_kept": 0.9421,
+      "accuracy_all": 0.8407,
+      "errors_flagged": 0.7206,
+      "correct_flagged": 0.1393
+    },
+    "brinjal": {
+      "coverage": 0.6562,
+      "accuracy_kept": 1.0,
+      "accuracy_all": 0.9167,
+      "errors_flagged": 1.0,
+      "correct_flagged": 0.2841
+    },
+    "guava": {
+      "coverage": 0.3578,
+      "accuracy_kept": 0.9658,
+      "accuracy_all": 0.7696,
+      "errors_flagged": 0.9468,
+      "correct_flagged": 0.551
+    },
+    "tomato": {
+      "coverage": 0.6946,
+      "accuracy_kept": 1.0,
+      "accuracy_all": 0.9641,
+      "errors_flagged": 1.0,
+      "correct_flagged": 0.2795
+    }
+  },
+  "test_by_origin_report_only": {
+    "model1_split": {
+      "coverage": 0.4377,
+      "accuracy_kept": 0.9368,
+      "accuracy_all": 0.7964,
+      "errors_flagged": 0.8641,
+      "correct_flagged": 0.4851
+    },
+    "model3_new_split": {
+      "coverage": 0.6842,
+      "accuracy_kept": 0.9879,
+      "accuracy_all": 0.856,
+      "errors_flagged": 0.9423,
+      "correct_flagged": 0.2104
+    }
+  }
+}

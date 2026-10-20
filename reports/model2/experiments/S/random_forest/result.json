@@ -1,0 +1,137 @@
+{
+  "feature_set": "S",
+  "model": "random_forest",
+  "best_params": {
+    "max_depth": null,
+    "n_estimators": 300
+  },
+  "val_macro_f1": 0.7678,
+  "cv_mean": {
+    "accuracy": 0.7669,
+    "macro_precision": 0.7575,
+    "macro_recall": 0.7613,
+    "macro_f1": 0.7574
+  },
+  "cv_sd": {
+    "accuracy": 0.0164,
+    "macro_precision": 0.0124,
+    "macro_recall": 0.0178,
+    "macro_f1": 0.0155
+  },
+  "cv_folds": [
+    {
+      "accuracy": 0.7662,
+      "macro_precision": 0.7493,
+      "macro_recall": 0.7565,
+      "macro_f1": 0.7485
+    },
+    {
+      "accuracy": 0.7358,
+      "macro_precision": 0.7374,
+      "macro_recall": 0.7285,
+      "macro_f1": 0.731
+    },
+    {
+      "accuracy": 0.7829,
+      "macro_precision": 0.7702,
+      "macro_recall": 0.7744,
+      "macro_f1": 0.77
+    },
+    {
+      "accuracy": 0.7748,
+      "macro_precision": 0.7631,
+      "macro_recall": 0.7713,
+      "macro_f1": 0.7663
+    },
+    {
+      "accuracy": 0.7746,
+      "macro_precision": 0.7676,
+      "macro_recall": 0.7759,
+      "macro_f1": 0.7713
+    }
+  ],
+  "test": {
+    "accuracy": 0.7845,
+    "macro_precision": 0.7751,
+    "macro_recall": 0.7591,
+    "macro_f1": 0.7663
+  },
+  "test_vs_clean_labels_diagnostic": {
+    "accuracy": 0.8435,
+    "macro_precision": 0.8326,
+    "macro_recall": 0.8261,
+    "macro_f1": 0.8293
+  },
+  "test_per_class": {
+    "LOW": {
+      "precision": 0.8397,
+      "recall": 0.8893,
+      "f1-score": 0.8638,
+      "support": 271.0
+    },
+    "MEDIUM": {
+      "precision": 0.6766,
+      "recall": 0.6457,
+      "f1-score": 0.6608,
+      "support": 175.0
+    },
+    "HIGH": {
+      "precision": 0.809,
+      "recall": 0.7423,
+      "f1-score": 0.7742,
+      "support": 97.0
+    }
+  },
+  "test_confusion": [
+    [
+      241,
+      29,
+      1
+    ],
+    [
+      46,
+      113,
+      16
+    ],
+    [
+      0,
+      25,
+      72
+    ]
+  ],
+  "permutation_importance_test": {
+    "drv_tcs_b_over_c": 0.1489,
+    "drv_tcs_r_over_c": 0.1114,
+    "sensor_temp_c": 0.0639,
+    "sensor_tcs_r": 0.0297,
+    "drv_tcs_g_over_c": 0.0088,
+    "sensor_tcs_b": 0.0076,
+    "sensor_tcs_c": 0.0036,
+    "drv_log_mq135": 0.0023,
+    "sensor_mq135": 0.0019,
+    "sensor_ph": 0.0013,
+    "sensor_tcs_g": 0.001,
+    "sensor_humidity_pct": -0.0096
+  },
+  "native_importance": {
+    "num__drv_tcs_r_over_c": 0.2108,
+    "num__drv_tcs_b_over_c": 0.2012,
+    "num__sensor_tcs_r": 0.1423,
+    "num__sensor_temp_c": 0.0816,
+    "num__sensor_tcs_g": 0.0791,
+    "num__sensor_tcs_c": 0.0555,
+    "num__drv_tcs_g_over_c": 0.0489,
+    "num__sensor_tcs_b": 0.0423,
+    "num__drv_log_mq135": 0.0352,
+    "num__sensor_humidity_pct": 0.0347,
+    "num__sensor_mq135": 0.0346,
+    "num__sensor_ph": 0.0337
+  },
+  "mcu_footprint_estimate": {
+    "kind": "trees",
+    "trees": 300,
+    "nodes": 218306,
+    "approx_bytes": 1964754
+  },
+  "train_seconds": 12.0
+}

@@ -1,0 +1,121 @@
+{
+ "elf": "reports/stm32_memory/tflm_cm4_int8only_sizeonly.elf",
+ "header": {
+  "machine": "EM_ARM",
+  "class": 32,
+  "flags": "0x5000400"
+ },
+ "allocated_sections": {
+  ".ARM.exidx": 256,
+  ".ARM.extab": 288,
+  ".bss": 97681,
+  ".ccm_arena": 53248,
+  ".data.rel.ro": 556,
+  ".got": 116,
+  ".relro_padding": 1984,
+  ".rodata": 367304,
+  ".text": 59256
+ },
+ "flash_bytes_total": 427660,
+ "ram_bytes_total_incl_arenas": 151485,
+ "symbol_buckets": {
+  "other": {
+   "code": 1944,
+   "data": 683
+  },
+  "tflm_runtime": {
+   "code": 29666,
+   "data": 556
+  },
+  "tensor_arenas": {
+   "code": 0,
+   "data": 150528
+  },
+  "compiler_rt_libc": {
+   "code": 8254,
+   "data": 0
+  },
+  "cmsis_nn": {
+   "code": 19654,
+   "data": 0
+  },
+  "model_flatbuffer": {
+   "code": 0,
+   "data": 366848
+  }
+ },
+ "largest_symbols": [
+  {
+   "name": "g_model_data",
+   "size": 366848,
+   "type": "STT_OBJECT",
+   "section": ".rodata"
+  },
+  {
+   "name": "_ZL15g_nonpersistent",
+   "size": 97280,
+   "type": "STT_OBJECT",
+   "section": ".bss"
+  },
+  {
+   "name": "_ZL12g_persistent",
+   "size": 53248,
+   "type": "STT_OBJECT",
+   "section": ".ccm_arena"
+  },
+  {
+   "name": "arm_nn_softmax_common_s8",
+   "size": 2780,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_nn_mat_mult_nt_t_s8",
+   "size": 2062,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_depthwise_conv_s8",
+   "size": 1862,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_depthwise_conv_3x3_s8",
+   "size": 1434,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_depthwise_conv_s8_opt",
+   "size": 1428,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_elementwise_add_s8",
+   "size": 1388,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_convolve_s8",
+   "size": 1346,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_nn_vec_mat_mult_t_per_ch_s8",
+   "size": 1296,
+   "type": "STT_FUNC",
+   "section": ".text"
+  },
+  {
+   "name": "arm_nn_vec_mat_mult_t_s8",
+   "size": 1280,
+   "type": "STT_FUNC",
+   "section": ".text"
+  }
+ ]
+}

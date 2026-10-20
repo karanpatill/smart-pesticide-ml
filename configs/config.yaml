@@ -1,0 +1,77 @@
+# Main experiment configuration for the image model.
+# Paths are relative to the project root.
+
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim          # manifests, duplicate reports
+  splits_dir: data/splits            # train/val/test CSVs
+  models_dir: models
+  reports_dir: reports
+
+datasets_config: configs/datasets.yaml
+
+# Target fruit classes. Order defines the output index of the fruit head
+# and MUST stay stable once a model has been trained.
+fruits: [apple, banana, guava, tomato, brinjal]
+
+# Condition classes. Order defines the output index of the condition head.
+# Binary is the only scheme supported by *every* target fruit in the
+# recommended datasets (see docs/DATASETS.md). Do not extend without data.
+conditions: [fresh, spoiled]
+
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+  # Near-duplicate detection: 256-bit pHash (hash_size 16). Images within
+  # phash_max_distance bits share a group and always land in the same split.
+  # Calibrated 2026-10-08 on the target data: the 64-bit pHash matched
+  # different fruits on the same white cloth even at 2 bits; the 256-bit hash
+  # has 0 cross-fruit pairs up to 40 bits and every pair <= 24 bits is from the
+  # same capture burst. Same-specimen leakage is handled by burst grouping.
+  phash_size: 16
+  phash_max_distance: 16
+
+image:
+  # Measured (docs/DEPLOYMENT_BUDGET.md): 96 px needs >=135 KB of activations,
+  # more than the 128 KB main SRAM of the STM32F407VET6. 80 px needs >=94 KB.
+  # Keras has no 80 px ImageNet weights; it loads the 224 px weights (conv
+  # kernels are resolution-independent), which is fine for transfer learning.
+  size: 80
+  channels: 3
+
+model:
+  backbone: mobilenet_v2
+  alpha: 0.35                # width multiplier; 0.35 is the smallest with ImageNet weights
+  # The full backbone is 589 KB as INT8 (> 512 KB flash). Truncating after
+  # block_15 gives 326 KB. Revisit with block_16_project_BN (404 KB) or
+  # block_13_expand_relu (189 KB) once real accuracy numbers exist.
+  cut_layer: block_15_add
+  dropout: 0.2
+  head_units: 0              # 0 = no extra dense layer (keeps flash small)
+  loss_weights: {fruit: 1.0, condition: 1.0}
+
+train:
+  batch_size: 32
+  # Stage 1: frozen backbone, train heads only.
+  head_epochs: 15
+  head_lr: 1.0e-3
+  # Stage 2: unfreeze the last N backbone layers and fine-tune.
+  finetune_epochs: 15
+  finetune_lr: 1.0e-4
+  finetune_unfreeze_layers: 40
+  early_stopping_patience: 5
+  class_weighting: true
+
+augment:
+  flip: true
+  rotation: 0.1              # fraction of 2*pi
+  zoom: 0.1
+  brightness: 0.15
+  contrast: 0.15
+
+tflite:
+  quantization: int8         # full-integer, int8 input/output for STM32
+  representative_samples: 300

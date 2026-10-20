@@ -1,0 +1,127 @@
+{
+  "EXPERIMENTAL": "Host-side TFLite conversion only. No STM32 build or hardware run was performed.",
+  "source_keras": {
+    "path": "models/model3/model3_combined.keras",
+    "sha256": "363946f34b13f466f1072f89c7f91cfd6f2ed89646d02979d6786ca676dcc5ef",
+    "sha256_after": "363946f34b13f466f1072f89c7f91cfd6f2ed89646d02979d6786ca676dcc5ef"
+  },
+  "representative_images": {
+    "n": 400,
+    "origin": "TRAIN splits only"
+  },
+  "size_bytes": {
+    "float32": 788764,
+    "int8": 366848
+  },
+  "int8_ops": [
+    "ADD",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "FULLY_CONNECTED",
+    "MEAN",
+    "MUL",
+    "SOFTMAX"
+  ],
+  "int8_input": {
+    "shape": "[ 1 80 80  3]",
+    "dtype": "<class 'numpy.int8'>",
+    "quantization": "(1.0, -128)"
+  },
+  "activation_peak_lower_bound_bytes": 96000,
+  "single_backbone_inference": "one graph: shared backbone, 8 outputs (fruit, condition, 6 Model 3 heads)",
+  "test_eval_int8_vs_keras": {
+    "fruit": {
+      "n": 1012,
+      "argmax_agreement_int8_vs_keras": 0.9565,
+      "macro_f1_keras": 0.822,
+      "macro_f1_int8": 0.8212,
+      "max_abs_prob_diff": 0.4723
+    },
+    "condition": {
+      "n": 1012,
+      "argmax_agreement_int8_vs_keras": 0.9674,
+      "macro_f1_keras": 0.6785,
+      "macro_f1_int8": 0.6883,
+      "max_abs_prob_diff": 0.2427
+    },
+    "quality_banana": {
+      "n": 169,
+      "argmax_agreement_int8_vs_keras": 0.9586,
+      "macro_f1_keras": 0.8215,
+      "macro_f1_int8": 0.7947,
+      "max_abs_prob_diff": 0.305
+    },
+    "quality_guava": {
+      "n": 82,
+      "argmax_agreement_int8_vs_keras": 0.9024,
+      "macro_f1_keras": 0.8695,
+      "macro_f1_int8": 0.8697,
+      "max_abs_prob_diff": 0.5905
+    },
+    "quality_apple": {
+      "n": 275,
+      "argmax_agreement_int8_vs_keras": 0.9382,
+      "macro_f1_keras": 0.4561,
+      "macro_f1_int8": 0.465,
+      "max_abs_prob_diff": 0.7921
+    },
+    "stage_tomato": {
+      "n": 167,
+      "argmax_agreement_int8_vs_keras": 0.8623,
+      "macro_f1_keras": 0.554,
+      "macro_f1_int8": 0.5645,
+      "max_abs_prob_diff": 0.3531
+    },
+    "stage_brinjal": {
+      "n": 96,
+      "argmax_agreement_int8_vs_keras": 0.8958,
+      "macro_f1_keras": 0.5451,
+      "macro_f1_int8": 0.5069,
+      "max_abs_prob_diff": 0.2802
+    },
+    "stage_banana": {
+      "n": 91,
+      "argmax_agreement_int8_vs_keras": 0.978,
+      "macro_f1_keras": 0.9548,
+      "macro_f1_int8": 0.9335,
+      "max_abs_prob_diff": 0.3719
+    }
+  },
+  "target": {
+    "device": "STM32F407VET6",
+    "flash_bytes": 524288,
+    "sram_bytes": 196608,
+    "main_sram_bytes": 131072,
+    "ccm_bytes": 65536
+  },
+  "tflite_micro_host_measurement": {
+    "environment": "WSL Ubuntu x86_64, tflite-micro Python package 0.dev20261006214927 (reference kernels); NOT an STM32 run",
+    "min_tensor_arena_bytes": 155740,
+    "search_resolution_bytes": 256,
+    "fits_128KB_contiguous_main_sram": false,
+    "parity_vs_host_tflite_20_images": {
+      "max_abs_int8_diff_per_output": [
+        17,
+        31,
+        91,
+        19,
+        37,
+        26,
+        59,
+        12
+      ],
+      "note": "TFLM reference kernels differ from host TFLite optimized kernels in rounding; argmax agreement 0.90-1.00 per output on 20 images",
+      "source": "reports/audit/tflm/tflm_parity_detail.json"
+    },
+    "model1_test_split_tflm": {
+      "n": 1012,
+      "fruit_macro_f1": 0.8179,
+      "condition_macro_f1": 0.6896
+    },
+    "scripts": [
+      "reports/audit/tflm/tflm_measure.py",
+      "reports/audit/tflm/tflm_parity_detail.py",
+      "reports/audit/tflm/tflm_test_eval.py"
+    ]
+  }
+}

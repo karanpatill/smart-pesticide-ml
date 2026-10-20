@@ -1,0 +1,113 @@
+{
+ "LABEL": "OFFLINE PC inference (deployment preprocessing + frozen INT8 model) on ONE real OV2640 frame. Model prediction, NOT ground truth.",
+ "frame_sha256": "ef669ac7952276b6610dcd773c4f432fd96122c46daa1457f9cc92be6b5f77a2",
+ "image_check": {
+  "reject": [],
+  "warnings": [
+   "aspect 1.33 > 1.1 (centre-square crop used)"
+  ],
+  "stats": {
+   "lum_mean": 139.135,
+   "lum_std": 43.486,
+   "lag1_autocorr": 0.981,
+   "chroma_mean_abs": 11.196,
+   "clipped_fraction": 0.002
+  }
+ },
+ "fruit_probabilities": {
+  "apple": 0.8516,
+  "banana": 0.0,
+  "guava": 0.1484,
+  "tomato": 0.0,
+  "brinjal": 0.0
+ },
+ "condition_probabilities": {
+  "fresh": 0.6289,
+  "spoiled": 0.3711
+ },
+ "int8_outputs": {
+  "fruit": [
+   90,
+   -128,
+   -90,
+   -128,
+   -128
+  ],
+  "condition": [
+   33,
+   -33
+  ],
+  "quality_banana": [
+   127,
+   -128,
+   -128
+  ],
+  "quality_guava": [
+   103,
+   -128,
+   -103
+  ],
+  "quality_apple": [
+   -72,
+   72
+  ],
+  "stage_tomato": [
+   -112,
+   -106,
+   91
+  ],
+  "stage_brinjal": [
+   117,
+   -117,
+   -128
+  ],
+  "stage_banana": [
+   -125,
+   -128,
+   125
+  ]
+ },
+ "fruit": {
+  "label": "apple",
+  "confidence": 0.8516,
+  "source": "Model 1",
+  "state": "predicted"
+ },
+ "condition": {
+  "label": "fresh",
+  "confidence": 0.6289,
+  "source": "Model 1",
+  "state": "predicted"
+ },
+ "quality_grade": {
+  "label": "Uncertain",
+  "confidence": null,
+  "scale": null,
+  "basis": null,
+  "head": null,
+  "reason": "Fruit routing confidence 0.852 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+  "source": "post-processing (R1)",
+  "state": "uncertain"
+ },
+ "shelf_life": {
+  "status": "not_available",
+  "range_days": null,
+  "reason": "Fruit routing confidence 0.852 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+  "source": "post-processing (R1)",
+  "state": "uncertain"
+ },
+ "consistency": {
+  "status": "uncertain",
+  "warnings": [
+   {
+    "rule": "R1_low_fruit_confidence",
+    "severity": "uncertain",
+    "message": "Fruit routing confidence 0.852 is below the threshold 0.976; fruit-specific quality and shelf-life outputs are withheld.",
+    "details": {
+     "fruit_confidence": 0.8516,
+     "threshold": 0.976
+    }
+   }
+  ]
+ }
+}

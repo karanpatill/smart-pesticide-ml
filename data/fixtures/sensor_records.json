@@ -1,0 +1,273 @@
+{
+  "_README": "SYNTHETIC / CONSTRUCTED fixtures. 'synthetic_*' records are rows of the synthetic Model 2 TEST split (configs/model2_synthetic.yaml); their target labels are synthetic and are NOT real pesticide measurements. 'invalid_*' and 'device_like_*' records are hand-constructed to exercise validation rules; none is a measured reading.",
+  "records": {
+    "synthetic_low": {
+      "record": {
+        "tcs34725": {
+          "r": 409,
+          "g": 587,
+          "b": 882,
+          "c": 1716
+        },
+        "mq135": {
+          "value": 629.8,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 3.53
+        },
+        "dht22": {
+          "temperature_c": 28.7,
+          "humidity_pct": 47.8
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "synthetic_target_label": "LOW",
+      "source_row": 2736
+    },
+    "synthetic_medium": {
+      "record": {
+        "tcs34725": {
+          "r": 598,
+          "g": 712,
+          "b": 864,
+          "c": 2024
+        },
+        "mq135": {
+          "value": 842.4,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 4.0
+        },
+        "dht22": {
+          "temperature_c": 20.0,
+          "humidity_pct": 87.6
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "synthetic_target_label": "MEDIUM",
+      "source_row": 1688
+    },
+    "synthetic_high": {
+      "record": {
+        "tcs34725": {
+          "r": 782,
+          "g": 826,
+          "b": 886,
+          "c": 2230
+        },
+        "mq135": {
+          "value": 501.5,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 5.09
+        },
+        "dht22": {
+          "temperature_c": 21.9,
+          "humidity_pct": 51.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "synthetic_target_label": "HIGH",
+      "source_row": 1098
+    },
+    "invalid_dht22_nan": {
+      "record": {
+        "tcs34725": {
+          "r": 370,
+          "g": 508,
+          "b": 710,
+          "c": 1410
+        },
+        "mq135": {
+          "value": 647.4,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 4.11
+        },
+        "dht22": {
+          "temperature_c": NaN,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "DHT22 read failure (NaN)"
+    },
+    "invalid_tcs_disconnected": {
+      "record": {
+        "tcs34725": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "c": 0
+        },
+        "mq135": {
+          "value": 647.4,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 4.11
+        },
+        "dht22": {
+          "temperature_c": 30.6,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "all TCS channels 0"
+    },
+    "invalid_tcs_saturated": {
+      "record": {
+        "tcs34725": {
+          "r": 370,
+          "g": 508,
+          "b": 710,
+          "c": 65535
+        },
+        "mq135": {
+          "value": 647.4,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 4.11
+        },
+        "dht22": {
+          "temperature_c": 30.6,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "TCS clear channel saturated"
+    },
+    "invalid_ph_rail": {
+      "record": {
+        "tcs34725": {
+          "r": 370,
+          "g": 508,
+          "b": 710,
+          "c": 1410
+        },
+        "mq135": {
+          "value": 647.4,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 14.0
+        },
+        "dht22": {
+          "temperature_c": 30.6,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "pH at upper rail"
+    },
+    "invalid_missing_mq135": {
+      "record": {
+        "tcs34725": {
+          "r": 370,
+          "g": 508,
+          "b": 710,
+          "c": 1410
+        },
+        "ph": {
+          "value": 4.11
+        },
+        "dht22": {
+          "temperature_c": 30.6,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "MQ135 block missing"
+    },
+    "out_of_range_mq135": {
+      "record": {
+        "tcs34725": {
+          "r": 370,
+          "g": 508,
+          "b": 710,
+          "c": 1410
+        },
+        "mq135": {
+          "value": 9000.0,
+          "unit": "synthetic_scale",
+          "warmup_s": 600
+        },
+        "ph": {
+          "value": 4.11
+        },
+        "dht22": {
+          "temperature_c": 30.6,
+          "humidity_pct": 77.4
+        },
+        "meta": {
+          "data_origin": "synthetic_fixture",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "MQ135 far above synthetic training range"
+    },
+    "device_like_uncalibrated": {
+      "record": {
+        "tcs34725": {
+          "r": 1180,
+          "g": 1560,
+          "b": 2010,
+          "c": 4890
+        },
+        "mq135": {
+          "value": 1430,
+          "unit": "adc_counts_12bit",
+          "warmup_s": 240
+        },
+        "ph": {
+          "value": 6.1
+        },
+        "dht22": {
+          "temperature_c": 29.5,
+          "humidity_pct": 71.0
+        },
+        "meta": {
+          "data_origin": "device",
+          "calibration_profile": null
+        }
+      },
+      "constructed": "ILLUSTRATIVE device-format record (made-up numbers, NOT a measurement) to show the uncalibrated path"
+    }
+  }
+}

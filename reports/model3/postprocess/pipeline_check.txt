@@ -1,0 +1,69 @@
+[A_existing_test] (prev) apple                 fruit=apple(0.662) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[A_existing_test] (prev) banana                fruit=banana(1.000) cond=spoiled grade=Poor shelf=[3, 6] (Fresh) status=warning warnings=R2:contradiction
+[A_existing_test] (prev) banana                fruit=banana(0.397) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[A_existing_test] (prev) banana                fruit=banana(0.999) cond=spoiled grade=Poor shelf=[0, 0] (Rotten) status=ok warnings=-
+[A_existing_test] (prev) brinjal               fruit=brinjal(0.797) cond=spoiled grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[A_existing_test] (prev) tomato                fruit=tomato(0.766) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true banana                  fruit=guava(0.626) cond=spoiled grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true apple                   fruit=guava(0.940) cond=spoiled grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true guava                   fruit=apple(0.666) cond=spoiled grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true banana                  fruit=banana(0.945) cond=spoiled grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true apple                   fruit=apple(0.777) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[B_low_conf_real] true guava                   fruit=guava(0.905) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[C_banana_contradiction_real] true banana (banana_guava_quality) fruit=banana(1.000) cond=fresh grade=Poor shelf=[3, 6] (Fresh) status=warning warnings=R2:contradiction, R3:contradiction
+[C_banana_contradiction_real] true banana (banana_guava_quality) fruit=banana(1.000) cond=spoiled grade=Poor shelf=[3, 6] (Fresh) status=warning warnings=R2:contradiction
+[C_banana_contradiction_real] true banana (banana_guava_quality) fruit=banana(1.000) cond=spoiled grade=Poor shelf=[3, 6] (Fresh) status=warning warnings=R2:contradiction
+[C_banana_contradiction_real] true banana (banana_guava_quality) fruit=banana(1.000) cond=spoiled grade=Poor shelf=[3, 6] (Fresh) status=warning warnings=R2:contradiction
+[D_constructed] banana (blur) - constructed  fruit=banana(0.897) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[D_constructed] banana (dark) - constructed  fruit=banana(0.886) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[D_constructed] tomato (blur) - constructed  fruit=tomato(0.982) cond=spoiled grade=Poor shelf=[0, 0] (Rotten) status=ok warnings=-
+[D_constructed] tomato (dark) - constructed  fruit=guava(0.907) cond=fresh grade=Uncertain shelf=not_available status=uncertain warnings=R1:uncertain
+[D_constructed] uniform_grey - constructed   fruit=guava(0.997) cond=fresh grade=Average shelf=not_available status=ok warnings=-
+[D_constructed] random_noise - constructed   fruit=guava(1.000) cond=fresh grade=Average shelf=not_available status=ok warnings=-
+
+checks: {
+ "R1_applied_whenever_conf_below_threshold": true,
+ "fruit_prediction_preserved_when_uncertain": true,
+ "no_routed_output_when_uncertain": true,
+ "raw_head_outputs_always_present": true,
+ "C_cases_flagged_R2": true,
+ "C_cases_predictions_unaltered": true
+}
+
+test-pool tally: {
+ "n": 1373,
+ "status_share": {
+  "uncertain": 0.4975,
+  "ok": 0.3358,
+  "warning": 0.1668
+ },
+ "R2_share_banana_routed": 0.5641,
+ "R3_share_routed": 0.1145,
+ "status_by_true_fruit": {
+  "apple": {
+   "ok": 0.044,
+   "uncertain": 0.865,
+   "warning": 0.091
+  },
+  "banana": {
+   "ok": 0.333,
+   "uncertain": 0.232,
+   "warning": 0.436
+  },
+  "brinjal": {
+   "ok": 0.625,
+   "uncertain": 0.344,
+   "warning": 0.031
+  },
+  "guava": {
+   "ok": 0.336,
+   "uncertain": 0.642,
+   "warning": 0.022
+  },
+  "tomato": {
+   "ok": 0.659,
+   "uncertain": 0.305,
+   "warning": 0.036
+  }
+ }
+}

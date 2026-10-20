@@ -1,0 +1,54 @@
+{
+ "NOTE": "Comparative measurements only (same camera/scene setup). Not universal pass/fail thresholds; Laplacian variance depends on scene content, texture, noise and exposure.",
+ "crop": "centre 120x120 of 160x120 (model centre crop)",
+ "captures": [
+  {
+   "capture": "20261017T092139Z",
+   "file": "D:\\smart-pesticide-ml\\reports\\firmware\\live_capture\\20261017T092139Z\\frame_a.bin",
+   "frame_sha256": "5c5b55cccec430cc59044e8fec3741aef85e7f15cf4f626c58372aa06646c4ed",
+   "crop_px": [
+    120,
+    120
+   ],
+   "sharpness_laplacian_var": 28.75,
+   "brightness_mean": 150.12,
+   "clipped_highlight_pct": 0.0,
+   "clipped_shadow_pct": 0.0,
+   "sharpness_model_input": 12.14,
+   "capture_valid": true,
+   "format_confirmed": true
+  },
+  {
+   "capture": "20261017T092315Z",
+   "file": "D:\\smart-pesticide-ml\\reports\\firmware\\live_capture\\20261017T092315Z\\frame_a.bin",
+   "frame_sha256": "32e635db01ce038cd3db3287c5ad9e4c8498b88e1b8ac4852af6b076c1710de6",
+   "crop_px": [
+    120,
+    120
+   ],
+   "sharpness_laplacian_var": 30.01,
+   "brightness_mean": 141.83,
+   "clipped_highlight_pct": 0.0,
+   "clipped_shadow_pct": 0.0,
+   "sharpness_model_input": 12.43,
+   "capture_valid": true,
+   "format_confirmed": true
+  },
+  {
+   "capture": "20261017T094631Z",
+   "file": "D:\\smart-pesticide-ml\\reports\\firmware\\live_capture\\20261017T094631Z\\frame_a.bin",
+   "frame_sha256": "ef669ac7952276b6610dcd773c4f432fd96122c46daa1457f9cc92be6b5f77a2",
+   "crop_px": [
+    120,
+    120
+   ],
+   "sharpness_laplacian_var": 73.6,
+   "brightness_mean": 139.07,
+   "clipped_highlight_pct": 0.875,
+   "clipped_shadow_pct": 0.0,
+   "sharpness_model_input": 84.07,
+   "capture_valid": true,
+   "format_confirmed": true
+  }
+ ]
+}

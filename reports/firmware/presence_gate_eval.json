@@ -1,0 +1,130 @@
+{
+ "LABEL": "Offline evaluation of a presence gate for the frozen 5-class fruit model. Proxy frames = public test images converted to the device camera format; real frames = 3 SWD captures. NOT a trained not-a-fruit detector.",
+ "rule": {
+  "min_detail": 43.96,
+  "min_detail_rule": "0.5 x 0.5th percentile of VAL (camera-format) Laplacian variance",
+  "val_n": 1299,
+  "val_detail_p0_5": 87.91,
+  "val_detail_median": 389.84,
+  "r1_threshold": 0.976,
+  "fruit_shown_if": "detail >= min_detail AND confidence >= r1_threshold"
+ },
+ "test_proxy": {
+  "clean": {
+   "n": 1012,
+   "pass_detail": 1.0,
+   "pass_r1": 0.4891,
+   "fruit_shown_rate": 0.4891,
+   "accuracy_when_shown": 0.9636,
+   "per_fruit_shown_rate": {
+    "apple": 0.1636,
+    "banana": 0.8009,
+    "guava": 0.4939,
+    "tomato": 0.5854,
+    "brinjal": 0.5614
+   }
+  },
+  "blur_r2": {
+   "n": 1012,
+   "pass_detail": 0.1235,
+   "pass_r1": 0.3992,
+   "fruit_shown_rate": 0.0721,
+   "accuracy_when_shown": 0.9452,
+   "per_fruit_shown_rate": {
+    "apple": 0.0,
+    "banana": 0.3074,
+    "guava": 0.0061,
+    "tomato": 0.0,
+    "brinjal": 0.0
+   }
+  },
+  "dark_x0.25": {
+   "n": 1012,
+   "pass_detail": 0.3399,
+   "pass_r1": 0.3666,
+   "fruit_shown_rate": 0.2194,
+   "accuracy_when_shown": 0.8919,
+   "per_fruit_shown_rate": {
+    "apple": 0.0073,
+    "banana": 0.3377,
+    "guava": 0.4172,
+    "tomato": 0.0,
+    "brinjal": 0.1053
+   }
+  }
+ },
+ "real_camera_frames": [
+  {
+   "capture": "20261017T092139Z",
+   "content": "scene without recognizable fruit (blurry)",
+   "pred": "guava",
+   "conf": 0.8047,
+   "detail": 12.14,
+   "pass_detail": false,
+   "pass_r1": false,
+   "fruit_shown": false
+  },
+  {
+   "capture": "20261017T092315Z",
+   "content": "apple, strongly defocused",
+   "pred": "guava",
+   "conf": 0.8398,
+   "detail": 12.43,
+   "pass_detail": false,
+   "pass_r1": false,
+   "fruit_shown": false
+  },
+  {
+   "capture": "20261017T094631Z",
+   "content": "apple, after refocus",
+   "pred": "apple",
+   "conf": 0.8516,
+   "detail": 84.07,
+   "pass_detail": true,
+   "pass_r1": false,
+   "fruit_shown": false
+  }
+ ],
+ "synthetic_empty_scenes": [
+  {
+   "scene": "uniform_grey",
+   "pred": "guava",
+   "conf": 0.9922,
+   "detail": 0.0,
+   "fruit_shown": false
+  },
+  {
+   "scene": "dark_frame",
+   "pred": "guava",
+   "conf": 0.957,
+   "detail": 0.0,
+   "fruit_shown": false
+  },
+  {
+   "scene": "smooth_gradient",
+   "pred": "guava",
+   "conf": 0.6094,
+   "detail": 3.162,
+   "fruit_shown": false
+  },
+  {
+   "scene": "smooth_gradient_with_sensor_noise",
+   "pred": "guava",
+   "conf": 0.9141,
+   "detail": 19.956,
+   "fruit_shown": false
+  },
+  {
+   "scene": "blurred_wall_like",
+   "pred": "guava",
+   "conf": 0.9922,
+   "detail": 0.934,
+   "fruit_shown": false
+  }
+ ],
+ "missing_evidence": [
+  "no real photos of non-fruit objects",
+  "only 3 real camera frames (1 without fruit, 2 apple)",
+  "no real frames of banana, guava, tomato, brinjal from the device camera"
+ ]
+}

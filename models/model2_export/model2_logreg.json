@@ -1,0 +1,174 @@
+{
+  "model": "Model 2 prototype: multinomial logistic regression (sensor features only, S__logreg)",
+  "evidence_level": "SYNTHETIC PROTOTYPE - fitted on synthetic data; not validated on real sensors or pesticides",
+  "classes": [
+    "LOW",
+    "MEDIUM",
+    "HIGH"
+  ],
+  "raw_inputs": [
+    "sensor_tcs_r",
+    "sensor_tcs_g",
+    "sensor_tcs_b",
+    "sensor_tcs_c",
+    "sensor_mq135",
+    "sensor_ph",
+    "sensor_temp_c",
+    "sensor_humidity_pct"
+  ],
+  "derived_features": {
+    "drv_tcs_r_over_c": "sensor_tcs_r / sensor_tcs_c",
+    "drv_tcs_g_over_c": "sensor_tcs_g / sensor_tcs_c",
+    "drv_tcs_b_over_c": "sensor_tcs_b / sensor_tcs_c",
+    "drv_log_mq135": "ln(sensor_mq135)"
+  },
+  "feature_order": [
+    "sensor_tcs_r",
+    "sensor_tcs_g",
+    "sensor_tcs_b",
+    "sensor_tcs_c",
+    "sensor_mq135",
+    "sensor_ph",
+    "sensor_temp_c",
+    "sensor_humidity_pct",
+    "drv_tcs_r_over_c",
+    "drv_tcs_g_over_c",
+    "drv_tcs_b_over_c",
+    "drv_log_mq135"
+  ],
+  "scaler_mean": [
+    444.79848533677085,
+    595.543345149855,
+    822.8318723815662,
+    1676.051724137931,
+    958.7522075410893,
+    4.618053496616178,
+    27.79977441185949,
+    60.35981308411215,
+    0.25823085531733325,
+    0.3544996055396759,
+    0.49945487927313864,
+    6.803513753375718
+  ],
+  "scaler_scale": [
+    160.5687161563013,
+    115.58707504528402,
+    90.36213614490033,
+    298.1383042032978,
+    371.0263591474382,
+    0.7510510506418174,
+    6.087312657670013,
+    17.226728277827494,
+    0.053903525758608455,
+    0.012077932502334502,
+    0.06232908636396747,
+    0.33922854457112495
+  ],
+  "coef": [
+    [
+      -0.9168973863098944,
+      -0.3411918032951387,
+      0.63167671796126,
+      -0.3412719358381223,
+      -0.11946216584087864,
+      -0.04905745011119355,
+      -0.8465071422335175,
+      -0.007805914075919524,
+      -0.9901778721401407,
+      0.009715480466688322,
+      0.6876952397084714,
+      0.023158431102621016
+    ],
+    [
+      0.01636500792128568,
+      0.015488924950154668,
+      0.03078473379206571,
+      -0.0003311354719024875,
+      0.20612250453901843,
+      -0.011249565542800597,
+      0.19982552916031054,
+      0.009984576531570692,
+      -0.10412417617122312,
+      0.08606544709870226,
+      0.11085879494891025,
+      -0.19135670565543095
+    ],
+    [
+      0.9005323783886099,
+      0.3257028783449846,
+      -0.6624614517533254,
+      0.34160307131002393,
+      -0.08666033869814019,
+      0.06030701565399459,
+      0.6466816130732075,
+      -0.0021786624556511666,
+      1.0943020483113626,
+      -0.0957809275653915,
+      -0.7985540346573803,
+      0.16819827455280942
+    ]
+  ],
+  "intercept": [
+    0.3454589697531577,
+    1.1514542323304353,
+    -1.496913202083589
+  ],
+  "inference": "z = (x - mean) / scale; logits = coef @ z + intercept; p = softmax(logits); class = argmax",
+  "synthetic_training_ranges_trainval": {
+    "sensor_tcs_r": {
+      "min": 138.8,
+      "max": 996.9,
+      "p0_5": 166.006,
+      "p99_5": 904.802999999999
+    },
+    "sensor_tcs_g": {
+      "min": 346.1,
+      "max": 1027.0,
+      "p0_5": 380.2,
+      "p99_5": 940.7429999999998
+    },
+    "sensor_tcs_b": {
+      "min": 584.6,
+      "max": 1122.9,
+      "p0_5": 606.8589999999999,
+      "p99_5": 1068.1979999999999
+    },
+    "sensor_tcs_c": {
+      "min": 1035.5,
+      "max": 2877.0,
+      "p0_5": 1120.808,
+      "p99_5": 2601.6659999999993
+    },
+    "sensor_mq135": {
+      "min": 460.2,
+      "max": 2649.7,
+      "p0_5": 509.422,
+      "p99_5": 2315.9159999999983
+    },
+    "sensor_ph": {
+      "min": 2.93,
+      "max": 6.21,
+      "p0_5": 3.2451000000000003,
+      "p99_5": 6.05
+    },
+    "sensor_temp_c": {
+      "min": 16.7,
+      "max": 39.7,
+      "p0_5": 17.4,
+      "p99_5": 38.54899999999998
+    },
+    "sensor_humidity_pct": {
+      "min": 23.7,
+      "max": 94.3,
+      "p0_5": 27.955,
+      "p99_5": 91.84899999999998
+    }
+  },
+  "units_note": "Inputs must be on the SAME scales as the synthetic generator (configs/model2_synthetic.yaml): TCS counts at counts_full_scale=1000, MQ135 raw-ADC-like scale of Zenodo 17285312, pH units, deg C, %RH. Real device readings need a measured calibration mapping before this model can be applied.",
+  "provenance": {
+    "source": "models/model2_prototype/S__logreg.joblib",
+    "source_sha256": "75a402a7aada36d62b0b0bf5d15c203bce119d8ffd0b5d3597d9052bf2dacd68",
+    "sklearn": "1.9.1",
+    "python": "3.12.7"
+  }
+}

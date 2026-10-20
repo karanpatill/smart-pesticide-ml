@@ -1,0 +1,92 @@
+{
+ "dir": "D:\\smart-pesticide-ml\\reports\\firmware\\live_capture\\20261017T092139Z",
+ "label": "Frame read from SRAM over SWD (if this directory came from --execute); PC-side analysis only, NOT on-target camera-to-model inference.",
+ "checks": {
+  "len_meta_a.bin": true,
+  "len_status_a.bin": true,
+  "len_frame_a.bin": true,
+  "len_status_b.bin": true,
+  "len_frame_b.bin": true,
+  "len_meta_b.bin": true,
+  "camera_ready": true,
+  "polarity_values_valid": true,
+  "polarity_stable": true,
+  "last_frame_38400": true,
+  "frame_stable_a_eq_b": true,
+  "status_frame_ok": true,
+  "entc_stats_match_big_endian": true
+ },
+ "meta_a": {
+  "camera_ready": 1,
+  "vspol": 0,
+  "hspol": 0,
+  "byte_3": 38,
+  "last_bytes": 38400
+ },
+ "meta_b": {
+  "camera_ready": 1,
+  "vspol": 0,
+  "hspol": 0,
+  "byte_3": 38,
+  "last_bytes": 38400
+ },
+ "frame_a_sha256": "5c5b55cccec430cc59044e8fec3741aef85e7f15cf4f626c58372aa06646c4ed",
+ "frame_b_sha256": "5c5b55cccec430cc59044e8fec3741aef85e7f15cf4f626c58372aa06646c4ed",
+ "frame_bytes_differing_a_b": 0,
+ "tail_nonzero_bytes_after_38400": 0,
+ "status_a": {
+  "frame_ok": 1,
+  "err": 0,
+  "meanR": 170,
+  "meanG": 169,
+  "meanB": 155,
+  "dark_pct": 0,
+  "class_u32": "0x8006e20"
+ },
+ "status_b": {
+  "frame_ok": 1,
+  "err": 0,
+  "meanR": 170,
+  "meanG": 169,
+  "meanB": 155,
+  "dark_pct": 0,
+  "class_u32": "0x8006e20"
+ },
+ "entc_stats_from_frame_be": {
+  "meanR": 170,
+  "meanG": 169,
+  "meanB": 155,
+  "dark_pct": 0
+ },
+ "entc_stats_from_frame_le": {
+  "meanR": 137,
+  "meanG": 143,
+  "meanB": 132,
+  "dark_pct": 0
+ },
+ "entc_stats_match_little_endian": false,
+ "valid_capture": true,
+ "format_confirmed_by_entc_stats": true,
+ "our_model_offline_pc": {
+  "note": "offline PC inference on a real captured frame; not on-target",
+  "fruit": {
+   "label": "guava",
+   "confidence": 0.8047,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "condition": {
+   "label": "fresh",
+   "confidence": 0.7578,
+   "source": "Model 1",
+   "state": "predicted"
+  },
+  "quality_grade": {
+   "label": "Uncertain",
+   "state": "uncertain",
+   "confidence": null
+  },
+  "shelf_life_state": "uncertain",
+  "consistency": "uncertain"
+ }
+}

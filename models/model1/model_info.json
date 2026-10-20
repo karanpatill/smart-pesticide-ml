@@ -1,0 +1,23 @@
+{
+  "total_params": 199519,
+  "trainable_params_at_end": 120495,
+  "inputs": {
+    "image": [
+      null,
+      80,
+      80,
+      3
+    ]
+  },
+  "outputs": {
+    "fruit": [
+      null,
+      5
+    ],
+    "condition": [
+      null,
+      2
+    ]
+  },
+  "output_activation": "softmax"
+}

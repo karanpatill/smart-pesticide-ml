@@ -1,0 +1,8 @@
+{
+  "quality_banana": "mlp16",
+  "quality_guava": "linear",
+  "quality_apple": "mlp16",
+  "stage_tomato": "mlp16",
+  "stage_brinjal": "linear",
+  "stage_banana": "linear"
+}

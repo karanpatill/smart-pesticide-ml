@@ -1,0 +1,6 @@
+{
+ "what": "frozen combined INT8 graph + presence (background-rejection) output",
+ "status": "CANDIDATE, not deployed",
+ "report": "reports\\experiments\\presence_int8_20261017T153321Z",
+ "sha256": "612f2e5586f0a4e2f2d7f7227e7cb6576cde1327f1a98453baec575f95e59300"
+}

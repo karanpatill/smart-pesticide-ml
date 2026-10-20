@@ -1,0 +1,182 @@
+[
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Good Quality_Fruits\\Apple_Good\\IMG20200728174111.jpg",
+    "fruit": "apple",
+    "fruit_confidence": 0.9262,
+    "condition": "spoiled",
+    "condition_confidence": 0.5779,
+    "fruit_probabilities": {
+      "apple": 0.9262,
+      "banana": 0.0091,
+      "guava": 0.0044,
+      "tomato": 0.039,
+      "brinjal": 0.0213
+    },
+    "condition_probabilities": {
+      "fresh": 0.4221,
+      "spoiled": 0.5779
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Bad Quality_Fruits\\Apple_Bad\\IMG20200728180010.jpg",
+    "fruit": "apple",
+    "fruit_confidence": 0.9734,
+    "condition": "spoiled",
+    "condition_confidence": 0.5612,
+    "fruit_probabilities": {
+      "apple": 0.9734,
+      "banana": 0.0,
+      "guava": 0.0021,
+      "tomato": 0.0245,
+      "brinjal": 0.0
+    },
+    "condition_probabilities": {
+      "fresh": 0.4388,
+      "spoiled": 0.5612
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Good Quality_Fruits\\Banana_Good\\IMG20200730132046.jpg",
+    "fruit": "guava",
+    "fruit_confidence": 0.9134,
+    "condition": "fresh",
+    "condition_confidence": 0.6531,
+    "fruit_probabilities": {
+      "apple": 0.001,
+      "banana": 0.057,
+      "guava": 0.9134,
+      "tomato": 0.0,
+      "brinjal": 0.0287
+    },
+    "condition_probabilities": {
+      "fresh": 0.6531,
+      "spoiled": 0.3469
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Bad Quality_Fruits\\Banana_Bad\\IMG_20190923_184043_1.jpg",
+    "fruit": "banana",
+    "fruit_confidence": 0.9999,
+    "condition": "spoiled",
+    "condition_confidence": 0.996,
+    "fruit_probabilities": {
+      "apple": 0.0,
+      "banana": 0.9999,
+      "guava": 0.0,
+      "tomato": 0.0,
+      "brinjal": 0.0001
+    },
+    "condition_probabilities": {
+      "fresh": 0.004,
+      "spoiled": 0.996
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Fresh eggplant(1-4)\\eggplant(3).jpeg",
+    "fruit": "apple",
+    "fruit_confidence": 0.8314,
+    "condition": "spoiled",
+    "condition_confidence": 0.9922,
+    "fruit_probabilities": {
+      "apple": 0.8314,
+      "banana": 0.0001,
+      "guava": 0.0713,
+      "tomato": 0.0004,
+      "brinjal": 0.0968
+    },
+    "condition_probabilities": {
+      "fresh": 0.0078,
+      "spoiled": 0.9922
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Rotten eggplant(8-15)\\IMG_20251125_211449942_HDR.jpg",
+    "fruit": "brinjal",
+    "fruit_confidence": 0.9969,
+    "condition": "spoiled",
+    "condition_confidence": 0.9048,
+    "fruit_probabilities": {
+      "apple": 0.0,
+      "banana": 0.0001,
+      "guava": 0.003,
+      "tomato": 0.0,
+      "brinjal": 0.9969
+    },
+    "condition_probabilities": {
+      "fresh": 0.0952,
+      "spoiled": 0.9048
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Good Quality_Fruits\\Guava_Good\\IMG_8281.JPG",
+    "fruit": "guava",
+    "fruit_confidence": 0.9221,
+    "condition": "fresh",
+    "condition_confidence": 0.764,
+    "fruit_probabilities": {
+      "apple": 0.0083,
+      "banana": 0.0,
+      "guava": 0.9221,
+      "tomato": 0.0,
+      "brinjal": 0.0697
+    },
+    "condition_probabilities": {
+      "fresh": 0.764,
+      "spoiled": 0.236
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\fruitnet\\Bad Quality_Fruits\\Guava_Bad\\IMG20200729173232_01.jpg",
+    "fruit": "guava",
+    "fruit_confidence": 0.7799,
+    "condition": "spoiled",
+    "condition_confidence": 0.5123,
+    "fruit_probabilities": {
+      "apple": 0.0642,
+      "banana": 0.0012,
+      "guava": 0.7799,
+      "tomato": 0.0,
+      "brinjal": 0.1546
+    },
+    "condition_probabilities": {
+      "fresh": 0.4877,
+      "spoiled": 0.5123
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Fresh Tomato(1-10)\\IMG_20251118_170156986_HDR.jpg",
+    "fruit": "tomato",
+    "fruit_confidence": 0.9952,
+    "condition": "fresh",
+    "condition_confidence": 0.9864,
+    "fruit_probabilities": {
+      "apple": 0.0048,
+      "banana": 0.0,
+      "guava": 0.0,
+      "tomato": 0.9952,
+      "brinjal": 0.0
+    },
+    "condition_probabilities": {
+      "fresh": 0.9864,
+      "spoiled": 0.0136
+    }
+  },
+  {
+    "image": "D:\\smart-pesticide-ml\\data\\raw\\agrifreshnet\\Processed Data\\Rotten Tomato(24-35)\\IMG_20251118_170634969_HDR.jpg",
+    "fruit": "tomato",
+    "fruit_confidence": 0.9983,
+    "condition": "spoiled",
+    "condition_confidence": 0.6275,
+    "fruit_probabilities": {
+      "apple": 0.0017,
+      "banana": 0.0,
+      "guava": 0.0,
+      "tomato": 0.9983,
+      "brinjal": 0.0
+    },
+    "condition_probabilities": {
+      "fresh": 0.3725,
+      "spoiled": 0.6275
+    }
+  }
+]

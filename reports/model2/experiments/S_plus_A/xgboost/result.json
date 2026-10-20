@@ -1,0 +1,149 @@
+{
+  "feature_set": "S+A",
+  "model": "xgboost",
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "n_estimators": 300
+  },
+  "val_macro_f1": 0.7715,
+  "cv_mean": {
+    "accuracy": 0.7707,
+    "macro_precision": 0.7587,
+    "macro_recall": 0.765,
+    "macro_f1": 0.7608
+  },
+  "cv_sd": {
+    "accuracy": 0.0117,
+    "macro_precision": 0.0086,
+    "macro_recall": 0.0091,
+    "macro_f1": 0.0088
+  },
+  "cv_folds": [
+    {
+      "accuracy": 0.7744,
+      "macro_precision": 0.7556,
+      "macro_recall": 0.762,
+      "macro_f1": 0.7579
+    },
+    {
+      "accuracy": 0.7484,
+      "macro_precision": 0.7432,
+      "macro_recall": 0.7493,
+      "macro_f1": 0.745
+    },
+    {
+      "accuracy": 0.7829,
+      "macro_precision": 0.7646,
+      "macro_recall": 0.7683,
+      "macro_f1": 0.7652
+    },
+    {
+      "accuracy": 0.7732,
+      "macro_precision": 0.7639,
+      "macro_recall": 0.7691,
+      "macro_f1": 0.7663
+    },
+    {
+      "accuracy": 0.7746,
+      "macro_precision": 0.7662,
+      "macro_recall": 0.7763,
+      "macro_f1": 0.7697
+    }
+  ],
+  "test": {
+    "accuracy": 0.7845,
+    "macro_precision": 0.7649,
+    "macro_recall": 0.762,
+    "macro_f1": 0.7633
+  },
+  "test_vs_clean_labels_diagnostic": {
+    "accuracy": 0.8361,
+    "macro_precision": 0.8153,
+    "macro_recall": 0.823,
+    "macro_f1": 0.819
+  },
+  "test_per_class": {
+    "LOW": {
+      "precision": 0.8597,
+      "recall": 0.8819,
+      "f1-score": 0.8707,
+      "support": 271.0
+    },
+    "MEDIUM": {
+      "precision": 0.6746,
+      "recall": 0.6514,
+      "f1-score": 0.6628,
+      "support": 175.0
+    },
+    "HIGH": {
+      "precision": 0.7604,
+      "recall": 0.7526,
+      "f1-score": 0.7565,
+      "support": 97.0
+    }
+  },
+  "test_confusion": [
+    [
+      239,
+      31,
+      1
+    ],
+    [
+      39,
+      114,
+      22
+    ],
+    [
+      0,
+      24,
+      73
+    ]
+  ],
+  "permutation_importance_test": {
+    "drv_tcs_r_over_c": 0.2538,
+    "drv_tcs_b_over_c": 0.1264,
+    "sensor_temp_c": 0.074,
+    "sensor_tcs_r": 0.0126,
+    "sensor_ph": 0.0019,
+    "aux_m1_p_spoiled": 0.0014,
+    "aux_m1_condition": 0.0,
+    "aux_m1_fruit": -0.0006,
+    "sensor_tcs_g": -0.0006,
+    "sensor_mq135": -0.0008,
+    "sensor_tcs_c": -0.0018,
+    "sensor_tcs_b": -0.002,
+    "drv_tcs_g_over_c": -0.0032,
+    "drv_log_mq135": -0.0038,
+    "sensor_humidity_pct": -0.0081
+  },
+  "native_importance": {
+    "num__drv_tcs_r_over_c": 0.31520000100135803,
+    "num__drv_tcs_b_over_c": 0.1826000064611435,
+    "num__sensor_tcs_r": 0.07289999723434448,
+    "num__sensor_temp_c": 0.05209999904036522,
+    "num__sensor_tcs_g": 0.02889999933540821,
+    "num__drv_tcs_g_over_c": 0.028300000354647636,
+    "num__sensor_mq135": 0.027000000700354576,
+    "num__sensor_tcs_b": 0.026900000870227814,
+    "aux_cat__aux_m1_condition_fresh": 0.026000000536441803,
+    "num__sensor_tcs_c": 0.025299999862909317,
+    "num__drv_log_mq135": 0.025200000032782555,
+    "aux_cat__aux_m1_fruit_guava": 0.025200000032782555,
+    "aux_cat__aux_m1_fruit_tomato": 0.02500000037252903,
+    "num__sensor_ph": 0.024700000882148743,
+    "aux_num__aux_m1_p_spoiled": 0.024399999529123306,
+    "aux_cat__aux_m1_fruit_banana": 0.024399999529123306,
+    "num__sensor_humidity_pct": 0.02419999986886978,
+    "aux_cat__aux_m1_fruit_apple": 0.02199999988079071,
+    "aux_cat__aux_m1_fruit_brinjal": 0.01940000057220459,
+    "aux_cat__aux_m1_condition_spoiled": 0.0
+  },
+  "mcu_footprint_estimate": {
+    "kind": "boosted_trees",
+    "trees": 900,
+    "nodes": 12522,
+    "approx_bytes": 112698
+  },
+  "train_seconds": 5.5
+}

@@ -1,0 +1,127 @@
+{
+  "feature_set": "S+A",
+  "model": "svm_rbf",
+  "best_params": {
+    "C": 1.0,
+    "gamma": 0.05
+  },
+  "val_macro_f1": 0.7828,
+  "cv_mean": {
+    "accuracy": 0.7736,
+    "macro_precision": 0.7639,
+    "macro_recall": 0.7728,
+    "macro_f1": 0.7669
+  },
+  "cv_sd": {
+    "accuracy": 0.0165,
+    "macro_precision": 0.0147,
+    "macro_recall": 0.0161,
+    "macro_f1": 0.015
+  },
+  "cv_folds": [
+    {
+      "accuracy": 0.7792,
+      "macro_precision": 0.762,
+      "macro_recall": 0.7767,
+      "macro_f1": 0.7677
+    },
+    {
+      "accuracy": 0.7421,
+      "macro_precision": 0.7369,
+      "macro_recall": 0.7409,
+      "macro_f1": 0.7379
+    },
+    {
+      "accuracy": 0.7911,
+      "macro_precision": 0.7791,
+      "macro_recall": 0.7824,
+      "macro_f1": 0.7781
+    },
+    {
+      "accuracy": 0.778,
+      "macro_precision": 0.7669,
+      "macro_recall": 0.7821,
+      "macro_f1": 0.7731
+    },
+    {
+      "accuracy": 0.7778,
+      "macro_precision": 0.7744,
+      "macro_recall": 0.782,
+      "macro_f1": 0.7775
+    }
+  ],
+  "test": {
+    "accuracy": 0.7661,
+    "macro_precision": 0.7435,
+    "macro_recall": 0.739,
+    "macro_f1": 0.741
+  },
+  "test_vs_clean_labels_diagnostic": {
+    "accuracy": 0.825,
+    "macro_precision": 0.7982,
+    "macro_recall": 0.8029,
+    "macro_f1": 0.8005
+  },
+  "test_per_class": {
+    "LOW": {
+      "precision": 0.847,
+      "recall": 0.8782,
+      "f1-score": 0.8623,
+      "support": 271.0
+    },
+    "MEDIUM": {
+      "precision": 0.6467,
+      "recall": 0.6171,
+      "f1-score": 0.6316,
+      "support": 175.0
+    },
+    "HIGH": {
+      "precision": 0.7368,
+      "recall": 0.7216,
+      "f1-score": 0.7292,
+      "support": 97.0
+    }
+  },
+  "test_confusion": [
+    [
+      238,
+      32,
+      1
+    ],
+    [
+      43,
+      108,
+      24
+    ],
+    [
+      0,
+      27,
+      70
+    ]
+  ],
+  "permutation_importance_test": {
+    "drv_tcs_r_over_c": 0.1203,
+    "drv_tcs_b_over_c": 0.0615,
+    "sensor_tcs_r": 0.0609,
+    "sensor_temp_c": 0.0469,
+    "sensor_tcs_b": 0.0098,
+    "sensor_tcs_c": -0.0045,
+    "sensor_mq135": -0.0048,
+    "aux_m1_condition": -0.0051,
+    "sensor_tcs_g": -0.0054,
+    "drv_tcs_g_over_c": -0.0056,
+    "drv_log_mq135": -0.0081,
+    "sensor_humidity_pct": -0.0085,
+    "sensor_ph": -0.0094,
+    "aux_m1_p_spoiled": -0.0125,
+    "aux_m1_fruit": -0.0128
+  },
+  "native_importance": {},
+  "mcu_footprint_estimate": {
+    "kind": "kernel",
+    "support_vectors": 1863,
+    "params": 41029,
+    "approx_bytes": 164116
+  },
+  "train_seconds": 4.9
+}

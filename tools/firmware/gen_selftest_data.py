@@ -1,0 +1,191 @@
+"""Generate the self-test data C file (inputs + PC reference expectations) and a JSON of expectations.
+
+Inputs: the first 3 stored int8 test inputs (reports/stm32_memory/test_inputs/in00..02.int8).
+Expected raw outputs: TFLite interpreter (reference kernels) through the generated head mapping
+(identical to the host32 TFLM run, see reports/firmware/host32_fv_vision_vs_tflite.json).
+Expected result fields: Python fruitvision.postprocess + image_checks (independent of the C code).
+Model 2: one fixed synthetic-scale vector, expected probabilities from the Python Model2 runtime.
+Usage: gen_selftest_data.py OUT.c OUT.json"""
+import json
+import pathlib
+import re
+import sys
+from pathlib import Path
+
+import numpy as np
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
+HEADS = ["fruit", "condition", "quality_banana", "quality_guava", "quality_apple", "stage_tomato", "stage_brinjal",
+         "stage_banana"]
+FRUITS = ["apple", "banana", "guava", "tomato", "brinjal"]
+M2_INPUT = [500.0, 700.0, 850.0, 2000.0, 1200.0, 4.5, 28.0, 60.0]   # synthetic scale, inside training ranges
+
+
+def main(out_c, out_json):
+    import tensorflow as tf
+    from fruitvision.postprocess import postprocess
+    from fruitvision.sensor.risk_model import Model2
+    from fruitvision.validation.image_checks import content_stats
+
+    hdr = (ROOT / "firmware/stm32f407/generated/fv_generated_config.h").read_text()
+    idx = [int(x) for x in re.search(r"FV_HEAD_OUTPUT_INDEX\[\w*\]\s*=\s*\{([^}]*)\}", hdr).group(1).split(",")]
+    ncl = [int(x) for x in re.search(r"FV_HEAD_N_CLASSES\[\w*\]\s*=\s*\{([^}]*)\}", hdr).group(1).split(",")]
+    cfg = json.loads((ROOT / "configs/model3_postprocess.json").read_text())
+    shelf = json.loads((ROOT / "models/model3/shelf_life_ranges.json").read_text())
+    labels = json.loads((ROOT / "models/model3/labels.json").read_text())
+    icfg = json.loads((ROOT / "configs/image_checks.json").read_text())
+    it = tf.lite.Interpreter(model_path=str(ROOT / "models/experimental/tflite/combined_int8.tflite"),
+                             experimental_op_resolver_type=tf.lite.experimental.OpResolverType.BUILTIN_REF)
+    it.allocate_tensors()
+    inp, outs = it.get_input_details()[0], it.get_output_details()
+    paths = sorted((ROOT / "reports/stm32_memory/test_inputs").glob("in*.int8"))[:3]
+    ins, raws, results, rows = [], [], [], []
+    st = {"predicted": 0, "uncertain": 1, "unavailable": 2}
+    gmap = {"Good": 0, "Average": 1, "Poor": 2}
+    for p in paths:
+        x = np.fromfile(p, np.int8)
+        assert x.size == 19200
+        it.set_tensor(inp["index"], x.reshape(inp["shape"]))
+        it.invoke()
+        o = [it.get_tensor(d["index"]).reshape(-1) for d in outs]
+        raw40 = []
+        for h in range(8):
+            v = list(o[idx[h]].astype(int))
+            assert len(v) == ncl[h]
+            raw40 += [int(a) for a in v] + [0] * (5 - len(v))
+        deq = [(np.asarray(o[idx[h]], float) + 128) / 256 for h in range(8)]
+        r = {"fruit": dict(zip(FRUITS, deq[0])), "condition": dict(zip(["fresh", "spoiled"], deq[1])),
+             "heads": {h: {labels[h][str(i)]: float(v) for i, v in enumerate(deq[j + 2])} for j, h in enumerate(HEADS[2:])}}
+        pp = postprocess(r, cfg, shelf)
+        rules = {w["rule"] + ":" + w["severity"] for w in pp["consistency"]["warnings"]}
+        cons = (1 * ("R1_low_fruit_confidence:uncertain" in rules) | 2 * ("R2_grade_vs_stage:minor_mismatch" in rules)
+                | 4 * ("R2_grade_vs_stage:contradiction" in rules) | 8 * ("R3_condition_vs_grade:contradiction" in rules))
+        qs = st[pp["quality_grade"]["state"]]
+        grade = gmap[pp["quality_grade"]["label"]] if qs == 0 else -1
+        s = content_stats(x.reshape(80, 80, 3).astype(np.float32) + 128)
+        rj, wn = icfg["reject"], icfg["warn"]
+        flags = (1 * (s["lum_std"] < rj["lum_std_below"]) | 2 * (s["lag1_autocorr"] < rj["lag1_autocorr_below"])
+                 | 4 * (s["chroma_mean_abs"] < rj["chroma_below"]) | 256 * (s["lum_mean"] < wn["lum_mean_below"])
+                 | 512 * (s["lum_mean"] > wn["lum_mean_above"]) | 1024 * (s["clipped_fraction"] > wn["clipped_fraction_above"]))
+        res = [int(FRUITS.index(pp["fruit"]["label"])), int(qs), int(grade), int(cons), int(flags)]
+        ins.append(x); raws.append(raw40); results.append(res)
+        rows.append({"input": p.name, "raw": raw40, "fruit": pp["fruit"]["label"],
+                     "fruit_conf": pp["fruit"]["confidence"], "quality": pp["quality_grade"]["label"],
+                     "quality_state": pp["quality_grade"]["state"], "consistency": int(cons), "image_flags": int(flags),
+                     "result": res})
+    m2 = Model2(ROOT / "models/model2_export/model2_logreg.json")
+    probs = m2.predict_proba([M2_INPUT])[0]
+    m2cls = int(np.argmax(probs))
+
+    def arr(v):
+        return ",".join(str(int(a)) for a in v)
+    L = ["/* GENERATED by tools/firmware/gen_selftest_data.py - self-test inputs + PC reference expectations. */",
+         "#include <stdint.h>", '#include "fv_selftest.h"',
+         "__attribute__((aligned(16))) const int8_t g_st_inputs[FV_ST_N_INPUTS][FV_IN_BYTES_ST] = {"]
+    for x in ins:
+        L.append("  {")
+        for i in range(0, x.size, 32):
+            L.append("    " + arr(x[i:i + 32]) + ",")
+        L.append("  },")
+    L.append("};")
+    L.append("const int8_t g_st_expected_raw[FV_ST_N_INPUTS][FV_ST_RAW] = {" + ",".join("{" + arr(r) + "}" for r in raws) + "};")
+    L.append("const int32_t g_st_expected_result[FV_ST_N_INPUTS][5] = {" + ",".join("{" + arr(r) + "}" for r in results) + "};")
+    L.append("const float g_st_m2_input[8] = {" + ",".join(f"{v!r}f" for v in M2_INPUT) + "};")
+    L.append("const float g_st_m2_expected_probs[3] = {" + ",".join(f"{float(p):.9g}f" for p in probs) + "};")
+    L.append(f"const int32_t g_st_m2_expected_class = {m2cls};")
+    pathlib.Path(out_c).parent.mkdir(parents=True, exist_ok=True)
+    pathlib.Path(out_c).write_text("\n".join(L) + "\n", encoding="ascii")
+    exp = {"inputs": rows, "m2_input": M2_INPUT, "m2_expected_probs": [float(p) for p in probs],
+           "m2_expected_class": m2.classes[m2cls], "source": "TFLite BUILTIN_REF + Python postprocess/image_checks/Model2 (PC)"}
+    pathlib.Path(out_json).parent.mkdir(parents=True, exist_ok=True)
+    pathlib.Path(out_json).write_text(json.dumps(exp, indent=1), encoding="utf-8")
+    print(json.dumps({"fruits": [r["fruit"] for r in rows], "m2": exp["m2_expected_class"]}))
+
+
+
+
+def fnv1a(b: bytes) -> int:
+    h = 2166136261
+    for x in b:
+        h = ((h ^ x) * 16777619) & 0xFFFFFFFF
+    return h
+
+
+def main_frame(out_c, out_json, test_index=500):
+    """Offline 160x120 RGB565 big-endian frame (ENTC format) from one public TEST image + PC expectations:
+    Python preprocessing (bit-exact reference of the C code) -> FNV-1a hash of the int8 tensor, TFLite raw outputs,
+    Python postprocess/image checks. NOT a camera capture."""
+    import pandas as pd
+    import tensorflow as tf
+    from PIL import Image
+    from fruitvision.camera_preprocess import rgb565_to_input_int8, rgb888_to_rgb565_bytes
+    from fruitvision.postprocess import postprocess
+    from fruitvision.validation.image_checks import content_stats
+
+    te = pd.read_csv(ROOT / "data/splits/test.csv")
+    path = te.path[test_index]
+    with Image.open(ROOT / "data/raw" / path) as im:
+        im = im.convert("RGB"); w, h = im.size
+        cw, ch = (h * 4 // 3, h) if w * 3 >= h * 4 else (w, w * 3 // 4)
+        x0, y0 = (w - cw) // 2, (h - ch) // 2
+        rgb = np.asarray(im.crop((x0, y0, x0 + cw, y0 + ch)).resize((160, 120), Image.BILINEAR), np.uint8)
+    frame = rgb888_to_rgb565_bytes(rgb, big_endian=True).reshape(-1)
+    x = rgb565_to_input_int8(frame, 160, 120, True).reshape(-1)
+    hdr = (ROOT / "firmware/stm32f407/generated/fv_generated_config.h").read_text()
+    idx = [int(v) for v in re.search(r"FV_HEAD_OUTPUT_INDEX\[\w*\]\s*=\s*\{([^}]*)\}", hdr).group(1).split(",")]
+    it = tf.lite.Interpreter(model_path=str(ROOT / "models/experimental/tflite/combined_int8.tflite"),
+                             experimental_op_resolver_type=tf.lite.experimental.OpResolverType.BUILTIN_REF)
+    it.allocate_tensors()
+    inp, outs = it.get_input_details()[0], it.get_output_details()
+    it.set_tensor(inp["index"], x.reshape(inp["shape"]))
+    it.invoke()
+    o = [it.get_tensor(d["index"]).reshape(-1) for d in outs]
+    raw40 = []
+    for hh in range(8):
+        v = [int(a) for a in o[idx[hh]]]
+        raw40 += v + [0] * (5 - len(v))
+    cfg = json.loads((ROOT / "configs/model3_postprocess.json").read_text())
+    shelf = json.loads((ROOT / "models/model3/shelf_life_ranges.json").read_text())
+    labels = json.loads((ROOT / "models/model3/labels.json").read_text())
+    icfg = json.loads((ROOT / "configs/image_checks.json").read_text())
+    deq = [(np.asarray(o[idx[hh]], float) + 128) / 256 for hh in range(8)]
+    r = {"fruit": dict(zip(FRUITS, deq[0])), "condition": dict(zip(["fresh", "spoiled"], deq[1])),
+         "heads": {hd: {labels[hd][str(i)]: float(v) for i, v in enumerate(deq[j + 2])} for j, hd in enumerate(HEADS[2:])}}
+    pp = postprocess(r, cfg, shelf)
+    rules = {wn["rule"] + ":" + wn["severity"] for wn in pp["consistency"]["warnings"]}
+    cons = (1 * ("R1_low_fruit_confidence:uncertain" in rules) | 2 * ("R2_grade_vs_stage:minor_mismatch" in rules)
+            | 4 * ("R2_grade_vs_stage:contradiction" in rules) | 8 * ("R3_condition_vs_grade:contradiction" in rules))
+    stmap = {"predicted": 0, "uncertain": 1, "unavailable": 2}
+    qs = stmap[pp["quality_grade"]["state"]]
+    grade = {"Good": 0, "Average": 1, "Poor": 2}[pp["quality_grade"]["label"]] if qs == 0 else -1
+    s = content_stats(x.reshape(80, 80, 3).astype(np.float32) + 128)
+    rj, wr, dm = icfg["reject"], icfg["warn"], icfg["dimensions"]
+    flags = (1 * (s["lum_std"] < rj["lum_std_below"]) | 2 * (s["lag1_autocorr"] < rj["lag1_autocorr_below"])
+             | 4 * (s["chroma_mean_abs"] < rj["chroma_below"]) | 256 * (s["lum_mean"] < wr["lum_mean_below"])
+             | 512 * (s["lum_mean"] > wr["lum_mean_above"]) | 1024 * (s["clipped_fraction"] > wr["clipped_fraction_above"])
+             | (1 << 11) * (min(160, 120) < dm["warn_min_side"]) | (1 << 12) * (160 / 120 > dm["warn_aspect_ratio"]))
+    res = [int(FRUITS.index(pp["fruit"]["label"])), int(qs), int(grade), int(cons), int(flags)]
+    hsh = fnv1a(x.astype(np.int8).tobytes())
+    L = ["/* GENERATED by tools/firmware/gen_selftest_data.py --frame: offline 160x120 RGB565 BE frame (NOT a camera capture). */",
+         "#include <stdint.h>", '#include "fv_selftest.h"',
+         "const uint8_t g_st_frame[FV_ST_FRAME_W * FV_ST_FRAME_H * 2] = {"]
+    for i in range(0, frame.size, 32):
+        L.append("  " + ",".join(str(int(a)) for a in frame[i:i + 32]) + ",")
+    L += ["};", f"const uint32_t g_st_frame_expected_hash = 0x{hsh:08X}u;",
+          "const int8_t g_st_frame_expected_raw[FV_ST_RAW] = {" + ",".join(map(str, raw40)) + "};",
+          "const int32_t g_st_frame_expected_result[5] = {" + ",".join(map(str, res)) + "};", ""]
+    Path(out_c).write_text("\n".join(L), encoding="ascii")
+    exp = {"source_image": path, "label_fruit": te.fruit[test_index], "label_condition": te.condition[test_index],
+           "frame": "160x120 RGB565 big-endian, centre 4:3 crop + PIL bilinear (OFFLINE, not a camera capture)",
+           "input_hash_fnv1a": f"0x{hsh:08X}", "raw": raw40, "result": res, "fruit": pp["fruit"]["label"],
+           "fruit_conf": pp["fruit"]["confidence"], "quality": pp["quality_grade"]["label"], "image_flags": int(flags)}
+    Path(out_json).write_text(json.dumps(exp, indent=1), encoding="utf-8")
+    print(json.dumps({k: v for k, v in exp.items() if k != "raw"}))
+
+
+if __name__ == "__main__":
+    if sys.argv[1] == "--frame":
+        main_frame(sys.argv[2], sys.argv[3])
+    else:
+        main(sys.argv[1], sys.argv[2])

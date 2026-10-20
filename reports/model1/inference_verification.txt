@@ -1,0 +1,17 @@
+ERR fruitnet     true=apple/fresh   -> apple (0.93), spoiled (0.58)
+OK  fruitnet     true=apple/spoiled -> apple (0.97), spoiled (0.56)
+ERR fruitnet     true=banana/fresh   -> guava (0.91), fresh (0.65)
+OK  fruitnet     true=banana/spoiled -> banana (1.00), spoiled (1.00)
+ERR agrifreshnet true=brinjal/fresh   -> apple (0.83), spoiled (0.99)
+OK  agrifreshnet true=brinjal/spoiled -> brinjal (1.00), spoiled (0.90)
+OK  fruitnet     true=guava/fresh   -> guava (0.92), fresh (0.76)
+OK  fruitnet     true=guava/spoiled -> guava (0.78), spoiled (0.51)
+OK  agrifreshnet true=tomato/fresh   -> tomato (1.00), fresh (0.99)
+OK  agrifreshnet true=tomato/spoiled -> tomato (1.00), spoiled (0.63)
+
+clean process (python -I, cwd=C:\Users\kpvlo\AppData\Local\Temp): 10 test images; agreement with training-time predictions 10/10; max |prob diff| 0.00947
+
+human-readable mode:
+D:\smart-pesticide-ml\data\raw\fruitnet\Good Quality_Fruits\Apple_Good\IMG20200728174111.jpg
+  Fruit:     Apple    (confidence 92.6%)
+  Condition: Spoiled  (confidence 57.8%)

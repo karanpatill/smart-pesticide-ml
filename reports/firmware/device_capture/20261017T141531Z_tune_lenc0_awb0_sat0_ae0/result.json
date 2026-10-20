@@ -1,0 +1,26 @@
+{
+ "label_given_by_user": "tune_lenc0_awb0_sat0_ae0",
+ "magic_ok": true,
+ "write_once_snapshot": false,
+ "stable_complete_read": true,
+ "seq": 34,
+ "cycle_ms": 45877,
+ "detail": 11.4,
+ "image_flags": 4096,
+ "fruit_present": 0,
+ "device_fruit_probs": {
+  "apple": 0.1484,
+  "banana": 0.0117,
+  "guava": 0.8398,
+  "tomato": 0.0,
+  "brinjal": 0.0
+ },
+ "device_fruit": "guava",
+ "python_equals_device_bit_exact": true,
+ "python_fruit": "guava",
+ "input_mean_rgb": [
+  147.9,
+  144.4,
+  146.6
+ ]
+}

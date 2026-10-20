@@ -1,0 +1,523 @@
+{
+ "label": "Frozen deployed INT8 model; evaluation only (no training). Public-image results are a PROXY for the device camera (images converted through the exact firmware preprocessing); real device frames are listed separately.",
+ "kernel_agreement_opt_vs_ref": "18/150 identical int8 outputs, 142/150 same argmax (XNNPACK vs REF); REF used for all results",
+ "C_domain_robustness_TEST": {
+  "clean_training_preproc": {
+   "n": 1012,
+   "fruit_acc": 0.7885,
+   "fruit_macro_f1": 0.8127,
+   "per_fruit_recall": {
+    "apple": 0.676,
+    "banana": 0.697,
+    "guava": 0.877,
+    "tomato": 0.935,
+    "brinjal": 0.877
+   },
+   "cond_macro_f1": 0.6811,
+   "shown_rate": 0.4605,
+   "acc_when_shown": 0.9163,
+   "per_fruit_shown": {
+    "apple": 0.156,
+    "banana": 0.619,
+    "guava": 0.503,
+    "tomato": 0.675,
+    "brinjal": 0.579
+   },
+   "median_detail": 1224.9,
+   "ece_fruit": 0.1127
+  },
+  "dev_base": {
+   "n": 1012,
+   "fruit_acc": 0.8291,
+   "fruit_macro_f1": 0.8143,
+   "per_fruit_recall": {
+    "apple": 0.753,
+    "banana": 0.892,
+    "guava": 0.825,
+    "tomato": 0.886,
+    "brinjal": 0.842
+   },
+   "cond_macro_f1": 0.7522,
+   "shown_rate": 0.4891,
+   "acc_when_shown": 0.9636,
+   "per_fruit_shown": {
+    "apple": 0.164,
+    "banana": 0.801,
+    "guava": 0.494,
+    "tomato": 0.585,
+    "brinjal": 0.561
+   },
+   "median_detail": 430.4,
+   "ece_fruit": 0.0699
+  },
+  "dev_vig": {
+   "n": 1012,
+   "fruit_acc": 0.8271,
+   "fruit_macro_f1": 0.8135,
+   "per_fruit_recall": {
+    "apple": 0.8,
+    "banana": 0.887,
+    "guava": 0.816,
+    "tomato": 0.813,
+    "brinjal": 0.807
+   },
+   "cond_macro_f1": 0.7723,
+   "shown_rate": 0.4733,
+   "acc_when_shown": 0.9729,
+   "per_fruit_shown": {
+    "apple": 0.175,
+    "banana": 0.784,
+    "guava": 0.497,
+    "tomato": 0.472,
+    "brinjal": 0.526
+   },
+   "median_detail": 323.9,
+   "ece_fruit": 0.0605
+  },
+  "dev_cast": {
+   "n": 1012,
+   "fruit_acc": 0.8251,
+   "fruit_macro_f1": 0.8118,
+   "per_fruit_recall": {
+    "apple": 0.735,
+    "banana": 0.883,
+    "guava": 0.831,
+    "tomato": 0.894,
+    "brinjal": 0.842
+   },
+   "cond_macro_f1": 0.7515,
+   "shown_rate": 0.4891,
+   "acc_when_shown": 0.9697,
+   "per_fruit_shown": {
+    "apple": 0.167,
+    "banana": 0.779,
+    "guava": 0.494,
+    "tomato": 0.61,
+    "brinjal": 0.579
+   },
+   "median_detail": 436.0,
+   "ece_fruit": 0.0601
+  },
+  "dev_vig_cast": {
+   "n": 1012,
+   "fruit_acc": 0.8399,
+   "fruit_macro_f1": 0.827,
+   "per_fruit_recall": {
+    "apple": 0.815,
+    "banana": 0.887,
+    "guava": 0.837,
+    "tomato": 0.829,
+    "brinjal": 0.807
+   },
+   "cond_macro_f1": 0.7704,
+   "shown_rate": 0.4862,
+   "acc_when_shown": 0.9736,
+   "per_fruit_shown": {
+    "apple": 0.185,
+    "banana": 0.797,
+    "guava": 0.506,
+    "tomato": 0.496,
+    "brinjal": 0.544
+   },
+   "median_detail": 328.6,
+   "ece_fruit": 0.0562
+  },
+  "dev_blur1": {
+   "n": 1012,
+   "fruit_acc": 0.8162,
+   "fruit_macro_f1": 0.8076,
+   "per_fruit_recall": {
+    "apple": 0.749,
+    "banana": 0.874,
+    "guava": 0.828,
+    "tomato": 0.829,
+    "brinjal": 0.807
+   },
+   "cond_macro_f1": 0.7459,
+   "shown_rate": 0.4466,
+   "acc_when_shown": 0.9668,
+   "per_fruit_shown": {
+    "apple": 0.153,
+    "banana": 0.771,
+    "guava": 0.46,
+    "tomato": 0.431,
+    "brinjal": 0.509
+   },
+   "median_detail": 116.6,
+   "ece_fruit": 0.0687
+  },
+  "dev_blur3": {
+   "n": 1012,
+   "fruit_acc": 0.7125,
+   "fruit_macro_f1": 0.713,
+   "per_fruit_recall": {
+    "apple": 0.665,
+    "banana": 0.827,
+    "guava": 0.702,
+    "tomato": 0.667,
+    "brinjal": 0.632
+   },
+   "cond_macro_f1": 0.615,
+   "shown_rate": 0.004,
+   "acc_when_shown": 1.0,
+   "per_fruit_shown": {
+    "apple": 0.0,
+    "banana": 0.017,
+    "guava": 0.0,
+    "tomato": 0.0,
+    "brinjal": 0.0
+   },
+   "median_detail": 12.8,
+   "ece_fruit": 0.1274
+  },
+  "dev_vig_cast_blur1": {
+   "n": 1012,
+   "fruit_acc": 0.8113,
+   "fruit_macro_f1": 0.7998,
+   "per_fruit_recall": {
+    "apple": 0.807,
+    "banana": 0.861,
+    "guava": 0.819,
+    "tomato": 0.715,
+    "brinjal": 0.789
+   },
+   "cond_macro_f1": 0.757,
+   "shown_rate": 0.4219,
+   "acc_when_shown": 0.9789,
+   "per_fruit_shown": {
+    "apple": 0.145,
+    "banana": 0.732,
+    "guava": 0.491,
+    "tomato": 0.276,
+    "brinjal": 0.421
+   },
+   "median_detail": 90.7,
+   "ece_fruit": 0.0664
+  }
+ },
+ "D_calibration": {
+  "dev_base": {
+   "temperature_fit_on_VAL": 1.4,
+   "TEST_ece_before": 0.0699,
+   "TEST_ece_after": 0.0528,
+   "note": "temperature scaling does not change argmax; with INT8 outputs (1/256 steps) it only re-maps thresholds",
+   "per_class_threshold_VAL": {
+    "apple": 0.992188,
+    "banana": 0.53125,
+    "guava": 0.976,
+    "tomato": 0.839844,
+    "brinjal": 0.644531
+   },
+   "TEST_global_R1": {
+    "n": 1012,
+    "fruit_acc": 0.8291,
+    "fruit_macro_f1": 0.8143,
+    "per_fruit_recall": {
+     "apple": 0.753,
+     "banana": 0.892,
+     "guava": 0.825,
+     "tomato": 0.886,
+     "brinjal": 0.842
+    },
+    "cond_macro_f1": 0.7522,
+    "shown_rate": 0.4891,
+    "acc_when_shown": 0.9636,
+    "per_fruit_shown": {
+     "apple": 0.164,
+     "banana": 0.801,
+     "guava": 0.494,
+     "tomato": 0.585,
+     "brinjal": 0.561
+    },
+    "median_detail": 430.4,
+    "ece_fruit": 0.0699
+   },
+   "TEST_per_class": {
+    "n": 1012,
+    "fruit_acc": 0.8291,
+    "fruit_macro_f1": 0.8143,
+    "per_fruit_recall": {
+     "apple": 0.753,
+     "banana": 0.892,
+     "guava": 0.825,
+     "tomato": 0.886,
+     "brinjal": 0.842
+    },
+    "cond_macro_f1": 0.7522,
+    "shown_rate": 0.5613,
+    "acc_when_shown": 0.9032,
+    "per_fruit_shown": {
+     "apple": 0.098,
+     "banana": 0.913,
+     "guava": 0.555,
+     "tomato": 0.797,
+     "brinjal": 0.895
+    },
+    "median_detail": 430.4,
+    "ece_fruit": 0.0699
+   }
+  },
+  "dev_vig_cast": {
+   "temperature_fit_on_VAL": 1.4500000000000002,
+   "TEST_ece_before": 0.0562,
+   "TEST_ece_after": 0.0477,
+   "note": "temperature scaling does not change argmax; with INT8 outputs (1/256 steps) it only re-maps thresholds",
+   "per_class_threshold_VAL": {
+    "apple": 0.992188,
+    "banana": 0.335938,
+    "guava": 0.976,
+    "tomato": 0.777344,
+    "brinjal": 0.617188
+   },
+   "TEST_global_R1": {
+    "n": 1012,
+    "fruit_acc": 0.8399,
+    "fruit_macro_f1": 0.827,
+    "per_fruit_recall": {
+     "apple": 0.815,
+     "banana": 0.887,
+     "guava": 0.837,
+     "tomato": 0.829,
+     "brinjal": 0.807
+    },
+    "cond_macro_f1": 0.7704,
+    "shown_rate": 0.4862,
+    "acc_when_shown": 0.9736,
+    "per_fruit_shown": {
+     "apple": 0.185,
+     "banana": 0.797,
+     "guava": 0.506,
+     "tomato": 0.496,
+     "brinjal": 0.544
+    },
+    "median_detail": 328.6,
+    "ece_fruit": 0.0562
+   },
+   "TEST_per_class": {
+    "n": 1012,
+    "fruit_acc": 0.8399,
+    "fruit_macro_f1": 0.827,
+    "per_fruit_recall": {
+     "apple": 0.815,
+     "banana": 0.887,
+     "guava": 0.837,
+     "tomato": 0.829,
+     "brinjal": 0.807
+    },
+    "cond_macro_f1": 0.7704,
+    "shown_rate": 0.5593,
+    "acc_when_shown": 0.9134,
+    "per_fruit_shown": {
+     "apple": 0.105,
+     "banana": 0.913,
+     "guava": 0.558,
+     "tomato": 0.764,
+     "brinjal": 0.877
+    },
+    "median_detail": 328.6,
+    "ece_fruit": 0.0562
+   }
+  }
+ },
+ "A_no_fruit_rejection": {
+  "device_frame": {
+   "n_negative": 15,
+   "false_show_R1_only": 0.0,
+   "false_show_v5_gate": 0.0,
+   "false_show_perclass_gate": 0.0,
+   "pred_counts": {
+    "guava": 15
+   },
+   "median_detail": 35.4,
+   "positives": [
+    {
+     "id": "20261017T140046Z_focus_loop_12",
+     "content": "banana, sharp",
+     "pred": "banana",
+     "conf": 0.7383,
+     "detail": 350.7054,
+     "shown_gate_v5": false,
+     "shown_gate_perclass": true
+    },
+    {
+     "id": "20261017T144125Z_reposition_check",
+     "content": "banana, sharp",
+     "pred": "banana",
+     "conf": 0.9883,
+     "detail": 446.7912,
+     "shown_gate_v5": true,
+     "shown_gate_perclass": true
+    },
+    {
+     "id": "20261017T144145Z_reposition_repeat_1",
+     "content": "banana, sharp",
+     "pred": "banana",
+     "conf": 0.9922,
+     "detail": 445.0254,
+     "shown_gate_v5": true,
+     "shown_gate_perclass": true
+    },
+    {
+     "id": "20261017T144154Z_reposition_repeat_2",
+     "content": "banana, sharp",
+     "pred": "banana",
+     "conf": 0.9961,
+     "detail": 448.1536,
+     "shown_gate_v5": true,
+     "shown_gate_perclass": true
+    },
+    {
+     "id": "20261017T144204Z_reposition_repeat_3",
+     "content": "banana, sharp",
+     "pred": "banana",
+     "conf": 0.9961,
+     "detail": 452.707,
+     "shown_gate_v5": true,
+     "shown_gate_perclass": true
+    }
+   ]
+  },
+  "device_frame_entc": {
+   "n_negative": 2,
+   "false_show_R1_only": 0.0,
+   "false_show_v5_gate": 0.0,
+   "false_show_perclass_gate": 0.0,
+   "pred_counts": {
+    "guava": 2
+   },
+   "median_detail": 12.3,
+   "positives": [
+    {
+     "id": "20261017T094631Z",
+     "content": "apple, refocused",
+     "pred": "apple",
+     "conf": 0.8516,
+     "detail": 84.0724,
+     "shown_gate_v5": false,
+     "shown_gate_perclass": false
+    }
+   ]
+  },
+  "synthetic_smooth": {
+   "n_negative": 60,
+   "false_show_R1_only": 0.6667,
+   "false_show_v5_gate": 0.0,
+   "false_show_perclass_gate": 0.0,
+   "pred_counts": {
+    "guava": 60
+   },
+   "median_detail": 20.4
+  },
+  "test_background_patch_clean": {
+   "n_negative": 743,
+   "false_show_R1_only": 0.6756,
+   "false_show_v5_gate": 0.2692,
+   "false_show_perclass_gate": 0.2921,
+   "pred_counts": {
+    "guava": 707,
+    "banana": 29,
+    "apple": 5,
+    "brinjal": 2
+   },
+   "median_detail": 15.4
+  },
+  "test_patch_with_fruit_parts": {
+   "n_negative": 257,
+   "false_show_R1_only": 0.4553,
+   "false_show_v5_gate": 0.2685,
+   "false_show_perclass_gate": 0.323,
+   "pred_counts": {
+    "guava": 205,
+    "banana": 39,
+    "apple": 13
+   },
+   "median_detail": 31.9
+  }
+ },
+ "B_grade_set": {
+  "provenance": "Mendeley 56td5w4wz2 v2, CC BY 4.0 (docs/MODEL3_DATASET_INSPECTION.md); fruit identity = dataset folder (Banana/Guava); grade = Class_A/Class_B/Defect; 76 conflicting duplicates already removed (docs/MODEL3.md)",
+  "n": {
+   "banana": 1127,
+   "guava": 545
+  },
+  "near_duplicates_with_M1_splits_(pHash<=16_bits)": 0,
+  "min_phash_distance_quantiles": {
+   "0.0": 58,
+   "0.01": 76,
+   "0.5": 92
+  },
+  "routing_device_path": {
+   "banana": {
+    "correct_rate": 0.9956,
+    "pred_counts": {
+     "banana": 1122,
+     "guava": 5
+    },
+    "shown_v5_gate": 0.9894,
+    "by_split": {
+     "test": 0.9941,
+     "train": 0.9949,
+     "val": 1.0
+    },
+    "by_grade": {
+     "Average": 0.9802,
+     "Good": 1.0,
+     "Poor": 1.0
+    }
+   },
+   "guava": {
+    "correct_rate": 0.5633,
+    "pred_counts": {
+     "guava": 307,
+     "apple": 143,
+     "banana": 63,
+     "brinjal": 27,
+     "tomato": 5
+    },
+    "shown_v5_gate": 0.1688,
+    "by_split": {
+     "test": 0.6098,
+     "train": 0.5696,
+     "val": 0.4878
+    },
+    "by_grade": {
+     "Average": 0.7709,
+     "Good": 0.2671,
+     "Poor": 0.6146
+    }
+   }
+  }
+ },
+ "E_stage_heads_TEST": {
+  "stage_tomato": {
+   "n_test": 167,
+   "exact": 0.5689,
+   "off_by_1": 0.2934,
+   "off_by_2": 0.1377,
+   "rotten_predicted_fresh": 1,
+   "fresh_predicted_rotten": 22,
+   "exact_when_M1_routes_correctly": 0.5652,
+   "shelf_band_correct": "== exact stage (shelf band is a fixed lookup of the stage)"
+  },
+  "stage_brinjal": {
+   "n_test": 96,
+   "exact": 0.5521,
+   "off_by_1": 0.3229,
+   "off_by_2": 0.125,
+   "rotten_predicted_fresh": 0,
+   "fresh_predicted_rotten": 12,
+   "exact_when_M1_routes_correctly": 0.5568,
+   "shelf_band_correct": "== exact stage (shelf band is a fixed lookup of the stage)"
+  },
+  "stage_banana": {
+   "n_test": 91,
+   "exact": 0.956,
+   "off_by_1": 0.044,
+   "off_by_2": 0.0,
+   "rotten_predicted_fresh": 0,
+   "fresh_predicted_rotten": 0,
+   "exact_when_M1_routes_correctly": 0.9551,
+   "shelf_band_correct": "== exact stage (shelf band is a fixed lookup of the stage)"
+  }
+ }
+}

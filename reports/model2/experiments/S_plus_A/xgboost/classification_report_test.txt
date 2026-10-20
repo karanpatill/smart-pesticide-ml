@@ -1,0 +1,11 @@
+SYNTHETIC/PROTOTYPE — NOT real pesticide detection performance
+
+              precision    recall  f1-score   support
+
+         LOW     0.8597    0.8819    0.8707       271
+      MEDIUM     0.6746    0.6514    0.6628       175
+        HIGH     0.7604    0.7526    0.7565        97
+
+    accuracy                         0.7845       543
+   macro avg     0.7649    0.7620    0.7633       543
+weighted avg     0.7823    0.7845    0.7833       543

@@ -1,0 +1,9 @@
+              precision    recall  f1-score   support
+
+       Fresh     0.7833    0.5465    0.6438        86
+  Semi-fresh     0.4468    0.4773    0.4615        44
+      Rotten     0.4500    0.7297    0.5567        37
+
+    accuracy                         0.5689       167
+   macro avg     0.5600    0.5845    0.5540       167
+weighted avg     0.6208    0.5689    0.5765       167

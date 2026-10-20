@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "calibration": {
+    "n_real_images": 10869,
+    "safety_factor": 0.5,
+    "rule": "reject threshold = observed real-image minimum x safety factor",
+    "script": "scripts/calibrate_image_checks.py"
+  },
+  "dimensions": {
+    "reject_min_side": 32,
+    "warn_min_side": 80,
+    "reject_max_side": 12000,
+    "warn_aspect_ratio": 1.1,
+    "rationale": "32 px: below this a fruit cannot be represented; 80 px = model input; 12000 px guards against decompression bombs; aspect > 1.1 warns because 81.2% of the 10869 real training/eval images are exactly square and only 18.8% exceed 1.1 (letterbox bars >= ~4.5% per side; a 4:3 camera frame gives 12.5%)"
+  },
+  "reject": {
+    "lum_std_below": 8.37,
+    "lag1_autocorr_below": 0.378,
+    "chroma_below": 0.893
+  },
+  "warn": {
+    "lum_mean_below": 69.73,
+    "lum_mean_above": 198.09,
+    "clipped_fraction_above": 0.252
+  },
+  "observed_real": {
+    "lum_mean": {
+      "min": 44.468631744384766,
+      "p0.5": 69.73286361694336,
+      "median": 157.49618530273438,
+      "max": 215.89141845703125
+    },
+    "lum_std": {
+      "min": 16.739620208740234,
+      "p0.5": 24.286032447814943,
+      "median": 51.179019927978516,
+      "max": 103.448974609375
+    },
+    "lag1_autocorr": {
+      "min": 0.7552886605262756,
+      "p0.5": 0.8426984333992005,
+      "median": 0.9707671701908112,
+      "max": 1.0003187358379364
+    },
+    "chroma_mean_abs": {
+      "min": 1.7861112356185913,
+      "p0.5": 2.610707931518555,
+      "median": 11.628437042236328,
+      "max": 71.50701904296875
+    },
+    "clipped_fraction": {
+      "min": 0.0,
+      "p0.5": 0.0,
+      "median": 0.0,
+      "max": 0.4375
+    }
+  }
+}

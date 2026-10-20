@@ -1,0 +1,193 @@
+cache 80px:   0%|          | 0/8457 [00:00<?, ?it/s]cache 80px:  20%|█▉        | 1650/8457 [00:10<00:41, 164.93it/s]cache 80px:  39%|███▉      | 3300/8457 [00:20<00:32, 160.54it/s]cache 80px:  58%|█████▊    | 4876/8457 [00:30<00:22, 157.29it/s]cache 80px:  76%|███████▌  | 6411/8457 [00:41<00:13, 151.51it/s]cache 80px:  95%|█████████▍| 8008/8457 [00:51<00:02, 154.37it/s]cache 80px: 100%|██████████| 8457/8457 [00:54<00:00, 154.71it/s]
+WARNING:tensorflow:From D:\smart-pesticide-ml\.venv\Lib\site-packages\keras\src\backend\common\global_state.py:82: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+
+WARNING:tensorflow:5 out of the last 11 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001AA4212B4C0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+{
+  "config": {
+    "size": 80,
+    "cut": "block_15_add"
+  },
+  "test": {
+    "n": 1012,
+    "fruit_macro_f1": 0.8053153590961284,
+    "fruit_acc": 0.7816205533596838,
+    "condition_macro_f1": 0.6871397482050969,
+    "condition_acc": 0.6996047430830039,
+    "condition_f1_by_fruit": {
+      "apple": {
+        "f1": 0.5750650618087183,
+        "n": 275
+      },
+      "banana": {
+        "f1": 0.7862766941711825,
+        "n": 231
+      },
+      "brinjal": {
+        "f1": 0.736517719568567,
+        "n": 57
+      },
+      "guava": {
+        "f1": 0.6111117672765067,
+        "n": 326
+      },
+      "tomato": {
+        "f1": 0.7799327274028484,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.9512993563037195,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.704111574223688,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.827764705882353,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.6350869047964484,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 0.9625730994152046,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.736517719568567,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.7799327274028484,
+        "n": 123
+      },
+      "fruitnet/apple": {
+        "f1": 0.5750650618087183,
+        "n": 275
+      },
+      "fruitnet/banana": {
+        "f1": 0.718199116791728,
+        "n": 167
+      },
+      "fruitnet/guava": {
+        "f1": 0.6111117672765067,
+        "n": 326
+      }
+    }
+  },
+  "test_fruit_masked": {
+    "n": 1012,
+    "fruit_macro_f1": 0.16851770675301933,
+    "fruit_acc": 0.2450592885375494,
+    "condition_macro_f1": 0.4804042434724337,
+    "condition_acc": 0.4851778656126482,
+    "condition_f1_by_fruit": {
+      "apple": {
+        "f1": 0.5864889845355847,
+        "n": 275
+      },
+      "banana": {
+        "f1": 0.5896825396825397,
+        "n": 231
+      },
+      "brinjal": {
+        "f1": 0.3635235732009926,
+        "n": 57
+      },
+      "guava": {
+        "f1": 0.3922684458398744,
+        "n": 326
+      },
+      "tomato": {
+        "f1": 0.24800637958532695,
+        "n": 123
+      }
+    },
+    "fruit_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.20849340361535484,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.205665622030932,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source": {
+      "agrifreshnet": {
+        "f1": 0.46373626373626375,
+        "n": 244
+      },
+      "fruitnet": {
+        "f1": 0.47546467624244704,
+        "n": 768
+      }
+    },
+    "condition_f1_by_source_fruit": {
+      "agrifreshnet/banana": {
+        "f1": 0.9815615096513972,
+        "n": 64
+      },
+      "agrifreshnet/brinjal": {
+        "f1": 0.3635235732009926,
+        "n": 57
+      },
+      "agrifreshnet/tomato": {
+        "f1": 0.24800637958532695,
+        "n": 123
+      },
+      "fruitnet/apple": {
+        "f1": 0.5864889845355847,
+        "n": 275
+      },
+      "fruitnet/banana": {
+        "f1": 0.4427941018189646,
+        "n": 167
+      },
+      "fruitnet/guava": {
+        "f1": 0.3922684458398744,
+        "n": 326
+      }
+    }
+  },
+  "test_brinjal_by_variety_tag": {
+    "green/fresh": {
+      "acc": 0.8696,
+      "n": 23
+    },
+    "green/spoiled": {
+      "acc": 1.0,
+      "n": 12
+    },
+    "purple/fresh": {
+      "acc": 0.0,
+      "n": 12
+    },
+    "purple/spoiled": {
+      "acc": 1.0,
+      "n": 10
+    }
+  },
+  "banana_cross_source": {
+    "agrifreshnet": {
+      "n": 474,
+      "condition_macro_f1": 0.7603640040444894,
+      "condition_acc": 0.810126582278481,
+      "fruit_acc": 0.2552742616033755
+    },
+    "fruitnet": {
+      "n": 2200,
+      "condition_macro_f1": 0.7953523023702134,
+      "condition_acc": 0.7977272727272727,
+      "fruit_acc": 0.5677272727272727
+    }
+  }
+}
+EXIT=0

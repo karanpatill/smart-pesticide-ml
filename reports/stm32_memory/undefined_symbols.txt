@@ -1,0 +1,5 @@
+undefined symbol: __cxa_atexit
+undefined symbol: abort
+undefined symbol: frexp
+undefined symbol: strcmp
+undefined symbol: strncmp

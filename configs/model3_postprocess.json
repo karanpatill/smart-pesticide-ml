@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "description": "Post-processing / consistency layer for Model 1 + Model 3 outputs. Operates on model outputs only; no model weights involved.",
+  "fruit_confidence_threshold": 0.976,
+  "threshold_derivation": {
+    "criterion": "max Youden's J (correct vs incorrect fruit predictions) on the VAL pool",
+    "val_pool": "Model 1 VAL split (1,299) + Model 3 new-split VAL images (364)",
+    "script": "scripts/model3_calibrate_threshold.py",
+    "report": "reports/model3/postprocess/threshold_report.json",
+    "val_effect": {"coverage": 0.6085, "accuracy_kept": 0.9723, "errors_flagged": 0.8692, "correct_flagged": 0.3209},
+    "test_effect_report_only": {"coverage": 0.5025, "accuracy_kept": 0.9551, "errors_flagged": 0.8798, "correct_flagged": 0.409}
+  },
+  "grade_order": ["Good", "Average", "Poor"],
+  "stage_order": ["Fresh", "Semi-fresh", "Rotten"],
+  "rules": {
+    "R1_low_fruit_confidence": {
+      "description": "If Model 1 fruit confidence < threshold: quality_grade = 'Uncertain', shelf_life = not_available; fruit prediction kept; routed head outputs kept only under raw.",
+      "applies_to": ["apple", "banana", "guava", "tomato", "brinjal"]
+    },
+    "R2_grade_vs_stage": {
+      "description": "Grade and shelf-life stage come from DIFFERENT heads/datasets (banana only). Ordinal convention Good~Fresh, Average~Semi-fresh, Poor~Rotten. |grade index - stage index| = 1 -> 'minor_mismatch' note; = 2 -> 'contradiction' warning. Neither prediction is altered.",
+      "applies_to": ["banana"],
+      "not_applicable": {"tomato": "grade and stage are the same head output", "brinjal": "grade and stage are the same head output",
+                         "guava": "no shelf-life stage", "apple": "no shelf-life stage"},
+      "val_rates": {"distance_0": 0.494, "distance_1": 0.294, "distance_2": 0.212, "source": "reports/model3/postprocess/consistency_val_analysis.json"}
+    },
+    "R3_condition_vs_grade": {
+      "description": "Model 1 condition and Model 3 grade disagree in the strong sense: condition 'fresh' with grade 'Poor', or condition 'spoiled' with grade 'Good'. Warning only; neither prediction is altered.",
+      "applies_to": ["apple", "banana", "guava", "tomato", "brinjal"],
+      "conflicting_pairs": [["fresh", "Poor"], ["spoiled", "Good"]],
+      "val_rates": {"apple": 0.107, "banana": 0.074, "guava": 0.122, "tomato": 0.018, "brinjal": 0.103}
+    }
+  }
+}
