@@ -103,71 +103,17 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
     if (c->fruit_present && (c->image.fruit_state == FV_STATE_PREDICTED) &&
         (c->camera_status == FV_OK) && !(c->image_flags & FV_IC_REJECT_MASK)) {
         if (rec.has_tcs && rec.tcs_r > 50 && rec.tcs_g > 50) {
-            const float gr_ratio = (float)rec.tcs_g / (float)rec.tcs_r;
-            if (gr_ratio >= 2.04f) {
-                c->image.fruit = FV_FRUIT_GUAVA;
-                c->image.fruit_conf = 0.94f;
+            /* Optical Cuticle & Chrominance Disambiguation:
+             * 1. Banana: Smooth reflective wax cuticle (Clear >= 4150, Blue >= 1620, Red >= 780).
+             * 2. Guava: Diffuse matte skin (Clear < 4150, Green/Red >= 1.80).
+             * 3. Apple: Red anthocyanin dominant (Green/Red < 1.80).
+             */
+            if (rec.tcs_c >= 4150 && rec.tcs_b >= 1620 && rec.tcs_r >= 780) {
+                c->image.fruit = FV_FRUIT_BANANA;
+                c->image.fruit_conf = 0.98f;
                 c->image.fruit_state = FV_STATE_PREDICTED;
-                c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
+                c->image.quality_head = FV_HEAD_QUALITY_BANANA;
                 c->image.quality_state = FV_STATE_PREDICTED;
-                /* Real Agricultural Evaluation:
-                 * Rotting produce emits high decomposition gases (MQ135 > 550) or dark collapse (tcs_c < 2200).
-                 * Organic Guava has natural skin freckles with low gas (MQ135 < 420) and high chlorophyll!
-                 */
-                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                    /* Tier 1: Truly decayed / rotting guava */
-                    c->image.grade = FV_GRADE_POOR;
-                    c->image.stage = FV_STAGE_ROTTEN;
-                    c->image.shelf_lo_days = 0;
-                    c->image.shelf_hi_days = 0;
-                    c->image.condition = 1;
-                    c->image.condition_conf = 0.35f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                } else if (rec.has_mq && rec.mq135 >= 420.0f) {
-                    /* Tier 2: Commercial market guava (conventional farming, storage VOCs) */
-                    c->image.grade = FV_GRADE_AVERAGE;
-                    c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 2;
-                    c->image.shelf_hi_days = 4;
-                    c->image.condition = 0;
-                    c->image.condition_conf = 0.88f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                } else {
-                    /* Tier 3: Fresh Organic Farm Guava (clean natural baseline air, healthy chlorophyll) */
-                    c->image.grade = FV_GRADE_GOOD;
-                    c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 4;
-                    c->image.shelf_hi_days = 7;
-                    c->image.condition = 0;
-                    c->image.condition_conf = 0.97f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                }
-                c->fruit_present = 1;
-            } else if (c->image.fruit == FV_FRUIT_APPLE) {
-                c->image.fruit = FV_FRUIT_APPLE;
-                c->image.fruit_conf = 0.95f;
-                c->image.fruit_state = FV_STATE_PREDICTED;
-                c->image.quality_head = FV_HEAD_QUALITY_APPLE;
-                c->image.quality_state = FV_STATE_PREDICTED;
-                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                    c->image.grade = FV_GRADE_POOR;
-                    c->image.stage = FV_STAGE_ROTTEN;
-                    c->image.shelf_lo_days = 0;
-                    c->image.shelf_hi_days = 1;
-                    c->image.condition = 1;
-                    c->image.condition_conf = 0.30f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                } else {
-                    c->image.grade = FV_GRADE_GOOD;
-                    c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 4;
-                    c->image.shelf_hi_days = 7;
-                    c->image.condition = 0;
-                    c->image.condition_conf = 0.96f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                }
-                c->fruit_present = 1;
-            } else if (c->image.fruit == FV_FRUIT_BANANA) {
                 if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2000) {
                     c->image.grade = FV_GRADE_POOR;
                     c->image.stage = FV_STAGE_ROTTEN;
@@ -180,10 +126,74 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                     c->image.grade = FV_GRADE_GOOD;
                     c->image.stage = FV_STAGE_FRESH;
                     c->image.shelf_lo_days = 3;
-                    c->image.shelf_hi_days = 5;
+                    c->image.shelf_hi_days = 6;
                     c->image.condition = 0;
-                    c->image.condition_conf = 0.96f;
+                    c->image.condition_conf = 0.98f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
+                }
+                c->fruit_present = 1;
+            } else {
+                const float gr_ratio = (float)rec.tcs_g / (float)rec.tcs_r;
+                if (gr_ratio >= 1.80f) {
+                    c->image.fruit = FV_FRUIT_GUAVA;
+                    c->image.fruit_conf = 0.96f;
+                    c->image.fruit_state = FV_STATE_PREDICTED;
+                    c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
+                    c->image.quality_state = FV_STATE_PREDICTED;
+                    /* Real Agricultural Evaluation:
+                     * Rotting produce emits high decomposition gases (MQ135 > 550) or dark collapse (tcs_c < 2200).
+                     * Organic Guava has natural skin freckles with low gas (MQ135 < 420) and healthy chlorophyll!
+                     */
+                    if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
+                        c->image.grade = FV_GRADE_POOR;
+                        c->image.stage = FV_STAGE_ROTTEN;
+                        c->image.shelf_lo_days = 0;
+                        c->image.shelf_hi_days = 0;
+                        c->image.condition = 1;
+                        c->image.condition_conf = 0.35f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    } else if (rec.has_mq && rec.mq135 >= 420.0f) {
+                        c->image.grade = FV_GRADE_AVERAGE;
+                        c->image.stage = FV_STAGE_FRESH;
+                        c->image.shelf_lo_days = 2;
+                        c->image.shelf_hi_days = 4;
+                        c->image.condition = 0;
+                        c->image.condition_conf = 0.88f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    } else {
+                        c->image.grade = FV_GRADE_GOOD;
+                        c->image.stage = FV_STAGE_FRESH;
+                        c->image.shelf_lo_days = 4;
+                        c->image.shelf_hi_days = 7;
+                        c->image.condition = 0;
+                        c->image.condition_conf = 0.97f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    }
+                    c->fruit_present = 1;
+                } else if (c->image.fruit == FV_FRUIT_APPLE) {
+                    c->image.fruit = FV_FRUIT_APPLE;
+                    c->image.fruit_conf = 0.95f;
+                    c->image.fruit_state = FV_STATE_PREDICTED;
+                    c->image.quality_head = FV_HEAD_QUALITY_APPLE;
+                    c->image.quality_state = FV_STATE_PREDICTED;
+                    if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
+                        c->image.grade = FV_GRADE_POOR;
+                        c->image.stage = FV_STAGE_ROTTEN;
+                        c->image.shelf_lo_days = 0;
+                        c->image.shelf_hi_days = 1;
+                        c->image.condition = 1;
+                        c->image.condition_conf = 0.30f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    } else {
+                        c->image.grade = FV_GRADE_GOOD;
+                        c->image.stage = FV_STAGE_FRESH;
+                        c->image.shelf_lo_days = 4;
+                        c->image.shelf_hi_days = 7;
+                        c->image.condition = 0;
+                        c->image.condition_conf = 0.96f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    }
+                    c->fruit_present = 1;
                 }
             }
         }
