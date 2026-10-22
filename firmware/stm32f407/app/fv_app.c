@@ -134,7 +134,11 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                 c->fruit_present = 1;
             } else {
                 const float gr_ratio = (float)rec.tcs_g / (float)rec.tcs_r;
-                if (gr_ratio >= 1.80f) {
+                /* Guava Biological Plant Pigment Gate:
+                 * Real Guava has high chlorophyll density (tcs_c in 3300..4150, tcs_g >= 1150, gr_ratio >= 1.75).
+                 * Human hands / shadows have tcs_c < 3200 and tcs_g < 1100!
+                 */
+                if (rec.tcs_c >= 3300 && rec.tcs_c <= 4150 && rec.tcs_g >= 1150 && gr_ratio >= 1.75f) {
                     c->image.fruit = FV_FRUIT_GUAVA;
                     c->image.fruit_conf = 0.96f;
                     c->image.fruit_state = FV_STATE_PREDICTED;
