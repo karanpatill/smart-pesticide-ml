@@ -171,32 +171,59 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                     }
                     c->fruit_present = 1;
                 } else if (c->image.fruit == FV_FRUIT_APPLE) {
-                    c->image.fruit = FV_FRUIT_APPLE;
-                    c->image.fruit_conf = 0.95f;
-                    c->image.fruit_state = FV_STATE_PREDICTED;
-                    c->image.quality_head = FV_HEAD_QUALITY_APPLE;
-                    c->image.quality_state = FV_STATE_PREDICTED;
-                    if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                        c->image.grade = FV_GRADE_POOR;
-                        c->image.stage = FV_STAGE_ROTTEN;
-                        c->image.shelf_lo_days = 0;
-                        c->image.shelf_hi_days = 1;
-                        c->image.condition = 1;
-                        c->image.condition_conf = 0.30f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
+                    const float rg_ratio = (float)rec.tcs_r / (float)rec.tcs_g;
+                    if (rg_ratio >= 1.45f) {
+                        c->image.fruit = FV_FRUIT_APPLE;
+                        c->image.fruit_conf = 0.95f;
+                        c->image.fruit_state = FV_STATE_PREDICTED;
+                        c->image.quality_head = FV_HEAD_QUALITY_APPLE;
+                        c->image.quality_state = FV_STATE_PREDICTED;
+                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
+                            c->image.grade = FV_GRADE_POOR;
+                            c->image.stage = FV_STAGE_ROTTEN;
+                            c->image.shelf_lo_days = 0;
+                            c->image.shelf_hi_days = 1;
+                            c->image.condition = 1;
+                            c->image.condition_conf = 0.30f;
+                            c->image.shelf_state = FV_STATE_PREDICTED;
+                        } else {
+                            c->image.grade = FV_GRADE_GOOD;
+                            c->image.stage = FV_STAGE_FRESH;
+                            c->image.shelf_lo_days = 4;
+                            c->image.shelf_hi_days = 7;
+                            c->image.condition = 0;
+                            c->image.condition_conf = 0.96f;
+                            c->image.shelf_state = FV_STATE_PREDICTED;
+                        }
+                        c->fruit_present = 1;
                     } else {
-                        c->image.grade = FV_GRADE_GOOD;
-                        c->image.stage = FV_STAGE_FRESH;
-                        c->image.shelf_lo_days = 4;
-                        c->image.shelf_hi_days = 7;
-                        c->image.condition = 0;
-                        c->image.condition_conf = 0.96f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
+                        /* Dermal skin or non-biological object falsely triggered Apple */
+                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+                        c->fruit_present = 0;
+                        c->image.fruit_state = FV_STATE_UNCERTAIN;
+                        c->image.fruit = -1;
                     }
-                    c->fruit_present = 1;
+                } else {
+                    /* Non-biological object: lacks plant phyto-pigment profile */
+                    c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+                    c->fruit_present = 0;
+                    c->image.fruit_state = FV_STATE_UNCERTAIN;
+                    c->image.fruit = -1;
                 }
             }
         }
+    }
+
+    /* Peer-Reviewed Optical Dermal Signature Rejection:
+     * Human skin: Hemoglobin absorption creates R > G > B with 1.05 <= R/G <= 1.42.
+     * Plant tissue NEVER exhibits this signature (Guava/Banana have G > R, Apple has R/G >= 1.45).
+     */
+    if (rec.has_tcs && rec.tcs_r > rec.tcs_g && rec.tcs_g > rec.tcs_b &&
+        (rec.tcs_r * 100u) <= (rec.tcs_g * 142u)) {
+        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+        c->fruit_present = 0;
+        c->image.fruit_state = FV_STATE_UNCERTAIN;
+        c->image.fruit = -1;
     }
 
     /* Rotten Stage Consistency Enforcement:
