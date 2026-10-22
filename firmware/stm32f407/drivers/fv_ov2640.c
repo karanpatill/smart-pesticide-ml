@@ -5,11 +5,20 @@
 #include "fv_entc_ov2640_tables.h"
 
 static int write_table(fv_ov2640_t *c, const fv_sccb_reg_t *t, int n, int base_index) {
-    for (int i = 0; i < n; ++i)
-        if (fv_sccb_write(c->bus, c->addr8, t[i].reg, t[i].val) != FV_BB_OK) {
+    for (int i = 0; i < n; ++i) {
+        int ok = 0;
+        for (int retry = 0; retry < 3; ++retry) {
+            if (fv_sccb_write(c->bus, c->addr8, t[i].reg, t[i].val) == FV_BB_OK) {
+                ok = 1;
+                break;
+            }
+            if (c->delay_ms) c->delay_ms(1);
+        }
+        if (!ok) {
             c->failed_index = base_index + i;
             return FV_OV2640_ERR_TABLE;
         }
+    }
     return FV_OV2640_OK;
 }
 

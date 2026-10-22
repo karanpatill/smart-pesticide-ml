@@ -40,11 +40,15 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
             clipped += ((r <= 1.0f || r >= 254.0f) && (g <= 1.0f || g >= 254.0f) && (b <= 1.0f || b >= 254.0f));
 
             /* Biometric skin chrominance signature:
-             * R > G > B, typical human melanin absorption range. */
-            if (r_i > 65 && g_i > 40 && b_i > 25 &&
-                (r_i - g_i) >= 10 && (r_i - g_i) <= 80 &&
-                (g_i - b_i) >= 5 && (g_i - b_i) <= 60 &&
-                (r_i - b_i) >= 18) {
+             * R > G > B, typical human melanin absorption range.
+             * Crucial: Exclude yellow fruits (banana) where carotenoids absorb blue ((R+G) >= 2.2*B).
+             * Human skin has significant blue reflection ((R+G) < 2.0*B). */
+            const int is_yellow_fruit = (r_i + g_i) >= (22 * b_i) / 10;
+            if (!is_yellow_fruit &&
+                r_i > 65 && g_i > 40 && b_i > 25 &&
+                (r_i - g_i) >= 12 && (r_i - g_i) <= 75 &&
+                (g_i - b_i) >= 6 && (g_i - b_i) <= 50 &&
+                (r_i - b_i) >= 20) {
                 skin_count++;
             }
         }

@@ -67,7 +67,7 @@ fv_status_t fv_result_from_raw(const fv_vision_raw_t *raw, fv_image_result_t *o)
     o->condition_state = FV_STATE_PREDICTED;
     o->grade_binary = (f == FV_FRUIT_APPLE);
 
-    if (o->fruit_conf < FV_FRUIT_CONF_THRESHOLD) {          /* R1: withhold routed outputs */
+    if (o->fruit_conf < 0.45f) {          /* R1: withhold routed outputs if fruit confidence is below 45% */
         o->quality_state = FV_STATE_UNCERTAIN;
         o->shelf_state = FV_STATE_UNCERTAIN;
         o->consistency |= FV_CONS_R1_LOW_FRUIT_CONF;
