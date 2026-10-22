@@ -101,24 +101,23 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
      * CRITICAL: Only run fusion if an actual fruit was predicted AND camera input was NOT rejected!
      */
     if (c->fruit_present && (c->image.fruit_state == FV_STATE_PREDICTED) &&
-        (c->camera_status == FV_OK) && !(c->image_flags & FV_IC_REJECT_MASK) &&
-        (c->image.fruit == FV_FRUIT_APPLE || c->image.fruit == FV_FRUIT_GUAVA)) {
+        (c->camera_status == FV_OK) && !(c->image_flags & FV_IC_REJECT_MASK)) {
         if (rec.has_tcs && rec.tcs_r > 50 && rec.tcs_g > 50) {
             const float gr_ratio = (float)rec.tcs_g / (float)rec.tcs_r;
-            if (gr_ratio >= 2.05f) {
+            if (gr_ratio >= 2.04f) {
                 c->image.fruit = FV_FRUIT_GUAVA;
-                c->image.fruit_conf = 0.92f;
+                c->image.fruit_conf = 0.94f;
                 c->image.fruit_state = FV_STATE_PREDICTED;
                 c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
                 c->image.quality_state = FV_STATE_PREDICTED;
                 if (c->image.condition != 0 || c->image.grade == FV_GRADE_POOR || c->image_detail < 280.0f || gr_ratio < 2.12f) {
                     /* Blemished, soft, overripe or punctured guava */
-                    c->image.grade = (c->image_detail < 190.0f) ? FV_GRADE_POOR : FV_GRADE_AVERAGE;
+                    c->image.grade = (c->image_detail < 190.0f || c->image.condition != 0) ? FV_GRADE_POOR : FV_GRADE_AVERAGE;
                     c->image.stage = (c->image.grade == FV_GRADE_POOR) ? FV_STAGE_ROTTEN : FV_STAGE_SEMI;
                     c->image.shelf_lo_days = 0;
                     c->image.shelf_hi_days = (c->image.grade == FV_GRADE_POOR) ? 0 : 1;
-                    c->image.condition = (c->image.grade == FV_GRADE_POOR) ? 1 : 0;
-                    c->image.condition_conf = (c->image.grade == FV_GRADE_POOR) ? 0.40f : 0.72f;
+                    c->image.condition = 1;
+                    c->image.condition_conf = (c->image.grade == FV_GRADE_POOR) ? 0.35f : 0.72f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 } else {
                     /* Crisp fresh market guava */
@@ -130,7 +129,8 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                     c->image.condition_conf = 0.95f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 }
-            } else {
+                c->fruit_present = 1;
+            } else if (c->image.fruit == FV_FRUIT_APPLE) {
                 c->image.fruit = FV_FRUIT_APPLE;
                 c->image.fruit_conf = 0.95f;
                 c->image.fruit_state = FV_STATE_PREDICTED;
@@ -152,8 +152,8 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                     c->image.condition_conf = 0.96f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 }
+                c->fruit_present = 1;
             }
-            c->fruit_present = 1;
         }
     }
 
