@@ -110,23 +110,32 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                 c->image.fruit_state = FV_STATE_PREDICTED;
                 c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
                 c->image.quality_state = FV_STATE_PREDICTED;
-                if (c->image.condition != 0 || c->image.grade == FV_GRADE_POOR || c->image_detail < 280.0f || gr_ratio < 2.12f) {
-                    /* Blemished, soft, overripe or punctured guava */
-                    c->image.grade = (c->image_detail < 190.0f || c->image.condition != 0) ? FV_GRADE_POOR : FV_GRADE_AVERAGE;
-                    c->image.stage = (c->image.grade == FV_GRADE_POOR) ? FV_STAGE_ROTTEN : FV_STAGE_SEMI;
+                if (c->image.condition != 0 || c->image.grade == FV_GRADE_POOR || c->image_detail < 220.0f) {
+                    /* Tier 1: Punctured, spoiled, rotten or soft overripe guava */
+                    c->image.grade = FV_GRADE_POOR;
+                    c->image.stage = FV_STAGE_ROTTEN;
                     c->image.shelf_lo_days = 0;
-                    c->image.shelf_hi_days = (c->image.grade == FV_GRADE_POOR) ? 0 : 1;
+                    c->image.shelf_hi_days = 0;
                     c->image.condition = 1;
-                    c->image.condition_conf = (c->image.grade == FV_GRADE_POOR) ? 0.35f : 0.72f;
+                    c->image.condition_conf = 0.35f;
+                    c->image.shelf_state = FV_STATE_PREDICTED;
+                } else if (c->image_detail < 400.0f || rec.tcs_c < 3600 || gr_ratio < 2.18f) {
+                    /* Tier 2: Stored / old market guava (dull optical reflectance tcs_c < 3600, aged skin) */
+                    c->image.grade = FV_GRADE_AVERAGE;
+                    c->image.stage = FV_STAGE_SEMI;
+                    c->image.shelf_lo_days = 1;
+                    c->image.shelf_hi_days = 2;
+                    c->image.condition = 0;
+                    c->image.condition_conf = 0.78f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 } else {
-                    /* Crisp fresh market guava */
+                    /* Tier 3: Fresh crisp orchard green guava */
                     c->image.grade = FV_GRADE_GOOD;
                     c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 2;
-                    c->image.shelf_hi_days = 3;
+                    c->image.shelf_lo_days = 3;
+                    c->image.shelf_hi_days = 5;
                     c->image.condition = 0;
-                    c->image.condition_conf = 0.95f;
+                    c->image.condition_conf = 0.96f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 }
                 c->fruit_present = 1;
