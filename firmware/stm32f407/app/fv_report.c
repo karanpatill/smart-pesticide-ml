@@ -32,8 +32,8 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         put(o, " OPTICAL AI SCANNER ");
         put(o, "=====================");
         put(o, "  [ INVALID SAMPLE ] ");
-        put(o, "Foreign Object / Hand");
-        put(o, " Please Place Fruit  ");
+        put(o, " Hand / Too Close!   ");
+        put(o, " Target Dist:10-12cm ");
         put(o, "---------------------");
         put(o, " >> SCAN REJECTED << ");
         return;
@@ -54,7 +54,7 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
             put(o, "  DETECTION SYSTEM  ");
             put(o, "=====================");
             put(o, " D.Y. PATIL ENTC 2026");
-            put(o, " Final Year Project ");
+            put(o, " Target Dist:10-12cm ");
             put(o, "---------------------");
             put(o, "  [ SYSTEM READY ]   ");
         } else {

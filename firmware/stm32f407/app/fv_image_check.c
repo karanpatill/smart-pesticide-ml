@@ -15,6 +15,7 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
     double chroma = 0.0;
     int clipped = 0;
     int bright_count = 0;
+    int skin_count = 0;
     for (int y = 0; y < FV_MODEL_IN_H; ++y) {
         for (int x = 0; x < FV_MODEL_IN_W; ++x) {
             const int idx = y * FV_MODEL_IN_W + x;
@@ -37,10 +38,20 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
             const float m = (r + g + b) / 3.0f;
             chroma += (double)(fabsf(r - m) + fabsf(g - m) + fabsf(b - m));
             clipped += ((r <= 1.0f || r >= 254.0f) && (g <= 1.0f || g >= 254.0f) && (b <= 1.0f || b >= 254.0f));
+
+            /* Biometric skin chrominance signature:
+             * R > G > B, typical human melanin absorption range. */
+            if (r_i > 65 && g_i > 40 && b_i > 25 &&
+                (r_i - g_i) >= 10 && (r_i - g_i) <= 80 &&
+                (g_i - b_i) >= 5 && (g_i - b_i) <= 60 &&
+                (r_i - b_i) >= 18) {
+                skin_count++;
+            }
         }
     }
     const float lmean = (float)lsum_int / (float)N;
     const float bright_fraction = (float)bright_count / (float)N;
+    const float skin_fraction = (float)skin_count / (float)N;
     (void)rsum_int; (void)gsum_int; (void)bsum_int;
     (void)crsum_int; (void)cgsum_int; (void)cbsum_int;
 
@@ -71,8 +82,8 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
     if (s.lum_mean > FV_IMG_WARN_LUM_MEAN_ABOVE) f |= FV_IC_WARN_BRIGHT;
     if (s.clipped_fraction > FV_IMG_WARN_CLIPPED_FRACTION_ABOVE) f |= FV_IC_WARN_CLIPPED;
 
-    /* Narrow Object / Charger / Single Finger Reject (narrow coverage leaves camera sensor mostly dark): */
-    if (bright_fraction < 0.20f && lmean < 50.0f) {
+    /* Narrow Object / Charger / Single Finger Reject OR Human Hand / Skin Tone: */
+    if ((bright_fraction < 0.20f && lmean < 50.0f) || (skin_fraction > 0.40f)) {
         f |= FV_IC_REJ_SKIN_OBJECT;
     }
     return f;
