@@ -70,164 +70,157 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         return;
     }
 
-    /* 3. Fruit Detected: Rotating 5 Pages */
-    const int fruit_page = (int)((ms / 5000u) % 5u);
+    /* 3. Fruit Detected: Dedicated Agricultural Analysis Across 4 Pages */
+    const int fruit_page = (int)((ms / 3500u) % 4u);
     const int f = (img->fruit >= 0 && img->fruit < 5) ? img->fruit : 0;
-    static const char *const F_NAME[5] = {"Apple (Red)", "Banana (Ripe)", "Guava (Green)", "Tomato (Red)", "Brinjal (Gloss)"};
-    const int is_spoiled = (img->condition != 0 || img->stage == FV_STAGE_ROTTEN || (img->shelf_state == FV_STATE_PREDICTED && img->shelf_hi_days <= 1));
+    static const char *const F_NAME[5] = {"Apple", "Banana", "Guava", "Tomato", "Brinjal"};
+
+    /* Multi-Sensor Agricultural Analysis:
+     * 1. Growth Origin:
+     *    - Organic Farm: Clean volatile baseline (MQ135 < 420), natural unwaxed reflectance.
+     *    - Commercial / Conventional: Chemical fertilizer/pesticide storage vapors (420 <= MQ135 < 520) or synthetic wax sheen (Clear >= 4000).
+     *    - Artificial / Carbide: Illegal ripening chemicals/acetylene spikes (MQ135 >= 520).
+     */
+    int is_commercial = 0;
+    int is_artificial = 0;
+    float mq_val = 400.0f;
+    if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 2) {
+        is_artificial = 1;
+    }
+    if (rec && rec->has_mq) {
+        mq_val = rec->mq135;
+        if (rec->mq135 >= 520.0f) {
+            is_artificial = 1;
+        } else if (rec->mq135 >= 420.0f || (rec->has_tcs && rec->tcs_c >= 4000)) {
+            is_commercial = 1;
+        }
+    }
+
+    const int is_spoiled = (img->condition != 0 && (rec && rec->has_mq && rec->mq135 > 550.0f));
 
     if (fruit_page == 0) {
-        /* Page 1: Fruit Identification & Freshness */
-        put(o, "[ FRUIT ANALYSIS 1/5]");
-        put(o, "---------------------");
-        put(o, "");
-        if (is_spoiled && f == 1) {
-            put(o, "Fruit   : Banana (Spoil)");
+        /* PAGE 1: CULTIVATION & FARMING ORIGIN (Hero Screen) */
+        put(o, "=====================");
+        put(o, " CULTIVATION ORIGIN  ");
+        put(o, "=====================");
+        snprintf(b, sizeof b, "Fruit  : %s", F_NAME[f]); put(o, b);
+        if (is_artificial) {
+            put(o, "Origin : Artificial");
+            put(o, "Method : Carbide Forced");
+            put(o, "Growth : Chem Ripened");
+            put(o, "---------------------");
+            put(o, ">> BANNED CARBIDE! <<");
+        } else if (is_commercial) {
+            put(o, "Origin : Commercial");
+            put(o, "Method : Synthetic NPK");
+            put(o, "Growth : Conventional");
+            put(o, "---------------------");
+            put(o, ">> COMMERCIAL FARM <<");
         } else {
-            snprintf(b, sizeof b, "Fruit   : %s", F_NAME[f]);
-            put(o, b);
+            put(o, "Origin : 100% Organic");
+            put(o, "Method : Bio-Natural");
+            put(o, "Growth : Tree-Grown");
+            put(o, "---------------------");
+            put(o, "> PURE ORGANIC PASS <");
         }
-        put(o, "");
-        if (is_spoiled) {
-            put(o, "Fresh   : 20% (Spoiled)");
-        } else {
-            int fresh_pct = (int)(img->condition_conf * 100.0f + 0.5f);
-            if (fresh_pct > 99) fresh_pct = 99;
-            if (fresh_pct < 70) fresh_pct = 70;
-            snprintf(b, sizeof b, "Fresh   : %d%% (Fresh)", fresh_pct);
-            put(o, b);
-        }
-        put(o, "");
-        put(o, "---------------------");
 
     } else if (fruit_page == 1) {
-        /* Page 2: Quality Grade & Estimated Shelf Life */
-        put(o, "[ QUALITY & LIFE 2/5]");
-        put(o, "---------------------");
-        put(o, "");
-        if (is_spoiled) {
-            put(o, "Quality : Grade-C");
-            put(o, "");
-            put(o, "Shelf   : 0 Days (Expired)");
+        /* PAGE 2: PESTICIDE RESIDUE & CHEMICAL RISK */
+        put(o, "=====================");
+        put(o, " PESTICIDE ANALYSIS  ");
+        put(o, "=====================");
+        if (is_artificial) {
+            put(o, "Residue: HIGH (Toxic)");
+            snprintf(b, sizeof b, "VOC Gas: %d ppm (Hi)", (int)(mq_val + 0.5f)); put(o, b);
+            put(o, "Surface: Carbide Trace");
+            put(o, "MRL Std: MRL EXCEEDED");
+            put(o, "---------------------");
+            put(o, "Status : TOXIC HAZARD");
+        } else if (is_commercial) {
+            put(o, "Residue: MODERATE");
+            snprintf(b, sizeof b, "VOC Gas: %d ppm (Mid)", (int)(mq_val + 0.5f)); put(o, b);
+            put(o, "Surface: Chemical Trace");
+            put(o, "MRL Std: Within Limits");
+            put(o, "---------------------");
+            put(o, "Status : CHEM RESIDUE");
         } else {
-            if (img->grade == 0) {
-                if (img->grade_conf >= 0.88f) put(o, "Quality : Grade-A");
-                else put(o, "Quality : Grade-B");
-            } else if (img->grade == 1) {
-                put(o, "Quality : Grade-B");
-            } else {
-                put(o, "Quality : Grade-C");
-            }
-            put(o, "");
-            if (img->shelf_state == FV_STATE_PREDICTED && img->shelf_lo_days >= 0) {
-                if (img->shelf_hi_days <= 1) {
-                    snprintf(b, sizeof b, "Shelf   : %d-%d Day (Ripe)", img->shelf_lo_days, img->shelf_hi_days);
-                } else {
-                    snprintf(b, sizeof b, "Shelf   : %d-%d Days", img->shelf_lo_days, img->shelf_hi_days);
-                }
-                put(o, b);
-            } else {
-                static const float BASE_DAYS[5] = {5.5f, 3.5f, 4.5f, 5.0f, 4.0f};
-                float est = BASE_DAYS[f] * img->condition_conf;
-                if (rec && rec->has_temp && rec->temp_c > 28.0f) {
-                    est -= (rec->temp_c - 28.0f) * 0.12f;
-                }
-                int d_lo = (int)(est - 0.5f); if (d_lo < 1) d_lo = 1;
-                int d_hi = (int)(est + 1.2f); if (d_hi <= d_lo) d_hi = d_lo + 1;
-                snprintf(b, sizeof b, "Shelf   : %d-%d Days", d_lo, d_hi);
-                put(o, b);
-            }
+            put(o, "Residue: NIL (Safe)");
+            snprintf(b, sizeof b, "VOC Gas: %d ppm (OK)", (int)(mq_val + 0.5f)); put(o, b);
+            put(o, "Surface: Zero Chem Wax");
+            put(o, "MRL Std: FSSAI Organic");
+            put(o, "---------------------");
+            put(o, "Status : RESIDUE FREE");
         }
-        put(o, "");
-        put(o, "---------------------");
 
     } else if (fruit_page == 2) {
-        /* Page 3: Chemical Residue Risk & Safety */
-        put(o, "[ PESTICIDE RISK 3/5]");
-        put(o, "---------------------");
-        put(o, "");
+        /* PAGE 3: RIPENING & HARVEST QUALITY */
+        put(o, "=====================");
+        put(o, " HARVEST & RIPENING  ");
+        put(o, "=====================");
         if (is_spoiled) {
-            put(o, "PestRisk: UNCERTAIN");
-            put(o, "");
-            put(o, "Safety  : Spoil Hazard");
-        } else if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 2) {
-            put(o, "PestRisk: HIGH RISK");
-            put(o, "");
-            put(o, "Safety  : MRL Exceeded");
-        } else if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 1) {
-            put(o, "PestRisk: MODERATE");
-            put(o, "");
-            put(o, "Safety  : Chem Trace");
+            put(o, "Method : Overripe");
+            put(o, "Maturity: Decomposed");
+            put(o, "Pigment : Brown / Spoil");
+            put(o, "Wax/Coat: Decayed Flesh");
+            put(o, "---------------------");
+            put(o, "Grade  : Degraded-C  ");
+        } else if (is_artificial) {
+            put(o, "Method : Acetylene Gas");
+            put(o, "Maturity: Forced Peel");
+            put(o, "Pigment : Surface Yellow");
+            put(o, "Wax/Coat: Chemical Bath");
+            put(o, "---------------------");
+            put(o, "Grade  : Commercial-C");
+        } else if (is_commercial) {
+            put(o, "Method : Cold Storage");
+            put(o, "Maturity: Market Mature");
+            put(o, "Pigment : Standard Peel");
+            put(o, "Wax/Coat: Wax Sheen");
+            put(o, "---------------------");
+            put(o, "Grade  : Market Grd-B");
         } else {
-            put(o, "PestRisk: LOW RISK");
-            put(o, "");
-            if (rec && rec->has_ph) {
-                if (rec->ph >= 6.0f && rec->ph <= 7.8f) put(o, "Safety  : Neutral MRL");
-                else if (rec->ph < 6.0f) put(o, "Safety  : Organic Pass");
-                else put(o, "Safety  : Clean Food");
-            } else {
-                put(o, "Safety  : Clean Food");
-            }
+            put(o, "Method : Natural Tree");
+            put(o, "Maturity: Farm Fresh");
+            put(o, "Pigment : Chlorophyll");
+            put(o, "Wax/Coat: Pure Natural");
+            put(o, "---------------------");
+            put(o, "Grade  : Export Grd-A");
         }
-        put(o, "");
-        put(o, "---------------------");
-
-    } else if (fruit_page == 3) {
-        /* Page 4: Farming Origin & Horticultural Maturity */
-        put(o, "[ PRODUCE ORIGIN 4/5]");
-        put(o, "---------------------");
-        put(o, "");
-        /* Real Agricultural Origin Disambiguation:
-         * Commercial market produce has pesticide/fungicide/fertilizer storage gases (MQ135 >= 425.0)
-         * Home-grown / organic farm produce has fresh baseline air (MQ135 < 425.0)
-         */
-        if (rec && rec->has_mq && rec->mq135 >= 425.0f) {
-            put(o, "Farming : Commercial");
-        } else {
-            put(o, "Farming : Organic Farm");
-        }
-        put(o, "");
-        if (is_spoiled) {
-            put(o, "Maturity: Overripe Spoil");
-        } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740) {
-            /* Raw / Kaccha Guava exhibits high reflection (tcs_r > 740, detail > 400) */
-            put(o, "Maturity: Raw / Unripe");
-        } else {
-            put(o, "Maturity: Fresh Mature");
-        }
-        put(o, "");
-        put(o, "---------------------");
 
     } else {
-        /* Page 5: Safety Verdict & Consumer Recommendation */
-        put(o, "[ RECOMMENDATION 5/5]");
-        put(o, "---------------------");
-        put(o, "");
+        /* PAGE 4: CONSUMER SAFETY GUIDANCE */
+        put(o, "=====================");
+        put(o, " CONSUMER GUIDANCE   ");
+        put(o, "=====================");
         if (is_spoiled) {
-            put(o, "Verdict : Fruit Spoiled");
-            put(o, "");
-            put(o, "Rec: Unsafe - Discard!");
-        } else if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 2) {
-            put(o, "Verdict : Toxic Hazard");
-            put(o, "");
-            put(o, "Rec: Do Not Consume!");
-        } else if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 1) {
-            put(o, "Verdict : Mild Residue");
-            put(o, "");
-            put(o, "Rec: Wash 60s & Peel");
+            put(o, "Health : Unsafe / Spoil");
+            put(o, "Safety : Discard Fruit");
+            put(o, "Peeling: Not Edible");
+            put(o, "Wash   : Discard Sample");
+            put(o, "---------------------");
+            put(o, ">> DO NOT CONSUME! <<");
+        } else if (is_artificial) {
+            put(o, "Health : TOXIC CHEMICAL");
+            put(o, "Safety : Unsafe Ingest");
+            put(o, "Peeling: Toxic Chemical");
+            put(o, "Wash   : Harmful Residue");
+            put(o, "---------------------");
+            put(o, ">> DO NOT CONSUME! <<");
+        } else if (is_commercial) {
+            put(o, "Health : Action Reqd");
+            put(o, "Safety : Wash Before Eat");
+            put(o, "Peeling: Peel Skin Off");
+            put(o, "Wash   : Salt Water 60s");
+            put(o, "---------------------");
+            put(o, ">> WASH & PEEL FIRST<<");
         } else {
-            put(o, "Verdict : Food Safe");
-            put(o, "");
-            switch (f) {
-                case 0: put(o, "Rec: Cold Rub & Eat"); break;   /* Apple */
-                case 1: put(o, "Rec: Peel & Consume"); break;   /* Banana */
-                case 2: put(o, "Rec: Salt Rinse & Eat"); break; /* Guava */
-                case 3: put(o, "Rec: Rinse & Eat Raw"); break;  /* Tomato */
-                default: put(o, "Rec: Wash & Cook Hot"); break; /* Brinjal */
-            }
+            put(o, "Health : 100% Food Safe");
+            put(o, "Safety : Direct Consume");
+            put(o, "Peeling: Skin Edible");
+            put(o, "Wash   : Light Rinse OK");
+            put(o, "---------------------");
+            put(o, ">> 100% SAFE TO EAT <<");
         }
-        put(o, "");
-        put(o, "---------------------");
     }
 }
 

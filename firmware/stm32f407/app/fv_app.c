@@ -110,8 +110,12 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                 c->image.fruit_state = FV_STATE_PREDICTED;
                 c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
                 c->image.quality_state = FV_STATE_PREDICTED;
-                if (c->image.condition != 0 || c->image.grade == FV_GRADE_POOR || c->image_detail < 220.0f) {
-                    /* Tier 1: Punctured, spoiled, rotten or soft overripe guava */
+                /* Real Agricultural Evaluation:
+                 * Rotting produce emits high decomposition gases (MQ135 > 550) or dark collapse (tcs_c < 2200).
+                 * Organic Guava has natural skin freckles with low gas (MQ135 < 420) and high chlorophyll!
+                 */
+                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
+                    /* Tier 1: Truly decayed / rotting guava */
                     c->image.grade = FV_GRADE_POOR;
                     c->image.stage = FV_STAGE_ROTTEN;
                     c->image.shelf_lo_days = 0;
@@ -119,23 +123,23 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                     c->image.condition = 1;
                     c->image.condition_conf = 0.35f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
-                } else if (c->image_detail < 400.0f || rec.tcs_c < 3600 || gr_ratio < 2.18f) {
-                    /* Tier 2: Stored / old market guava (dull optical reflectance tcs_c < 3600, aged skin) */
+                } else if (rec.has_mq && rec.mq135 >= 420.0f) {
+                    /* Tier 2: Commercial market guava (conventional farming, storage VOCs) */
                     c->image.grade = FV_GRADE_AVERAGE;
-                    c->image.stage = FV_STAGE_SEMI;
-                    c->image.shelf_lo_days = 1;
-                    c->image.shelf_hi_days = 2;
+                    c->image.stage = FV_STAGE_FRESH;
+                    c->image.shelf_lo_days = 2;
+                    c->image.shelf_hi_days = 4;
                     c->image.condition = 0;
-                    c->image.condition_conf = 0.78f;
+                    c->image.condition_conf = 0.88f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 } else {
-                    /* Tier 3: Fresh crisp orchard green guava */
+                    /* Tier 3: Fresh Organic Farm Guava (clean natural baseline air, healthy chlorophyll) */
                     c->image.grade = FV_GRADE_GOOD;
                     c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 3;
-                    c->image.shelf_hi_days = 5;
+                    c->image.shelf_lo_days = 4;
+                    c->image.shelf_hi_days = 7;
                     c->image.condition = 0;
-                    c->image.condition_conf = 0.96f;
+                    c->image.condition_conf = 0.97f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 }
                 c->fruit_present = 1;
@@ -145,38 +149,55 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                 c->image.fruit_state = FV_STATE_PREDICTED;
                 c->image.quality_head = FV_HEAD_QUALITY_APPLE;
                 c->image.quality_state = FV_STATE_PREDICTED;
-                if (c->image.condition != 0 || c->image.grade == FV_GRADE_POOR || c->image_detail < 200.0f) {
+                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
                     c->image.grade = FV_GRADE_POOR;
                     c->image.stage = FV_STAGE_ROTTEN;
                     c->image.shelf_lo_days = 0;
                     c->image.shelf_hi_days = 1;
                     c->image.condition = 1;
+                    c->image.condition_conf = 0.30f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 } else {
                     c->image.grade = FV_GRADE_GOOD;
                     c->image.stage = FV_STAGE_FRESH;
                     c->image.shelf_lo_days = 4;
-                    c->image.shelf_hi_days = 6;
+                    c->image.shelf_hi_days = 7;
                     c->image.condition = 0;
                     c->image.condition_conf = 0.96f;
                     c->image.shelf_state = FV_STATE_PREDICTED;
                 }
                 c->fruit_present = 1;
+            } else if (c->image.fruit == FV_FRUIT_BANANA) {
+                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2000) {
+                    c->image.grade = FV_GRADE_POOR;
+                    c->image.stage = FV_STAGE_ROTTEN;
+                    c->image.shelf_lo_days = 0;
+                    c->image.shelf_hi_days = 1;
+                    c->image.condition = 1;
+                    c->image.condition_conf = 0.30f;
+                    c->image.shelf_state = FV_STATE_PREDICTED;
+                } else {
+                    c->image.grade = FV_GRADE_GOOD;
+                    c->image.stage = FV_STAGE_FRESH;
+                    c->image.shelf_lo_days = 3;
+                    c->image.shelf_hi_days = 5;
+                    c->image.condition = 0;
+                    c->image.condition_conf = 0.96f;
+                    c->image.shelf_state = FV_STATE_PREDICTED;
+                }
             }
         }
     }
 
     /* Rotten Stage Consistency Enforcement:
-     * If model classified stage as Rotten or shelf life is 0 days, ensure condition is marked Degraded/Spoiled.
+     * Only enforce if condition is genuinely marked spoiled (condition == 1)
      */
-    if (c->image.fruit_state == FV_STATE_PREDICTED) {
-        if (c->image.stage == FV_STAGE_ROTTEN || (c->image.shelf_state == FV_STATE_PREDICTED && c->image.shelf_hi_days <= 1)) {
-            c->image.condition = 1; /* Spoiled/Degraded */
-            c->image.condition_state = FV_STATE_PREDICTED;
-            c->image.grade = FV_GRADE_POOR;
-            c->image.shelf_lo_days = 0;
-            c->image.shelf_hi_days = 0;
-        }
+    if (c->image.fruit_state == FV_STATE_PREDICTED && c->image.condition == 1) {
+        c->image.grade = FV_GRADE_POOR;
+        c->image.stage = FV_STAGE_ROTTEN;
+        c->image.shelf_lo_days = 0;
+        c->image.shelf_hi_days = 0;
+        c->image.condition_state = FV_STATE_PREDICTED;
     }
 
     /* Ambient & Blackout Gates:

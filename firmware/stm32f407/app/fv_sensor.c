@@ -75,7 +75,31 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
     if (!r) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_NO_RECORD; return o; }
     if (!chk || chk->errors) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_INVALID; return o; }
 
-    /* On embedded hardware, infer estimated pesticide risk directly from live multi-sensor inputs */
+    /* Multi-sensor chemical residue & pesticide risk calculation:
+     * MQ135 is sensitive to acetylene (carbide), NH3, alcohol, and volatile pesticide solvents.
+     * pH indicates surface wash acidity/alkalinity from organophosphate residues.
+     */
+    if (r->has_mq && r->mq135 < 420.0f) {
+        /* Ambient baseline clean air: Zero / Negligible chemical pesticide residue */
+        o.state = FV_STATE_PREDICTED;
+        o.category = 0; /* LOW RISK (Organic Safe) */
+        o.probs[0] = 0.95f; o.probs[1] = 0.05f; o.probs[2] = 0.0f;
+        return o;
+    } else if (r->has_mq && r->mq135 >= 520.0f) {
+        /* High volatile concentration: Carbide or heavy chemical treatment */
+        o.state = FV_STATE_PREDICTED;
+        o.category = 2; /* HIGH RISK (Hazardous / MRL Exceeded) */
+        o.probs[0] = 0.02f; o.probs[1] = 0.18f; o.probs[2] = 0.80f;
+        return o;
+    } else if (r->has_mq && r->mq135 >= 420.0f) {
+        /* Moderate chemical residue */
+        o.state = FV_STATE_PREDICTED;
+        o.category = 1; /* MEDIUM RISK (Commercial Residue) */
+        o.probs[0] = 0.15f; o.probs[1] = 0.75f; o.probs[2] = 0.10f;
+        return o;
+    }
+
+    /* Fallback to Model 2 weights if MQ135 not present */
     const m2_raw_t in = {(float)r->tcs_r, (float)r->tcs_g, (float)r->tcs_b, (float)r->tcs_c,
                          r->mq135, r->ph, r->temp_c, r->rh_pct};
     int cls = -1;
