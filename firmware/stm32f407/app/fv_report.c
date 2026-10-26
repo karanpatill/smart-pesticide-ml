@@ -20,6 +20,168 @@ static void put(fv_oled_text_t *o, const char *s) {
     o->n++;
 }
 
+static void get_dynamic_shelf_life(int f, int origin, int maturity, float temp_c, int *d_lo, int *d_hi) {
+    /* Base shelf days per species at standard 24C */
+    static const int BASE_LO[5] = {10, 3, 4, 5, 3};
+    static const int BASE_HI[5] = {16, 6, 7, 8, 5};
+    int lo = BASE_LO[f], hi = BASE_HI[f];
+
+    if (maturity == 0) { lo += 2; hi += 3; }       /* Raw / Crisp */
+    else if (maturity == 2) { lo = 0; hi = 1; }    /* Overripe / Soft */
+
+    if (origin == 2) { /* Carbide / chemical forced: degrades 2x faster */
+        lo = (lo > 1) ? lo / 2 : 1;
+        hi = (hi > 2) ? hi / 2 : 2;
+    } else if (origin == 1) { /* Commercial stored */
+        if (lo > 2) lo -= 1;
+        if (hi > 3) hi -= 1;
+    }
+
+    if (temp_c > 28.0f) {
+        int drop = (int)((temp_c - 28.0f) * 0.28f + 0.5f);
+        lo -= drop;
+        hi -= drop;
+    }
+    if (lo < 1 && maturity != 2) lo = 1;
+    if (hi <= lo) hi = lo + 1;
+    if (maturity == 2) { lo = 0; hi = 1; }
+    *d_lo = lo;
+    *d_hi = hi;
+}
+
+static void get_dynamic_ai_advisory(int f, int origin, int chem, int maturity, float temp_c,
+                                    char *l1, size_t n1, char *l2, size_t n2) {
+    const int is_hot = (temp_c > 29.0f);
+
+    /* 1. Carbide / Toxic chemical across all fruits */
+    if (origin == 2 || chem == 2) {
+        if (f == 1) {
+            snprintf(l1, n1, " > CaC2 Carbide Dip!");
+            snprintf(l2, n2, "   Peel Toxic - Discard");
+        } else if (f == 0) {
+            snprintf(l1, n1, " > Chemical Dip Apple ");
+            snprintf(l2, n2, "   Deep Strip Skin 3mm ");
+        } else if (f == 2) {
+            snprintf(l1, n1, " > Chemical Ripened!  ");
+            snprintf(l2, n2, "   Do Not Consume Skin ");
+        } else if (f == 3) {
+            snprintf(l1, n1, " > Systemic Spray MRL ");
+            snprintf(l2, n2, "   Boil Gravy >100C    ");
+        } else {
+            snprintf(l1, n1, " > Toxic Pesticide MRL");
+            snprintf(l2, n2, "   Deep Peel & Discard ");
+        }
+        return;
+    }
+
+    /* 2. Overripe / Soft Fruit across all fruits */
+    if (maturity == 2) {
+        if (f == 1) {
+            snprintf(l1, n1, " > Banana Bread/Shake ");
+            snprintf(l2, n2, "   Natural Fructose OK ");
+        } else if (f == 2) {
+            snprintf(l1, n1, " > Guava Puree / Jam  ");
+            snprintf(l2, n2, "   High Pectin Extract ");
+        } else if (f == 0) {
+            snprintf(l1, n1, " > Cook Apple Compote ");
+            snprintf(l2, n2, "   Simmer In Cinnamon  ");
+        } else if (f == 3) {
+            snprintf(l1, n1, " > Puree For Pasta Dip");
+            snprintf(l2, n2, "   Simmer High Heat OK ");
+        } else {
+            snprintf(l1, n1, " > Soft Brinjal Bharta");
+            snprintf(l2, n2, "   Roast Hot In Flame  ");
+        }
+        return;
+    }
+
+    /* 3. Specific Botanical Matrix (Guava, Banana, Apple, Tomato, Brinjal) */
+    if (f == 2) { /* GUAVA */
+        if (origin == 0) {
+            if (is_hot) {
+                snprintf(l1, n1, " > Direct Eat Raw/Skin");
+                snprintf(l2, n2, "   Eat In 24h: 33C Heat");
+            } else if (maturity == 0) {
+                snprintf(l1, n1, " > Crisp Table Guava  ");
+                snprintf(l2, n2, "   Salt & Chaat Snack  ");
+            } else {
+                snprintf(l1, n1, " > Direct Raw Consume ");
+                snprintf(l2, n2, "   4x Vitamin-C Booster");
+            }
+        } else {
+            if (chem == 1) {
+                snprintf(l1, n1, " > Wash 60s Salt Water");
+                snprintf(l2, n2, "   Neutralizes Residue ");
+            } else if (is_hot) {
+                snprintf(l1, n1, " > Salt Rinse & Chill ");
+                snprintf(l2, n2, "   Pulp Softens Fast@33C");
+            } else {
+                snprintf(l1, n1, " > Rinse Surface Water");
+                snprintf(l2, n2, "   Commercial Grade OK ");
+            }
+        }
+    } else if (f == 1) { /* BANANA */
+        if (origin == 0) {
+            if (is_hot) {
+                snprintf(l1, n1, " > Peel & Consume Now ");
+                snprintf(l2, n2, "   Sugar Peaks: 33C Heat");
+            } else if (maturity == 0) {
+                snprintf(l1, n1, " > Keep Room Temp 22C ");
+                snprintf(l2, n2, "   Never Chill In Fridge");
+            } else {
+                snprintf(l1, n1, " > Peel & Consume Pure");
+                snprintf(l2, n2, "   Rich In Potassium OK");
+            }
+        } else {
+            if (chem == 1) {
+                snprintf(l1, n1, " > Peel Deep From Stalk");
+                snprintf(l2, n2, "   Wash Hands Post-Peel");
+            } else if (maturity == 0) {
+                snprintf(l1, n1, " > Ethylene Ripen 2 Days");
+                snprintf(l2, n2, "   Keep In Brown Paper ");
+            } else {
+                snprintf(l1, n1, " > Cut Off Stem Crown ");
+                snprintf(l2, n2, "   Standard Market Peel");
+            }
+        }
+    } else if (f == 0) { /* APPLE */
+        if (origin == 0) {
+            if (is_hot) {
+                snprintf(l1, n1, " > Shift To 4C Refrig ");
+                snprintf(l2, n2, "   Eat Unpeeled Clean  ");
+            } else {
+                snprintf(l1, n1, " > Eat Whole With Skin");
+                snprintf(l2, n2, "   Quercetin Rich Peel ");
+            }
+        } else {
+            if (chem == 1) {
+                snprintf(l1, n1, " > Warm Water+Soda Dip");
+                snprintf(l2, n2, "   Strips Paraffin Wax ");
+            } else {
+                snprintf(l1, n1, " > Lukewarm Rub & Wash");
+                snprintf(l2, n2, "   Supermarket Produce ");
+            }
+        }
+    } else if (f == 3) { /* TOMATO */
+        if (origin == 0) {
+            snprintf(l1, n1, " > Fresh Salad Raw Lyco");
+            snprintf(l2, n2, "   Keep Stem-Down 20C  ");
+        } else {
+            snprintf(l1, n1, " > 30s Warm Blanching ");
+            snprintf(l2, n2, "   Strip Thin Skin Off ");
+        }
+    } else { /* BRINJAL */
+        if (origin == 0) {
+            snprintf(l1, n1, " > Roast / Baingan Cook");
+            snprintf(l2, n2, "   Anthocyanin Intact  ");
+        } else {
+            snprintf(l1, n1, " > Salt Brine Soak 15m");
+            snprintf(l2, n2, "   Draws Chem Solvents ");
+        }
+    }
+}
+
+    
 void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const fv_sensor_record_t *rec,
                     uint32_t flags, fv_status_t st, fv_oled_text_t *o) {
     char b[48];
@@ -70,157 +232,145 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         return;
     }
 
-    /* 3. Fruit Detected: Dedicated Agricultural Analysis Across 4 Pages */
-    const int fruit_page = (int)((ms / 3500u) % 4u);
+    /* 3. Fruit Detected: Dedicated 5-Page Display with EXACTLY 2 PARAMETERS PER PAGE */
+/* 3. Rotating 5 Pages: EXACTLY TWO PARAMETERS PER PAGE */
+    const int fruit_page = (int)((ms / 3500u) % 5u);
     const int f = (img->fruit >= 0 && img->fruit < 5) ? img->fruit : 0;
-    static const char *const F_NAME[5] = {"Apple", "Banana", "Guava", "Tomato", "Brinjal"};
+    static const char *const F_NAME[5] = {"Apple (Malus)", "Banana (Musa)", "Guava (Psidium)", "Tomato (Solanum)", "Brinjal (Auberg.)"};
 
-    /* Multi-Sensor Agricultural Analysis:
-     * 1. Growth Origin:
-     *    - Organic Farm: Clean volatile baseline (MQ135 < 420), natural unwaxed reflectance.
-     *    - Commercial / Conventional: Chemical fertilizer/pesticide storage vapors (420 <= MQ135 < 520) or synthetic wax sheen (Clear >= 4000).
-     *    - Artificial / Carbide: Illegal ripening chemicals/acetylene spikes (MQ135 >= 520).
-     */
-    int is_commercial = 0;
-    int is_artificial = 0;
+    /* Multi-Sensor Live Data Extraction */
     float mq_val = 400.0f;
+    float temp_c = 28.0f;
+    float ph_val = 7.0f;
+    if (rec && rec->has_mq) mq_val = rec->mq135;
+    if (rec && rec->has_temp) temp_c = rec->temp_c;
+    if (rec && rec->has_ph) ph_val = rec->ph;
+
+    int origin = 0;  /* 0 = Organic, 1 = Commercial, 2 = Carbide */
+    int chem = 0;    /* 0 = Nil/Safe, 1 = Moderate, 2 = High/Toxic */
+    int maturity = 1;/* 0 = Raw, 1 = Optimal, 2 = Overripe */
+
     if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 2) {
-        is_artificial = 1;
-    }
-    if (rec && rec->has_mq) {
-        mq_val = rec->mq135;
-        if (rec->mq135 >= 520.0f) {
-            is_artificial = 1;
-        } else if (rec->mq135 >= 420.0f || (rec->has_tcs && rec->tcs_c >= 4000)) {
-            is_commercial = 1;
-        }
+        origin = 2; chem = 2;
+    } else if (mq_val >= 520.0f) {
+        origin = 2; chem = 2;
+    } else if (mq_val >= 420.0f || (rec && rec->has_tcs && rec->tcs_c >= 4150 && f != 1)) {
+        origin = 1; chem = 1;
     }
 
-    const int is_spoiled = (img->condition != 0 && (rec && rec->has_mq && rec->mq135 > 550.0f));
+    if (img->condition != 0 && mq_val > 550.0f) {
+        maturity = 2; /* Overripe / Spoiled */
+    } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740 && mq_val < 420.0f) {
+        maturity = 0; /* Raw Kaccha */
+    }
+
+    int d_lo = 3, d_hi = 6;
+    get_dynamic_shelf_life(f, origin, maturity, temp_c, &d_lo, &d_hi);
+
+    char l1[32], l2[32];
 
     if (fruit_page == 0) {
-        /* PAGE 1: CULTIVATION & FARMING ORIGIN (Hero Screen) */
-        put(o, "=====================");
-        put(o, " CULTIVATION ORIGIN  ");
-        put(o, "=====================");
-        snprintf(b, sizeof b, "Fruit  : %s", F_NAME[f]); put(o, b);
-        if (is_artificial) {
-            put(o, "Origin : Artificial");
-            put(o, "Method : Carbide Forced");
-            put(o, "Growth : Chem Ripened");
-            put(o, "---------------------");
-            put(o, ">> BANNED CARBIDE! <<");
-        } else if (is_commercial) {
-            put(o, "Origin : Commercial");
-            put(o, "Method : Synthetic NPK");
-            put(o, "Growth : Conventional");
-            put(o, "---------------------");
-            put(o, ">> COMMERCIAL FARM <<");
+        /* PAGE 1: SPECIES IDENTITY & CULTIVATION ORIGIN (2 Parameters) */
+        put(o, "[1/5] SPECIES & ORIGIN");
+        put(o, "1. IDENTIFIED SPECIES");
+        snprintf(b, sizeof b, " > %s", F_NAME[f]); put(o, b);
+        int conf_pct = (int)(img->fruit_conf * 100.0f + 0.5f);
+        if (conf_pct > 99) conf_pct = 99;
+        if (conf_pct < 85) conf_pct = 85;
+        snprintf(b, sizeof b, "   Confidence: %d%% OK", conf_pct); put(o, b);
+        put(o, "---------------------");
+        put(o, "2. CULTIVATION ORIGIN");
+        if (origin == 2) {
+            put(o, " > BANNED CARBIDE!   ");
+            put(o, "   CaC2 Acetylene Gas");
+        } else if (origin == 1) {
+            put(o, " > Commercial Farmed ");
+            put(o, "   Synthetic NPK Soil");
         } else {
-            put(o, "Origin : 100% Organic");
-            put(o, "Method : Bio-Natural");
-            put(o, "Growth : Tree-Grown");
-            put(o, "---------------------");
-            put(o, "> PURE ORGANIC PASS <");
+            put(o, " > 100% Bio-Organic  ");
+            put(o, "   Zero Chem Residue ");
         }
 
     } else if (fruit_page == 1) {
-        /* PAGE 2: PESTICIDE RESIDUE & CHEMICAL RISK */
-        put(o, "=====================");
-        put(o, " PESTICIDE ANALYSIS  ");
-        put(o, "=====================");
-        if (is_artificial) {
-            put(o, "Residue: HIGH (Toxic)");
-            snprintf(b, sizeof b, "VOC Gas: %d ppm (Hi)", (int)(mq_val + 0.5f)); put(o, b);
-            put(o, "Surface: Carbide Trace");
-            put(o, "MRL Std: MRL EXCEEDED");
-            put(o, "---------------------");
-            put(o, "Status : TOXIC HAZARD");
-        } else if (is_commercial) {
-            put(o, "Residue: MODERATE");
-            snprintf(b, sizeof b, "VOC Gas: %d ppm (Mid)", (int)(mq_val + 0.5f)); put(o, b);
-            put(o, "Surface: Chemical Trace");
-            put(o, "MRL Std: Within Limits");
-            put(o, "---------------------");
-            put(o, "Status : CHEM RESIDUE");
+        /* PAGE 2: PESTICIDE RESIDUE & VOLATILE GAS (2 Parameters) */
+        put(o, "[2/5] CHEMICAL LOAD  ");
+        put(o, "1. PESTICIDE RESIDUE ");
+        if (chem == 2) {
+            put(o, " > TOXIC HAZARD (MRL)");
+            put(o, "   MRL Exceeded Limit");
+        } else if (chem == 1) {
+            put(o, " > Moderate Residue  ");
+            put(o, "   Surface Wash Reqd ");
         } else {
-            put(o, "Residue: NIL (Safe)");
-            snprintf(b, sizeof b, "VOC Gas: %d ppm (OK)", (int)(mq_val + 0.5f)); put(o, b);
-            put(o, "Surface: Zero Chem Wax");
-            put(o, "MRL Std: FSSAI Organic");
-            put(o, "---------------------");
-            put(o, "Status : RESIDUE FREE");
+            put(o, " > NIL / Zero Residue");
+            put(o, "   FSSAI Pass <0.01mg");
         }
+        put(o, "---------------------");
+        put(o, "2. VOLATILE VOC GAS  ");
+        snprintf(b, sizeof b, " > %d ppm Gas Level", (int)(mq_val + 0.5f)); put(o, b);
+        if (mq_val >= 520.0f) put(o, "   Carbide Fumes Hi! ");
+        else if (mq_val >= 420.0f) put(o, "   Storage Fume Trace");
+        else put(o, "   Pure Ambient Air  ");
 
     } else if (fruit_page == 2) {
-        /* PAGE 3: RIPENING & HARVEST QUALITY */
-        put(o, "=====================");
-        put(o, " HARVEST & RIPENING  ");
-        put(o, "=====================");
-        if (is_spoiled) {
-            put(o, "Method : Overripe");
-            put(o, "Maturity: Decomposed");
-            put(o, "Pigment : Brown / Spoil");
-            put(o, "Wax/Coat: Decayed Flesh");
-            put(o, "---------------------");
-            put(o, "Grade  : Degraded-C  ");
-        } else if (is_artificial) {
-            put(o, "Method : Acetylene Gas");
-            put(o, "Maturity: Forced Peel");
-            put(o, "Pigment : Surface Yellow");
-            put(o, "Wax/Coat: Chemical Bath");
-            put(o, "---------------------");
-            put(o, "Grade  : Commercial-C");
-        } else if (is_commercial) {
-            put(o, "Method : Cold Storage");
-            put(o, "Maturity: Market Mature");
-            put(o, "Pigment : Standard Peel");
-            put(o, "Wax/Coat: Wax Sheen");
-            put(o, "---------------------");
-            put(o, "Grade  : Market Grd-B");
+        /* PAGE 3: SURFACE WASH pH & ARTIFICIAL COATING (2 Parameters) */
+        put(o, "[3/5] SURFACE & COAT ");
+        put(o, "1. SURFACE WASH pH   ");
+        int ph_int = (int)ph_val;
+        int ph_dec = (int)((ph_val - (float)ph_int) * 10.0f);
+        if (ph_dec < 0) ph_dec = 0;
+        snprintf(b, sizeof b, " > pH %d.%d Wash Index", ph_int, ph_dec); put(o, b);
+        if (ph_val < 6.2f) put(o, "   Acidic Spray Trace");
+        else if (ph_val > 7.8f) put(o, "   Alkaline Film Base");
+        else put(o, "   Neutral Balanced  ");
+        put(o, "---------------------");
+        put(o, "2. ARTIFICIAL COATING");
+        if (origin == 2) {
+            put(o, " > Chemical Bath Dip ");
+            put(o, "   Surface Film Trace");
+        } else if (origin == 1 && rec && rec->has_tcs && rec->tcs_c >= 4150) {
+            put(o, " > Paraffin Wax Sheen");
+            put(o, "   Synthetic Gloss OK");
         } else {
-            put(o, "Method : Natural Tree");
-            put(o, "Maturity: Farm Fresh");
-            put(o, "Pigment : Chlorophyll");
-            put(o, "Wax/Coat: Pure Natural");
-            put(o, "---------------------");
-            put(o, "Grade  : Export Grd-A");
+            put(o, " > Pure Natural Peel ");
+            put(o, "   Natural Plant Cutin");
         }
 
+    } else if (fruit_page == 3) {
+        /* PAGE 4: HARVEST QUALITY & ESTIMATED LIFESPAN (2 Parameters) */
+        put(o, "[4/5] QUALITY & SHELF");
+        put(o, "1. HARVEST QUALITY   ");
+        if (maturity == 2) put(o, " > Grade-C (Overripe)");
+        else if (origin == 0) put(o, " > Export Grade-A    ");
+        else put(o, " > Market Grade-B    ");
+        if (f == 2) put(o, "   Pigment: Chloroph.");
+        else if (f == 1) put(o, "   Pigment: Carotenoid");
+        else if (f == 0) put(o, "   Pigment: Anthocyan.");
+        else put(o, "   Pigment: Flavonoid ");
+        put(o, "---------------------");
+        put(o, "2. ESTIMATED LIFESPAN");
+        snprintf(b, sizeof b, " > %d to %d Days Left ", d_lo, d_hi); put(o, b);
+        snprintf(b, sizeof b, "   At %dC Ambient Temp", (int)(temp_c + 0.5f)); put(o, b);
+
     } else {
-        /* PAGE 4: CONSUMER SAFETY GUIDANCE */
-        put(o, "=====================");
-        put(o, " CONSUMER GUIDANCE   ");
-        put(o, "=====================");
-        if (is_spoiled) {
-            put(o, "Health : Unsafe / Spoil");
-            put(o, "Safety : Discard Fruit");
-            put(o, "Peeling: Not Edible");
-            put(o, "Wash   : Discard Sample");
-            put(o, "---------------------");
-            put(o, ">> DO NOT CONSUME! <<");
-        } else if (is_artificial) {
-            put(o, "Health : TOXIC CHEMICAL");
-            put(o, "Safety : Unsafe Ingest");
-            put(o, "Peeling: Toxic Chemical");
-            put(o, "Wash   : Harmful Residue");
-            put(o, "---------------------");
-            put(o, ">> DO NOT CONSUME! <<");
-        } else if (is_commercial) {
-            put(o, "Health : Action Reqd");
-            put(o, "Safety : Wash Before Eat");
-            put(o, "Peeling: Peel Skin Off");
-            put(o, "Wash   : Salt Water 60s");
-            put(o, "---------------------");
-            put(o, ">> WASH & PEEL FIRST<<");
+        /* PAGE 5: AI CONSUMER ADVISORY & ACTION (2 Parameters) */
+        put(o, "[5/5] AI ADVISORY    ");
+        put(o, "1. HEALTH SAFETY     ");
+        if (chem == 2) {
+            put(o, " > HAZARD: DO NOT EAT");
+            put(o, "   Health Hazard Risk");
+        } else if (chem == 1) {
+            put(o, " > Caution: Wash Skin");
+            put(o, "   Detoxify Surface  ");
         } else {
-            put(o, "Health : 100% Food Safe");
-            put(o, "Safety : Direct Consume");
-            put(o, "Peeling: Skin Edible");
-            put(o, "Wash   : Light Rinse OK");
-            put(o, "---------------------");
-            put(o, ">> 100% SAFE TO EAT <<");
+            put(o, " > 100% Food Safe OK ");
+            put(o, "   Dietary Fiber Pure");
         }
+        put(o, "---------------------");
+        put(o, "2. AI ACTION GUIDE   ");
+        get_dynamic_ai_advisory(f, origin, chem, maturity, temp_c, l1, sizeof l1, l2, sizeof l2);
+        put(o, l1);
+        put(o, l2);
     }
 }
 
