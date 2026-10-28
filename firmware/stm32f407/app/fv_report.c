@@ -346,11 +346,19 @@ int fv_report_serial(const fv_image_result_t *img, const fv_risk_t *risk, const 
     if (!buf || n == 0) return -1;
     const int has = img && img->fruit_state == FV_STATE_PREDICTED;
     int k = snprintf(buf, n,
-                     "FV1,status=%s,img_flags=0x%lx,fruit=%s,fruit_pm=%d,fruit_st=%s,cond=%s,cond_pm=%d,"
+                     "FV1,status=%s,img_flags=0x%lx,fruit=%s,fruit_pm=%d,"
+                     "f_probs=[%d,%d,%d,%d,%d],"
+                     "fruit_st=%s,cond=%s,cond_pm=%d,"
                      "grade=%s,grade_st=%s,shelf=%d-%d,shelf_st=%s,stage=%s,cons=0x%lx,risk=%s,risk_st=%s,"
                      "risk_reasons=0x%lx,sens_err=0x%lx,sens_warn=0x%lx,ood=0x%x\r\n",
                      fv_status_name(st), (unsigned long)flags, has ? FV_FRUIT_LABELS[img->fruit] : "-",
-                     has ? permille(img->fruit_conf) : -1, img ? fv_state_name(img->fruit_state) : "UNAVAILABLE",
+                     has ? permille(img->fruit_conf) : -1,
+                     img ? permille(img->fruit_probs[0]) : 0,
+                     img ? permille(img->fruit_probs[1]) : 0,
+                     img ? permille(img->fruit_probs[2]) : 0,
+                     img ? permille(img->fruit_probs[3]) : 0,
+                     img ? permille(img->fruit_probs[4]) : 0,
+                     img ? fv_state_name(img->fruit_state) : "UNAVAILABLE",
                      has ? FV_CONDITION_LABELS[img->condition] : "-", has ? permille(img->condition_conf) : -1,
                      (has && img->quality_state == FV_STATE_PREDICTED) ? GRADE[img->grade] : "-",
                      img ? fv_state_name(img->quality_state) : "UNAVAILABLE",

@@ -13,10 +13,10 @@ int fv_presence_apply(fv_image_result_t *r, float image_detail) {
         r->consistency = (r->consistency & FV_CONS_R1_LOW_FRUIT_CONF) | FV_CONS_NO_FRUIT;
         return 0;
     }
-    /* Presence Gate: Fruit is confirmed present if model confidence >= 0.45f.
-     * Real fruits on camera obtain 48-95% confidence under room lighting.
+    /* Presence Gate: Fruit is confirmed present if model confidence >= 0.28f.
+     * In a 5-class network, uniform noise is 0.20; >0.28 indicates active produce detection.
      * Hands/fingers are biometrically rejected by fv_image_check() skin signature. */
-    if (r->fruit_conf >= 0.45f) {
+    if (r->fruit_conf >= 0.28f) {
         return 1;
     }
     r->fruit_state = r->condition_state = r->quality_state = r->shelf_state = FV_STATE_UNCERTAIN;

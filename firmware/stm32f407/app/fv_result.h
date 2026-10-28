@@ -34,6 +34,7 @@ typedef struct {
     fv_state_t fruit_state;
     int8_t fruit;            /* fv_fruit_t */
     float fruit_conf;        /* uncalibrated softmax */
+    float fruit_probs[5];    /* softmax permille/prob for each of the 5 fruits */
     fv_state_t condition_state;
     int8_t condition;        /* 0 fresh, 1 spoiled */
     float condition_conf;

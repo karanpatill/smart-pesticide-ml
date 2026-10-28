@@ -109,6 +109,24 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
         }
     }
 
+    /* Multi-Sensor Optical Disambiguation for Red Produce:
+     * When Model 1 detects a red round fruit as Apple:
+     * - Real Apple is large (shadows TCS: tcs_c < 3200) with textured skin pores (image_detail >= 250).
+     * - Real Tomato is smaller (tcs_c >= 3500) with ultra-smooth glossy skin (image_detail < 240).
+     */
+    if (c->fruit_present && c->image.fruit == FV_FRUIT_APPLE && (c->camera_status == FV_OK)) {
+        if (rec.has_tcs && rec.tcs_c >= 3500 && c->image_detail < 240.0f) {
+            c->image.fruit = FV_FRUIT_TOMATO;
+            c->image.quality_head = FV_HEAD_STAGE_TOMATO;
+            c->image.stage_head = FV_HEAD_STAGE_TOMATO;
+            const int sk = (c->image.stage >= 0 && c->image.stage < 3) ? c->image.stage : 0;
+            c->image.stage = (int8_t)sk;
+            c->image.shelf_lo_days = FV_SHELF_RANGE_DAYS[FV_FRUIT_TOMATO][sk][0];
+            c->image.shelf_hi_days = FV_SHELF_RANGE_DAYS[FV_FRUIT_TOMATO][sk][1];
+            c->image.shelf_state = FV_STATE_PREDICTED;
+        }
+    }
+
     /* Peer-Reviewed Optical Dermal Signature Rejection:
      * Human skin: Hemoglobin absorption creates R > G > B with 1.05 <= R/G <= 1.42.
      * Plant tissue NEVER exhibits this signature (Guava/Banana have G > R, Apple has R/G >= 1.45).
