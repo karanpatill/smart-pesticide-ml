@@ -209,7 +209,7 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
 /* 3. Rotating 5 Pages: EXACTLY TWO PARAMETERS PER PAGE */
     const int fruit_page = (int)((ms / 3500u) % 5u);
     const int f = (img->fruit >= 0 && img->fruit < 5) ? img->fruit : 0;
-    static const char *const F_NAME[5] = {"Apple (Malus)", "Banana (Musa)", "Guava (Psidium)", "Tomato (Solanum)", "Brinjal (Auberg.)"};
+    static const char *const F_NAME[5] = {"Apple", "Banana", "Guava", "Tomato", "Brinjal"};
 
     /* Multi-Sensor Live Data Extraction */
     float mq_val = 400.0f;
@@ -276,54 +276,53 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
 
     if (fruit_page == 0) {
         /* PAGE 1: FRUIT SPECIES & AI CONFIDENCE */
-        put(o, "[1/5] SPECIES & CONF ");
-        put(o, "FRUIT:               ");
-        snprintf(b, sizeof b, " > %s", F_NAME[f]); put(o, b);
-        put(o, "---------------------");
-        put(o, "AI CONFIDENCE:       ");
-        snprintf(b, sizeof b, " > %d%% Accuracy", conf_pct); put(o, b);
+        put(o, "-- [1/5] FRUIT ID --");
+        put(o, "Fruit:");
+        snprintf(b, sizeof b, "  %s", F_NAME[f]); put(o, b);
+        put(o, "");
+        put(o, "AI Confidence:");
+        snprintf(b, sizeof b, "  %d%%", conf_pct); put(o, b);
 
     } else if (fruit_page == 1) {
         /* PAGE 2: FRESHNESS & QUALITY */
-        put(o, "[2/5] FRESH & QUALITY");
-        put(o, "FRESHNESS:           ");
-        snprintf(b, sizeof b, " > %d%% Fresh", fresh_pct); put(o, b);
-        put(o, "---------------------");
-        put(o, "QUALITY:             ");
-        snprintf(b, sizeof b, " > %s", qual_str); put(o, b);
+        put(o, "-- [2/5] FRESHNESS -");
+        put(o, "Freshness:");
+        snprintf(b, sizeof b, "  %d%%", fresh_pct); put(o, b);
+        put(o, "");
+        put(o, "Quality:");
+        snprintf(b, sizeof b, "  %s", qual_str); put(o, b);
 
     } else if (fruit_page == 2) {
         /* PAGE 3: SHELF LIFE & PESTICIDE RISK */
-        put(o, "[3/5] SHELF & RISK   ");
-        put(o, "SHELF LIFE:          ");
-        snprintf(b, sizeof b, " > %d Days Left", d_hi); put(o, b);
-        put(o, "---------------------");
-        put(o, "PESTICIDE RISK:      ");
-        if (chem == 2) snprintf(b, sizeof b, " > [HIGH] Hazardous  ");
-        else if (chem == 1) snprintf(b, sizeof b, " > [MOD] Moderate Res");
-        else snprintf(b, sizeof b, " > [LOW] Safe Clean  ");
+        put(o, "-- [3/5] LIFE & RISK");
+        put(o, "Shelf Life:");
+        snprintf(b, sizeof b, "  %d Days", d_hi); put(o, b);
+        put(o, "");
+        put(o, "Pesticide Risk:");
+        if (chem == 2) snprintf(b, sizeof b, "  High (Toxic MRL)");
+        else if (chem == 1) snprintf(b, sizeof b, "  Moderate (Wash)");
+        else snprintf(b, sizeof b, "  Low (Safe Clean)");
         put(o, b);
 
     } else if (fruit_page == 3) {
         /* PAGE 4: NATURAL GROWTH & GROWTH QUALITY */
-        put(o, "[4/5] GROWTH & ORIGIN");
-        put(o, "NATURAL GROWTH:      ");
-        snprintf(b, sizeof b, " > %d%% (Estimated)", nat_growth_pct); put(o, b);
-        put(o, "---------------------");
-        put(o, "GROWTH QUALITY:      ");
-        snprintf(b, sizeof b, " > %s", growth_qual_str); put(o, b);
+        put(o, "-- [4/5] CULTIVATION");
+        put(o, "Natural Growth:");
+        snprintf(b, sizeof b, "  %d%% (Estimated)", nat_growth_pct); put(o, b);
+        put(o, "");
+        put(o, "Growth Quality:");
+        snprintf(b, sizeof b, "  %s", growth_qual_str); put(o, b);
 
     } else {
-        /* PAGE 5: AI RECOMMENDATION & CONSUMER GUIDANCE */
-        put(o, "[5/5] RECOMMENDATION ");
-        put(o, "CONSUMER SAFETY:     ");
-        if (chem == 2) put(o, " > DO NOT CONSUME!   ");
-        else if (chem == 1) put(o, " > Wash Skin First   ");
-        else put(o, " > Safe for Intake   ");
-        put(o, "---------------------");
-        put(o, "RECOMMENDATION:      ");
+        /* PAGE 5: AI RECOMMENDATION */
+        put(o, "-- [5/5] ADVISORY --");
+        put(o, "Recommendation:");
         put(o, l1);
         put(o, l2);
+        put(o, "");
+        if (chem == 2) put(o, "Safety: DO NOT EAT");
+        else if (chem == 1) put(o, "Safety: Wash Reqd");
+        else put(o, "Safety: Safe To Eat");
     }
 }
 
