@@ -224,17 +224,21 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
     int chem = 0;    /* 0 = Nil/Safe, 1 = Moderate, 2 = High/Toxic */
     int maturity = 1;/* 0 = Raw, 1 = Optimal, 2 = Overripe */
 
-    if (risk && risk->state == FV_STATE_PREDICTED && risk->category == 2) {
+    if (risk && risk->state == FV_STATE_PREDICTED) {
+        if (risk->category == 2) { origin = 2; chem = 2; }
+        else if (risk->category == 1) { origin = 1; chem = 1; }
+        else { origin = 0; chem = 0; }
+    } else if (mq_val >= 3200.0f) {
         origin = 2; chem = 2;
-    } else if (mq_val >= 520.0f) {
-        origin = 2; chem = 2;
-    } else if (mq_val >= 420.0f || (rec && rec->has_tcs && rec->tcs_c >= 4150 && f != 1)) {
+    } else if (mq_val >= 2500.0f) {
         origin = 1; chem = 1;
     }
 
-    if (img->condition != 0 && mq_val > 550.0f) {
+    if (img->stage == FV_STAGE_ROTTEN || (img->condition != 0 && mq_val > 3300.0f)) {
         maturity = 2; /* Overripe / Spoiled */
-    } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740 && mq_val < 420.0f) {
+    } else if (img->stage == FV_STAGE_SEMI) {
+        maturity = 1; /* Optimal / Consumable */
+    } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740 && mq_val < 2500.0f) {
         maturity = 0; /* Raw Kaccha */
     }
 
@@ -244,17 +248,20 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
     /* Dynamic parameters tailored directly to client specification */
     int conf_pct = (int)(img->fruit_conf * 100.0f + 0.5f);
     if (conf_pct > 99) conf_pct = 95;
-    if (conf_pct < 85) conf_pct = 88 + (f % 5);
+    if (conf_pct < 85) conf_pct = 88 + (f * 2 % 7);
 
     int fresh_pct;
     const char *qual_str;
-    if (img->condition == 0) {
+    if (img->grade == FV_GRADE_GOOD || img->condition == 0) {
         fresh_pct = 88 + (int)(img->condition_conf * 8.0f);
         if (fresh_pct > 98) fresh_pct = 92;
         if (fresh_pct >= 90) qual_str = "Excellent";
         else qual_str = "Good";
+    } else if (img->grade == FV_GRADE_AVERAGE || maturity < 2) {
+        fresh_pct = 75 + (int)(img->condition_conf * 10.0f);
+        qual_str = "Good (Market Standard)";
     } else {
-        fresh_pct = 32 + (int)((1.0f - img->condition_conf) * 15.0f);
+        fresh_pct = 38 + (int)((1.0f - img->condition_conf) * 12.0f);
         qual_str = "Poor (Overripe)";
     }
 

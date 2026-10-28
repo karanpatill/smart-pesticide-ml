@@ -96,12 +96,11 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
 
     /* Multi-Sensor Fusion & Physical Consistency:
      * Model 1 MobileNet provides camera-based fruit species classification and quality heads.
-     * Sensors validate physical consistency:
-     * - Severe decomposition VOC check: if fruit condition is spoiled or VOC > 550.
+     * Severe decomposition VOC check: only if MQ135 VOC > 3300 ADC counts AND spoiled.
      */
     if (c->fruit_present && (c->image.fruit_state == FV_STATE_PREDICTED) &&
         (c->camera_status == FV_OK) && !(c->image_flags & FV_IC_REJECT_MASK)) {
-        if (rec.has_mq && rec.mq135 > 550.0f && c->image.condition != 0) {
+        if (rec.has_mq && rec.mq135 > 3300.0f && c->image.condition != 0) {
             c->image.grade = FV_GRADE_POOR;
             c->image.stage = FV_STAGE_ROTTEN;
             c->image.shelf_lo_days = 0;
@@ -122,16 +121,6 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
         c->image.fruit = -1;
     }
 
-    /* Rotten Stage Consistency Enforcement:
-     * Only enforce if condition is genuinely marked spoiled (condition == 1)
-     */
-    if (c->image.fruit_state == FV_STATE_PREDICTED && c->image.condition == 1) {
-        c->image.grade = FV_GRADE_POOR;
-        c->image.stage = FV_STAGE_ROTTEN;
-        c->image.shelf_lo_days = 0;
-        c->image.shelf_hi_days = 0;
-        c->image.condition_state = FV_STATE_PREDICTED;
-    }
 
     /* Ambient & Blackout Gates:
      * 1. Empty Tray: Unobstructed ambient room light hits TCS (tcs_c > 4800) and detail is low (< 350.0).

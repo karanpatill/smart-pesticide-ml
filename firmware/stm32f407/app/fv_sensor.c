@@ -80,23 +80,24 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
     const uint32_t crit_errors = chk ? (chk->errors & ~FV_SE_PH_RANGE) : 0;
     if (!chk || crit_errors) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_INVALID; return o; }
 
-    /* Multi-sensor chemical residue & pesticide risk calculation:
-     * MQ135 is sensitive to acetylene (carbide), NH3, alcohol, and volatile pesticide solvents.
-     * pH indicates surface wash acidity/alkalinity from organophosphate residues.
+    /* Multi-sensor chemical residue & pesticide risk calculation (12-bit ADC on PA3):
+     * Ambient clean room air baseline is ~1800 - 2200 ADC counts.
+     * Volatile solvents / commercial treatment: ~2500 - 3200 ADC counts.
+     * Heavy acetylene (carbide) / high toxic gas: >= 3200 ADC counts.
      */
-    if (r->has_mq && r->mq135 < 420.0f) {
-        /* Ambient baseline clean air: Zero / Negligible chemical pesticide residue */
+    if (r->has_mq && r->mq135 < 2500.0f) {
+        /* Ambient baseline clean air: Negligible chemical pesticide residue */
         o.state = FV_STATE_PREDICTED;
         o.category = 0; /* LOW RISK (Organic Safe) */
         o.probs[0] = 0.95f; o.probs[1] = 0.05f; o.probs[2] = 0.0f;
         return o;
-    } else if (r->has_mq && r->mq135 >= 520.0f) {
-        /* High volatile concentration: Carbide or heavy chemical treatment */
+    } else if (r->has_mq && r->mq135 >= 3200.0f && !(chk && (chk->warnings & FV_SW_MQ_WARMUP_SHORT))) {
+        /* High volatile concentration: Carbide or heavy chemical treatment (warm sensor) */
         o.state = FV_STATE_PREDICTED;
         o.category = 2; /* HIGH RISK (Hazardous / MRL Exceeded) */
         o.probs[0] = 0.02f; o.probs[1] = 0.18f; o.probs[2] = 0.80f;
         return o;
-    } else if (r->has_mq && r->mq135 >= 420.0f) {
+    } else if (r->has_mq) {
         /* Moderate chemical residue */
         o.state = FV_STATE_PREDICTED;
         o.category = 1; /* MEDIUM RISK (Commercial Residue) */
