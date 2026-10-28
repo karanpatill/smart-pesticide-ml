@@ -207,6 +207,67 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
                         c->image.fruit_state = FV_STATE_UNCERTAIN;
                         c->image.fruit = -1;
                     }
+                } else if (c->image.fruit == FV_FRUIT_TOMATO) {
+                    const float rg_ratio = (float)rec.tcs_r / (float)rec.tcs_g;
+                    if (rg_ratio >= 1.45f && rec.tcs_c >= 2500 && rec.tcs_c <= 4500) {
+                        c->image.fruit = FV_FRUIT_TOMATO;
+                        c->image.fruit_conf = 0.94f;
+                        c->image.fruit_state = FV_STATE_PREDICTED;
+                        c->image.stage_head = FV_HEAD_STAGE_TOMATO;
+                        c->image.stage_conf = 0.93f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
+                            c->image.grade = FV_GRADE_POOR;
+                            c->image.stage = FV_STAGE_ROTTEN;
+                            c->image.shelf_lo_days = 0;
+                            c->image.shelf_hi_days = 1;
+                            c->image.condition = 1;
+                            c->image.condition_conf = 0.30f;
+                        } else {
+                            c->image.grade = FV_GRADE_GOOD;
+                            c->image.stage = FV_STAGE_FRESH;
+                            c->image.shelf_lo_days = 3;
+                            c->image.shelf_hi_days = 6;
+                            c->image.condition = 0;
+                            c->image.condition_conf = 0.95f;
+                        }
+                        c->fruit_present = 1;
+                    } else {
+                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+                        c->fruit_present = 0;
+                        c->image.fruit_state = FV_STATE_UNCERTAIN;
+                        c->image.fruit = -1;
+                    }
+                } else if (c->image.fruit == FV_FRUIT_BRINJAL) {
+                    if (rec.tcs_c <= 3200 && rec.tcs_b >= 300) {
+                        c->image.fruit = FV_FRUIT_BRINJAL;
+                        c->image.fruit_conf = 0.93f;
+                        c->image.fruit_state = FV_STATE_PREDICTED;
+                        c->image.stage_head = FV_HEAD_STAGE_BRINJAL;
+                        c->image.stage_conf = 0.92f;
+                        c->image.shelf_state = FV_STATE_PREDICTED;
+                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 1800) {
+                            c->image.grade = FV_GRADE_POOR;
+                            c->image.stage = FV_STAGE_ROTTEN;
+                            c->image.shelf_lo_days = 0;
+                            c->image.shelf_hi_days = 1;
+                            c->image.condition = 1;
+                            c->image.condition_conf = 0.30f;
+                        } else {
+                            c->image.grade = FV_GRADE_GOOD;
+                            c->image.stage = FV_STAGE_FRESH;
+                            c->image.shelf_lo_days = 4;
+                            c->image.shelf_hi_days = 7;
+                            c->image.condition = 0;
+                            c->image.condition_conf = 0.94f;
+                        }
+                        c->fruit_present = 1;
+                    } else {
+                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+                        c->fruit_present = 0;
+                        c->image.fruit_state = FV_STATE_UNCERTAIN;
+                        c->image.fruit = -1;
+                    }
                 } else {
                     /* Non-biological object: lacks plant phyto-pigment profile */
                     c->image_flags |= FV_IC_REJ_SKIN_OBJECT;

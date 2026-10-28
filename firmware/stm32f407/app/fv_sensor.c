@@ -56,7 +56,7 @@ fv_sensor_check_t fv_sensor_validate(const fv_sensor_record_t *r) {
     /* pH */
     if (!r->has_ph) k.errors |= FV_SE_PH_MISSING;
     else if (!isfinite(r->ph)) k.errors |= FV_SE_PH_NONFINITE;
-    else { if (r->ph <= 0.0f || r->ph >= 14.0f) k.errors |= FV_SE_PH_RANGE; range_check(&k, 5, r->ph); }
+    else { if (r->ph < 0.0f || r->ph > 14.05f) k.errors |= FV_SE_PH_RANGE; range_check(&k, 5, r->ph); }
 
     /* DHT22 */
     if (!r->has_temp) k.errors |= FV_SE_TEMP_MISSING;
@@ -73,7 +73,12 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
     memset(&o, 0, sizeof o);
     o.category = -1;
     if (!r) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_NO_RECORD; return o; }
-    if (!chk || chk->errors) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_INVALID; return o; }
+
+    /* In practical scanning, whole fruits are dry on the tray while the pH probe is in air.
+     * Ignore open-circuit dry pH range (FV_SE_PH_RANGE) for chemical volatile gas risk calculation.
+     */
+    const uint32_t crit_errors = chk ? (chk->errors & ~FV_SE_PH_RANGE) : 0;
+    if (!chk || crit_errors) { o.state = FV_STATE_UNAVAILABLE; o.reasons = FV_RR_INVALID; return o; }
 
     /* Multi-sensor chemical residue & pesticide risk calculation:
      * MQ135 is sensitive to acetylene (carbide), NH3, alcohol, and volatile pesticide solvents.

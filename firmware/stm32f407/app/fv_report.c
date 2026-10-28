@@ -319,10 +319,15 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         int ph_int = (int)ph_val;
         int ph_dec = (int)((ph_val - (float)ph_int) * 10.0f);
         if (ph_dec < 0) ph_dec = 0;
-        snprintf(b, sizeof b, " > pH %d.%d Wash Index", ph_int, ph_dec); put(o, b);
-        if (ph_val < 6.2f) put(o, "   Acidic Spray Trace");
-        else if (ph_val > 7.8f) put(o, "   Alkaline Film Base");
-        else put(o, "   Neutral Balanced  ");
+        if (ph_val >= 13.5f) {
+            put(o, " > Probe In Air (Dry)");
+            put(o, "   Dip For Wash Test ");
+        } else {
+            snprintf(b, sizeof b, " > pH %d.%d Wash Index", ph_int, ph_dec); put(o, b);
+            if (ph_val < 6.2f) put(o, "   Acidic Spray Trace");
+            else if (ph_val > 7.8f) put(o, "   Alkaline Film Base");
+            else put(o, "   Neutral Balanced  ");
+        }
         put(o, "---------------------");
         put(o, "2. ARTIFICIAL COATING");
         if (origin == 2) {
