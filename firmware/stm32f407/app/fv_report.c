@@ -21,30 +21,38 @@ static void put(fv_oled_text_t *o, const char *s) {
 }
 
 static void get_dynamic_shelf_life(int f, int origin, int maturity, float temp_c, int *d_lo, int *d_hi) {
-    /* Base shelf days per species at standard 24C */
-    static const int BASE_LO[5] = {10, 3, 4, 5, 3};
-    static const int BASE_HI[5] = {16, 6, 7, 8, 5};
+    /* Base shelf days per species at standard 24-28C room temp:
+     * Index: 0=Apple, 1=Banana, 2=Guava, 3=Tomato, 4=Brinjal
+     * Apple: 8 days (room temp, never 16!)
+     * Banana: 4 days (fresh) / 1-2 days (spotted/damaged)
+     * Guava: 5-6 days
+     * Tomato: 6-7 days
+     * Brinjal: 4 days
+     */
+    static const int BASE_LO[5] = {5, 2, 3, 4, 2};
+    static const int BASE_HI[5] = {8, 4, 6, 7, 4};
     int lo = BASE_LO[f], hi = BASE_HI[f];
 
-    if (maturity == 0) { lo += 2; hi += 3; }       /* Raw / Crisp */
-    else if (maturity == 2) { lo = 0; hi = 1; }    /* Overripe / Soft */
+    if (maturity == 0) { lo += 2; hi += 2; }       /* Raw / Crisp */
+    else if (maturity == 2) { lo = 1; hi = 2; }    /* Ripe / Surface Spots / Bruised -> 1 to 2 Days! */
+    else if (maturity == 3) { lo = 0; hi = 1; }    /* Overripe / Rotten -> 0 to 1 Day */
 
     if (origin == 2) { /* Carbide / chemical forced: degrades 2x faster */
-        lo = (lo > 1) ? lo / 2 : 1;
-        hi = (hi > 2) ? hi / 2 : 2;
+        lo = 1; hi = (hi > 2) ? 2 : 1;
     } else if (origin == 1) { /* Commercial stored */
         if (lo > 2) lo -= 1;
         if (hi > 3) hi -= 1;
     }
 
-    if (temp_c > 28.0f) {
-        int drop = (int)((temp_c - 28.0f) * 0.28f + 0.5f);
+    if (temp_c > 30.0f) {
+        int drop = (int)((temp_c - 30.0f) * 0.3f + 0.5f);
         lo -= drop;
         hi -= drop;
     }
-    if (lo < 1 && maturity != 2) lo = 1;
+    if (lo < 1 && maturity != 3) lo = 1;
     if (hi <= lo) hi = lo + 1;
-    if (maturity == 2) { lo = 0; hi = 1; }
+    if (maturity == 2) { lo = 1; hi = 2; }
+    if (maturity == 3) { lo = 0; hi = 1; }
     *d_lo = lo;
     *d_hi = hi;
 }
@@ -234,15 +242,23 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         origin = 1; chem = 1;
     }
 
+    /* Maturity level:
+     * 0 = Raw/Crisp
+     * 1 = Optimal/Fresh
+     * 2 = Spotted / Ripe / Minor Surface Damage (Banana sugar spots, blemish)
+     * 3 = Severe Rot / Overripe Spoiled
+     */
     if (img->stage == FV_STAGE_ROTTEN || (img->condition != 0 && mq_val > 3300.0f)) {
-        maturity = 2; /* Overripe / Spoiled */
+        maturity = 3; /* Severe rot */
+    } else if (img->condition == 1 || img->grade == FV_GRADE_AVERAGE) {
+        maturity = 2; /* Ripe with spots or minor surface damage */
     } else if (img->stage == FV_STAGE_SEMI) {
-        maturity = 1; /* Optimal / Consumable */
+        maturity = 1; /* Optimal */
     } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740 && mq_val < 2500.0f) {
         maturity = 0; /* Raw Kaccha */
     }
 
-    int d_lo = 3, d_hi = 6;
+    int d_lo = 2, d_hi = 5;
     get_dynamic_shelf_life(f, origin, maturity, temp_c, &d_lo, &d_hi);
 
     /* Dynamic parameters tailored directly to client specification */
@@ -252,17 +268,21 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
 
     int fresh_pct;
     const char *qual_str;
-    if (img->grade == FV_GRADE_GOOD || img->condition == 0) {
-        fresh_pct = 88 + (int)(img->condition_conf * 8.0f);
-        if (fresh_pct > 98) fresh_pct = 92;
-        if (fresh_pct >= 90) qual_str = "Excellent";
-        else qual_str = "Good";
-    } else if (img->grade == FV_GRADE_AVERAGE || maturity < 2) {
-        fresh_pct = 75 + (int)(img->condition_conf * 10.0f);
-        qual_str = "Good (Market Standard)";
+    if (maturity == 3) {
+        fresh_pct = 36 + (int)((1.0f - img->condition_conf) * 12.0f);
+        qual_str = "Poor (Rotten)";
+    } else if (maturity == 2) {
+        /* Spotted / Ripe / Blemished: realistic 65-70% freshness */
+        fresh_pct = 65 + (int)((1.0f - img->condition_conf) * 10.0f);
+        if (fresh_pct > 72) fresh_pct = 68;
+        qual_str = "Fair (Ripe/Spotted)";
+    } else if (img->grade == FV_GRADE_GOOD && img->condition == 0) {
+        fresh_pct = 90 + (int)(img->condition_conf * 6.0f);
+        if (fresh_pct > 96) fresh_pct = 92;
+        qual_str = "Excellent";
     } else {
-        fresh_pct = 38 + (int)((1.0f - img->condition_conf) * 12.0f);
-        qual_str = "Poor (Overripe)";
+        fresh_pct = 80 + (int)(img->condition_conf * 8.0f);
+        qual_str = "Good (Market)";
     }
 
     int nat_growth_pct;
