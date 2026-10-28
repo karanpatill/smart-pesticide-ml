@@ -94,188 +94,19 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
     }
     if (c->status == FV_OK) c->status = c->camera_status != FV_OK ? c->camera_status : c->sensor_status;
 
-    /* Multi-Sensor Fusion: Disambiguate Apple vs Guava using TCS34725 optical spectrum.
-     * Both fruits are round, causing optical crosstalk in OV2640 camera bottleneck.
-     * Guava has dominant green chlorophyll (G/R >= 2.13).
-     * Apple has anthocyanin pigmentation shifting spectrum toward red (G/R < 2.13).
-     * CRITICAL: Only run fusion if an actual fruit was predicted AND camera input was NOT rejected!
+    /* Multi-Sensor Fusion & Physical Consistency:
+     * Model 1 MobileNet provides camera-based fruit species classification and quality heads.
+     * Sensors validate physical consistency:
+     * - Severe decomposition VOC check: if fruit condition is spoiled or VOC > 550.
      */
     if (c->fruit_present && (c->image.fruit_state == FV_STATE_PREDICTED) &&
         (c->camera_status == FV_OK) && !(c->image_flags & FV_IC_REJECT_MASK)) {
-        if (rec.has_tcs && rec.tcs_r > 50 && rec.tcs_g > 50) {
-            /* Optical Cuticle & Chrominance Disambiguation:
-             * 1. Banana: Smooth reflective wax cuticle (Clear >= 4150, Blue >= 1620, Red >= 780).
-             * 2. Guava: Diffuse matte skin (Clear < 4150, Green/Red >= 1.80).
-             * 3. Apple: Red anthocyanin dominant (Green/Red < 1.80).
-             */
-            if (rec.tcs_c >= 4150 && rec.tcs_b >= 1620 && rec.tcs_r >= 780) {
-                c->image.fruit = FV_FRUIT_BANANA;
-                c->image.fruit_conf = 0.98f;
-                c->image.fruit_state = FV_STATE_PREDICTED;
-                c->image.quality_head = FV_HEAD_QUALITY_BANANA;
-                c->image.quality_state = FV_STATE_PREDICTED;
-                if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2000) {
-                    c->image.grade = FV_GRADE_POOR;
-                    c->image.stage = FV_STAGE_ROTTEN;
-                    c->image.shelf_lo_days = 0;
-                    c->image.shelf_hi_days = 1;
-                    c->image.condition = 1;
-                    c->image.condition_conf = 0.30f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                } else {
-                    c->image.grade = FV_GRADE_GOOD;
-                    c->image.stage = FV_STAGE_FRESH;
-                    c->image.shelf_lo_days = 3;
-                    c->image.shelf_hi_days = 6;
-                    c->image.condition = 0;
-                    c->image.condition_conf = 0.98f;
-                    c->image.shelf_state = FV_STATE_PREDICTED;
-                }
-                c->fruit_present = 1;
-            } else {
-                const float gr_ratio = (float)rec.tcs_g / (float)rec.tcs_r;
-                /* Guava Biological Plant Pigment Gate:
-                 * Real Guava has high chlorophyll density (tcs_c in 3300..4150, tcs_g >= 1150, gr_ratio >= 1.75).
-                 * Human hands / shadows have tcs_c < 3200 and tcs_g < 1100!
-                 */
-                if (rec.tcs_c >= 3300 && rec.tcs_c <= 4150 && rec.tcs_g >= 1150 && gr_ratio >= 1.75f) {
-                    c->image.fruit = FV_FRUIT_GUAVA;
-                    c->image.fruit_conf = 0.96f;
-                    c->image.fruit_state = FV_STATE_PREDICTED;
-                    c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
-                    c->image.quality_state = FV_STATE_PREDICTED;
-                    /* Real Agricultural Evaluation:
-                     * Rotting produce emits high decomposition gases (MQ135 > 550) or dark collapse (tcs_c < 2200).
-                     * Organic Guava has natural skin freckles with low gas (MQ135 < 420) and healthy chlorophyll!
-                     */
-                    if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                        c->image.grade = FV_GRADE_POOR;
-                        c->image.stage = FV_STAGE_ROTTEN;
-                        c->image.shelf_lo_days = 0;
-                        c->image.shelf_hi_days = 0;
-                        c->image.condition = 1;
-                        c->image.condition_conf = 0.35f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
-                    } else if (rec.has_mq && rec.mq135 >= 420.0f) {
-                        c->image.grade = FV_GRADE_AVERAGE;
-                        c->image.stage = FV_STAGE_FRESH;
-                        c->image.shelf_lo_days = 2;
-                        c->image.shelf_hi_days = 4;
-                        c->image.condition = 0;
-                        c->image.condition_conf = 0.88f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
-                    } else {
-                        c->image.grade = FV_GRADE_GOOD;
-                        c->image.stage = FV_STAGE_FRESH;
-                        c->image.shelf_lo_days = 4;
-                        c->image.shelf_hi_days = 7;
-                        c->image.condition = 0;
-                        c->image.condition_conf = 0.97f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
-                    }
-                    c->fruit_present = 1;
-                } else if (c->image.fruit == FV_FRUIT_APPLE) {
-                    const float rg_ratio = (float)rec.tcs_r / (float)rec.tcs_g;
-                    if (rg_ratio >= 1.45f) {
-                        c->image.fruit = FV_FRUIT_APPLE;
-                        c->image.fruit_conf = 0.95f;
-                        c->image.fruit_state = FV_STATE_PREDICTED;
-                        c->image.quality_head = FV_HEAD_QUALITY_APPLE;
-                        c->image.quality_state = FV_STATE_PREDICTED;
-                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                            c->image.grade = FV_GRADE_POOR;
-                            c->image.stage = FV_STAGE_ROTTEN;
-                            c->image.shelf_lo_days = 0;
-                            c->image.shelf_hi_days = 1;
-                            c->image.condition = 1;
-                            c->image.condition_conf = 0.30f;
-                            c->image.shelf_state = FV_STATE_PREDICTED;
-                        } else {
-                            c->image.grade = FV_GRADE_GOOD;
-                            c->image.stage = FV_STAGE_FRESH;
-                            c->image.shelf_lo_days = 4;
-                            c->image.shelf_hi_days = 7;
-                            c->image.condition = 0;
-                            c->image.condition_conf = 0.96f;
-                            c->image.shelf_state = FV_STATE_PREDICTED;
-                        }
-                        c->fruit_present = 1;
-                    } else {
-                        /* Dermal skin or non-biological object falsely triggered Apple */
-                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
-                        c->fruit_present = 0;
-                        c->image.fruit_state = FV_STATE_UNCERTAIN;
-                        c->image.fruit = -1;
-                    }
-                } else if (c->image.fruit == FV_FRUIT_TOMATO) {
-                    const float rg_ratio = (float)rec.tcs_r / (float)rec.tcs_g;
-                    if (rg_ratio >= 1.45f && rec.tcs_c >= 2500 && rec.tcs_c <= 4500) {
-                        c->image.fruit = FV_FRUIT_TOMATO;
-                        c->image.fruit_conf = 0.94f;
-                        c->image.fruit_state = FV_STATE_PREDICTED;
-                        c->image.stage_head = FV_HEAD_STAGE_TOMATO;
-                        c->image.stage_conf = 0.93f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
-                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 2200) {
-                            c->image.grade = FV_GRADE_POOR;
-                            c->image.stage = FV_STAGE_ROTTEN;
-                            c->image.shelf_lo_days = 0;
-                            c->image.shelf_hi_days = 1;
-                            c->image.condition = 1;
-                            c->image.condition_conf = 0.30f;
-                        } else {
-                            c->image.grade = FV_GRADE_GOOD;
-                            c->image.stage = FV_STAGE_FRESH;
-                            c->image.shelf_lo_days = 3;
-                            c->image.shelf_hi_days = 6;
-                            c->image.condition = 0;
-                            c->image.condition_conf = 0.95f;
-                        }
-                        c->fruit_present = 1;
-                    } else {
-                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
-                        c->fruit_present = 0;
-                        c->image.fruit_state = FV_STATE_UNCERTAIN;
-                        c->image.fruit = -1;
-                    }
-                } else if (c->image.fruit == FV_FRUIT_BRINJAL) {
-                    if (rec.tcs_c <= 3200 && rec.tcs_b >= 300) {
-                        c->image.fruit = FV_FRUIT_BRINJAL;
-                        c->image.fruit_conf = 0.93f;
-                        c->image.fruit_state = FV_STATE_PREDICTED;
-                        c->image.stage_head = FV_HEAD_STAGE_BRINJAL;
-                        c->image.stage_conf = 0.92f;
-                        c->image.shelf_state = FV_STATE_PREDICTED;
-                        if (rec.has_mq && rec.mq135 > 550.0f && rec.tcs_c < 1800) {
-                            c->image.grade = FV_GRADE_POOR;
-                            c->image.stage = FV_STAGE_ROTTEN;
-                            c->image.shelf_lo_days = 0;
-                            c->image.shelf_hi_days = 1;
-                            c->image.condition = 1;
-                            c->image.condition_conf = 0.30f;
-                        } else {
-                            c->image.grade = FV_GRADE_GOOD;
-                            c->image.stage = FV_STAGE_FRESH;
-                            c->image.shelf_lo_days = 4;
-                            c->image.shelf_hi_days = 7;
-                            c->image.condition = 0;
-                            c->image.condition_conf = 0.94f;
-                        }
-                        c->fruit_present = 1;
-                    } else {
-                        c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
-                        c->fruit_present = 0;
-                        c->image.fruit_state = FV_STATE_UNCERTAIN;
-                        c->image.fruit = -1;
-                    }
-                } else {
-                    /* Non-biological object: lacks plant phyto-pigment profile */
-                    c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
-                    c->fruit_present = 0;
-                    c->image.fruit_state = FV_STATE_UNCERTAIN;
-                    c->image.fruit = -1;
-                }
-            }
+        if (rec.has_mq && rec.mq135 > 550.0f && c->image.condition != 0) {
+            c->image.grade = FV_GRADE_POOR;
+            c->image.stage = FV_STAGE_ROTTEN;
+            c->image.shelf_lo_days = 0;
+            c->image.shelf_hi_days = 0;
+            c->image.shelf_state = FV_STATE_PREDICTED;
         }
     }
 

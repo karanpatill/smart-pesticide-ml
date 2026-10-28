@@ -39,20 +39,24 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
             chroma += (double)(fabsf(r - m) + fabsf(g - m) + fabsf(b - m));
             clipped += ((r <= 1.0f || r >= 254.0f) && (g <= 1.0f || g >= 254.0f) && (b <= 1.0f || b >= 254.0f));
 
-            /* Peer-Reviewed Biometric Dermal Classifier (Kovac / Chai-Phung Skin Model):
-             * Human skin: Melanin + Hemoglobin absorption creates a strict cluster.
-             * R > G > B, with R > 65, G > 35, B > 20.
-             * Exclude carotenoid yellow fruits (banana) where (R + G) >= 2.1 * B.
-             * Exclude anthocyanin deep red fruits (apple/tomato) where (R - G) > 80.
+            /* Biometric Dermal Classifier (Kovac / Chai-Phung Skin Model):
+             * Human skin: Melanin + Hemoglobin absorption creates an identifiable cluster in RGB.
+             * R > G > B, with R in [75, 230], G in [45, 180], B in [25, 150].
+             * Exclude fruits:
+             * - Carotenoid yellow (banana): (R + G) >= 2.1 * B.
+             * - Lycopene / Anthocyanin red (apple/tomato): (R - G) > 50 or R >= 1.6 * G.
+             * - Chlorophyll green (guava): G >= R.
+             * - Dark anthocyanin (brinjal): R < 60 && G < 60.
              */
             const int is_carotenoid = (r_i + g_i) >= (21 * b_i) / 10;
-            const int is_pure_red = (r_i - g_i) > 80;
-            if (!is_carotenoid && !is_pure_red &&
-                r_i > 65 && g_i > 35 && b_i > 20 &&
+            const int is_plant_red = (r_i - g_i) > 50 || (r_i * 10u >= g_i * 16u);
+            const int is_dark_produce = (r_i < 60 && g_i < 60);
+            if (!is_carotenoid && !is_plant_red && !is_dark_produce &&
+                r_i > 75 && g_i > 45 && b_i > 25 &&
                 r_i > g_i && g_i > b_i &&
-                (r_i - g_i) >= 10 && (r_i - g_i) <= 75 &&
-                (g_i - b_i) >= 4 && (g_i - b_i) <= 55 &&
-                (r_i - b_i) >= 15) {
+                (r_i - g_i) >= 12 && (r_i - g_i) <= 45 &&
+                (g_i - b_i) >= 6 && (g_i - b_i) <= 40 &&
+                (r_i - b_i) >= 18) {
                 skin_count++;
             }
         }
@@ -60,6 +64,7 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
     const float lmean = (float)lsum_int / (float)N;
     const float bright_fraction = (float)bright_count / (float)N;
     const float skin_fraction = (float)skin_count / (float)N;
+    (void)bright_fraction;
     (void)rsum_int; (void)gsum_int; (void)bsum_int;
     (void)crsum_int; (void)cgsum_int; (void)cbsum_int;
 
@@ -90,10 +95,11 @@ uint32_t fv_image_check(const int8_t *in, fv_image_stats_t *st) {
     if (s.lum_mean > FV_IMG_WARN_LUM_MEAN_ABOVE) f |= FV_IC_WARN_BRIGHT;
     if (s.clipped_fraction > FV_IMG_WARN_CLIPPED_FRACTION_ABOVE) f |= FV_IC_WARN_CLIPPED;
 
-    /* Production-Grade Dermal / Hand / Foreign Object Reject:
-     * Even a single finger or palm edge covering >= 12% of the frame trips rejection.
+    /* Production-Grade Biometric Dermal / Hand Reject:
+     * When a human hand or finger is placed in front of the camera, skin covers a significant portion.
+     * We trigger rejection when skin_fraction >= 0.35f (35% frame area).
      */
-    if ((bright_fraction < 0.18f && lmean < 45.0f) || (skin_fraction >= 0.12f)) {
+    if (skin_fraction >= 0.35f) {
         f |= FV_IC_REJ_SKIN_OBJECT;
     }
     return f;
