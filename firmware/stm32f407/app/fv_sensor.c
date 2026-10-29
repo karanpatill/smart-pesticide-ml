@@ -82,16 +82,16 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
 
     /* Multi-sensor chemical residue & pesticide risk calculation:
      * 1. pH Surface Wash Sensing (when probe is immersed in wash solution: 2.5 <= ph <= 11.5):
-     *    - Clean wash baseline: 6.2 to 7.8 (neutral water).
-     *    - Organophosphate acidic pesticide runoff: ph < 5.5.
-     *    - Calcium carbide / alkaline chemical dip: ph > 8.6.
+     *    - Clean wash baseline: 6.0 to 8.2 (neutral water).
+     *    - Organophosphate acidic pesticide runoff: ph < 5.8.
+     *    - Calcium carbide / alkaline chemical dip: ph > 8.4.
      * 2. MQ135 Volatile Organic Gas Sensing (12-bit ADC on PA3):
-     *    - Ambient clean air baseline: ~1800 - 2200 ADC counts.
-     *    - Volatile solvents / commercial treatment: ~2500 - 3200 ADC counts.
-     *    - Heavy acetylene (carbide) / high toxic gas: >= 3200 ADC counts.
+     *    - Clean ambient room baseline: < 420 ADC counts.
+     *    - Commercial Market Fruits (pesticides, wax, post-harvest spray): 420 - 1800 ADC counts -> MODERATE RISK.
+     *    - High volatile concentration / carbide / heavy chemical treatment: >= 1800 ADC counts -> HIGH RISK.
      */
     const int wet_ph = (r->has_ph && r->ph >= 2.5f && r->ph <= 11.5f);
-    if (wet_ph && (r->ph < 5.5f || r->ph > 8.6f)) {
+    if (wet_ph && (r->ph < 5.8f || r->ph > 8.4f)) {
         /* Direct chemical residue confirmed in water wash */
         o.state = FV_STATE_PREDICTED;
         o.category = 2; /* HIGH RISK (Hazardous Chemical Residue) */
@@ -99,23 +99,23 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
         return o;
     }
 
-    if (r->has_mq && r->mq135 < 2500.0f) {
-        /* Ambient baseline clean air: Negligible chemical pesticide residue */
-        o.state = FV_STATE_PREDICTED;
-        o.category = 0; /* LOW RISK (Organic Safe) */
-        o.probs[0] = 0.95f; o.probs[1] = 0.05f; o.probs[2] = 0.0f;
-        return o;
-    } else if (r->has_mq && r->mq135 >= 3200.0f && !(chk && (chk->warnings & FV_SW_MQ_WARMUP_SHORT))) {
+    if (r->has_mq && r->mq135 >= 1800.0f && !(chk && (chk->warnings & FV_SW_MQ_WARMUP_SHORT))) {
         /* High volatile concentration: Carbide or heavy chemical treatment (warm sensor) */
         o.state = FV_STATE_PREDICTED;
         o.category = 2; /* HIGH RISK (Hazardous / MRL Exceeded) */
         o.probs[0] = 0.02f; o.probs[1] = 0.18f; o.probs[2] = 0.80f;
         return o;
-    } else if (r->has_mq) {
-        /* Moderate chemical residue */
+    } else if (r->has_mq && r->mq135 >= 420.0f) {
+        /* Commercial Market Produce: Standard pesticide / surface wax treatment -> Moderate Risk */
         o.state = FV_STATE_PREDICTED;
-        o.category = 1; /* MEDIUM RISK (Commercial Residue) */
-        o.probs[0] = 0.15f; o.probs[1] = 0.75f; o.probs[2] = 0.10f;
+        o.category = 1; /* MEDIUM / MODERATE RISK (Commercial Residue - Wash Required) */
+        o.probs[0] = 0.10f; o.probs[1] = 0.85f; o.probs[2] = 0.05f;
+        return o;
+    } else if (r->has_mq) {
+        /* Negligible volatile gas: Clean / Organic produce */
+        o.state = FV_STATE_PREDICTED;
+        o.category = 0; /* LOW RISK (Organic Safe) */
+        o.probs[0] = 0.95f; o.probs[1] = 0.05f; o.probs[2] = 0.0f;
         return o;
     }
 

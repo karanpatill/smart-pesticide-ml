@@ -236,9 +236,9 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         if (risk->category == 2) { origin = 2; chem = 2; }
         else if (risk->category == 1) { origin = 1; chem = 1; }
         else { origin = 0; chem = 0; }
-    } else if (mq_val >= 3200.0f) {
+    } else if (mq_val >= 1800.0f) {
         origin = 2; chem = 2;
-    } else if (mq_val >= 2500.0f) {
+    } else if (mq_val >= 420.0f) {
         origin = 1; chem = 1;
     }
 
@@ -327,7 +327,13 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         put(o, "");
         put(o, "Pesticide Risk:");
         if (chem == 2) snprintf(b, sizeof b, "  High (Toxic MRL)");
-        else if (chem == 1) snprintf(b, sizeof b, "  Moderate (Wash)");
+        else if (chem == 1) {
+            if (rec && rec->has_ph && rec->ph >= 2.5f && rec->ph <= 11.5f) {
+                snprintf(b, sizeof b, "  Moderate (pH %.1f)", (double)rec->ph);
+            } else {
+                snprintf(b, sizeof b, "  Moderate (Wash)");
+            }
+        }
         else if (rec && rec->has_ph && rec->ph >= 2.5f && rec->ph <= 11.5f) {
             snprintf(b, sizeof b, "  Low (pH %.1f Clean)", (double)rec->ph);
         } else {
