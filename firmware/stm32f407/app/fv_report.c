@@ -45,7 +45,7 @@ static void get_dynamic_shelf_life(int f, int origin, int maturity, float temp_c
         if (maturity == 3)      { lo = 0; hi = 1; }
         else if (maturity == 2) { lo = 3; hi = 4; }
         else if (maturity == 0) { lo = 6; hi = 8; }
-        else                    { lo = 5; hi = 7; }
+        else                    { lo = 5; hi = 6; } /* Ripe tomato */
     } else { /* Brinjal / Eggplant */
         if (maturity == 3)      { lo = 0; hi = 1; }
         else if (maturity == 2) { lo = 2; hi = 3; }
@@ -302,14 +302,19 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         if (fresh_pct > 72) fresh_pct = 68;
         qual_str = "Fair (Ripe/Spotted)";
     } else if (origin == 0) {
-        fresh_pct = 95;
-        qual_str = "Excellent (Organic)";
+        /* Ripe organic produce: realistic 79-81% freshness */
+        fresh_pct = 79 + (int)(img->condition_conf * 2.0f + 0.5f);
+        if (fresh_pct > 81) fresh_pct = 81;
+        qual_str = "Good (Organic)";
     } else if (img->grade == FV_GRADE_GOOD && img->condition == 0) {
-        fresh_pct = 90 + (int)(img->condition_conf * 6.0f);
-        if (fresh_pct > 96) fresh_pct = 92;
-        qual_str = "Excellent";
+        /* Ripe market produce, clean surface: 79-82% */
+        fresh_pct = 79 + (int)(img->condition_conf * 3.0f + 0.5f);
+        if (fresh_pct > 82) fresh_pct = 82;
+        qual_str = "Good (Ripe)";
     } else {
-        fresh_pct = 80 + (int)(img->condition_conf * 8.0f);
+        /* Ripe market produce, minor surface variance: 78-80% */
+        fresh_pct = 78 + (int)(img->condition_conf * 2.0f + 0.5f);
+        if (fresh_pct > 80) fresh_pct = 80;
         qual_str = "Good (Market)";
     }
 
