@@ -1,0 +1,51 @@
+sample_id,date,fruit,source,treatment,temp_C,hum_pct,pH,ph_volt,mq135,gas_ratio,R,G,B,colour_name,dark_pct,label
+SMP-001,2026-10-23,Apple,Market,Wax coated (Commercial),28.3,53.4,6.14,2.085,770,1.48,659,400,412,Red,0,Moderate Risk
+SMP-002,2026-10-21,Apple,Market,Wax coated (Commercial),27.9,46.9,6.13,2.104,816,1.57,666,439,409,Red,0,Moderate Risk
+SMP-003,2026-10-21,Apple,Market,Untreated (Market),28.8,51.9,6.33,2.102,755,1.45,652,416,392,Red,0,Moderate Risk
+SMP-004,2026-10-19,Apple,Market,Untreated (Market),28.8,53.6,6.09,2.098,782,1.5,663,411,377,Red,0,Moderate Risk
+SMP-005,2026-10-23,Apple,Organic,None (Certified Organic),30.0,47.2,6.58,2.067,659,1.27,664,418,411,Red,0,Low Risk
+SMP-006,2026-10-19,Apple,Organic,None (Certified Organic),31.1,46.5,6.37,2.07,667,1.28,631,419,392,Red,0,Low Risk
+SMP-007,2026-10-21,Apple,Pesticide-applied,Chlorpyrifos 0.2% spray,30.8,49.6,5.41,2.134,974,1.87,668,436,379,Red,0,High Risk
+SMP-008,2026-10-22,Apple,Pesticide-applied,Chlorpyrifos 0.2% spray,30.8,51.3,5.48,2.13,1026,1.97,665,439,410,Red,0,High Risk
+SMP-009,2026-10-19,Apple,Market,Stored 12 days (Decay),31.0,54.4,4.93,2.153,1085,2.09,650,412,379,Red,2,Spoiled
+SMP-010,2026-10-22,Apple,Market,Stored 12 days (Decay),31.9,49.1,5.01,2.184,1140,2.19,634,411,383,Red,2,Spoiled
+SMP-011,2026-10-23,Banana,Market,Ethylene ripened,30.4,48.6,6.15,2.096,905,1.74,773,747,386,Yellow,0,Moderate Risk
+SMP-012,2026-10-18,Banana,Market,Ethylene ripened,31.4,54.6,6.0,2.116,835,1.61,769,739,379,Yellow,0,Moderate Risk
+SMP-013,2026-10-22,Banana,Market,Untreated (Market),32.5,51.3,6.29,2.072,917,1.76,772,758,389,Yellow,0,Moderate Risk
+SMP-014,2026-10-20,Banana,Market,Untreated (Market),31.4,49.4,6.05,2.086,839,1.61,811,731,387,Yellow,0,Moderate Risk
+SMP-015,2026-10-19,Banana,Organic,Naturally tree-ripened,30.2,47.1,6.39,2.086,787,1.51,774,738,403,Yellow,0,Low Risk
+SMP-016,2026-10-19,Banana,Organic,Naturally tree-ripened,30.3,53.8,6.36,2.081,688,1.32,772,738,374,Yellow,0,Low Risk
+SMP-017,2026-10-19,Banana,Pesticide-applied,Carbofuran surface dip,28.1,54.8,5.03,2.166,1005,1.93,813,749,404,Yellow,0,High Risk
+SMP-018,2026-10-19,Banana,Pesticide-applied,Carbofuran surface dip,28.4,50.8,5.23,2.169,1055,2.03,778,749,403,Yellow,0,High Risk
+SMP-019,2026-10-23,Banana,Market,Stored 8 days (Senescent),31.0,53.1,5.06,2.159,1346,2.59,798,743,362,Yellow,2,Spoiled
+SMP-020,2026-10-19,Banana,Market,Stored 8 days (Senescent),28.1,46.2,4.97,2.15,1312,2.52,805,718,369,Yellow,2,Spoiled
+SMP-021,2026-10-18,Guava,Market,Standard harvest,31.8,46.7,5.73,2.113,733,1.41,431,791,381,Green,0,Moderate Risk
+SMP-022,2026-10-21,Guava,Market,Standard harvest,28.9,50.7,5.79,2.128,686,1.32,412,781,374,Green,0,Moderate Risk
+SMP-023,2026-10-23,Guava,Market,Surface sanitized,28.1,52.5,5.88,2.125,697,1.34,391,770,357,Green,0,Moderate Risk
+SMP-024,2026-10-19,Guava,Market,Surface sanitized,30.3,47.4,5.71,2.141,712,1.37,413,790,351,Green,0,Moderate Risk
+SMP-025,2026-10-18,Guava,Organic,Orchard organic,30.9,51.4,5.9,2.125,589,1.13,395,781,376,Green,0,Low Risk
+SMP-026,2026-10-21,Guava,Organic,Orchard organic,28.8,50.0,5.92,2.133,617,1.19,435,805,374,Green,0,Low Risk
+SMP-027,2026-10-20,Guava,Pesticide-applied,Malathion 0.1% spray,29.8,55.6,4.7,2.194,929,1.79,397,773,358,Green,0,High Risk
+SMP-028,2026-10-18,Guava,Pesticide-applied,Malathion 0.1% spray,30.5,51.4,4.83,2.181,848,1.63,418,765,348,Green,0,High Risk
+SMP-029,2026-10-22,Guava,Market,Stored 9 days (Soft rot),28.2,47.9,4.64,2.179,1106,2.13,421,770,382,Green,5,Spoiled
+SMP-030,2026-10-18,Guava,Market,Stored 9 days (Soft rot),30.7,50.2,4.65,2.206,1066,2.05,427,800,365,Green,2,Spoiled
+SMP-031,2026-10-20,Tomato,Organic,None (Farm Fresh Organic),29.7,52.7,6.49,2.09,565,1.09,825,394,364,Red,0,Low Risk
+SMP-032,2026-10-22,Tomato,Organic,None (Farm Fresh Organic),32.5,46.7,6.46,2.099,587,1.13,829,380,348,Red,0,Low Risk
+SMP-033,2026-10-20,Tomato,Market,Commercial harvest,28.5,54.3,6.4,2.105,696,1.34,858,365,367,Red,0,Moderate Risk
+SMP-034,2026-10-22,Tomato,Market,Commercial harvest,29.2,52.6,6.48,2.065,637,1.23,872,400,334,Red,0,Moderate Risk
+SMP-035,2026-10-20,Tomato,Market,Surface rinsed,29.1,48.1,6.27,2.107,698,1.34,856,381,328,Red,0,Moderate Risk
+SMP-036,2026-10-18,Tomato,Market,Surface rinsed,30.8,54.3,6.17,2.084,660,1.27,835,412,353,Red,0,Moderate Risk
+SMP-037,2026-10-22,Tomato,Pesticide-applied,Dimethoate 0.2% spray,31.1,51.6,5.64,2.138,936,1.8,859,367,348,Red,0,High Risk
+SMP-038,2026-10-22,Tomato,Pesticide-applied,Dimethoate 0.2% spray,30.4,50.3,5.68,2.145,858,1.65,827,387,338,Red,0,High Risk
+SMP-039,2026-10-23,Tomato,Market,Stored 14 days (Soft mold),29.0,47.0,5.03,2.162,1104,2.12,872,374,340,Red,2,Spoiled
+SMP-040,2026-10-19,Tomato,Market,Stored 14 days (Soft mold),31.9,46.2,5.06,2.182,966,1.86,867,412,340,Red,3,Spoiled
+SMP-041,2026-10-19,Brinjal,Market,Commercial market,31.5,47.1,6.76,2.053,883,1.7,384,317,684,Violet,0,Moderate Risk
+SMP-042,2026-10-19,Brinjal,Market,Commercial market,28.8,52.6,6.59,2.057,819,1.57,372,317,706,Violet,0,Moderate Risk
+SMP-043,2026-10-22,Brinjal,Market,Pre-washed (Tap water),29.7,55.8,6.64,2.056,874,1.68,366,332,681,Violet,0,Moderate Risk
+SMP-044,2026-10-18,Brinjal,Market,Pre-washed (Tap water),28.3,50.3,6.7,2.072,815,1.57,362,319,701,Violet,0,Moderate Risk
+SMP-045,2026-10-19,Brinjal,Organic,Local polyhouse organic,29.0,53.1,6.7,2.069,781,1.5,402,342,707,Violet,0,Low Risk
+SMP-046,2026-10-19,Brinjal,Organic,Local polyhouse organic,29.5,46.7,6.9,2.048,721,1.39,362,341,684,Violet,0,Low Risk
+SMP-047,2026-10-22,Brinjal,Pesticide-applied,Cypermethrin 0.15% spray,29.3,50.1,5.8,2.106,1019,1.96,397,319,708,Violet,0,High Risk
+SMP-048,2026-10-23,Brinjal,Pesticide-applied,Cypermethrin 0.15% spray,32.0,52.2,5.85,2.098,1069,2.06,368,322,715,Violet,0,High Risk
+SMP-049,2026-10-22,Brinjal,Market,Stored 10 days (Wrinkled rot),30.7,49.2,5.53,2.137,1290,2.48,405,342,675,Violet,5,Spoiled
+SMP-050,2026-10-18,Brinjal,Market,Stored 10 days (Wrinkled rot),29.1,52.6,5.43,2.161,1086,2.09,398,314,679,Violet,2,Spoiled
