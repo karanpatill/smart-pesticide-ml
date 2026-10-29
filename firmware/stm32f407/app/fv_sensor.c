@@ -90,8 +90,13 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
      *    - Commercial Market Fruits (pesticides, wax, post-harvest spray): 420 - 1800 ADC counts -> MODERATE RISK.
      *    - High volatile concentration / carbide / heavy chemical treatment: >= 1800 ADC counts -> HIGH RISK.
      */
-    const int wet_ph = (r->has_ph && r->ph >= 2.5f && r->ph <= 11.5f);
-    if (wet_ph && (r->ph < 5.8f || r->ph > 8.4f)) {
+    /* 1. pH Surface Wash Sensing (when probe is immersed in aqueous wash: 4.0 <= ph <= 8.2):
+     *    - When probe is open-circuit in dry air, it rests at ~1.45V (calculated pH ~8.9).
+     *    - When immersed in wash solution:
+     *      * Organophosphate acidic pesticide runoff: ph < 5.8 (voltage > 2.08V).
+     */
+    const int wet_ph = (r->has_ph && r->ph >= 4.0f && r->ph <= 8.2f);
+    if (wet_ph && (r->ph < 5.8f)) {
         /* Direct chemical residue confirmed in water wash */
         o.state = FV_STATE_PREDICTED;
         o.category = 2; /* HIGH RISK (Hazardous Chemical Residue) */

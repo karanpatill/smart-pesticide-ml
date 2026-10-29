@@ -344,13 +344,13 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         put(o, "Pesticide Risk:");
         if (chem == 2) snprintf(b, sizeof b, "  High (Toxic MRL)");
         else if (chem == 1) {
-            if (rec && rec->has_ph && rec->ph >= 2.5f && rec->ph <= 11.5f) {
+            if (rec && rec->has_ph && rec->ph >= 5.0f && rec->ph <= 8.2f) {
                 snprintf(b, sizeof b, "  Moderate (pH %.1f)", (double)rec->ph);
             } else {
                 snprintf(b, sizeof b, "  Moderate (Wash)");
             }
         }
-        else if (rec && rec->has_ph && rec->ph >= 2.5f && rec->ph <= 11.5f) {
+        else if (rec && rec->has_ph && rec->ph >= 5.0f && rec->ph <= 8.2f) {
             snprintf(b, sizeof b, "  Low (pH %.1f Clean)", (double)rec->ph);
         } else {
             snprintf(b, sizeof b, "  Low (Safe Clean)");

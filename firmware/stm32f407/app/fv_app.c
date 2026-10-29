@@ -128,13 +128,20 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
     }
 
     /* Multi-Sensor Optical Disambiguation for Apple vs Guava:
-     * - Real Guava chlorophyll: Green reflectance dominates over Blue (tcs_g > tcs_b).
+     * - Real Guava chlorophyll: Green reflectance dominates over Red (tcs_g * 10 > tcs_r * 15) and Green >= Blue.
      * - Real Apple anthocyanin skin: Blue reflectance exceeds Green (tcs_b > tcs_g) and tcs_c > 2000.
      */
     if (c->fruit_present && c->image.fruit == FV_FRUIT_GUAVA && (c->camera_status == FV_OK)) {
         if (rec.has_tcs && rec.tcs_b > rec.tcs_g && rec.tcs_c > 2000) {
             c->image.fruit = FV_FRUIT_APPLE;
             c->image.quality_head = FV_HEAD_QUALITY_APPLE;
+            c->image.stage_head = -1;
+            c->image.shelf_state = FV_STATE_UNAVAILABLE;
+        }
+    } else if (c->fruit_present && c->image.fruit == FV_FRUIT_APPLE && (c->camera_status == FV_OK)) {
+        if (rec.has_tcs && (rec.tcs_g * 10u > rec.tcs_r * 15u) && rec.tcs_g >= rec.tcs_b) {
+            c->image.fruit = FV_FRUIT_GUAVA;
+            c->image.quality_head = FV_HEAD_QUALITY_GUAVA;
             c->image.stage_head = -1;
             c->image.shelf_state = FV_STATE_UNAVAILABLE;
         }
