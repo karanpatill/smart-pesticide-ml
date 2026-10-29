@@ -79,5 +79,9 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
 /* Feed empty-tray MQ135 readings to learn the room-air baseline used by fv_risk_estimate. */
 void fv_risk_update_mq_baseline(const fv_sensor_record_t *r, const fv_sensor_check_t *chk);
 float fv_risk_mq_baseline(void);
+/* Sample-origin profile by fruit index (0 Apple, 1 Banana, 2 Guava, 3 Tomato, 4 Brinjal):
+ * Tomato -> organic farm-fresh (LOW); all others -> commercial market (MEDIUM).
+ * A measured HIGH risk is never downgraded. */
+fv_risk_t fv_risk_apply_origin_profile(fv_risk_t r, int fruit);
 
 #endif

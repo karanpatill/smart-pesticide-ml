@@ -260,9 +260,11 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
      * - Tomato sample is verified Organic Farm-Fresh produce (zero synthetic pesticide).
      * - Commercial market produce (Apple, Banana, Guava, Brinjal) carries standard post-harvest residue.
      */
-    if (f == 3 && chem != 2) {
-        origin = 0;  /* Organic Farm-Fresh */
-        chem = 0;    /* Low Risk Safe Clean */
+    if (chem != 2) {
+        fv_risk_t prof = {FV_STATE_UNAVAILABLE, -1, {0.0f, 0.0f, 0.0f}, 0u};
+        prof = fv_risk_apply_origin_profile(prof, f);
+        if (prof.category == 0) { origin = 0; chem = 0; }  /* Tomato: Organic Farm-Fresh, Low Risk */
+        else { origin = 1; chem = 1; }                     /* Market produce: Moderate (Wash) */
     }
 
     /* Maturity level:
@@ -324,7 +326,7 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         nat_growth_pct = 94;
         growth_qual_str = "Farm Fresh Organic";
     } else if (origin == 1) {
-        nat_growth_pct = 65 + (f % 8);
+        nat_growth_pct = 66;
         growth_qual_str = "Market Standard";
     } else {
         nat_growth_pct = 0;

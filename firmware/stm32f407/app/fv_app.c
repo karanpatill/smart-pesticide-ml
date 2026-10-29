@@ -187,6 +187,10 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
         c->image.fruit_state = FV_STATE_UNCERTAIN;
     }
 
+    if (c->fruit_present && c->image.fruit_state == FV_STATE_PREDICTED) {
+        c->risk = fv_risk_apply_origin_profile(c->risk, c->image.fruit);
+    }
+
     fv_report_oled(&c->image, &c->risk, &rec, c->image_flags, c->status, &c->oled);
     fv_report_oled_sensors(&c->oled, &rec);   /* free rows only; footer stays last */
     c->serial_len = fv_report_serial(&c->image, &c->risk, &c->sensor_check, c->image_flags, c->status,

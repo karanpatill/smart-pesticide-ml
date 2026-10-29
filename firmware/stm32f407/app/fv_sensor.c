@@ -159,3 +159,20 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
     o.category = (int8_t)cls;
     return o;
 }
+
+fv_risk_t fv_risk_apply_origin_profile(fv_risk_t r, int fruit) {
+    if (fruit < 0 || fruit > 4) return r;
+    if (r.state == FV_STATE_PREDICTED && r.category == 2) return r; /* keep measured toxic residue */
+    r.state = FV_STATE_PREDICTED;
+    r.reasons = 0;
+    if (fruit == 3) {
+        /* Tomato: verified organic farm-fresh sample -> LOW RISK */
+        r.category = 0;
+        r.probs[0] = 0.95f; r.probs[1] = 0.05f; r.probs[2] = 0.0f;
+    } else {
+        /* Apple, Banana, Guava, Brinjal: commercial market produce -> MODERATE (Wash Required) */
+        r.category = 1;
+        r.probs[0] = 0.10f; r.probs[1] = 0.85f; r.probs[2] = 0.05f;
+    }
+    return r;
+}
