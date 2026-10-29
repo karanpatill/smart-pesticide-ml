@@ -148,12 +148,13 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
     }
 
     /* Multi-Sensor Optical Disambiguation for Brinjal vs Tomato:
-     * - Real Tomato has ultra-smooth glossy skin (image_detail < 250).
-     * - Real Brinjal has dark purple body, stem crown, and high texture (image_detail > 450).
+     * - Real Tomato has lycopene red skin (tcs_r > tcs_b, ultra-smooth skin).
+     * - Real Brinjal has deep purple body (anthocyanin blue reflectance tcs_b > tcs_r * 1.3) or high stem texture.
      */
     if (c->fruit_present && c->image.fruit == FV_FRUIT_TOMATO && (c->camera_status == FV_OK)) {
-        if (c->image_detail > 450.0f) {
+        if ((rec.has_tcs && (rec.tcs_b * 10u > rec.tcs_r * 13u)) || c->image_detail > 350.0f) {
             c->image.fruit = FV_FRUIT_BRINJAL;
+            c->image.fruit_conf = 0.95f;
             c->image.quality_head = FV_HEAD_STAGE_BRINJAL;
             c->image.stage_head = FV_HEAD_STAGE_BRINJAL;
             const int sk = (c->image.stage >= 0 && c->image.stage < 3) ? c->image.stage : 0;
