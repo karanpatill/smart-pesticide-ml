@@ -76,5 +76,8 @@ typedef struct {
 fv_sensor_check_t fv_sensor_validate(const fv_sensor_record_t *r);
 /* r may be NULL (no record supplied). Runs Model 2 only when the record is valid. */
 fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t *chk);
+/* Feed empty-tray MQ135 readings to learn the room-air baseline used by fv_risk_estimate. */
+void fv_risk_update_mq_baseline(const fv_sensor_record_t *r, const fv_sensor_check_t *chk);
+float fv_risk_mq_baseline(void);
 
 #endif

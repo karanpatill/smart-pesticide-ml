@@ -87,6 +87,8 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
     c->sensor_status = fv_sensors_read(&rec);
     if (c->sensor_status == FV_OK) {
         c->sensor_check = fv_sensor_validate(&rec);
+        /* Empty tray (camera OK, no fruit) -> MQ135 sees room air: track it as the baseline */
+        if (s_ready && c->camera_status == FV_OK && !c->fruit_present) fv_risk_update_mq_baseline(&rec, &c->sensor_check);
         c->risk = fv_risk_estimate(&rec, &c->sensor_check);
     } else {
         c->sensor_check = fv_sensor_validate(NULL);

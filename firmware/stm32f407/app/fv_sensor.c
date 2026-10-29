@@ -9,6 +9,24 @@
 #define TCS_MAX 65535
 #define ADC12_MAX 4095.0f
 
+/* MQ135 empty-tray baseline (EMA). 0 = not learned yet -> absolute thresholds below.
+ * Once learned, risk is scored on the rise above room air, so ambient drift alone
+ * cannot push clean produce into MODERATE. Delta thresholds need bench calibration. */
+#define FV_MQ_BASE_ALPHA      0.05f
+#define FV_MQ_DELTA_MODERATE  150.0f
+#define FV_MQ_DELTA_HIGH      1400.0f
+static float s_mq_baseline = 0.0f;
+
+void fv_risk_update_mq_baseline(const fv_sensor_record_t *r, const fv_sensor_check_t *chk) {
+    if (!r || !r->has_mq || !isfinite(r->mq135) || r->mq135 <= 0.0f) return;
+    if (!chk || (chk->errors & (FV_SE_MQ_MISSING | FV_SE_MQ_NONFINITE | FV_SE_MQ_UNIT | FV_SE_MQ_RAIL |
+                                FV_SE_MQ_NONPOSITIVE))) return;
+    if (chk->warnings & (FV_SW_MQ_WARMUP_SHORT | FV_SW_MQ_WARMUP_UNKNOWN)) return;
+    s_mq_baseline = (s_mq_baseline <= 0.0f) ? r->mq135 : s_mq_baseline + FV_MQ_BASE_ALPHA * (r->mq135 - s_mq_baseline);
+}
+
+float fv_risk_mq_baseline(void) { return s_mq_baseline; }
+
 static void range_check(fv_sensor_check_t *k, int i, float v) {
     const float span = FV_M2_RANGE_MAX[i] - FV_M2_RANGE_MIN[i];
     const float lo = FV_M2_RANGE_MIN[i] - FV_M2_OOD_MARGIN * span, hi = FV_M2_RANGE_MAX[i] + FV_M2_OOD_MARGIN * span;
@@ -104,13 +122,18 @@ fv_risk_t fv_risk_estimate(const fv_sensor_record_t *r, const fv_sensor_check_t 
         return o;
     }
 
-    if (r->has_mq && r->mq135 >= 1800.0f && !(chk && (chk->warnings & FV_SW_MQ_WARMUP_SHORT))) {
+    /* Absolute thresholds until the empty-tray baseline is learned, then rise above baseline */
+    const int based = s_mq_baseline > 0.0f;
+    const float mq_eff = based ? r->mq135 - s_mq_baseline : r->mq135;
+    const float th_high = based ? FV_MQ_DELTA_HIGH : 1800.0f;
+    const float th_mod = based ? FV_MQ_DELTA_MODERATE : 420.0f;
+    if (r->has_mq && mq_eff >= th_high && !(chk && (chk->warnings & FV_SW_MQ_WARMUP_SHORT))) {
         /* High volatile concentration: Carbide or heavy chemical treatment (warm sensor) */
         o.state = FV_STATE_PREDICTED;
         o.category = 2; /* HIGH RISK (Hazardous / MRL Exceeded) */
         o.probs[0] = 0.02f; o.probs[1] = 0.18f; o.probs[2] = 0.80f;
         return o;
-    } else if (r->has_mq && r->mq135 >= 420.0f) {
+    } else if (r->has_mq && mq_eff >= th_mod) {
         /* Commercial Market Produce: Standard pesticide / surface wax treatment -> Moderate Risk */
         o.state = FV_STATE_PREDICTED;
         o.category = 1; /* MEDIUM / MODERATE RISK (Commercial Residue - Wash Required) */
