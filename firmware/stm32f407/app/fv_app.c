@@ -181,6 +181,24 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
         }
     }
 
+    /* Non-Fruit Foreign Object Gate:
+     * 1. Low Confidence Alien Object: Top fruit probability < 0.35 (uncertain model output on non-fruit).
+     * 2. Synthetic Non-Plant Optical Signature: Extreme blue plastic/pen (B > 3.5*R && B > 1.8*G).
+     */
+    if (c->fruit_present && (c->camera_status == FV_OK)) {
+        if (c->image.fruit_conf < 0.35f) {
+            c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+            c->fruit_present = 0;
+            c->image.fruit_state = FV_STATE_UNCERTAIN;
+            c->image.fruit = -1;
+        } else if (rec.has_tcs && (rec.tcs_b * 10u > rec.tcs_r * 35u) && (rec.tcs_b * 10u > rec.tcs_g * 18u)) {
+            c->image_flags |= FV_IC_REJ_SKIN_OBJECT;
+            c->fruit_present = 0;
+            c->image.fruit_state = FV_STATE_UNCERTAIN;
+            c->image.fruit = -1;
+        }
+    }
+
     /* Ensure rejected images (skin, foreign objects, uniform frames) NEVER register fruit presence */
     if (c->image_flags & FV_IC_REJECT_MASK) {
         c->fruit_present = 0;

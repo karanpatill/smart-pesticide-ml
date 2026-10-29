@@ -189,7 +189,7 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
         put(o, " OPTICAL AI SCANNER ");
         put(o, "=====================");
         put(o, "  [ INVALID SAMPLE ] ");
-        put(o, " Hand / Too Close!   ");
+        put(o, " Non-Fruit / Hand!   ");
         put(o, " Target Dist:10-12cm ");
         put(o, "---------------------");
         put(o, " >> SCAN REJECTED << ");
