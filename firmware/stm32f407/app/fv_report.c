@@ -23,36 +23,50 @@ static void put(fv_oled_text_t *o, const char *s) {
 static void get_dynamic_shelf_life(int f, int origin, int maturity, float temp_c, int *d_lo, int *d_hi) {
     /* Base shelf days per species at standard 24-28C room temp:
      * Index: 0=Apple, 1=Banana, 2=Guava, 3=Tomato, 4=Brinjal
-     * Apple: 8 days (room temp, never 16!)
-     * Banana: 4 days (fresh) / 1-2 days (spotted/damaged)
-     * Guava: 5-6 days
-     * Tomato: 6-7 days
-     * Brinjal: 4 days
      */
-    static const int BASE_LO[5] = {5, 2, 3, 4, 2};
-    static const int BASE_HI[5] = {8, 4, 6, 7, 4};
-    int lo = BASE_LO[f], hi = BASE_HI[f];
+    int lo, hi;
 
-    if (maturity == 0) { lo += 2; hi += 2; }       /* Raw / Crisp */
-    else if (maturity == 2) { lo = 1; hi = 2; }    /* Ripe / Surface Spots / Bruised -> 1 to 2 Days! */
-    else if (maturity == 3) { lo = 0; hi = 1; }    /* Overripe / Rotten -> 0 to 1 Day */
-
-    if (origin == 2) { /* Carbide / chemical forced: degrades 2x faster */
-        lo = 1; hi = (hi > 2) ? 2 : 1;
-    } else if (origin == 1) { /* Commercial stored */
-        if (lo > 2) lo -= 1;
-        if (hi > 3) hi -= 1;
+    if (f == 0) { /* Apple: hearty, thick skin, natural wax */
+        if (maturity == 3)      { lo = 1; hi = 2; }
+        else if (maturity == 2) { lo = 4; hi = 6; }
+        else if (maturity == 0) { lo = 7; hi = 9; }
+        else                    { lo = 6; hi = 8; }
+    } else if (f == 1) { /* Banana: rapid ethylene ripening */
+        if (maturity == 3)      { lo = 0; hi = 1; }
+        else if (maturity == 2) { lo = 1; hi = 2; } /* Spotted ripe */
+        else if (maturity == 0) { lo = 4; hi = 5; }
+        else                    { lo = 3; hi = 4; }
+    } else if (f == 2) { /* Guava: tropical climacteric */
+        if (maturity == 3)      { lo = 0; hi = 1; }
+        else if (maturity == 2) { lo = 2; hi = 3; }
+        else if (maturity == 0) { lo = 5; hi = 7; }
+        else                    { lo = 4; hi = 6; }
+    } else if (f == 3) { /* Tomato */
+        if (maturity == 3)      { lo = 0; hi = 1; }
+        else if (maturity == 2) { lo = 3; hi = 4; }
+        else if (maturity == 0) { lo = 6; hi = 8; }
+        else                    { lo = 5; hi = 7; }
+    } else { /* Brinjal / Eggplant */
+        if (maturity == 3)      { lo = 0; hi = 1; }
+        else if (maturity == 2) { lo = 2; hi = 3; }
+        else if (maturity == 0) { lo = 4; hi = 5; }
+        else                    { lo = 3; hi = 4; }
     }
 
-    if (temp_c > 30.0f) {
-        int drop = (int)((temp_c - 30.0f) * 0.3f + 0.5f);
-        lo -= drop;
-        hi -= drop;
+    if (origin == 2) { /* Carbide / chemical forced: degrades quickly */
+        hi = (hi > 2) ? 2 : 1;
+        lo = (hi > 1) ? 1 : 0;
+    } else if (origin == 1) { /* Commercial market fruit */
+        if (lo > 2) lo -= 1;
+    }
+
+    if (temp_c > 32.0f) {
+        int drop = (int)((temp_c - 32.0f) * 0.3f + 0.5f);
+        if (hi - drop >= lo) hi -= drop;
     }
     if (lo < 1 && maturity != 3) lo = 1;
     if (hi <= lo) hi = lo + 1;
-    if (maturity == 2) { lo = 1; hi = 2; }
-    if (maturity == 3) { lo = 0; hi = 1; }
+
     *d_lo = lo;
     *d_hi = hi;
 }
@@ -250,8 +264,10 @@ void fv_report_oled(const fv_image_result_t *img, const fv_risk_t *risk, const f
      */
     if (img->stage == FV_STAGE_ROTTEN || (img->condition != 0 && mq_val > 3300.0f)) {
         maturity = 3; /* Severe rot */
-    } else if (img->condition == 1 || img->grade == FV_GRADE_AVERAGE) {
-        maturity = 2; /* Ripe with spots or minor surface damage */
+    } else if (f == 1 && (img->condition == 1 || img->grade == FV_GRADE_AVERAGE)) {
+        maturity = 2; /* Spotted ripe banana */
+    } else if (img->condition == 1 && img->condition_conf > 0.80f) {
+        maturity = 2; /* High confidence ripe/blemished */
     } else if (img->stage == FV_STAGE_SEMI) {
         maturity = 1; /* Optimal */
     } else if (f == 2 && rec && rec->has_tcs && rec->tcs_r > 740 && mq_val < 2500.0f) {
