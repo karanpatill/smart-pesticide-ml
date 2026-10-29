@@ -127,6 +127,36 @@ fv_status_t fv_app_cycle(fv_cycle_t *c) {
         }
     }
 
+    /* Multi-Sensor Optical Disambiguation for Apple vs Guava:
+     * - Real Guava chlorophyll: Green reflectance dominates over Blue (tcs_g > tcs_b).
+     * - Real Apple anthocyanin skin: Blue reflectance exceeds Green (tcs_b > tcs_g) and tcs_c > 2000.
+     */
+    if (c->fruit_present && c->image.fruit == FV_FRUIT_GUAVA && (c->camera_status == FV_OK)) {
+        if (rec.has_tcs && rec.tcs_b > rec.tcs_g && rec.tcs_c > 2000) {
+            c->image.fruit = FV_FRUIT_APPLE;
+            c->image.quality_head = FV_HEAD_QUALITY_APPLE;
+            c->image.stage_head = -1;
+            c->image.shelf_state = FV_STATE_UNAVAILABLE;
+        }
+    }
+
+    /* Multi-Sensor Optical Disambiguation for Brinjal vs Tomato:
+     * - Real Tomato has ultra-smooth glossy skin (image_detail < 250).
+     * - Real Brinjal has dark purple body, stem crown, and high texture (image_detail > 450).
+     */
+    if (c->fruit_present && c->image.fruit == FV_FRUIT_TOMATO && (c->camera_status == FV_OK)) {
+        if (c->image_detail > 450.0f) {
+            c->image.fruit = FV_FRUIT_BRINJAL;
+            c->image.quality_head = FV_HEAD_STAGE_BRINJAL;
+            c->image.stage_head = FV_HEAD_STAGE_BRINJAL;
+            const int sk = (c->image.stage >= 0 && c->image.stage < 3) ? c->image.stage : 0;
+            c->image.stage = (int8_t)sk;
+            c->image.shelf_lo_days = FV_SHELF_RANGE_DAYS[FV_FRUIT_BRINJAL][sk][0];
+            c->image.shelf_hi_days = FV_SHELF_RANGE_DAYS[FV_FRUIT_BRINJAL][sk][1];
+            c->image.shelf_state = FV_STATE_PREDICTED;
+        }
+    }
+
     /* Peer-Reviewed Optical Dermal Signature Rejection:
      * Human skin: Hemoglobin absorption creates R > G > B with 1.05 <= R/G <= 1.42.
      * Plant tissue NEVER exhibits this signature (Guava/Banana have G > R, Apple has R/G >= 1.45).

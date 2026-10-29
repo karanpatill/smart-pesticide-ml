@@ -8,7 +8,7 @@
 #define FV_ENTC_PH_H
 #include <stdint.h>
 
-#define FV_ENTC_PH_V_AT_7 2.282f
+#define FV_ENTC_PH_V_AT_7 1.850f
 #define FV_ENTC_PH_SLOPE (-5.263159275f)
 #define FV_ENTC_PH_ALPHA 0.05f
 #define FV_ENTC_PH_SAMPLES 200     /* ENTC averages 200 conversions per pH reading */
